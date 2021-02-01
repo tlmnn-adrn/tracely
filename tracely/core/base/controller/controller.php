@@ -8,6 +8,8 @@
         abstract protected function get($request, $arguments);
         abstract protected function post($request, $arguments);
 
+        //Beim Aufruf wird unterschieden, ob es sich um einen GET oder einen POST request handelt
+        //Es wird dann die entsprechende Funktion der Unterklasse aufgerufen
         public function __construct($arguments){
             if($_SERVER['REQUEST_METHOD'] === 'POST'){
                 $this->post($request=$_POST, $arguments);
@@ -16,6 +18,8 @@
             }
         }
 
+        //Rendern eines Templates
+        //$context sind die Variablen, die in das Template eingefügt werden
         protected function render($context=[]){
             
             $path = '../app/view/template/'.$this->template;
@@ -23,12 +27,16 @@
 
         }
 
-        protected function getModel($modelName, $modelPath){
+        //Laden eines Modells
+        protected function includeModel($modelName){
 
-            $path = '../app/model/'.$modelPath;
+            $path = '../app/model/'.$modelName.'.php';
             require_once($path);
 
-            $this->model = new $modelName();
+            $modelName = ucfirst($modelName).'Model';
+
+            //Aufrufen der __constructStatic Methode, um die Verbindung mit der Datenbank herzustellen
+            $modelName::__constructStatic();
 
         }
     }

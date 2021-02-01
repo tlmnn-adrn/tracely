@@ -1,6 +1,7 @@
 <?php
 
     require_once '../core/base/controller/controller.php';
+    require_once '../core/404.php';
 
     class UserController extends Controller{
 
@@ -8,8 +9,12 @@
 
         protected function get($request, $arguments){
 
+            $this->includeModel('user');
+
+            $object = UserModel::getById($arguments['id']);
+
             $context = [
-                'id' => $arguments['id'],
+                'object' => $object,
             ];
 
             $this->render($context);

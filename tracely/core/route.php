@@ -1,4 +1,7 @@
 <?php
+
+    require_once('404.php');
+
     class Router{
 
         private $url_patterns;
@@ -39,6 +42,7 @@
         }
 
         private function findUrl(){
+
             //Vergleichen jedes Array_keys mit der URL
             foreach(array_keys($this->url_patterns) as $url_pattern){
                 //Parsen der URL im URL Pattern
@@ -51,10 +55,7 @@
             }
 
             //Sollte die Seite nicht registriert sein, wird mit einer 404 Seite geantwortet
-            //Quelle: https://stackoverflow.com/questions/1381123/how-can-i-create-an-error-404-in-php
-            http_response_code(404);
-            include('404.php');
-            die();
+            throw_404();
             
         }
 
