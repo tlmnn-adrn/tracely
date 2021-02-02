@@ -29,6 +29,13 @@
 
         }
 
+        protected function extend($template){
+
+            $path = '../app/template/'.$template;
+            return $path;
+
+        }
+
         //Laden eines Modells
         protected function includeModel($modelName){
 
