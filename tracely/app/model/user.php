@@ -1,8 +1,5 @@
 <?php
 
-    require_once '../core/base/model/model.php';
-    require_once '../core/base/model/fields.php';
-
     class UserModel extends Model{
 
       static $tableName = "Benutzer";
@@ -14,7 +11,7 @@
           'telefonnummer' => new TelefonField('', TRUE, FALSE),
           'passwort' => new PasswordField('', 6),
           'email' => new EmailField('', TRUE, TRUE),
-          'vorname' => new TextField('', TRUE, FALSE, 255),
+          'vorname' => new TextField('', TRUE, TRUE, 255),
           'nachname' => new TextField('', TRUE, FALSE, 255),
           'plz' => new PlzField('', TRUE, FALSE)
 

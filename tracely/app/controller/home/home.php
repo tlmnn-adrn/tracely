@@ -1,6 +1,4 @@
 <?php
-require_once '../core/base/controller/controller.php';
-require_once '../core/404.php';
 
   class HomeController extends Controller
   {

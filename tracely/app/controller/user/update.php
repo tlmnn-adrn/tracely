@@ -1,11 +1,9 @@
 <?php
-require_once '../core/base/controller/controller.php';
-require_once '../core/404.php';
 
   class UserUpdateController extends Controller
   {
-    protected $template = 'user/update.php';
 
+    protected $template = 'user/update.php';
 
 
     protected function get($request, $arguments) {
@@ -24,18 +22,16 @@ require_once '../core/404.php';
 
       $object->setField("vorname", $request["vorname"]);
       $object->setField("nachname", $request["nachname"]);
-
-      if ($request["passwortalt"] == ) {
-        // code...
-      }
-
-      $object->setField("nachname", $request["nachname"]);
+      $object->setField("plz", $request["plz"]);
+      $object->setField("email", $request["email"]);
+      $object->setField("passwort", $request["passwort"], $request["passwortWiederholen"], $request["passwortAlt"]);
 
       $object->update();
 
       $context = [
         "object" => $object,
       ];
+
       $this->render($context);
     }
 

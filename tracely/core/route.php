@@ -1,6 +1,6 @@
 <?php
 
-    require_once('404.php');
+    require_once 'requires.php';
 
     class Router{
 
@@ -55,7 +55,7 @@
             }
 
             //Sollte die Seite nicht registriert sein, wird mit einer 404 Seite geantwortet
-            throw_404();
+            new BaseError("404", "Diese Seite wurde konnte nicht gefunden werden", 404);
             
         }
 

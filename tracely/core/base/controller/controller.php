@@ -21,7 +21,10 @@
         //$context sind die Variablen, die in das Template eingefügt werden
         protected function render($context=[]){
 
-            $path = '../app/view/template/'.$this->template;
+            $path = '../app/template/'.$this->template;
+
+            extract($context);
+
             require($path);
 
         }

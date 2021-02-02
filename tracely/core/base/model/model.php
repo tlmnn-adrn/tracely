@@ -29,8 +29,7 @@
                 return $statement;
             }else{
                 //Ist ein Fehler passiert, wird dieser angezeigt
-                include('sql_error.php');
-                die();
+                new BaseError("SQL", $statement->errorInfo()[2], 500);
             }
 
         }
@@ -86,10 +85,9 @@
 
                 return $object;
             }elseif($rowCount<1){
-                throw_404();
+                new BaseError("404", "Diese Seite wurde konnte nicht gefunden werden", 404);
             }else{
-                require_once('to_many_objects_error.php');
-                throw_to_many_objects();
+                new BaseError("500", "Mehr als ein Objekt entspricht dem Filter. Verwende einen anderen Filter oder die filteredList Methode!", 500);
             }
 
 
@@ -140,24 +138,43 @@
 
         }
 
-        public function setField($field, $value){
+        public function setField($field, $value, ...$params){
+
+            $unique = True;
 
             if($this->fields[$field]->isUnique()){
                 if(!$this->valueUnique($field, $value)){
-                    //error
-                    return FALSE;
+                    $unique = FALSE;
                 }
             }
 
-            $success = $this->fields[$field]->updateValue($value);
-
-            if(!$success){
-                //error
-            }
+            $success = $this->fields[$field]->updateValue($value, $unique, ...$params);
 
         }
 
-        public function update(){
+        public function renderField($field, ...$params){
+
+            $this->fields[$field]->render($field, ...$params);
+
+        }
+
+        protected function hasErrors(){
+
+            foreach($this->fields as $field){
+                if($field->hasErrors()){
+                    return TRUE;
+                }
+            }
+
+            return FALSE;
+
+        }
+
+        public function update($force=FALSE){
+
+            if($this->hasErrors() && !$force){
+                return FALSE;
+            }
 
             $sql = "UPDATE ".static::$tableName." SET ";
             $values = [];
@@ -178,7 +195,11 @@
 
         }
 
-        public function create(){
+        public function create($force=FALSE){
+
+            if($this->hasErrors() && !$force){
+                return FALSE;
+            }
 
             $columns = "";
             $value_spaces = "";
