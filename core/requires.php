@@ -5,6 +5,7 @@
 
     //Modell
     require_once 'core/base/model/model.php';
+    require_once 'core/base/model/authModel.php';
 
     //Controller
     require_once 'core/base/controller/controller.php';

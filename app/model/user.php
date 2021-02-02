@@ -1,6 +1,6 @@
 <?php
 
-    class UserModel extends Model{
+    class UserModel extends AuthModel{
 
       static $tableName = "Benutzer";
       protected $fields = [];
