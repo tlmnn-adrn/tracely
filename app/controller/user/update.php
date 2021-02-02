@@ -3,6 +3,8 @@
   class UserUpdateController extends Controller
   {
 
+    use LoginRequiredMixin, UserPassesTestMixin;
+
     protected $template = 'user/update.php';
 
 
@@ -33,11 +35,16 @@
       $this->render($context);
     }
 
-    function __construct($arguments) {
-      $this->includeModel("user");
-      parent::__construct($arguments);
+    protected function testFunc($id){
+
+      $user = UserModel::getUserObject();
+
+      if($user->getField('id')!=$id){
+        return FALSE;
+      }
+
+      return TRUE;
 
     }
-
 
   }

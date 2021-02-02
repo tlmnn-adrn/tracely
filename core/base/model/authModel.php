@@ -5,7 +5,7 @@
         protected static $userObject;
 
         //Login Funktion
-        public static function login($email, $password){
+        public static function login($email, $password, $redirect=TRUE){
 
             //Verwenden von Filtered List statt get, da get bei einer ungültigen E-Mail Adresse einen 404 Fehler erzeugen würde
             $user = static::filtered_list('email=?', [$email]);
@@ -24,20 +24,30 @@
             static::$userObject = $user;
             $_SESSION['userId'] = $user->getField('id');
 
+            if($redirect){
+                header('Location: '.$_ENV['LoginSuccessUrl']);
+                exit;
+            }
+
             return TRUE;
 
         }
 
-        public static function logout(){
+        public static function logout($redirect=TRUE){
 
             $_SESSION['userId'] = NULL;
             static::$userObject = NULL;
+
+            if($redirect){
+                header('Location: '.$_ENV['LoginUrl']);
+                exit;
+            }
 
         }
 
         public static function isLoggedIn(){
 
-            if(isset(static::$userObject) || isset($_SESSION['userObject'])){
+            if(isset(static::$userObject) || isset($_SESSION['userId'])){
                 return TRUE;
             }
 
@@ -45,7 +55,7 @@
 
         }
 
-        public static function getUserModel(){
+        public static function getUserObject(){
 
             if(isset(static::$userObject)){
                 return static::$userObject;

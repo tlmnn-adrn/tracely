@@ -20,11 +20,4 @@
 
     }
 
-    function __construct($arguments) {
-
-      $this->includeModel("user");
-      parent::__construct($arguments);
-
-    }
-
   }

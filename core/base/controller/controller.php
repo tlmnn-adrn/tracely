@@ -10,6 +10,17 @@
         //Beim Aufruf wird unterschieden, ob es sich um einen GET oder einen POST request handelt
         //Es wird dann die entsprechende Funktion der Unterklasse aufgerufen
         public function __construct($arguments){
+
+            //Laden aller verwendeten Mixins
+            //Aufrufen der Init Funktionen des Mixins
+            //Init Funktion der Mixins 'Mixin' heißt 'mixinInit'
+            foreach(class_uses($this) as $mixin){
+                $functionName = lcfirst($mixin).'Init';
+                    
+                $this->$functionName($arguments);
+            }
+
+
             if($_SERVER['REQUEST_METHOD'] === 'POST'){
                 $this->post($_POST, ...$arguments);
             }else{
@@ -47,16 +58,4 @@
 
         }
 
-        //Laden eines Modells
-        protected function includeModel($modelName){
-
-            $path = 'app/model/'.$modelName.'.php';
-            require_once($path);
-
-            $modelName = ucfirst($modelName).'Model';
-
-            //Aufrufen der __constructStatic Methode, um die Verbindung mit der Datenbank herzustellen
-            $modelName::__constructStatic();
-
-        }
     }

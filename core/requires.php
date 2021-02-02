@@ -1,5 +1,8 @@
 <?php
 
+    //Einstellungen
+    require_once 'core/settings.php';
+
     //Fehlermeldungen
     require_once 'core/base/error/base.php';
 
@@ -7,8 +10,16 @@
     require_once 'core/base/model/model.php';
     require_once 'core/base/model/authModel.php';
 
+    //Modelle
+    require_once 'app/model/user.php';
+    UserModel::__constructStatic();
+
     //Controller
     require_once 'core/base/controller/controller.php';
+
+    //Mixins
+    require_once 'core/base/controller/mixin/loginRequiredMixin.php';
+    require_once 'core/base/controller/mixin/userPassesTestMixin.php';
 
     //Fields
     require_once 'core/base/model/fields/base.php';

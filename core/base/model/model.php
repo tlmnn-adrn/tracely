@@ -3,10 +3,6 @@
     abstract class Model{
 
         //Festlegen der Verbindungsangaben zur Datenbank
-        static $host = 'localhost';
-        static $user = 'root';
-        static $password = '';
-        static $dbName = 'tracely';
 
         static $pdo;
 
@@ -16,8 +12,8 @@
 
             //Beim Inkludieren einer Unterklasse wird diese Methode aufgerufen
             //Stellt die Verbindung zur Datenbank her
-            $dsn = 'mysql:host='.self::$host.';dbname='.self::$dbName.';charset=utf8';
-            self::$pdo = new PDO($dsn, self::$user, self::$password);
+            $dsn = 'mysql:host='.$_ENV['DBhost'].';dbname='.$_ENV['DBname'].';charset=utf8';
+            self::$pdo = new PDO($dsn, $_ENV['DBuser'], $_ENV['DBpassword']);
 
         }
 
