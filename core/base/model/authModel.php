@@ -23,6 +23,7 @@
 
             static::$userObject = $user;
             $_SESSION['userId'] = $user->getField('id');
+            $_SESSION['userType'] = get_class($user);
 
             if($redirect){
                 header('Location: '.$_ENV['LoginSuccessUrl']);
@@ -35,8 +36,11 @@
 
         public static function logout($redirect=TRUE){
 
-            $_SESSION['userId'] = NULL;
-            static::$userObject = NULL;
+            if(static::isLoggedIn()){
+                $_SESSION['userId'] = NULL;
+                $_SESSION['userType'] = NULL;
+                static::$userObject = NULL;
+            }
 
             if($redirect){
                 header('Location: '.$_ENV['LoginUrl']);
@@ -47,8 +51,24 @@
 
         public static function isLoggedIn(){
 
-            if(isset(static::$userObject) || isset($_SESSION['userId'])){
-                return TRUE;
+            $class = get_called_class();
+
+            if($class=='AuthModel'){
+                if(isset(static::$userObject)){
+                    return TRUE;
+                }
+    
+                if(isset($_SESSION['userId']) && isset($_SESSION['userType'])){
+                    return TRUE;
+                }
+            }else{
+                if(isset(static::$userObject) && get_class(static::$userObject)==$class){
+                    return TRUE;
+                }
+    
+                if(isset($_SESSION['userId']) && isset($_SESSION['userType']) && $_SESSION['userType']==$class){
+                    return TRUE;
+                }
             }
 
             return FALSE;
@@ -57,16 +77,37 @@
 
         public static function getUserObject(){
 
-            if(isset(static::$userObject)){
-                return static::$userObject;
-            }
+            $class = get_called_class();
 
-            if(isset($_SESSION['userId'])){
-
-                $id = $_SESSION['userId'];
-                $object = static::get('id=?', [$id]);
-                return $object;
-            }
+            if($class=='AuthModel'){
+                if(isset(static::$userObject)){
+                    return static::$userObject;
+                }
+    
+                if(isset($_SESSION['userId']) && isset($_SESSION['userType'])){
+    
+                    $userModel = $_SESSION['userType'];
+    
+                    $id = $_SESSION['userId'];
+                    $object = $userModel::get('id=?', [$id]);
+                    return $object;
+    
+                }
+            }else{
+                if(isset(static::$userObject) && get_class(static::$userObject)==$class){
+                    return static::$userObject;
+                }
+    
+                if(isset($_SESSION['userId']) && isset($_SESSION['userType']) && $_SESSION['userType']==$class){
+    
+                    $userModel = $_SESSION['userType'];
+    
+                    $id = $_SESSION['userId'];
+                    $object = $userModel::get('id=?', [$id]);
+                    return $object;
+    
+                }
+            }            
 
             return NULL;
 

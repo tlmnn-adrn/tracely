@@ -68,7 +68,7 @@
             //Überschreiben eines Wertes
             //Dabei wird zuerst überprüft, ob der neue Wert gültig ist
             function updateValue($value, $unique){
-    
+
                 if($this->unique && !$unique){
 
                     $this->errors[] = $this->errorTypes['notUniqueError'];
