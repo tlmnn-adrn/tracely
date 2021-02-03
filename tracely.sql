@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 01, 2021 at 02:30 PM
+-- Generation Time: Feb 03, 2021 at 01:54 PM
 -- Server version: 10.4.17-MariaDB
--- PHP Version: 7.4.13
+-- PHP Version: 8.0.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -42,8 +42,8 @@ CREATE TABLE `Benutzer` (
 --
 
 INSERT INTO `Benutzer` (`id`, `telefonnummer`, `passwort`, `email`, `vorname`, `nachname`, `plz`) VALUES
-(1, '+4915752088865', '123456', 'adrian.tilmann@gmail.com', 'Tilmann', 'Adrian', '01326'),
-(2, '+4915204867444', '654321', 'mrmallemixeph@gmail.com', 'Jakob', 'Großer', '01324'),
+(1, '+4915752088865', '$2y$10$QC2JsRyHKvF/lu/l.mY7huRIxKQBhn44qFfc1jd36nPJmF0xWTX3y', 'adrian.tilmann@gmail.com', 'Tilmann', 'Adrian', '01326'),
+(2, '+4915204867444', '$2y$10$GUjMFEZN1cnqQH2WlUdKA.WZmVfgWahNAZXTUf.sCWQLqAodKtK5q', 'mrmallemixeph@gmail.com', 'Jakob', 'Großer', '01324'),
 (3, '+491511293235', '$2y$10$opPGS0W7Qsb5io4jLGikiuI0tDVSWpHN8Z/mEReYMBa1BqlaZlPta', 'peter@mail.com', 'Peter', 'Cavaletta', '01326');
 
 -- --------------------------------------------------------
@@ -62,6 +62,13 @@ CREATE TABLE `Institution` (
   `email` varchar(255) NOT NULL,
   `institutionsartId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `Institution`
+--
+
+INSERT INTO `Institution` (`id`, `name`, `passwort`, `adresse`, `stadt`, `plz`, `email`, `institutionsartId`) VALUES
+(1, 'GDB', '$2y$10$QC2JsRyHKvF/lu/l.mY7huRIxKQBhn44qFfc1jd36nPJmF0xWTX3y', 'Cunewalder Straße 3', 'Dresden', '01325', 'gdb@lernsax.de', 0);
 
 -- --------------------------------------------------------
 
@@ -150,7 +157,7 @@ ALTER TABLE `Benutzer`
 -- AUTO_INCREMENT for table `Institution`
 --
 ALTER TABLE `Institution`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `Institutionsart`
