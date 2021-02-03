@@ -1,4 +1,232 @@
+/* Style Variablen setzen */
+:root {
+  --main-bg-color: white;
+  --main-bg-calm: #BDF0F4;
+  --main-bg-action: #FF4749;
+  --main-ft-size: 16pt;
+  --main-ft-weight: lighter;
+  --main-ft-color: black;
+  --main-tr-length: 0.1s;
+
+  --main-bx-shadow: 0px 10px 40px hsl(0, 0%, 90%);
+
+  --header-height: 70px;
+
+}
+/* allgemeine Formatierungen */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Calibri", sans-serif;
+  font-weight: lighter;
+  background-color: white;
+  overflow-y: scroll;
+}
+
 h1 {
-  font-size: 62pt;
-  color: red;
+  font-size: 36pt;
+  font-weight: lighter;
+  margin-bottom: 20px;
+}
+h2 {
+  font-size: 31pt;
+  font-weight: lighter;
+}
+h3 {
+  font-size: 25pt;
+  font-weight: lighter;
+  margin-bottom: 10px;
+}
+h4 {
+  font-size: 20pt;
+  font-weight: lighter;
+}
+h5 {
+  font-size: 16pt;
+  font-style: italic;
+  font-weight: lighter;
+}
+h6 {
+  font-size: 13pt;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.aText, .aList {
+  position: relative;
+  color: var(--main-ft-color);
+  font-size: var(--main-ft-size);
+  font-weight: var(--main-ft-weight);
+  transition: var(--main-tr-length);
+}
+
+.aText:hover, .aList:hover {
+  color: var(--main-bg-action);
+}
+.aText::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--main-ft-color);
+  transition: var(--main-tr-length);
+}
+.aText:hover::after {
+  width: calc(100% + 10px);
+  background-color: var(--main-bg-action);
+  left: -5px;
+}
+p, input, a, button {
+  font-size: var(--main-ft-size);
+  font-weight: var(--main-ft-weight);
+}
+button, ::placeholder {
+  font-family: "Calibri", sans-serif;
+}
+mark {
+  font-weight: bold;
+  background: none;
+}
+span {
+  color: var(--main-bg-action);
+}
+q {
+  font-style: italic;
+}
+li {
+  list-style: none;
+}
+button, input {
+  border: none;
+  padding: 0px;
+  background-color: inherit;
+  outline: none;
+}
+button:hover {
+  cursor: pointer;
+}
+.aButton, .aInput {
+  margin: 2px;
+  padding: 10px 15px 10px 15px;
+  border: solid 2px var(--main-bg-calm);
+  border-radius: 3px;
+  transition: var(--main-tr-length);
+  min-width: 140px;
+}
+.aButtonInvert {
+  border-color: var(--main-bg-action);
+}
+.aButton:hover {
+  background-color: var(--main-bg-action);
+  border-color: var(--main-bg-action);
+}
+
+.aInput:hover {
+  border-color: var(--main-bg-action);
+}
+
+/* Menuleiste */
+#header {
+  width: 100%;
+  height: 100px;
+  background-color: white;
+  position: fixed;
+  transition: 0.2s;
+  margin-top: -100px;
+  z-index: 100;
+}
+#header-mid {
+  width: 90%;
+  height: 100%;
+  margin: auto;
+  display: block;
+}
+.HeaderMidBox {
+  display: inline-block;
+  vertical-align: middle;
+}
+#header-mid-name {width: 320px;}
+#header-mid-side {width: calc(100% - 6px - 320px);}
+
+#header-mid-side-content {
+  display: block;
+  text-align: right;
+}
+.HeaderMidSideContentBox {
+  width: calc(100% / 6 - 4*6px);
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 16pt;
+}
+.HeaderMidSideContentBoxList {
+  border-bottom: solid 2px white;
+  padding: 37px 0px 35px 0px;
+  transition: var(--main-tr-length);
+}
+.HeaderMidSideContentBoxList:hover {
+  color: var(--main-bg-action);
+  border-color: var(--main-bg-action);
+}
+
+
+/* Haupteil */
+#filltextmid {
+  margin-top: 100px;
+}
+
+.FilltextMidSektion {
+  width: 100%;
+  padding-top: 80px;
+  padding-bottom: 140px;
+}
+.FilltextMidSektionContent {
+  width: 90%;
+  margin: auto;
+  display: block;
+}
+.FilltextMidSektionBACKCALM {
+  background-color: #DFF8FC;
+}
+.FilltextMidSektionContentBoxSPLIT {
+  width: calc(100% / 2 - 6px - 80px);
+  display: inline-block;
+  vertical-align: middle;
+  padding: 20px;
+}
+.FilltextMidSektionContentBoxMID {
+  text-align: center;
+}
+.FilltextMidSektionContentBoxRE {
+  text-align: right;
+}
+
+
+/* Fußzeile */
+#aroundfooter {
+  width: 100%;
+}
+#footer {
+  width: 100%;
+  padding-bottom: 20px;
+}
+#footer-mid {
+  padding: 20px 0px 20px 0px;
+}
+.FooterContentBox {
+  display: inline-block;
+  width: calc(100%/2 - 6px);
+}
+#footer-mid-left {text-align: left;}
+#footer-mid-right {text-align: right;}
+
+.FooterItem {
+  display: inline-block;
+  width: 140px;
 }

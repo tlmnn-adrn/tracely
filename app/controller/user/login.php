@@ -2,6 +2,7 @@
 
   class UserLoginController extends Controller
   {
+    use DrawTrennerMixin;
 
     use LoginRedirectMixin;
 
@@ -20,11 +21,11 @@
     }
 
     protected function post($request) {
-        
+
         UserModel::login($request["email"], $request["passwort"]);
 
         $object = new UserModel(["email"=>$request["email"]]);
-        
+
         $context = [
             "object" => $object,
         ];
