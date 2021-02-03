@@ -16,7 +16,7 @@
             //Init Funktion der Mixins 'Mixin' heißt 'mixinInit'
             foreach(class_uses($this) as $mixin){
                 $functionName = lcfirst($mixin).'Init';
-                    
+
                 $this->$functionName($arguments);
             }
 
@@ -56,6 +56,10 @@
             $path = 'app/template/'.$template;
             return $path;
 
+        }
+
+        protected function link($link) {
+          return "http://".$_SERVER['HTTP_HOST']."/tracely/".$link;
         }
 
     }

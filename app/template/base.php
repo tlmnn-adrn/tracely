@@ -32,8 +32,7 @@
           <div id="header-mid-side-content">
 
             <?php if (!AuthModel::isLoggedIn()): ?>
-              <a href="index.php"><div id="headerlink-home" class="HeaderMidSideContentBox HeaderMidSideContentBoxList">Home</div></a>
-              <a href="kontakt"><div id="headerlink-kontakt" class="HeaderMidSideContentBox HeaderMidSideContentBoxList">Kontakt</div></a>
+              <a href="<?= $this->link("")?>"><div id="headerlink-home" class="HeaderMidSideContentBox HeaderMidSideContentBoxList">Home</div></a>
               <a href="login"><div id="headerlink-login" class="HeaderMidSideContentBox aButton">Login</div></a>
               <a href="registrierung"><div id="headerlink-registrierung" class="HeaderMidSideContentBox aButtonInvert aButton">Registrieren</div></a>
 
