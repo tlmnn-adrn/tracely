@@ -2,13 +2,7 @@
 
     trait DrawTrennerMixin{
 
-        function drawTrennerMixinInit($arguments=[]){
-
-
-
-        }
-
-        function drawTrenner($ausrichtung=0, $farbe) {
+        function drawTrenner($ausrichtung=0, $farbe="white") {
           $heightcalc = 50;
           $height = $heightcalc."px";
           $AausrichtungM = array("scaleX(1) scaleY(1)","scaleX(-1) scaleY(1)", "scaleX(1) scaleY(-1)", "scaleX(-1) scaleY(-1)");
