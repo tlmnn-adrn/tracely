@@ -12,6 +12,7 @@
       $context = [
         "object" => $object,
       ];
+      
       $this->render($context);
 
     }

@@ -7,13 +7,10 @@
 
 
     protected function get($request) {
-        $object = new UserModel;
     
         $context = [
             "object" => $object,
         ];
-
-        echo(UserModel::isLoggedIn());
 
         $this->render($context);
     }

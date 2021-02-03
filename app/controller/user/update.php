@@ -18,18 +18,23 @@
     }
 
     protected function post($request, $id=0) {
+
       $object = UserModel::getById($id);
 
       $object->setField("vorname", $request["vorname"]);
       $object->setField("nachname", $request["nachname"]);
       $object->setField("plz", $request["plz"]);
       $object->setField("email", $request["email"]);
-      $object->setField("passwort", $request["passwort"], $request["passwortWiederholen"], $request["passwortAlt"]);
+      
+      if(strlen($request['passwort'])>0){
+        $object->setField("passwort", $request["passwort"], $request["passwortWiederholen"], $request["passwortAlt"]);
+      }
 
-      $object->update();
+      $success = $object->update();
 
       $context = [
         "object" => $object,
+        "success" => $success,
       ];
 
       $this->render($context);
@@ -39,11 +44,7 @@
 
       $user = UserModel::getUserObject();
 
-      if($user->getField('id')!=$id){
-        return FALSE;
-      }
-
-      return TRUE;
+      return $user->getField('id')==$id;
 
     }
 

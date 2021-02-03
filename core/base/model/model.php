@@ -202,7 +202,7 @@
 
             //Ausführen des sql Befehls zum Überschreiben
             $success = static::statement($sql, $values);
-            return $success;
+            return TRUE;
 
         }
 
@@ -234,7 +234,7 @@
             $sql = "INSERT INTO ".static::$tableName." (".$columns.") VALUES (".$value_spaces.")";
 
             $success = static::statement($sql, $values);
-            return $success;
+            return TRUE;
 
         }
 

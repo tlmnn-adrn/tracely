@@ -1,5 +1,11 @@
 
-<?php ob_start(); ?>
+<?php 
+
+  $title = "Update User ".$object->getField('vorname');
+
+  ob_start(); 
+
+?>
 
   <h1>Update User <?= $object->getField('vorname') ?></h1>
 
@@ -12,11 +18,17 @@
     <button type="submit" name="button">Ändern</button>
   </form>
 
+  <?php if(isset($success) && $success): ?>
+    <div class="" id="" style="color:green">
+      Daten erfolgreich geupdatet
+    </div>
+  <?php endif?>
+
 <?php $body = ob_get_clean(); ?>
 
+
+
+
 <?php
-
-  $title = "Update User ".$object->getField('vorname');
-
   require($this->extend('base.php'));
 ?>
