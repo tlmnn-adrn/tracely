@@ -4,6 +4,9 @@
 
         protected $template;
 
+        protected $templatePath = "app/template/";
+        protected $templateMobilePath = "app/templateMobile/";
+
         abstract protected function get($request);
         abstract protected function post($request);
 
@@ -16,8 +19,11 @@
             //Init Funktion der Mixins 'Mixin' heißt 'mixinInit'
             foreach(class_uses($this) as $mixin){
                 $functionName = lcfirst($mixin).'Init';
+
+                if(method_exists($this, $functionName)){
+                    $this->$functionName($arguments);
+                }
                     
-                $this->$functionName($arguments);
             }
 
 
@@ -34,13 +40,12 @@
 
             //Wenn die Seite von einem Hany aufgerufen wird, wird ein anderes Template angezeigt, sollte dies vorhanden sein
             if($this->isMobile() && file_exists('app/templateMobile/'.$this->template)){
-                $path = 'app/templateMobile/'.$this->template;
+                $path = $this->templateMobilePath.$this->template;
             }else{
-                $path = 'app/template/'.$this->template;
+                $path = $this->templatePath.$this->template;
             }
 
             extract($context);
-
             require($path);
 
         }

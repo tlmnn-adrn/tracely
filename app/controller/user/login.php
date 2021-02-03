@@ -3,11 +3,15 @@
   class UserLoginController extends Controller
   {
 
+    use LoginRedirectMixin;
+
     protected $template = 'user/login.php';
 
 
     protected function get($request) {
     
+        $object = new UserModel();
+
         $context = [
             "object" => $object,
         ];

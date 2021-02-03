@@ -4,6 +4,16 @@
 
         protected static $userObject;
 
+        //Funktion, die die Url zurückgibt, zu der nach erfolgreichem Login witergeleitet wird
+        //Ermöglicht es, die in settings.php festgelegte zu überschreiben
+        public static function getLoginSuccessUrl(){
+            return $_ENV['LoginSuccessUrl'];
+        }
+
+        public static function getLoginUrl(){
+            return $_ENV['LoginUrl'];
+        }
+
         //Login Funktion
         public static function login($email, $password, $redirect=TRUE){
 
@@ -26,7 +36,7 @@
             $_SESSION['userType'] = get_class($user);
 
             if($redirect){
-                header('Location: '.$_ENV['LoginSuccessUrl']);
+                header('Location: '.static::getLoginSuccessUrl());
                 exit;
             }
 
@@ -43,7 +53,7 @@
             }
 
             if($redirect){
-                header('Location: '.$_ENV['LoginUrl']);
+                header('Location: '.static::getLoginUrl());
                 exit;
             }
 

@@ -1,26 +1,25 @@
 <?php
 
     //Fehler Klasse
-    //Ähnlich wie Controller Klasse, das extenden lohnt sich aber nicht, da alle überschrieben wird
 
-    class BaseError{
+    class BaseError extends Controller{
 
         //Festlegen des Templates, welches gezeigt wird und die Fehlermeldung enthält
         protected $template = "base.php";
+
+        protected $templatePath = "core/base/error/templates/";
+        protected $templateMobilePath = "core/base/error/templatesMobile/";
 
         //Die Funktion render wird direkt im __construct aufgerufen
         //Der Fehlertitel, Die Fehlernachricht und der Fehlercode können spezifiziert werden
         public function __construct($errorTitle="404", $errorMessage="", $responseCode=404){
             
-            $this->render($errorTitle, $errorMessage, $responseCode);
+            $context = [
+                "errorTitle" => $errorTitle,
+                "errorMessage" => $errorMessage,
+            ];
 
-        }
-
-        protected function render($errorTitle, $errorMessage, $responseCode){
-
-            //Die Fehlermeldung wird angezeigt
-            $path = 'core/base/error/templates/'.$this->template;
-            require($path);
+            $this->render($context);
 
             //Quelle: https://stackoverflow.com/questions/1381123/how-can-i-create-an-error-404-in-php
             //Der Fehlercode wird als HTTP response Code übergeben
@@ -29,5 +28,8 @@
             die();
 
         }
+
+        protected function get($request){}
+        protected function post($request){}
 
     }

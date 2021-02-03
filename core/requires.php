@@ -5,9 +5,6 @@
     //Einstellungen
     require_once 'core/settings.php';
 
-    //Fehlermeldungen
-    require_once 'core/base/error/base.php';
-
     //Modell
     require_once 'core/base/model/model.php';
     require_once 'core/base/model/authModel.php';
@@ -15,9 +12,13 @@
     //Controller
     require_once 'core/base/controller/controller.php';
 
+    //Fehlermeldungen
+    require_once 'core/base/error/base.php';
+
     //Mixins
     require_once 'core/base/controller/mixin/loginRequiredMixin.php';
     require_once 'core/base/controller/mixin/userPassesTestMixin.php';
+    require_once 'core/base/controller/mixin/loginRedirectMixin.php';
 
     //Fields
     require_once 'core/base/model/fields/base.php';
@@ -28,6 +29,8 @@
     require_once 'core/base/model/fields/plz.php';
     require_once 'core/base/model/fields/telefon.php';
 
+
+    
     //------------------------- App -------------------------
 
     //Model
