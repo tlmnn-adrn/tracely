@@ -1,0 +1,35 @@
+#headerlink-home {
+  color: var(--main-bg-action);
+  border-color: var(--main-bg-action);
+}
+
+#home-willkommen {
+  margin: 0px 50px 0px -50px;
+  transition: 1s;
+  opacity: 0;
+}
+#home h1 {
+  font-size: 48pt;
+}
+#home-startimg img {
+  width: 100%;
+}
+
+#usertypes {
+  display: block;
+  text-align: center;
+}
+.UserType {
+  display: inline-block;
+  vertical-align: middle;
+  width: calc(100% / 2 - 86px);
+  margin: 40px;
+  text-align: left;
+}
+.UserType p {
+  margin-top: 20px;
+}
+.UserTypeLink {
+  margin-top: 30px;
+  text-align: right;
+}

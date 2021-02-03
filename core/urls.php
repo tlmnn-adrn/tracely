@@ -5,6 +5,7 @@
     require_once "app/controller/user/user.php";
     require_once "app/controller/user/update.php";
     require_once "app/controller/user/login.php";
+    require_once "app/controller/user/registration.php";
 
 
     //Definieren der URLs
@@ -13,6 +14,7 @@
     $url_patterns = [
       "index.php" => "HomeController",
       "login/" => "UserLoginController",
+      "registrierung/" => "UserRegistrationController",
       "user/<id>" => "UserController",
       "user/update/<id>" => "UserUpdateController",
     ];

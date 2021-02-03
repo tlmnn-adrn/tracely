@@ -1,19 +1,38 @@
+<?php
+  $title = 'tracely | Login';
+  $styles = ['user/style-login.css'];
 
-<?php ob_start(); ?>
+  ob_start();
+?>
 
-<h1>Login</h1>
+    <div id="filltext">
+      <div id="filltextmid">
 
-<form action="" method="post">
-  <?=$object->renderField("email", "E-Mail Adresse", "E-Mail Adresse")?><br>
-  <?=$object->renderField("passwort", "Passwort", "Passwort", "", "")?><br>
-  <button type="submit" name="button">Ändern</button>
-</form>
+        <div class="FilltextMidSektion">
+          <div class="FilltextMidSektionContent">
+            <div id="login">
+              <h1>- Login -</h1>
+
+              <div id="login-content">
+                <form action="" method="post">
+                  <?=$object->renderField("email", "E-Mail Adresse", "", "aInput")?><br>
+                  <?=$object->renderField("passwort", "Passwort", "", "aInput", "")?><br>
+                  <div class="LoginContentBottom" id="login-content-bottom-left"><a class="aList" href="registrierung">Registrieren</a></div>
+                  <div class="LoginContentBottom" id="login-content-bottom-right"><button type="submit" name="button" class="aButton aButtonInvert">Anmelden</button></div>
+                </form>
+              </div>
+
+
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
 
 <?php $body = ob_get_clean(); ?>
 
 <?php
-
-    $title = "Login";
-    require($this->extend('base.php'));
-    
+  require($this->extend('base.php'));
 ?>

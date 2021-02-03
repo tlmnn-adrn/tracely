@@ -43,3 +43,4 @@
     //Mixins
     require_once 'app/controller/mixin/institutionLoginRequiredMixin.php';
     require_once 'app/controller/mixin/userLoginRequiredMixin.php';
+    require_once 'app/controller/mixin/drawTrennerMixin.php';
