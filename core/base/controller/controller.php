@@ -63,4 +63,8 @@
 
         }
 
+        protected function link($link) {
+          return "http://".$_SERVER['HTTP_HOST']."/tracely/".$link;
+        }
+
     }
