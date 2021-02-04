@@ -1,10 +1,10 @@
 <?php
 
-  class RegistrationController extends Controller
+  class LoginController extends Controller
   {
     use DrawTrennerMixin;
 
-    protected $template = 'registration/registration.php';
+    protected $template = 'login/login.php';
 
 
     protected function get($request) {

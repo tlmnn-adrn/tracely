@@ -1,18 +1,15 @@
 <?php
 
-  class UserLoginController extends Controller
+  class InstitutionLoginController extends Controller
   {
-    
     use DrawTrennerMixin;
 
-    use LoginRedirectMixin;
-
-    protected $template = 'user/login.php';
+    protected $template = 'institution/login.php';
 
 
     protected function get($request) {
-    
-        $object = new UserModel();
+
+        $object = new InstitutionModel();
 
         $context = [
             "object" => $object,
@@ -23,9 +20,9 @@
 
     protected function post($request) {
 
-        UserModel::login($request["email"], $request["passwort"]);
+        InstitutionModel::login($request["email"], $request["passwort"]);
 
-        $object = new UserModel(["email"=>$request["email"]]);
+        $object = new InstitutionModel(["email"=>$request["email"]]);
 
         $context = [
             "object" => $object,
