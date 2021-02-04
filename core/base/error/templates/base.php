@@ -1,3 +1,3 @@
-<h1>Es Gab einen Fehler <?= $errorTitle ?></h1>
+<h1>Möh Sinnlos! <?= $errorTitle ?></h1>
 
 <p><?=$errorMessage?></p>

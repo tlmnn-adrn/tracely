@@ -3,6 +3,7 @@
   class UserController extends Controller
   {
 
+    use DrawTrennerMixin;
     protected $template = 'user/user.php';
 
     protected function get($request, $id=0) {

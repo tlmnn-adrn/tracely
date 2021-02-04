@@ -3,7 +3,7 @@
   class UserUpdateController extends Controller
   {
 
-    use LoginRequiredMixin, UserPassesTestMixin;
+    use LoginRequiredMixin, UserPassesTestMixin, DrawTrennerMixin;
 
     protected $template = 'user/update.php';
 
