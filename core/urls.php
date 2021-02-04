@@ -17,17 +17,17 @@
     //Definieren der URLs
     //Die tracely.de/ URL wird als index.php definiert
     //Ist in derURL PLatz für einen Parameter, wird dies mit <*> gekennzeichnet, wobei * der Name des Parameters ist
-    $url_patterns = [
-      "index.php" => "HomeController",
+    $urlPatterns = [
 
-      "login/" => "LoginController",
-      "login/user/" => "UserLoginController",
-      "login/institution/" => "InstitutionLoginController",
+      "index" => new UrlPattern('index.php', 'HomeController'),
 
-      "registrierung/" => "RegistrationController",
-      "registrierung/user/" => "UserRegistrationController",
-      "registrierung/institution/" => "InstitutionRegistrationController",
+      "login" => new UrlPattern('login/', 'LoginController'),
+      "login-user" => new UrlPattern('login/user/', 'UserLoginController'),
+      "login-institution" => new UrlPattern('login/institution/', 'InstitutionLoginController'),
 
-      "user/<id>" => "UserController",
-      "user/update/<id>" => "UserUpdateController",
+      "registrierung" => new UrlPattern('registrierung/', 'RegistrationController'),
+      "registrierung-user" => new UrlPattern('registrierung/user/', 'UserRegistrationController'),
+      "registrierung-institution" => new UrlPattern('registrierung/institution/', 'InstitutionRegistrationController'),
+
+      "static" => new StaticUrlPattern('static/')
     ];

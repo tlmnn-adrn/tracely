@@ -7,8 +7,7 @@
     <script src="<?= $this->link("")?>static/js/start.js"></script>
     <link rel="shortcut icon" href="<?= $this->link("")?>static/media/favicon.ico">
 
-
-    <link rel='stylesheet' href='<?=$this->url('static', 'style/style.css')?>'>
+    <link rel='stylesheet' href='<?= $this->url('static', 'style/style.css') ?>'>
 
     <?php if (AuthModel::isLoggedIn()): ?>
       <link rel='stylesheet' href='<?= $this->link("")?>static/style/style-backend.css'>
