@@ -29,7 +29,7 @@
                   <?=$object->renderField("passwort", "Passwort", "", "aInput", "")?><br>
                   <?=$object->renderField("passwort", "Passwort wiederholen", "", "aInput", "")?><br>
 
-                  <div class="LoginContentBottom" id="login-content-bottom-left"><a class="aList" href="<?= $this->link("")?>login/user/">bereits registriert?</a></div>
+                  <div class="LoginContentBottom" id="login-content-bottom-left"><a class="aList" href="<?= Url::find('login-user') ?>">bereits registriert?</a></div>
                   <div class="LoginContentBottom" id="login-content-bottom-right"><button type="submit" name="button" class="aButton aButtonInvert">Registrieren</button></div>
                 </form>
               </div>

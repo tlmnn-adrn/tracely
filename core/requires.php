@@ -30,9 +30,8 @@
     require_once 'core/base/model/fields/telefon.php';
 
     //URL Patterns
-    require_once 'core/base/urlPattern/urlPattern.php';
-    require_once 'core/base/urlPattern/staticUrlPattern.php';
-
+    require_once 'core/base/urlPattern/url.php';
+    require_once 'core/base/urlPattern/staticUrl.php';
     
     //------------------------- App -------------------------
 
@@ -47,3 +46,8 @@
     require_once 'app/controller/mixin/institutionLoginRequiredMixin.php';
     require_once 'app/controller/mixin/userLoginRequiredMixin.php';
     require_once 'app/controller/mixin/drawTrennerMixin.php';
+
+
+
+
+    require_once 'core/urls.php';

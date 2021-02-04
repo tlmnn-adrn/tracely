@@ -3,15 +3,13 @@
   class UserLoginController extends Controller
   {
     
-    use DrawTrennerMixin;
-
-    use LoginRedirectMixin;
+    use DrawTrennerMixin, LoginRedirectMixin;
 
     protected $template = 'user/login.php';
 
 
     protected function get($request) {
-    
+
         $object = new UserModel();
 
         $context = [

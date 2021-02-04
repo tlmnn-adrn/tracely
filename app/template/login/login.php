@@ -14,8 +14,8 @@
               <h1>- Anmelden als -</h1>
 
               <div id="login-content">
-                <div class="LoginContentBottom" id="login-content-bottom-left"><a class="aButton" href="<?= $this->link("")?>login/institution/">Institution</a></div>
-                <div class="LoginContentBottom" id="login-content-bottom-right"><a class="aButton" href="<?= $this->link("")?>login/user/">Privatperson</a></div>
+                <div class="LoginContentBottom" id="login-content-bottom-left"><a class="aButton" href="<?= Url::find('login-institution') ?>">Institution</a></div>
+                <div class="LoginContentBottom" id="login-content-bottom-right"><a class="aButton" href="<?= Url::find('login-user') ?>">Privatperson</a></div>
               </div>
 
             </div>
