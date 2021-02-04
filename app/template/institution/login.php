@@ -11,7 +11,7 @@
         <div class="FilltextMidSektion">
           <div class="FilltextMidSektionContent">
             <div id="login">
-              <h1>- Privatpersonenlogin -</h1>
+              <h1>- Institutionslogin -</h1>
 
               <div id="login-content">
                 <form action="" method="post">
