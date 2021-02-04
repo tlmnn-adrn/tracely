@@ -5,7 +5,7 @@
         function loginRedirectMixinInit($arguments=[]){
 
             if(AuthModel::isLoggedIn()){
-                header('Location: '.$this->url($_ENV['LoginSuccessUrl']));
+                header('Location: '.AuthModel::getLogoutSuccessUrl());
                 exit;
             }
 

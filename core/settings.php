@@ -9,4 +9,5 @@
 
     //Login Url für das LoginRequiredMixin
     $_ENV['LoginUrl'] = 'login';
-    $_ENV['LoginSuccessUrl'] = 'index';
+    $_ENV['LoginSuccessUrl'] = '';
+    $_ENV['LogoutSuccessUrl'] = '';
