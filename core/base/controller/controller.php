@@ -7,12 +7,18 @@
         protected $templatePath = "app/template/";
         protected $templateMobilePath = "app/templateMobile/";
 
+        protected $urlPatterns;
+        protected $url;
+
         abstract protected function get($request);
         abstract protected function post($request);
 
         //Beim Aufruf wird unterschieden, ob es sich um einen GET oder einen POST request handelt
         //Es wird dann die entsprechende Funktion der Unterklasse aufgerufen
-        public function __construct($arguments){
+        public function __construct($urlPatterns, $url, $arguments){
+
+            $this->urlPatterns = $urlPatterns;
+            $this->url = $url;
 
             //Laden aller verwendeten Mixins
             //Aufrufen der Init Funktionen des Mixins
@@ -60,6 +66,24 @@
 
             $path = 'app/template/'.$template;
             return $path;
+
+        }
+
+        protected function link($link) {
+          return "http://".$_SERVER['HTTP_HOST']."/".$link;
+        }
+
+        protected function url($name, ...$arguments){
+
+            if(array_key_exists($name, $this->urlPatterns)){
+                $path = $this->urlPatterns[$name]->getUrl($arguments);
+
+                for($i=0; $i<count($this->url); $i++){
+                    $path = '../'.$path;
+                }
+
+                return $path;
+            }
 
         }
 

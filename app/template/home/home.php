@@ -33,7 +33,7 @@
           </div>
         </div>
 
-        <?php $this->drawTrenner(3, "#DFF8FC");?>
+        <?php $this->drawTrenner(2, "#DFF8FC");?>
 
         <div class="FilltextMidSektion">
           <div class="FilltextMidSektionContent">
@@ -43,7 +43,10 @@
                 <p>
                   mod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
                 </p>
-                <div class="UserTypeLink"><a class="aButton aButtonInvert" href="registrierung">Registrieren</a></div>
+                <div class="UserTypeSektionLink">
+                  <div class="UserTypeLink"><a class="aButton" href="<?= $this->link("")?>login/institution/">Anmelden</a></div>
+                  <div class="UserTypeLink"><a class="aButton aButtonInvert" href="<?= $this->link("")?>registrierung/institution/">Registrieren</a></div>
+                </div>
               </div>
 
               <div class="UserType">
@@ -51,7 +54,11 @@
                 <p>
                   mod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
                 </p>
-                <div class="UserTypeLink"><a class="aButton aButtonInvert" href="registrierung">Registrieren</a></div>
+                <div class="UserTypeSektionLink">
+                  <div class="UserTypeLink"><a class="aButton" href="<?= $this->link("")?>login/user/">Anmelden</a></div>
+                  <div class="UserTypeLink"><a class="aButton aButtonInvert" href="<?= $this->link("")?>registrierung/user/">Registrieren</a></div>
+                </div>
+
               </div>
             </div>
           </div>

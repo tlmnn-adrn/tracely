@@ -53,10 +53,10 @@
         //Anzeigen einiger Objekte in der Tabelle der aufrufenden Unterklasse
         //Wie list() nur mit einem WHERE im SQL Statement
         protected static function filtered_list($filter, $filter_values){
-            
+
             $results = [];
             $statement = self::statement('SELECT * FROM '.static::$tableName.' WHERE '.$filter, $filter_values);
-            
+
             while($row = $statement->fetch()) {
                 $object = new static($row);
                 $results[] = $object;
@@ -206,7 +206,7 @@
 
         }
 
-        //Äquivalent zu update, aber hier wird eine neue Reihe in die Tabelle eingefügt
+        //Äquivalent zu update, aber hier wird ein neuer Datensatz in die Tabelle eingefügt
         public function create($force=FALSE){
 
             if($this->hasErrors() && !$force){
