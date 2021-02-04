@@ -8,7 +8,8 @@
     <link rel="shortcut icon" href="static/media/favicon.ico">
 
 
-    <link rel='stylesheet' href='static/style/style.css'>
+    <link rel='stylesheet' href='<?=$this->url('static', 'style/style.css')?>'>
+
     <?php if (AuthModel::isLoggedIn()): ?>
       <link rel='stylesheet' href='static/style/style-backend.css'>
     <?php endif ?>
@@ -32,7 +33,7 @@
           <div id="header-mid-side-content">
 
             <?php if (!AuthModel::isLoggedIn()): ?>
-              <a href="<?= $this->link("")?>"><div id="headerlink-home" class="HeaderMidSideContentBox HeaderMidSideContentBoxList">Home</div></a>
+              <a href="<?= $this->url("index")?>"><div id="headerlink-home" class="HeaderMidSideContentBox HeaderMidSideContentBoxList">Home</div></a>
               <a href="login"><div id="headerlink-login" class="HeaderMidSideContentBox aButton">Login</div></a>
               <a href="registrierung"><div id="headerlink-registrierung" class="HeaderMidSideContentBox aButtonInvert aButton">Registrieren</div></a>
 
@@ -44,9 +45,9 @@
 
               <?php elseif(UserModel::isLoggedIn()): ?>
                 <a href=""><div id="headerlink-ubersicht" class="HeaderMidSideContentBox HeaderMidSideContentBoxList">Übersicht</div></a>
-                <a href=""><div id="headerlink-einstellungen" class="HeaderMidSideContentBox HeaderMidSideContentBoxList">Einstellungen</div></a>
+                <a href="<?php echo $this->url("user-update", "1");?>"><div id="headerlink-einstellungen" class="HeaderMidSideContentBox HeaderMidSideContentBoxList">Einstellungen</div></a>
               <?php endif?>
-
+              
             <a href="login/"><div id="headerlink-logout" class="HeaderMidSideContentBox aButton">Logout <img src="static/media/backend/logout.svg"></div></a>
             <?php endif?>
 

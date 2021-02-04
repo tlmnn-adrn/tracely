@@ -29,6 +29,9 @@
     require_once 'core/base/model/fields/plz.php';
     require_once 'core/base/model/fields/telefon.php';
 
+    //URL Patterns
+    require_once 'core/base/urlPattern/urlPattern.php';
+    require_once 'core/base/urlPattern/staticUrlPattern.php';
 
     
     //------------------------- App -------------------------
