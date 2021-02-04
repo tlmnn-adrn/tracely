@@ -15,7 +15,7 @@
         }
 
         //Login Funktion
-        public static function login($email, $password, $redirect=TRUE){
+        public static function login($email, $password, $redirect=FALSE){
 
             //Verwenden von Filtered List statt get, da get bei einer ungültigen E-Mail Adresse einen 404 Fehler erzeugen würde
             $user = static::filtered_list('email=?', [$email]);
@@ -44,7 +44,7 @@
 
         }
 
-        public static function logout($redirect=TRUE){
+        public static function logout($redirect=FALSE){
 
             if(static::isLoggedIn()){
                 $_SESSION['userId'] = NULL;

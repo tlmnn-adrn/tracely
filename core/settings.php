@@ -9,4 +9,4 @@
 
     //Login Url für das LoginRequiredMixin
     $_ENV['LoginUrl'] = 'login';
-    $_ENV['LoginSuccessUrl'] = 'index.php';
+    $_ENV['LoginSuccessUrl'] = 'index';
