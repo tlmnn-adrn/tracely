@@ -20,10 +20,12 @@
 }
 
 body {
-  font-family: "Calibri", sans-serif;
   font-weight: lighter;
   background-color: white;
   overflow-y: scroll;
+}
+body, button, ::placeholder, select, input {
+  font-family: "Calibri", sans-serif;
 }
 
 h1 {
@@ -86,9 +88,7 @@ p, input, select, a, button {
   font-size: var(--main-ft-size);
   font-weight: var(--main-ft-weight);
 }
-button, ::placeholder, select {
-  font-family: "Calibri", sans-serif;
-}
+
 mark {
   font-weight: bold;
   background: none;
@@ -107,6 +107,7 @@ button, input, select {
   padding: 0px;
   background-color: inherit;
   outline: none;
+  font-weight: 250;
 }
 button:hover {
   cursor: pointer;
@@ -129,6 +130,17 @@ button:hover {
 
 .aInput:hover {
   border-color: var(--main-bg-action);
+}
+
+/*Quelle: https://stackoverflow.com/questions/826782/how-to-disable-text-selection-highlighting */
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }
 
 /* Menuleiste */
