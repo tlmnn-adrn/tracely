@@ -14,8 +14,12 @@
             return $_ENV['LoginUrl'];
         }
 
+        public static function getLogoutSuccessUrl(){
+            return $_ENV['LogoutSuccessUrl'];
+        }
+
         //Login Funktion
-        public static function login($email, $password, $redirect=FALSE){
+        public static function login($email, $password, $redirect=TRUE){
 
             //Verwenden von Filtered List statt get, da get bei einer ungültigen E-Mail Adresse einen 404 Fehler erzeugen würde
             $user = static::filtered_list('email=?', [$email]);
@@ -44,7 +48,7 @@
 
         }
 
-        public static function logout($redirect=FALSE){
+        public static function logout($redirect=TRUE){
 
             if(static::isLoggedIn()){
                 $_SESSION['userId'] = NULL;
@@ -53,7 +57,7 @@
             }
 
             if($redirect){
-                header('Location: '.static::getLoginUrl());
+                header('Location: '.static::getLogoutSuccessUrl());
                 exit;
             }
 

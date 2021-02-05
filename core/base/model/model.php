@@ -52,7 +52,7 @@
 
         //Anzeigen einiger Objekte in der Tabelle der aufrufenden Unterklasse
         //Wie list() nur mit einem WHERE im SQL Statement
-        protected static function filtered_list($filter, $filter_values){
+        public static function filtered_list($filter, $filter_values){
 
             $results = [];
             $statement = self::statement('SELECT * FROM '.static::$tableName.' WHERE '.$filter, $filter_values);
@@ -68,7 +68,7 @@
 
         //Anzeigen eines Objektes in der Tabelle der aufrufenden Unterklasse
         //Wie die filtered_list, nur dass es nur ein Ergebnisobjekt geben darf
-        protected static function get($filter, $filter_values){
+        public static function get($filter, $filter_values, $error=TRUE){
 
             $results = [];
             $statement = self::statement('SELECT * FROM '.static::$tableName.' WHERE '.$filter, $filter_values);
@@ -81,15 +81,32 @@
                 $object = new static($row);
 
                 return $object;
-            }elseif($rowCount<1){
-                new BaseError("404", "Diese Seite wurde konnte nicht gefunden werden", 404);
-            }else{
-                new BaseError("500", "Mehr als ein Objekt entspricht dem Filter. Verwende einen anderen Filter oder die filteredList Methode!", 500);
             }
+            
+            if($error){
+                if($rowCount<1){
+                    new BaseError("404", "Diese Seite wurde konnte nicht gefunden werden", 404);
+                }else{
+                    new BaseError("500", "Mehr als ein Objekt entspricht dem Filter. Verwende einen anderen Filter oder die filteredList Methode!", 500);
+                }
+            }
+
+            return NULL;
 
 
         }
 
+        public static function getById($id, $error=TRUE) {
+            $filter = 'id = ?';
+            $values = [$id];
+    
+            return static::get($filter, $values, $error);
+        }
+
+        public function __toString() 
+        {    
+            return $this->getField('id'); 
+        } 
 
 
         //------------------------------Non-Static------------------------------
@@ -99,6 +116,8 @@
         //Erstellen der Klasse
         //Laden aller gegebenen Werte
         public function __construct($values=[]){
+
+            $this->fields['id'] = new IdField();
 
             foreach(array_keys($this->fields) as $field){
 
@@ -158,6 +177,14 @@
         public function renderField($field, ...$params){
 
             $this->fields[$field]->render($field, ...$params);
+
+        }
+
+        public function setFieldOptions($field, $options){
+
+            if(method_exists($this->fields[$field], 'setOptions')){
+                return $this->fields[$field]->setOptions($options);
+            }
 
         }
 

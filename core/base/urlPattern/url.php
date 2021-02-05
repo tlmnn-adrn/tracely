@@ -1,10 +1,52 @@
 <?php
 
-    class UrlPattern{
+    class Url{
+
+
+        //------------------------- Static -------------------------
+
+        protected static $urlPatterns;
+
+        public static function add($name, ...$arguments){
+
+            self::$urlPatterns[$name] = new static(...$arguments);
+
+        }
+
+        public static function find($name, ...$arguments){
+
+            if(array_key_exists($name, self::$urlPatterns)){
+                return self::$urlPatterns[$name]->getUrl($arguments);
+            }
+
+        }
+
+        public static function match($url){
+
+            //Vergleichen jedes Array_keys mit der URL
+            foreach(self::$urlPatterns as $urlPattern){
+
+                //Stimmen sie überein, wird die Suche beednet und die Controller Klasse zurückgegeben
+                $arguments = $urlPattern->matches($url);
+
+                if(is_array($arguments)){
+                    $urlPattern->setArgs($arguments);
+                    return $urlPattern;
+                }
+            }
+
+            return FALSE;
+
+        }
+
+
+        //------------------------- Non-Static -------------------------
 
         protected $url;
         protected $controller;
         protected $name;
+
+        protected $arguments;
 
         public function __construct($url, $controller){
 
@@ -38,11 +80,11 @@
 
                 //Stimmen zwei Elemente nicht miteinander überein, wird überprüft, ob das Element des Patterns ein Argument ist
                 if($this->url[$i] != $url[$i]){
-                    
+
                     //Argumente werden im Pattern im Stil <*> angegeben
                     //Handelt es sich bim Element des Patterns um ein Argument, ist es egal, dass die Elemente nicht übereinstimmen
                     //Dann wird das Argument mit seinem Wert im Array $arguments gespeichert, so dass später darauf zugegriffen werden kann
-                    //Handelt es sich nicht um ein Argument, stimmen die Pattern nicht überein 
+                    //Handelt es sich nicht um ein Argument, stimmen die Pattern nicht überein
                     if($this->isArg($this->url[$i])){
                         $arguments[trim($this->url[$i], '<>')] = $url[$i];
                     }else{
@@ -50,11 +92,19 @@
                     }
                 }
             }
-            
+
             //Stimmen die Pattern überein, werden die Argumente in einem Attribut der Klasse gespeichert, so dass sie auch von anderen Methoden verwendet werden können
             $this->arguments = $arguments;
 
             return $arguments;
+        }
+
+        public function setArgs($arguments){
+            $this->arguments = $arguments;
+        }
+
+        public function callController(){
+            return new $this->controller($this->arguments);
         }
 
         protected function isArg($element){
@@ -64,13 +114,9 @@
             return FALSE;
         }
 
-        public function getController(){
-            return $this->controller;
-        }
-
         public function getUrl($arguments=[]){
 
-            $path = '';
+            $path = "http://".$_SERVER['HTTP_HOST']."/";
             $argument_counter = 0;
 
             foreach($this->url as $element){
@@ -81,6 +127,8 @@
                     $path .= $element.'/';
                 }
             }
+
+            $path = rtrim($path, '/');
 
             return $path;
         }

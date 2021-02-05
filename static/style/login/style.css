@@ -11,10 +11,12 @@
   display: block;
 }
 
-#login-content input {
+#login-content input, #login-content select {
   margin-bottom: 20px;
-  width: calc(100% - 40px);
 }
+#login-content input {width: calc(100% - 38px);}
+#login-content select {width: calc(100% - 4px);}
+
 .LoginContentBottom {
   display: inline-block;
   vertical-align: middle;

@@ -82,11 +82,11 @@ a {
   background-color: var(--main-bg-action);
   left: -5px;
 }
-p, input, a, button {
+p, input, select, a, button {
   font-size: var(--main-ft-size);
   font-weight: var(--main-ft-weight);
 }
-button, ::placeholder {
+button, ::placeholder, select {
   font-family: "Calibri", sans-serif;
 }
 mark {
@@ -102,7 +102,7 @@ q {
 li {
   list-style: none;
 }
-button, input {
+button, input, select {
   border: none;
   padding: 0px;
   background-color: inherit;

@@ -14,8 +14,8 @@
               <h1>- Registrieren als -</h1>
 
               <div id="login-content">
-                <div class="LoginContentBottom" id="login-content-bottom-left"><a class="aButton" href="<?= $this->link("")?>registrierung/institution/">Institution</a></div>
-                <div class="LoginContentBottom" id="login-content-bottom-right"><a class="aButton" href="<?= $this->link("")?>registrierung/user/">Privatperson</a></div>
+                <div class="LoginContentBottom" id="login-content-bottom-left"><a class="aButton" href="<?= Url::find('registrierung-institution') ?>">Institution</a></div>
+                <div class="LoginContentBottom" id="login-content-bottom-right"><a class="aButton" href="<?= Url::find('registrierung-user') ?>">Privatperson</a></div>
               </div>
 
             </div>

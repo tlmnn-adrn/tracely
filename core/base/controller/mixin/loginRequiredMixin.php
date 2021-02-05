@@ -5,7 +5,7 @@
         function loginRequiredMixinInit($arguments=[]){
 
             if(!AuthModel::isLoggedIn()){
-                header('Location: '.$this->url($_ENV['LoginUrl']));
+                header('Location: '.AuthModel::getLoginUrl(9));
                 exit;
             }
 

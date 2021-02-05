@@ -5,7 +5,7 @@
         function institutionLoginRequiredMixinInit($arguments=[]){
 
             if(!InstitutionModel::isLoggedIn()){
-                header('Location: '.$this->url($_ENV['LoginUrl']));
+                header('Location: '.InstitutionModel::getLoginUrl());
                 exit;
             }
 

@@ -16,18 +16,16 @@
 
     //Definieren der URLs
     //Die tracely.de/ URL wird als index.php definiert
-    //Ist in derURL PLatz für einen Parameter, wird dies mit <*> gekennzeichnet, wobei * der Name des Parameters ist
-    $urlPatterns = [
+    //Ist in der URL PLatz für einen Parameter, wird dies mit <*> gekennzeichnet, wobei * der Name des Parameters ist
 
-      "index" => new UrlPattern('index.php', 'HomeController'),
+    Url::add('index', '', 'HomeController');
 
-      "login" => new UrlPattern('login/', 'LoginController'),
-      "login-user" => new UrlPattern('login/user/', 'UserLoginController'),
-      "login-institution" => new UrlPattern('login/institution/', 'InstitutionLoginController'),
+    Url::add('login', 'login/', 'LoginController');
+    Url::add('login-user', 'login/user/', 'UserLoginController');
+    Url::add('login-institution', 'login/institution/', 'InstitutionLoginController');
 
-      "registrierung" => new UrlPattern('registrierung/', 'RegistrationController'),
-      "registrierung-user" => new UrlPattern('registrierung/user/', 'UserRegistrationController'),
-      "registrierung-institution" => new UrlPattern('registrierung/institution/', 'InstitutionRegistrationController'),
+    Url::add('registrierung', 'registrierung/', 'RegistrationController');
+    Url::add('registrierung-user', 'registrierung/user/', 'UserRegistrationController');
+    Url::add('registrierung-institution', 'registrierung/institution/', 'InstitutionRegistrationController');
 
-      "static" => new StaticUrlPattern('static/')
-    ];
+    StaticUrl::add('static', 'static/');

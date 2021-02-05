@@ -44,8 +44,8 @@
                   mod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
                 </p>
                 <div class="UserTypeSektionLink">
-                  <div class="UserTypeLink"><a class="aButton" href="<?= $this->link("")?>login/institution/">Anmelden</a></div>
-                  <div class="UserTypeLink"><a class="aButton aButtonInvert" href="<?= $this->link("")?>registrierung/institution/">Registrieren</a></div>
+                  <div class="UserTypeLink"><a class="aButton" href="<?= Url::find('login-institution') ?>">Anmelden</a></div>
+                  <div class="UserTypeLink"><a class="aButton aButtonInvert" href="<?= Url::find('registrierung-institution') ?>">Registrieren</a></div>
                 </div>
               </div>
 
@@ -55,8 +55,8 @@
                   mod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
                 </p>
                 <div class="UserTypeSektionLink">
-                  <div class="UserTypeLink"><a class="aButton" href="<?= $this->link("")?>login/user/">Anmelden</a></div>
-                  <div class="UserTypeLink"><a class="aButton aButtonInvert" href="<?= $this->link("")?>registrierung/user/">Registrieren</a></div>
+                  <div class="UserTypeLink"><a class="aButton" href="<?= Url::find('login-user') ?>">Anmelden</a></div>
+                  <div class="UserTypeLink"><a class="aButton aButtonInvert" href="<?= Url::find('registrierung-user') ?>">Registrieren</a></div>
                 </div>
 
               </div>

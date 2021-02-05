@@ -7,7 +7,6 @@
 
       public function __construct($values=[]) {
         $this->fields = [
-          'id' => new IntegerField('', TRUE, TRUE),
           'telefonnummer' => new TelefonField('', TRUE, FALSE),
           'passwort' => new PasswordField('', 6),
           'email' => new EmailField('', TRUE, TRUE),
@@ -21,11 +20,10 @@
 
       }
 
-      public static function getById($id) {
-        $filter = 'id = ?';
-        $values = [$id];
 
-        return static::get($filter, $values);
-      }
+      public function __toString() 
+      {    
+          return $this->getField('vorname').' '.$this->getField('nachname'); 
+      } 
 
     }
