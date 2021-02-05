@@ -1,8 +1,8 @@
-
-
 <select id="<?=$name?>Field" name="<?=$name?>" class="<?=$class?>">
 
-    <?php if(strlen($placeholder)>0): ?>
+
+
+    <?php if(strlen($placeholder)>0 && strlen($this->value)==0): ?>
         <option value="" disabled selected><?=$placeholder?></option>
     <?php endif ?>
 

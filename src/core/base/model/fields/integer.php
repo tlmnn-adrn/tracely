@@ -7,13 +7,13 @@
         function checkValid($value){
 
             //Überprüfung, ob das Feld leer ist und required ist
-            if($required && $value == NULL){
+            if($this->required && $value == NULL){
                 $this->errors[] =$this->errorTypes['requiredButEmptyError'];
 
                 return FALSE;
             }
 
-            //Überprüfung, ob die Eingabe auch wirklich numerisch ist
+            //Überprüfung, ob die Eingabe auch wirklich nummerisch ist
             if(!preg_match('/^[0-9]+$/', $value) && !is_int($value)){
                 $this->errors[] = $this->errorTypes['textInNumberFieldError'];
 

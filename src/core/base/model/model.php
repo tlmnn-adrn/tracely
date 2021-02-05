@@ -82,7 +82,7 @@
 
                 return $object;
             }
-            
+
             if($error){
                 if($rowCount<1){
                     new BaseError("404", "Diese Seite wurde konnte nicht gefunden werden", 404);
@@ -99,14 +99,14 @@
         public static function getById($id, $error=TRUE) {
             $filter = 'id = ?';
             $values = [$id];
-    
+
             return static::get($filter, $values, $error);
         }
 
-        public function __toString() 
-        {    
-            return $this->getField('id'); 
-        } 
+        public function __toString()
+        {
+            return $this->getField('id');
+        }
 
 
         //------------------------------Non-Static------------------------------

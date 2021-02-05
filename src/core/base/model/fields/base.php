@@ -10,11 +10,11 @@
             public function isUnique();
             public function hasErrors();
             public function render($name);
-    
+
         }
-    
+
         class BaseField implements Field{
-            
+
             protected $value;
             protected $required;
             protected $unique;
@@ -23,9 +23,9 @@
             protected $errorTypes;
 
             protected $template = "text.php";
-    
+
             function __construct($value='', $required=FALSE, $unique=FALSE){
-    
+
                 $this->value = $value;
                 $this->required = $required;
                 $this->unique = $unique;
@@ -37,22 +37,22 @@
                 require 'core/base/model/fields/errors.php';
                 $this->errorTypes = $errorTypes;
             }
-    
+
             //Ausgabe des Wertes
             function get(){
                 return $this->value;
             }
-    
+
             //Setzen des Wertes
             //Wird verwendet, wenn der Wert aus der Datenbank geladen wird und in das Feld geschrieben werden soll
             //Wird auch von der Funktion updateValue verwendet, die diese Funktion nur aufruft, nachdem der neue Wert auf Gültigkeit überprüft wurde
             function setValue($value){
                 $this->value = $value;
             }
-    
+
             //Überprüfen des neuen Wertes auf Gültigkeit
             function checkValid($value){
-    
+
                 //Sollte das Feld Required sein, die Eingabe ist aber leer, gibt es eine Fehlermeldung beim anzeigen des Feldes
                 if($this->required && strlen($value) == 0){
 
@@ -60,11 +60,11 @@
 
                     return FALSE;
                 }
-    
+
                 return True;
-    
+
             }
-    
+
             //Überschreiben eines Wertes
             //Dabei wird zuerst überprüft, ob der neue Wert gültig ist
             function updateValue($value, $unique){
@@ -79,16 +79,16 @@
                     $this->setValue($value);
                     return TRUE;
                 }
-    
+
                 return FALSE;
-    
+
             }
-    
+
             //Ausgabe des Attributes unique
             function isUnique(){
                 return $this->unique;
             }
-    
+
             //Es wird ausgegeben, ob der gespeicherte Wert mit dem eingegebenen übereinstimmt
             function equals($value){
                 return($value==$this->value);
@@ -101,11 +101,11 @@
 
             //Rendern des input Feldes
             function render($name, $placeholder="", $class=""){
-                
+
                 //Aufrufen des dazugehörigen Templates und anzeigen
                 $path = 'core/base/model/fields/templates/'.$this->template;
                 require($path);
 
             }
-    
+
         }

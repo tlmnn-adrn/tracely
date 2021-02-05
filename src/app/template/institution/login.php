@@ -14,7 +14,7 @@
               <h1>- Institutionslogin -</h1>
 
               <div id="login-content">
-                <form action="" method="post">
+                <form action="?" method="post">
                   <?=$object->renderField("email", "E-Mail Adresse", "aInput")?><br>
                   <?=$object->renderField("passwort", "Passwort", "aInput", "")?><br>
                   <div class="LoginContentBottom" id="login-content-bottom-left"><a class="aList" href="<?= Url::find('registrierung') ?>">Registrieren</a></div>

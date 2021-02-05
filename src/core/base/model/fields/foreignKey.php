@@ -15,20 +15,16 @@
 
         }
 
-        function get(){
-
-            return $model::getById($this->value, FALSE);
-
-        }
 
         //Überprüfen des neuen Wertes auf Gültigkeit
         function checkValid($value){
-            
-            if(!$model::getById($value, FALSE)){
+
+            if(!$this->model::getById($value, FALSE)){
+
                 return FALSE;
             }
 
-            return parent::checkValid();
+            return parent::checkValid($value);
 
         }
 
@@ -49,7 +45,7 @@
         }
 
         function render($name, $placeholder='', $class=''){
-            
+
             $options = $this->list();
 
             //Aufrufen des dazugehörigen Templates und anzeigen
