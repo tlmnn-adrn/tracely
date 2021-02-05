@@ -1,0 +1,422 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="de" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="de" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Erste Schritte &mdash; Tracely - MVC Framework  Dokumentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
+    <link rel="search" title="Suche" href="search.html" />
+    <link rel="prev" title="Welcome to Tracely - MVC Framework’s documentation!" href="index.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Tracely - MVC Framework
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Erste Schritte</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#anforderungen">Anforderungen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#erstes-projekt">Erstes Projekt</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#die-erste-seite">Die Erste Seite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#daten-an-das-template-ubergeben">Daten an das Template übergeben</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mit-der-datenbank-verbinden">Mit der Datenbank verbinden</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Tracely - MVC Framework</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Erste Schritte</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/getStartet.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="erste-schritte">
+<h1>Erste Schritte<a class="headerlink" href="#erste-schritte" title="Link zu dieser Überschrift">¶</a></h1>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link zu dieser Überschrift">¶</a></h2>
+<div class="section" id="anforderungen">
+<h3>Anforderungen<a class="headerlink" href="#anforderungen" title="Link zu dieser Überschrift">¶</a></h3>
+<ul class="simple">
+<li>Php Version 8.0+</li>
+<li>Eine SQL Datenbank</li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h3>Installation<a class="headerlink" href="#id1" title="Link zu dieser Überschrift">¶</a></h3>
+<ol class="arabic simple">
+<li>Dieses Github repository clonen: <a class="reference external" href="https://github.com/tlmnn-adrn/tracely">https://github.com/tlmnn-adrn/tracely</a></li>
+<li>Den src Ordner in den Root deines Webservers kopieren</li>
+<li>Die Details der Verbindung mit dem SQL Server in <em>core/settings.php</em> eintragen</li>
+</ol>
+</div>
+</div>
+<div class="section" id="erstes-projekt">
+<h2>Erstes Projekt<a class="headerlink" href="#erstes-projekt" title="Link zu dieser Überschrift">¶</a></h2>
+<div class="section" id="die-erste-seite">
+<h3>Die Erste Seite<a class="headerlink" href="#die-erste-seite" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Das erste Projekt soll mit der Index-Seite begonnen werden.
+Um eine neue Seite zu starten muss zuerst ein neuer Controller gestartet werden.
+Die Controller sollten alle im Ordner <em>app/controller</em> erstellt werden.
+Dort wird nun die neue Datei <em>home.php</em> erstellt.</p>
+<p>In dieser Datei wird nun eine neue Klasse namens <em>HomeController</em> definiert.
+Diese soll die Klasse Controller erweitern.</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">HomeController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Jeder Controller benötigt das Attribut $template.
+Mit diesem Attribut kann festgelegt werden, welches Template von dem Controller gerendert wird.
+Damit das Template auch vom Controller gefunden wird, sollte es sich im Ordner <em>app/template</em> befinden.
+Der Pfad sollte relativ zum Ordner <em>app/template</em> angegeben werden.</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">protected</span> <span class="nv">$template</span> <span class="o">=</span> <span class="s1">&#39;home.php&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Der angegebene Pfad sollte natürlich zu einer Datei verweisen.
+Dafür wird nun die Datei <em>home.php</em> im Template Ordner erzeugt.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Hallo Welt<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Neben dem Attribut <em>template</em> benötigt der Controller noch 2 Methoden:
+1. Die Funktion <em>get()</em>
+2. Die Funktion <em>post()</em></p>
+<p>Beide mehmen als Attribut die Variable <em>$request</em>.
+Die Funktion <em>get()</em> wird bei einem Get-request aufgerugen. Die Funktion Post bei einem Post-request.</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">HomeController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+
+    <span class="k">protected</span> <span class="nv">$template</span> <span class="o">=</span> <span class="s1">&#39;home.php&#39;</span><span class="p">;</span>
+
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">get</span><span class="p">(</span><span class="nv">$request</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">}</span>
+
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">post</span><span class="p">(</span><span class="nv">$request</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Um das Template zu rendern muss am Ende der Methode die Funktion render der
+Klasse Controller aufgerufen werden.</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">HomeController</span> <span class="k">extends</span> <span class="nx">Controller</span>
+<span class="p">{</span>
+
+    <span class="k">protected</span> <span class="nv">$template</span> <span class="o">=</span> <span class="s1">&#39;home.php&#39;</span><span class="p">;</span>
+
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">get</span><span class="p">(</span><span class="nv">$request</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">post</span><span class="p">(</span><span class="nv">$request</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Damit der Server die Seite nun findet, muss der Controller noch in <em>core/urls.php</em> registriert werden.
+Dafür muss die entstandene Datei zunächst importiert werden. Dann wird die Seite im Array registriert.</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">require_once</span> <span class="s2">&quot;app/controller/home.php&quot;</span><span class="p">;</span>
+
+<span class="nx">Url</span><span class="o">::</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;HomeController&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>In der zweiten Zeile werden dabei genau drei Parameter übergeben.</p>
+<ul class="simple">
+<li>Der erste Parameter ist ein Name für die registrierte Seite. Dieser ist für den Endnutzer der Seite unsichtbar. Dabei darf kein Name doppelt genutzt werden.</li>
+<li>Der zweite Parameter ist der Pfad der Seite. Da dies die Index Seite ist, wird ein leerer String übergeben.</li>
+<li>Der dritte Parameter ist der Controller, der aufgerufen werden soll, wenn der Nutzer die Seite aufruft.</li>
+</ul>
+<p>Ruft man nun die URL des Servers auf, wird das Template angezeigt.</p>
+</div>
+<div class="section" id="daten-an-das-template-ubergeben">
+<h3>Daten an das Template übergeben<a class="headerlink" href="#daten-an-das-template-ubergeben" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Es können Daten an das Template übergeben werden.
+Dafür wird zuerst ein Array definiert, welcher hier <em>$context</em> heißen soll.
+Die zu übergebenden Daten werden in diesen Array geschrieben.</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="nv">$context</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;test&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Dies ist ein Test&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Um die Daten für das Template zugänglich zu machen, müssen diese in der Funktion <em>render</em> übergeben werden.</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="nv">$context</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Die übergebenen Daten erscheien nun im Template als Variablen mit dem angegebenem Key als Name.</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Es</span> <span class="nx">wurden</span> <span class="nx">folgende</span> <span class="nx">Daten</span> <span class="nx">übergeben</span><span class="o">:&lt;/</span><span class="nx">h1</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;&lt;?=</span><span class="nv">$test</span><span class="cp">?&gt;</span><span class="x">&lt;/p&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mit-der-datenbank-verbinden">
+<h3>Mit der Datenbank verbinden<a class="headerlink" href="#mit-der-datenbank-verbinden" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Wenn die Installationsschritte befolgt wurden, sollte die Verbindung mit einer Datenbank bereits hergestellt sein.
+Die Datei <em>settings.php</em> sollte ungefähr so aussehen</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="c1">//Mysql Data</span>
+<span class="nv">$_ENV</span><span class="p">[</span><span class="s1">&#39;DBhost&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
+<span class="nv">$_ENV</span><span class="p">[</span><span class="s1">&#39;DBuser&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;root&#39;</span><span class="p">;</span>
+<span class="nv">$_ENV</span><span class="p">[</span><span class="s1">&#39;DBpassword&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="nv">$_ENV</span><span class="p">[</span><span class="s1">&#39;DBname&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;testDb&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Ist dies der Fall, können nun Modelle geschrieben werden. Dabei sollte ein Modell genau einer Tabelle der Datenbank entsprechen.
+Modelle sollten im Ordner <em>app/model</em> stehen.</p>
+<p>Zuerst wird hier eine neue Datei <em>test.php</em> erstellt. In dieser wird nun die Klasse TestModel definiert.
+Die Klasse sollte eine Unterklasse von Modell sein.</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">TestModel</span> <span class="k">extends</span> <span class="nx">Model</span><span class="p">{</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In der Klasse müssen nun zwei Sachen angegeben werden:</p>
+<ol class="arabic simple">
+<li>Der Name der Tabelle im Attribut <em>$tableName</em></li>
+<li>Die Spalten der Tabelle nach Datentyp. Die Spalten müssen in der <em>__construct</em> Funktion gesetzt werden.
+Die <em>Id</em> Spalte muss dabei nicht übergeben werden.
+Sie wird automatisch bei jedem Modell hinzugefügt.
+Die Keys der Felder sollten den Namen der Spalten in der Tabelle genau entsprechen.</li>
+</ol>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">TestModel</span> <span class="k">extends</span> <span class="nx">Model</span><span class="p">{</span>
+
+    <span class="k">static</span> <span class="nv">$tableName</span> <span class="o">=</span> <span class="s2">&quot;Test&quot;</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$fields</span> <span class="o">=</span> <span class="p">[];</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$values</span><span class="o">=</span><span class="p">[])</span> <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">fields</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="nx">TextField</span><span class="p">(),</span>
+            <span class="s1">&#39;anzahl&#39;</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="nx">IntegerField</span><span class="p">(),</span>
+        <span class="p">];</span>
+
+        <span class="k">parent</span><span class="o">::</span><span class="na">__construct</span><span class="p">(</span><span class="nv">$values</span><span class="p">);</span>
+
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Nun sollte die Modell-Datei in <em>core/requires.php</em> importiert werden.</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="c1">//------------------------- App -------------------------</span>
+
+<span class="c1">//Model</span>
+<span class="k">require_once</span> <span class="s1">&#39;app/model/test.php&#39;</span><span class="p">;</span>
+<span class="nx">TestModel</span><span class="o">::</span><span class="na">__constructStatic</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Um nun an eine Instanz der Klasse TestModel im Controller zu gelangen kann zum
+Beispiel die statische Funktion <em>getById</em> der Klasse <em>Model</em> genutzt werden.</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="nv">$object</span> <span class="o">=</span> <span class="nx">TestModel</span><span class="o">::</span><span class="na">getById</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Alle modelle besitzen die Funktion getField. Mit dieser kann der Wert eines Feldes erhalten werden.
+Übergibt man <em>$object</em> nun an das Template, könnte dies im Template so aussehen:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Name</span><span class="o">:</span>   <span class="o">&lt;?=</span><span class="nv">$object</span><span class="o">-&gt;</span><span class="na">getField</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span><span class="cp">?&gt;</span><span class="x">&lt;/p&gt;</span>
+<span class="x">&lt;p&gt;Anzahl: </span><span class="cp">&lt;?</span><span class="o">=</span><span class="nv">$object</span><span class="o">-&gt;</span><span class="na">getField</span><span class="p">(</span><span class="s1">&#39;anzahl&#39;</span><span class="p">)</span><span class="cp">?&gt;</span><span class="x">&lt;/p&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Welcome to Tracely - MVC Framework’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Tilmann Adrian, Jakob Großer.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            LANGUAGE:'de',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
+      });
+  </script> 
+
+</body>
+</html>
