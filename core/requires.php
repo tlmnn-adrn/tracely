@@ -28,6 +28,8 @@
     require_once 'core/base/model/fields/password.php';
     require_once 'core/base/model/fields/plz.php';
     require_once 'core/base/model/fields/telefon.php';
+    require_once 'core/base/model/fields/id.php';
+    require_once 'core/base/model/fields/foreignKey.php';
 
     //URL Patterns
     require_once 'core/base/urlPattern/url.php';
@@ -40,7 +42,10 @@
     UserModel::__constructStatic();
 
     require_once 'app/model/institution.php';
-    UserModel::__constructStatic();
+    InstitutionModel::__constructStatic();
+
+    require_once 'app/model/institutionsart.php';
+    InstitutionsartModel::__constructStatic();
 
     //Mixins
     require_once 'app/controller/mixin/institutionLoginRequiredMixin.php';

@@ -100,7 +100,7 @@
             }
 
             //Rendern des input Feldes
-            function render($name, $placeholder="", $label="", $class=""){
+            function render($name, $placeholder="", $class=""){
                 
                 //Aufrufen des dazugehörigen Templates und anzeigen
                 $path = 'core/base/model/fields/templates/'.$this->template;
