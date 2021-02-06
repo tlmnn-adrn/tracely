@@ -29,6 +29,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
     <link rel="search" title="Suche" href="search.html" />
+    <link rel="next" title="AuthModel" href="authModel.html" />
     <link rel="prev" title="BaseError" href="error.html" /> 
 
   
@@ -78,8 +79,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="getStartet.html">Erste Schritte</a></li>
 <li class="toctree-l1"><a class="reference internal" href="controller.html">Controller</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mixin.html">Mixins</a></li>
@@ -167,10 +167,28 @@
 <li class="toctree-l4"><a class="reference internal" href="#id33">Code</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#haserrors">hasErrors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id34">Funktion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id35">Code</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#update">update</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id36">Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id37">Funktion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id38">Code</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#create">create</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id39">Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id40">Funktion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id41">Code</a></li>
 </ul>
 </li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="authModel.html">AuthModel</a></li>
 </ul>
 
             
@@ -285,8 +303,8 @@
 <h3>statement<a class="headerlink" href="#statement" title="Link zu dieser Überschrift">¶</a></h3>
 <div class="section" id="parameter">
 <h4>Parameter<a class="headerlink" href="#parameter" title="Link zu dieser Überschrift">¶</a></h4>
-<p><em>$sql: String</em></p>
-<p><em>$values: Array</em></p>
+<p><em>$sql: String</em> - Der SQL Befehl, als prepared Statement</p>
+<p><em>$values: Array</em> - Die Werte, die in das prepared Statement eingetragen werden sollen</p>
 </div>
 <div class="section" id="id1">
 <h4>Funktion<a class="headerlink" href="#id1" title="Link zu dieser Überschrift">¶</a></h4>
@@ -610,6 +628,114 @@ Die kann zum Beispiel beim ForeignKeyField verwendet werden, um die Auswahl einz
 </div>
 </div>
 </div>
+<div class="section" id="haserrors">
+<h3>hasErrors<a class="headerlink" href="#haserrors" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="id34">
+<h4>Funktion<a class="headerlink" href="#id34" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Überprüft, ob es beim setzen eines Feldes irgendwo einen Fehler gab.</p>
+</div>
+<div class="section" id="id35">
+<h4>Code<a class="headerlink" href="#id35" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">protected</span> <span class="k">function</span> <span class="nf">hasErrors</span><span class="p">(){</span>
+
+    <span class="k">foreach</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">fields</span> <span class="k">as</span> <span class="nv">$field</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="nv">$field</span><span class="o">-&gt;</span><span class="na">hasErrors</span><span class="p">()){</span>
+            <span class="k">return</span> <span class="k">TRUE</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="k">FALSE</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="update">
+<h3>update<a class="headerlink" href="#update" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="id36">
+<h4>Parameter<a class="headerlink" href="#id36" title="Link zu dieser Überschrift">¶</a></h4>
+<p><em>$force (FALSE): Bool</em> - Soll auch geupdatet werden, wenn versucht wurde einen ungültigen Wert in ein Feld einzutragen?</p>
+</div>
+<div class="section" id="id37">
+<h4>Funktion<a class="headerlink" href="#id37" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Updated die Reihe in der SQL-Tabelle mit den neuen, über setField gesetzten Werten.</p>
+</div>
+<div class="section" id="id38">
+<h4>Code<a class="headerlink" href="#id38" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">function</span> <span class="nf">update</span><span class="p">(</span><span class="nv">$force</span><span class="o">=</span><span class="k">FALSE</span><span class="p">){</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">hasErrors</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nv">$force</span><span class="p">){</span>
+        <span class="k">return</span> <span class="k">FALSE</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;UPDATE &quot;</span><span class="o">.</span><span class="k">static</span><span class="o">::</span><span class="nv">$tableName</span><span class="o">.</span><span class="s2">&quot; SET &quot;</span><span class="p">;</span>
+    <span class="nv">$values</span> <span class="o">=</span> <span class="p">[];</span>
+
+    <span class="k">foreach</span><span class="p">(</span><span class="nb">array_keys</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">fields</span><span class="p">)</span> <span class="k">as</span> <span class="nv">$field</span><span class="p">){</span>
+        <span class="nv">$sql</span> <span class="o">.=</span> <span class="nv">$field</span><span class="o">.</span><span class="s2">&quot;=?,&quot;</span><span class="p">;</span>
+        <span class="nv">$values</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">fields</span><span class="p">[</span><span class="nv">$field</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="nv">$sql</span> <span class="o">=</span> <span class="nb">rtrim</span><span class="p">(</span><span class="nv">$sql</span><span class="p">,</span> <span class="s1">&#39;,&#39;</span><span class="p">);</span>
+
+    <span class="nv">$sql</span> <span class="o">.=</span> <span class="s2">&quot; WHERE id=?&quot;</span><span class="p">;</span>
+    <span class="nv">$values</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">fields</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+
+    <span class="nv">$success</span> <span class="o">=</span> <span class="k">static</span><span class="o">::</span><span class="na">statement</span><span class="p">(</span><span class="nv">$sql</span><span class="p">,</span> <span class="nv">$values</span><span class="p">);</span>
+    <span class="k">return</span> <span class="k">TRUE</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="create">
+<h3>create<a class="headerlink" href="#create" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="id39">
+<h4>Parameter<a class="headerlink" href="#id39" title="Link zu dieser Überschrift">¶</a></h4>
+<p><em>$force (FALSE): Bool</em> - Soll die Zeile auch erstellt werden, wenn versucht wurde einen ungültigen Wert in ein Feld einzutragen?</p>
+</div>
+<div class="section" id="id40">
+<h4>Funktion<a class="headerlink" href="#id40" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Trägt eine neue Zeile mit den Werten der Felder in die Datenbank ein.</p>
+</div>
+<div class="section" id="id41">
+<h4>Code<a class="headerlink" href="#id41" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">function</span> <span class="nf">create</span><span class="p">(</span><span class="nv">$force</span><span class="o">=</span><span class="k">FALSE</span><span class="p">){</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">hasErrors</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nv">$force</span><span class="p">){</span>
+        <span class="k">return</span> <span class="k">FALSE</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nv">$columns</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+    <span class="nv">$value_spaces</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+    <span class="nv">$values</span> <span class="o">=</span> <span class="p">[];</span>
+
+    <span class="k">foreach</span><span class="p">(</span><span class="nb">array_keys</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">fields</span><span class="p">)</span> <span class="k">as</span> <span class="nv">$field</span><span class="p">){</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="nv">$field</span> <span class="o">!=</span> <span class="s1">&#39;id&#39;</span><span class="p">){</span>
+            <span class="nv">$columns</span> <span class="o">.=</span> <span class="nv">$field</span><span class="o">.</span><span class="s2">&quot;, &quot;</span><span class="p">;</span>
+            <span class="nv">$value_spaces</span> <span class="o">.=</span> <span class="s2">&quot;?, &quot;</span><span class="p">;</span>
+
+            <span class="nv">$values</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">fields</span><span class="p">[</span><span class="nv">$field</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+        <span class="p">}</span>
+
+    <span class="p">}</span>
+
+    <span class="nv">$columns</span> <span class="o">=</span> <span class="nb">rtrim</span><span class="p">(</span><span class="nv">$columns</span><span class="p">,</span> <span class="s1">&#39;, &#39;</span><span class="p">);</span>
+    <span class="nv">$value_spaces</span> <span class="o">=</span> <span class="nb">rtrim</span><span class="p">(</span><span class="nv">$value_spaces</span><span class="p">,</span> <span class="s1">&#39;, &#39;</span><span class="p">);</span>
+
+    <span class="nv">$sql</span> <span class="o">=</span> <span class="s2">&quot;INSERT INTO &quot;</span><span class="o">.</span><span class="k">static</span><span class="o">::</span><span class="nv">$tableName</span><span class="o">.</span><span class="s2">&quot; (&quot;</span><span class="o">.</span><span class="nv">$columns</span><span class="o">.</span><span class="s2">&quot;) VALUES (&quot;</span><span class="o">.</span><span class="nv">$value_spaces</span><span class="o">.</span><span class="s2">&quot;)&quot;</span><span class="p">;</span>
+
+    <span class="nv">$success</span> <span class="o">=</span> <span class="k">static</span><span class="o">::</span><span class="na">statement</span><span class="p">(</span><span class="nv">$sql</span><span class="p">,</span> <span class="nv">$values</span><span class="p">);</span>
+    <span class="k">return</span> <span class="k">TRUE</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
@@ -620,6 +746,8 @@ Die kann zum Beispiel beim ForeignKeyField verwendet werden, um die Auswahl einz
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="authModel.html" class="btn btn-neutral float-right" title="AuthModel" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="error.html" class="btn btn-neutral" title="BaseError" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

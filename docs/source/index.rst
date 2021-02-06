@@ -3,18 +3,18 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Tracely - MVC Framework's documentation!
-===================================================
+Tracely - MVC Framework Dokumentation
+=====================================
 
 .. toctree::
    :maxdepth: 3
-   :caption: Contents:
 
    getStartet
    controller
    mixin
    error
    model
+   authModel
 
 
 

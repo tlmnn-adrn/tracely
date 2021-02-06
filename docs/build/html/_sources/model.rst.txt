@@ -67,10 +67,9 @@ statement
 Parameter
 ~~~~~~~~~
 
-*$sql: String*
+*$sql: String* - Der SQL Befehl, als prepared Statement
 
-
-*$values: Array*
+*$values: Array* - Die Werte, die in das prepared Statement eingetragen werden sollen
 
 Funktion
 ~~~~~~~~
@@ -433,5 +432,121 @@ Code
         if(method_exists($this->fields[$field], 'setOptions')){
             return $this->fields[$field]->setOptions($options);
         }
+
+    }
+
+hasErrors
+.........
+
+Funktion
+~~~~~~~~
+
+Überprüft, ob es beim setzen eines Feldes irgendwo einen Fehler gab.
+
+Code
+~~~~
+
+.. code-block:: php
+
+    protected function hasErrors(){
+
+        foreach($this->fields as $field){
+            if($field->hasErrors()){
+                return TRUE;
+            }
+        }
+
+        return FALSE;
+
+    }
+
+update
+......
+
+Parameter
+~~~~~~~~~
+
+*$force (FALSE): Bool* - Soll auch geupdatet werden, wenn versucht wurde einen ungültigen Wert in ein Feld einzutragen?
+
+Funktion
+~~~~~~~~
+
+Updated die Reihe in der SQL-Tabelle mit den neuen, über setField gesetzten Werten.
+
+Code
+~~~~
+
+.. code-block:: php
+
+    public function update($force=FALSE){
+
+        if($this->hasErrors() && !$force){
+            return FALSE;
+        }
+
+        $sql = "UPDATE ".static::$tableName." SET ";
+        $values = [];
+
+        foreach(array_keys($this->fields) as $field){
+            $sql .= $field."=?,";
+            $values[] = $this->fields[$field]->get();
+        }
+
+        $sql = rtrim($sql, ',');
+
+        $sql .= " WHERE id=?";
+        $values[] = $this->fields['id']->get();
+
+        $success = static::statement($sql, $values);
+        return TRUE;
+
+    }
+
+create
+......
+
+Parameter
+~~~~~~~~~
+
+*$force (FALSE): Bool* - Soll die Zeile auch erstellt werden, wenn versucht wurde einen ungültigen Wert in ein Feld einzutragen?
+
+Funktion
+~~~~~~~~
+
+Trägt eine neue Zeile mit den Werten der Felder in die Datenbank ein.
+
+Code
+~~~~
+
+.. code-block:: php
+
+    public function create($force=FALSE){
+
+        if($this->hasErrors() && !$force){
+            return FALSE;
+        }
+
+        $columns = "";
+        $value_spaces = "";
+        $values = [];
+
+        foreach(array_keys($this->fields) as $field){
+
+            if($field != 'id'){
+                $columns .= $field.", ";
+                $value_spaces .= "?, ";
+
+                $values[] = $this->fields[$field]->get();
+            }
+
+        }
+
+        $columns = rtrim($columns, ', ');
+        $value_spaces = rtrim($value_spaces, ', ');
+
+        $sql = "INSERT INTO ".static::$tableName." (".$columns.") VALUES (".$value_spaces.")";
+
+        $success = static::statement($sql, $values);
+        return TRUE;
 
     }
