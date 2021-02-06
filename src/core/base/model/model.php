@@ -91,7 +91,7 @@
                 }
             }
 
-            return NULL;
+            return FALSE;
 
 
         }

@@ -13,5 +13,6 @@
         "toLongError"=>"Der angegebene Text ist zu lang.",
         "notUniqueError"=>"Bitte wähle einen anderen Wert für dieses Feld. Dieser Wert ist schon vergeben.",
         "setIdError"=>"Du hast versucht, eine Neue Id zuzuweisen. Dies ist nicht möglich.",
+        "foreignKeyDoesntExist"=>"Diese Option gibt es!",
 
     ];

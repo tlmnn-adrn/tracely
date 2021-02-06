@@ -20,7 +20,7 @@
                 return FALSE;
             }
 
-            return True;
+            return parent::checkValid($value);
 
         }
 
