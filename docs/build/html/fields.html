@@ -1,0 +1,1232 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="de" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="de" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Felder &mdash; Tracely - MVC Framework  Dokumentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
+    <link rel="search" title="Suche" href="search.html" />
+    <link rel="prev" title="AuthModel" href="authModel.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Tracely - MVC Framework
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getStartet.html">Erste Schritte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controller.html">Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mixin.html">Mixins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="error.html">BaseError</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authModel.html">AuthModel</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Felder</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#field">Field</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#code">Code</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#basefield">BaseField</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#funktion">Funktion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#attribute">Attribute</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#value">value</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#required">required</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unique">unique</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#errors">errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#errortypes">errorTypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#template">template</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#methoden">Methoden</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#construct">__construct</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get">get</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setvalue">setValue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#checkvalid">checkValid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#updatevalue">updateValue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#isunique">isUnique</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#equals">equals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#haserrors">hasErrors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#render">render</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#textfield">TextField</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id24">Attribute</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#maxlength">maxLength</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#mathoden">Mathoden</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id25">__construct</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id29">checkValid</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#emailfield">EmailField</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id33">Methoden</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id34">checkValid</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#integerfield">IntegerField</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id38">Methoden</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id39">checkValid</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#idfield">IdField</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id44">Methoden</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id45">__construct</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id49">updateValue</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#foreignkeyfield">ForeignKeyField</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id53">Attribute</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#model">model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#options">options</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id54">Methoden</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id55">checkValid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#list">list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setoptions">setOptions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id64">render</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#passwordfield">PasswordField</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id68">Attribute</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#minlength">minLength</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id69">Methoden</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id70">__construct</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id74">equals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id78">checkValid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hash">hash</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id85">updateValue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id89">render</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#plzfield">PlzField</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id93">Methoden</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id94">checkValid</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#telefonfield">TelefonField</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id99">Attribute</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#length">length</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id100">Methoden</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id101">checkValid</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Tracely - MVC Framework</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Felder</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/fields.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="felder">
+<h1>Felder<a class="headerlink" href="#felder" title="Link zu dieser Überschrift">¶</a></h1>
+<p>Felder (fields) sind dazu da, umm im Modell einzustellen, welche Spalten eine Tabelle in der Datenbank hat. Ein Feld entspricht
+dabei einer Zeile. Es gibt verschiedene Arten von Feldern, die für verschiedene Datentypen gedacht sind.</p>
+<div class="section" id="field">
+<h2>Field<a class="headerlink" href="#field" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Bei Field handelt es sich um ein Interface. Es gibt viele Felder, die Field implementieren.</p>
+<div class="section" id="code">
+<h3>Code<a class="headerlink" href="#code" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">interface</span> <span class="nx">Field</span><span class="p">{</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">get</span><span class="p">();</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setValue</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">updateValue</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="nv">$unique</span><span class="p">);</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">equals</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">isUnique</span><span class="p">();</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">hasErrors</span><span class="p">();</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">render</span><span class="p">(</span><span class="nv">$name</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="basefield">
+<h2>BaseField<a class="headerlink" href="#basefield" title="Link zu dieser Überschrift">¶</a></h2>
+<div class="section" id="funktion">
+<h3>Funktion<a class="headerlink" href="#funktion" title="Link zu dieser Überschrift">¶</a></h3>
+<p>BaseField dient vor allem dazu, eine Basis zu stellen, welche andere Felder erweitern.</p>
+</div>
+<div class="section" id="attribute">
+<h3>Attribute<a class="headerlink" href="#attribute" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="value">
+<h4>value<a class="headerlink" href="#value" title="Link zu dieser Überschrift">¶</a></h4>
+<p><em>Typ:          String</em></p>
+<p><em>Sichtbarkeit: Protected</em></p>
+<p><em>Static:       Nein</em></p>
+<p>Der Wert des Feldes in der Datenbank.</p>
+</div>
+<div class="section" id="required">
+<h4>required<a class="headerlink" href="#required" title="Link zu dieser Überschrift">¶</a></h4>
+<p><em>Typ:          Bool</em></p>
+<p><em>Sichtbarkeit: Protected</em></p>
+<p><em>Static:       Nein</em></p>
+<p>Gibt an, ob das Feld zwingend benötigt wird.</p>
+</div>
+<div class="section" id="unique">
+<h4>unique<a class="headerlink" href="#unique" title="Link zu dieser Überschrift">¶</a></h4>
+<p><em>Typ:          Bool</em></p>
+<p><em>Sichtbarkeit: Protected</em></p>
+<p><em>Static:       Nein</em></p>
+<p>Gibt an, ob das Feld einzigartig ist.</p>
+</div>
+<div class="section" id="errors">
+<h4>errors<a class="headerlink" href="#errors" title="Link zu dieser Überschrift">¶</a></h4>
+<p><em>Typ:          Array</em></p>
+<p><em>Sichtbarkeit: Protected</em></p>
+<p><em>Static:       Nein</em></p>
+<p>Hier werden Fehlermeldungen von Versuchen gespeichert, dem Feld einen ungültigen Wert zuzuweisen.</p>
+</div>
+<div class="section" id="errortypes">
+<h4>errorTypes<a class="headerlink" href="#errortypes" title="Link zu dieser Überschrift">¶</a></h4>
+<p><em>Typ:          Array</em></p>
+<p><em>Sichtbarkeit: Protected</em></p>
+<p><em>Static:       Nein</em></p>
+<p>Hier werden alle Texte von Fehlermeldungen gespeichert.</p>
+</div>
+<div class="section" id="template">
+<h4>template<a class="headerlink" href="#template" title="Link zu dieser Überschrift">¶</a></h4>
+<p><em>Typ:          String</em></p>
+<p><em>Sichtbarkeit: Protected</em></p>
+<p><em>Static:       Nein</em></p>
+<p>Das Template, welches gerendert werden soll, wenn die Methode <em>render()</em> aufgerufen wird.</p>
+</div>
+</div>
+<div class="section" id="methoden">
+<h3>Methoden<a class="headerlink" href="#methoden" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="construct">
+<h4>__construct<a class="headerlink" href="#construct" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="section" id="parameter">
+<h5>Parameter<a class="headerlink" href="#parameter" title="Link zu dieser Überschrift">¶</a></h5>
+<p><em>$value (‚‘): String</em> - Der Wert des Feldes in der Datenbank</p>
+<p><em>$required (FALSE): Bool</em> - Ob das Feld required ist</p>
+<p><em>$unique (FALSE): Bool</em> - Ob das Feld unique ist</p>
+</div>
+<div class="section" id="id1">
+<h5>Funktion<a class="headerlink" href="#id1" title="Link zu dieser Überschrift">¶</a></h5>
+<p>Schreibt die ursprünglichen Werte in die Attribute der Klasse.</p>
+</div>
+<div class="section" id="id2">
+<h5>Code<a class="headerlink" href="#id2" title="Link zu dieser Überschrift">¶</a></h5>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$value</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nv">$required</span><span class="o">=</span><span class="k">FALSE</span><span class="p">,</span> <span class="nv">$unique</span><span class="o">=</span><span class="k">FALSE</span><span class="p">){</span>
+
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">value</span> <span class="o">=</span> <span class="nv">$value</span><span class="p">;</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">required</span> <span class="o">=</span> <span class="nv">$required</span><span class="p">;</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">unique</span> <span class="o">=</span> <span class="nv">$unique</span><span class="p">;</span>
+
+    <span class="k">require</span> <span class="s1">&#39;core/base/model/fields/errors.php&#39;</span><span class="p">;</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">errorTypes</span> <span class="o">=</span> <span class="nv">$errorTypes</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="get">
+<h4>get<a class="headerlink" href="#get" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="section" id="id3">
+<h5>Funktion<a class="headerlink" href="#id3" title="Link zu dieser Überschrift">¶</a></h5>
+<p>Ausgabe des Wertes des Feldes.</p>
+</div>
+<div class="section" id="id4">
+<h5>Code<a class="headerlink" href="#id4" title="Link zu dieser Überschrift">¶</a></h5>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="nf">get</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">value</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="setvalue">
+<h4>setValue<a class="headerlink" href="#setvalue" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="section" id="id5">
+<h5>Parameter<a class="headerlink" href="#id5" title="Link zu dieser Überschrift">¶</a></h5>
+<p><em>$value: String</em> - Der Wert auf den das Feld gesetzt werden soll.</p>
+</div>
+<div class="section" id="id6">
+<h5>Funktion<a class="headerlink" href="#id6" title="Link zu dieser Überschrift">¶</a></h5>
+<p>Setzen des Wertes des Feldes, ohne Überprüfung auf Gültigkeit.</p>
+</div>
+<div class="section" id="id7">
+<h5>Code<a class="headerlink" href="#id7" title="Link zu dieser Überschrift">¶</a></h5>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="nf">setValue</span><span class="p">(</span><span class="nv">$value</span><span class="p">){</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">value</span> <span class="o">=</span> <span class="nv">$value</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="checkvalid">
+<h4>checkValid<a class="headerlink" href="#checkvalid" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="section" id="id8">
+<h5>Parameter<a class="headerlink" href="#id8" title="Link zu dieser Überschrift">¶</a></h5>
+<p><em>$value: String</em> - Der Wert des Feldes, der auf Gültigkeit überprüft werden soll.</p>
+</div>
+<div class="section" id="id9">
+<h5>Funktion<a class="headerlink" href="#id9" title="Link zu dieser Überschrift">¶</a></h5>
+<p>Überprüft den aktellen Parameter auf gültigkeit.</p>
+</div>
+<div class="section" id="id10">
+<h5>Code<a class="headerlink" href="#id10" title="Link zu dieser Überschrift">¶</a></h5>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="nf">checkValid</span><span class="p">(</span><span class="nv">$value</span><span class="p">){</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">required</span> <span class="o">&amp;&amp;</span> <span class="nb">strlen</span><span class="p">(</span><span class="nv">$value</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">errors</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">errorTypes</span><span class="p">[</span><span class="s1">&#39;requiredButEmptyError&#39;</span><span class="p">];</span>
+
+        <span class="k">return</span> <span class="k">FALSE</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="k">True</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="updatevalue">
+<h4>updateValue<a class="headerlink" href="#updatevalue" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="section" id="id11">
+<h5>Parameter<a class="headerlink" href="#id11" title="Link zu dieser Überschrift">¶</a></h5>
+<p><em>$value: String</em> - Der Wert auf den das Feld gesetzt werden soll.</p>
+<p><em>$unique: Bool</em> - Vom Modell wird dabei übergeben, ob es schon ein anderes Feld in der Datenbank mit dem Wert gibt</p>
+</div>
+<div class="section" id="id12">
+<h5>Funktion<a class="headerlink" href="#id12" title="Link zu dieser Überschrift">¶</a></h5>
+<p>Überprüft den angegebenen Wert auf Gültigkeit. Wenn er gültig ist, wird das Attribut <em>$value</em> mit dem neuen Wert überschrieben.</p>
+</div>
+<div class="section" id="id13">
+<h5>Code<a class="headerlink" href="#id13" title="Link zu dieser Überschrift">¶</a></h5>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="nf">updateValue</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="nv">$unique</span><span class="p">){</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">unique</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nv">$unique</span><span class="p">){</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">errors</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">errorTypes</span><span class="p">[</span><span class="s1">&#39;notUniqueError&#39;</span><span class="p">];</span>
+        <span class="k">return</span> <span class="k">FALSE</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">checkValid</span><span class="p">(</span><span class="nv">$value</span><span class="p">)){</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setValue</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+        <span class="k">return</span> <span class="k">TRUE</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="k">FALSE</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="isunique">
+<h4>isUnique<a class="headerlink" href="#isunique" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="section" id="id14">
+<h5>Funktion<a class="headerlink" href="#id14" title="Link zu dieser Überschrift">¶</a></h5>
+<p>Returnt, ob das Feld unique ist.</p>
+</div>
+<div class="section" id="id15">
+<h5>Code<a class="headerlink" href="#id15" title="Link zu dieser Überschrift">¶</a></h5>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="nf">isUnique</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">unique</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="equals">
+<h4>equals<a class="headerlink" href="#equals" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="section" id="id16">
+<h5>Parameter<a class="headerlink" href="#id16" title="Link zu dieser Überschrift">¶</a></h5>
+<p><em>$value: String</em> - Der Wert mit dem das Feld verglichen werden soll.</p>
+</div>
+<div class="section" id="id17">
+<h5>Funktion<a class="headerlink" href="#id17" title="Link zu dieser Überschrift">¶</a></h5>
+<p>Prüft, ob der angegebene Parameter mit dem Wert des Feldes übereinstimmt.</p>
+</div>
+<div class="section" id="id18">
+<h5>Code<a class="headerlink" href="#id18" title="Link zu dieser Überschrift">¶</a></h5>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="nf">equals</span><span class="p">(</span><span class="nv">$value</span><span class="p">){</span>
+    <span class="k">return</span><span class="p">(</span><span class="nv">$value</span><span class="o">==</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">value</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="haserrors">
+<h4>hasErrors<a class="headerlink" href="#haserrors" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="section" id="id19">
+<h5>Funktion<a class="headerlink" href="#id19" title="Link zu dieser Überschrift">¶</a></h5>
+<p>Überprüft, ob es erfolglose Versuche gab, den Wert des Feldes neu zu setzen.</p>
+</div>
+<div class="section" id="id20">
+<h5>Code<a class="headerlink" href="#id20" title="Link zu dieser Überschrift">¶</a></h5>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="nf">hasErrors</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">errors</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="render">
+<h4>render<a class="headerlink" href="#render" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="section" id="id21">
+<h5>Parameter<a class="headerlink" href="#id21" title="Link zu dieser Überschrift">¶</a></h5>
+<p><em>$name: String</em> - Der Name des Input-Feldes</p>
+<p><em>$placeholder: String</em> - Der Placeholder der angezeigt werden soll. Leer, wenn keiner angezeigt werden soll.</p>
+<p><em>$class: String</em> - Hier können Klassen für das Input-Feld festgelegt werden.</p>
+</div>
+<div class="section" id="id22">
+<h5>Funktion<a class="headerlink" href="#id22" title="Link zu dieser Überschrift">¶</a></h5>
+<p>Rendert das zu dem Feldtyp gehörige Input-Feld.</p>
+</div>
+<div class="section" id="id23">
+<h5>Code<a class="headerlink" href="#id23" title="Link zu dieser Überschrift">¶</a></h5>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="nf">render</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$placeholder</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="nv">$class</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">){</span>
+
+    <span class="nv">$path</span> <span class="o">=</span> <span class="s1">&#39;core/base/model/fields/templates/&#39;</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">template</span><span class="p">;</span>
+    <span class="k">require</span><span class="p">(</span><span class="nv">$path</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="textfield">
+<h2>TextField<a class="headerlink" href="#textfield" title="Link zu dieser Überschrift">¶</a></h2>
+<p>extends BaseField</p>
+<div class="section" id="id24">
+<h3>Attribute<a class="headerlink" href="#id24" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="maxlength">
+<h4>maxLength<a class="headerlink" href="#maxlength" title="Link zu dieser Überschrift">¶</a></h4>
+<p><em>Typ:          Int</em></p>
+<p><em>Sichtbarkeit: Protected</em></p>
+<p><em>Static:       Nein</em></p>
+<p>Die maximale Länge, die der Wert des Textfeldes haben darf.</p>
+</div>
+</div>
+<div class="section" id="mathoden">
+<h3>Mathoden<a class="headerlink" href="#mathoden" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="id25">
+<h4>__construct<a class="headerlink" href="#id25" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="section" id="id26">
+<h5>Parameter<a class="headerlink" href="#id26" title="Link zu dieser Überschrift">¶</a></h5>
+<p><em>$value (‚‘): String</em> - Der Wert des Feldes in der Datenbank</p>
+<p><em>$required (FALSE): Bool</em> - Ob das Feld required ist</p>
+<p><em>$unique (FALSE): Bool</em> - Ob das Feld unique ist</p>
+<p><em>$maxLength (255): Int</em> - Die maximale Länge des Wertes</p>
+</div>
+<div class="section" id="id27">
+<h5>Funktion<a class="headerlink" href="#id27" title="Link zu dieser Überschrift">¶</a></h5>
+<p>Schreibt die ursprünglichen Werte in die Attribute der Klasse.</p>
+</div>
+<div class="section" id="id28">
+<h5>Code<a class="headerlink" href="#id28" title="Link zu dieser Überschrift">¶</a></h5>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$value</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nv">$required</span><span class="o">=</span><span class="k">FALSE</span><span class="p">,</span> <span class="nv">$unique</span><span class="o">=</span><span class="k">FALSE</span><span class="p">,</span> <span class="nv">$maxLength</span><span class="o">=</span><span class="mi">255</span><span class="p">){</span>
+
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">maxLength</span> <span class="o">=</span> <span class="nv">$maxLength</span><span class="p">;</span>
+    <span class="k">return</span> <span class="k">parent</span><span class="o">::</span><span class="na">__construct</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="nv">$required</span><span class="p">,</span> <span class="nv">$unique</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id29">
+<h4>checkValid<a class="headerlink" href="#id29" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="section" id="id30">
+<h5>Parameter<a class="headerlink" href="#id30" title="Link zu dieser Überschrift">¶</a></h5>
+<p><em>$value: String</em> - Der Wert, der überprüft werden soll</p>
+</div>
+<div class="section" id="id31">
+<h5>Funktion<a class="headerlink" href="#id31" title="Link zu dieser Überschrift">¶</a></h5>
+<p>Überprüft den aktellen Parameter auf gültigkeit.</p>
+</div>
+<div class="section" id="id32">
+<h5>Code<a class="headerlink" href="#id32" title="Link zu dieser Überschrift">¶</a></h5>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="nf">checkValid</span><span class="p">(</span><span class="nv">$value</span><span class="p">){</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nb">strlen</span><span class="p">(</span><span class="nv">$value</span><span class="p">)</span><span class="o">&gt;</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">maxLength</span><span class="p">){</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">errors</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">errorTypes</span><span class="p">[</span><span class="s1">&#39;toLongError&#39;</span><span class="p">];</span>
+
+        <span class="k">return</span> <span class="k">FALSE</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="k">parent</span><span class="o">::</span><span class="na">checkValid</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="emailfield">
+<h2>EmailField<a class="headerlink" href="#emailfield" title="Link zu dieser Überschrift">¶</a></h2>
+<p>extends TextField</p>
+<div class="section" id="id33">
+<h3>Methoden<a class="headerlink" href="#id33" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="id34">
+<h4>checkValid<a class="headerlink" href="#id34" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="section" id="id35">
+<h5>Parameter<a class="headerlink" href="#id35" title="Link zu dieser Überschrift">¶</a></h5>
+<p><em>$value: String</em> - Der Wert, der überprüft werden soll</p>
+</div>
+<div class="section" id="id36">
+<h5>Funktion<a class="headerlink" href="#id36" title="Link zu dieser Überschrift">¶</a></h5>
+<p>Überprüft den aktellen Parameter auf gültigkeit.
+Es wird auch überprüft, ob es sich um eine gültige E-Mail Adresse handelt.</p>
+</div>
+<div class="section" id="quellen">
+<h5>Quellen<a class="headerlink" href="#quellen" title="Link zu dieser Überschrift">¶</a></h5>
+<p><a class="reference external" href="https://www.php.net/manual/de/filter.examples.validation.php">https://www.php.net/manual/de/filter.examples.validation.php</a></p>
+</div>
+<div class="section" id="id37">
+<h5>Code<a class="headerlink" href="#id37" title="Link zu dieser Überschrift">¶</a></h5>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="nf">checkValid</span><span class="p">(</span><span class="nv">$value</span><span class="p">){</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nb">filter_var</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="nx">FILTER_VALIDATE_EMAIL</span><span class="p">)){</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">errors</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">errorTypes</span><span class="p">[</span><span class="s1">&#39;invalidEmailError&#39;</span><span class="p">];</span>
+
+        <span class="k">return</span> <span class="k">FALSE</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="k">parent</span><span class="o">::</span><span class="na">checkValid</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="integerfield">
+<h2>IntegerField<a class="headerlink" href="#integerfield" title="Link zu dieser Überschrift">¶</a></h2>
+<p>extends BaseField</p>
+<div class="section" id="id38">
+<h3>Methoden<a class="headerlink" href="#id38" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="id39">
+<h4>checkValid<a class="headerlink" href="#id39" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="section" id="id40">
+<h5>Parameter<a class="headerlink" href="#id40" title="Link zu dieser Überschrift">¶</a></h5>
+<p><em>$value: String</em> - Der Wert, der überprüft werden soll</p>
+</div>
+<div class="section" id="id41">
+<h5>Funktion<a class="headerlink" href="#id41" title="Link zu dieser Überschrift">¶</a></h5>
+<p>Überprüft den aktellen Parameter auf gültigkeit.
+Es wird auch überprüft, ob es sich um einen numerischen Wert handelt.</p>
+</div>
+<div class="section" id="id42">
+<h5>Quellen<a class="headerlink" href="#id42" title="Link zu dieser Überschrift">¶</a></h5>
+<p><a class="reference external" href="https://stackoverflow.com/questions/7649752/php-is-numeric-or-preg-match-0-9-validation">https://stackoverflow.com/questions/7649752/php-is-numeric-or-preg-match-0-9-validation</a></p>
+</div>
+<div class="section" id="id43">
+<h5>Code<a class="headerlink" href="#id43" title="Link zu dieser Überschrift">¶</a></h5>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="nf">checkValid</span><span class="p">(</span><span class="nv">$value</span><span class="p">){</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">required</span> <span class="o">&amp;&amp;</span> <span class="nv">$value</span> <span class="o">==</span> <span class="k">NULL</span><span class="p">){</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">errors</span><span class="p">[]</span> <span class="o">=</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">errorTypes</span><span class="p">[</span><span class="s1">&#39;requiredButEmptyError&#39;</span><span class="p">];</span>
+
+        <span class="k">return</span> <span class="k">FALSE</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nb">preg_match</span><span class="p">(</span><span class="s1">&#39;/^[0-9]+$/&#39;</span><span class="p">,</span> <span class="nv">$value</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nb">is_int</span><span class="p">(</span><span class="nv">$value</span><span class="p">)){</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">errors</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">errorTypes</span><span class="p">[</span><span class="s1">&#39;textInNumberFieldError&#39;</span><span class="p">];</span>
+
+        <span class="k">return</span> <span class="k">FALSE</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="k">parent</span><span class="o">::</span><span class="na">checkValid</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="idfield">
+<h2>IdField<a class="headerlink" href="#idfield" title="Link zu dieser Überschrift">¶</a></h2>
+<p>extends IntegerField</p>
+<div class="section" id="id44">
+<h3>Methoden<a class="headerlink" href="#id44" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="id45">
+<h4>__construct<a class="headerlink" href="#id45" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="section" id="id46">
+<h5>Parameter<a class="headerlink" href="#id46" title="Link zu dieser Überschrift">¶</a></h5>
+<p><em>$value (‚‘): String</em> - Der Wert des Feldes in der Datenbank</p>
+</div>
+<div class="section" id="id47">
+<h5>Funktion<a class="headerlink" href="#id47" title="Link zu dieser Überschrift">¶</a></h5>
+<p>Schreibt die ursprünglichen Werte in die Attribute der Klasse.
+Ein IdField ist immer required und unique.</p>
+</div>
+<div class="section" id="id48">
+<h5>Code<a class="headerlink" href="#id48" title="Link zu dieser Überschrift">¶</a></h5>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$value</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">){</span>
+
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">value</span> <span class="o">=</span> <span class="nv">$value</span><span class="p">;</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">required</span> <span class="o">=</span> <span class="k">TRUE</span><span class="p">;</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">unique</span> <span class="o">=</span> <span class="k">TRUE</span><span class="p">;</span>
+
+    <span class="k">require</span> <span class="s1">&#39;core/base/model/fields/errors.php&#39;</span><span class="p">;</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">errorTypes</span> <span class="o">=</span> <span class="nv">$errorTypes</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id49">
+<h4>updateValue<a class="headerlink" href="#id49" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="section" id="id50">
+<h5>Parameter<a class="headerlink" href="#id50" title="Link zu dieser Überschrift">¶</a></h5>
+<p><em>$value: String</em> - Der Wert auf den das Feld gesetzt werden soll.</p>
+<p><em>$unique: Bool</em> - Vom Modell wird dabei übergeben, ob es schon ein anderes Feld in der Datenbank mit dem Wert gibt</p>
+</div>
+<div class="section" id="id51">
+<h5>Funktion<a class="headerlink" href="#id51" title="Link zu dieser Überschrift">¶</a></h5>
+<p>Erzeugt nur eine Fehlermeldung. Der Wert des Id-Fields sollte nicht geändert werden.</p>
+</div>
+<div class="section" id="id52">
+<h5>Code<a class="headerlink" href="#id52" title="Link zu dieser Überschrift">¶</a></h5>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="nf">updateValue</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="nv">$unique</span><span class="p">){</span>
+
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">errors</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">errorTypes</span><span class="p">[</span><span class="s1">&#39;setIdError&#39;</span><span class="p">];</span>
+
+    <span class="k">return</span> <span class="k">FALSE</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="foreignkeyfield">
+<h2>ForeignKeyField<a class="headerlink" href="#foreignkeyfield" title="Link zu dieser Überschrift">¶</a></h2>
+<p>extends IntegerField</p>
+<div class="section" id="id53">
+<h3>Attribute<a class="headerlink" href="#id53" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="model">
+<h4>model<a class="headerlink" href="#model" title="Link zu dieser Überschrift">¶</a></h4>
+<p><em>Typ:          String</em></p>
+<p><em>Sichtbarkeit: Protected</em></p>
+<p><em>Static:       Nein</em></p>
+<p>Das Model, zu welchem der ForeignKey verweist.</p>
+</div>
+<div class="section" id="options">
+<h4>options<a class="headerlink" href="#options" title="Link zu dieser Überschrift">¶</a></h4>
+<p><em>Typ:          Array</em></p>
+<p><em>Sichtbarkeit: Protected</em></p>
+<p><em>Static:       Nein</em></p>
+<p>Eine Liste der möglichen Auswahloptionen. Wenn sie leer ist, wird davon ausgegangen, dass alle Objekte des anderen Modells verwendt werden können.</p>
+</div>
+</div>
+<div class="section" id="id54">
+<h3>Methoden<a class="headerlink" href="#id54" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="id55">
+<h4>checkValid<a class="headerlink" href="#id55" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="section" id="id56">
+<h5>Parameter<a class="headerlink" href="#id56" title="Link zu dieser Überschrift">¶</a></h5>
+<p><em>$value: String</em> - Der Wert, der überprüft werden soll</p>
+</div>
+<div class="section" id="id57">
+<h5>Funktion<a class="headerlink" href="#id57" title="Link zu dieser Überschrift">¶</a></h5>
+<p>Überprüft den aktellen Parameter auf gültigkeit.
+Es wird auch überprüft, ob es in der anderen Tabelle wirklich eine Zeile mit dieser id gibt.</p>
+</div>
+<div class="section" id="id58">
+<h5>Code<a class="headerlink" href="#id58" title="Link zu dieser Überschrift">¶</a></h5>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="nf">checkValid</span><span class="p">(</span><span class="nv">$value</span><span class="p">){</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">model</span><span class="o">::</span><span class="na">getById</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="k">FALSE</span><span class="p">)){</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">errors</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">errorTypes</span><span class="p">[</span><span class="s1">&#39;foreignKeyDoesntExist&#39;</span><span class="p">];</span>
+        <span class="k">return</span> <span class="k">FALSE</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="k">parent</span><span class="o">::</span><span class="na">checkValid</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="list">
+<h4>list<a class="headerlink" href="#list" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="section" id="id59">
+<h5>Funktion<a class="headerlink" href="#id59" title="Link zu dieser Überschrift">¶</a></h5>
+<p>Returnt die Liste der Optionen. Ist diese leer, wird eine Liste mit allen Modellen des anderen Modells returnt.</p>
+</div>
+<div class="section" id="id60">
+<h5>Code<a class="headerlink" href="#id60" title="Link zu dieser Überschrift">¶</a></h5>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">protected</span> <span class="k">function</span> <span class="nf">list</span><span class="p">(){</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nb">count</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">){</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">model</span><span class="o">::</span><span class="na">list</span><span class="p">();</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="setoptions">
+<h4>setOptions<a class="headerlink" href="#setoptions" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="section" id="id61">
+<h5>Parameter<a class="headerlink" href="#id61" title="Link zu dieser Überschrift">¶</a></h5>
+<p><em>$options ([]): Array</em> - Liste möglicher Auswahloptionen</p>
+</div>
+<div class="section" id="id62">
+<h5>Funktion<a class="headerlink" href="#id62" title="Link zu dieser Überschrift">¶</a></h5>
+<p>Setzen der möglichen Modelle, zu denen dieser ForeignKey verweisen kann.</p>
+</div>
+<div class="section" id="id63">
+<h5>Code<a class="headerlink" href="#id63" title="Link zu dieser Überschrift">¶</a></h5>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="nf">setOptions</span><span class="p">(</span><span class="nv">$options</span><span class="o">=</span><span class="p">[]){</span>
+
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span> <span class="o">=</span> <span class="nv">$options</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id64">
+<h4>render<a class="headerlink" href="#id64" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="section" id="id65">
+<h5>Parameter<a class="headerlink" href="#id65" title="Link zu dieser Überschrift">¶</a></h5>
+<p><em>$name: String</em> - Der Name des Input-Feldes</p>
+<p><em>$placeholder: String</em> - Der Placeholder der angezeigt werden soll. Leer, wenn keiner angezeigt werden soll.</p>
+<p><em>$class: String</em> - Hier können Klassen für das Input-Feld festgelegt werden.</p>
+</div>
+<div class="section" id="id66">
+<h5>Funktion<a class="headerlink" href="#id66" title="Link zu dieser Überschrift">¶</a></h5>
+<p>Rendert ein Select-Feld in HTML mit den <em>$options</em> als Auswahlmöglichkeit.</p>
+</div>
+<div class="section" id="id67">
+<h5>Code<a class="headerlink" href="#id67" title="Link zu dieser Überschrift">¶</a></h5>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="nf">render</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$placeholder</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nv">$class</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">){</span>
+
+    <span class="nv">$options</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">list</span><span class="p">();</span>
+
+    <span class="nv">$path</span> <span class="o">=</span> <span class="s1">&#39;core/base/model/fields/templates/&#39;</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">template</span><span class="p">;</span>
+    <span class="k">require</span><span class="p">(</span><span class="nv">$path</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="passwordfield">
+<h2>PasswordField<a class="headerlink" href="#passwordfield" title="Link zu dieser Überschrift">¶</a></h2>
+<p>extends BaseField</p>
+<div class="section" id="id68">
+<h3>Attribute<a class="headerlink" href="#id68" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="minlength">
+<h4>minLength<a class="headerlink" href="#minlength" title="Link zu dieser Überschrift">¶</a></h4>
+<p><em>Typ:          Int</em></p>
+<p><em>Sichtbarkeit: Protected</em></p>
+<p><em>Static:       Nein</em></p>
+<p>Die Mindestlänge des Passwort.</p>
+</div>
+</div>
+<div class="section" id="id69">
+<h3>Methoden<a class="headerlink" href="#id69" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="id70">
+<h4>__construct<a class="headerlink" href="#id70" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="section" id="id71">
+<h5>Parameter<a class="headerlink" href="#id71" title="Link zu dieser Überschrift">¶</a></h5>
+<p><em>$value (‚‘): String</em> - Der Wert des Feldes in der Datenbank</p>
+<p><em>$minLength (6): Int</em> - Die Mindestlänge des Passwortes</p>
+</div>
+<div class="section" id="id72">
+<h5>Funktion<a class="headerlink" href="#id72" title="Link zu dieser Überschrift">¶</a></h5>
+<p>Schreibt die ursprünglichen Werte in die Attribute der Klasse.</p>
+</div>
+<div class="section" id="id73">
+<h5>Code<a class="headerlink" href="#id73" title="Link zu dieser Überschrift">¶</a></h5>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$value</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nv">$minLength</span><span class="o">=</span><span class="mi">6</span><span class="p">){</span>
+
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">minLength</span> <span class="o">=</span> <span class="nv">$minLength</span><span class="p">;</span>
+    <span class="k">return</span> <span class="k">parent</span><span class="o">::</span><span class="na">__construct</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="k">TRUE</span><span class="p">,</span> <span class="k">FALSE</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id74">
+<h4>equals<a class="headerlink" href="#id74" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="section" id="id75">
+<h5>Parameter<a class="headerlink" href="#id75" title="Link zu dieser Überschrift">¶</a></h5>
+<p><em>$value: String</em> - Das eingegebene Passwort</p>
+</div>
+<div class="section" id="id76">
+<h5>Funktion<a class="headerlink" href="#id76" title="Link zu dieser Überschrift">¶</a></h5>
+<p>Prüft, ob das eingegebene Passwort korrekt ist.</p>
+</div>
+<div class="section" id="id77">
+<h5>Code<a class="headerlink" href="#id77" title="Link zu dieser Überschrift">¶</a></h5>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="nf">equals</span><span class="p">(</span><span class="nv">$value</span><span class="p">){</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">value</span><span class="o">==</span><span class="s2">&quot;&quot;</span><span class="p">){</span>
+        <span class="k">return</span> <span class="k">TRUE</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nb">password_verify</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">value</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id78">
+<h4>checkValid<a class="headerlink" href="#id78" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="section" id="id79">
+<h5>Parameter<a class="headerlink" href="#id79" title="Link zu dieser Überschrift">¶</a></h5>
+<p><em>$value: String</em> - Der Wert des Feldes, der auf Gültigkeit überprüft werden soll.</p>
+</div>
+<div class="section" id="id80">
+<h5>Funktion<a class="headerlink" href="#id80" title="Link zu dieser Überschrift">¶</a></h5>
+<p>Überprüft den aktellen Parameter auf gültigkeit. Dabei wird auch überprüft, ob das neue Passwort lang genug ist.</p>
+</div>
+<div class="section" id="id81">
+<h5>Code<a class="headerlink" href="#id81" title="Link zu dieser Überschrift">¶</a></h5>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="nf">checkValid</span><span class="p">(</span><span class="nv">$value</span><span class="p">){</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nb">strlen</span><span class="p">(</span><span class="nv">$value</span><span class="p">)</span><span class="o">&lt;</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">minLength</span><span class="p">){</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">errors</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">errorTypes</span><span class="p">[</span><span class="s1">&#39;passwordShortError&#39;</span><span class="p">];</span>
+
+        <span class="k">return</span> <span class="k">FALSE</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="k">parent</span><span class="o">::</span><span class="na">checkValid</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="hash">
+<h4>hash<a class="headerlink" href="#hash" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="section" id="id82">
+<h5>Parameter<a class="headerlink" href="#id82" title="Link zu dieser Überschrift">¶</a></h5>
+<p><em>$value: String</em> - Das zu hashende Passwort</p>
+</div>
+<div class="section" id="id83">
+<h5>Funktion<a class="headerlink" href="#id83" title="Link zu dieser Überschrift">¶</a></h5>
+<p>Hasht das Pangegebene Passwort.</p>
+</div>
+<div class="section" id="id84">
+<h5>Code<a class="headerlink" href="#id84" title="Link zu dieser Überschrift">¶</a></h5>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="nf">hash</span><span class="p">(</span><span class="nv">$value</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nb">password_hash</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="nx">PASSWORD_DEFAULT</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id85">
+<h4>updateValue<a class="headerlink" href="#id85" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="section" id="id86">
+<h5>Parameter<a class="headerlink" href="#id86" title="Link zu dieser Überschrift">¶</a></h5>
+<p><em>$value: String</em> - Der Wert auf den das Feld gesetzt werden soll.</p>
+<p><em>$unique: Bool</em> - Wird ignoriert</p>
+<p><em>$repeatetValue: String</em> - Beim registrieren und Passwort ändern die zweite Eingabe des Passwortes</p>
+<p><em>$oldValue: String</em> - Beim Passwort ändern das alte Passwort</p>
+</div>
+<div class="section" id="id87">
+<h5>Funktion<a class="headerlink" href="#id87" title="Link zu dieser Überschrift">¶</a></h5>
+<p>Überprüft den angegebenen Wert auf Gültigkeit.
+Beim Registrieren und Passwort ändern wird auch überprüft, ob beide eingegebenen Passwörter identisch waren.
+Beim Ändern des Passwortes wird auch überprüft, ob das alte Passwort korrekt ist.
+Wenn er gültig ist, wird das Attribut <em>$value</em> mit dem neuen Wert überschrieben.</p>
+</div>
+<div class="section" id="id88">
+<h5>Code<a class="headerlink" href="#id88" title="Link zu dieser Überschrift">¶</a></h5>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="nf">updateValue</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="nv">$unique</span><span class="p">,</span> <span class="nv">$repeatValue</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nv">$oldValue</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">){</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nv">$repeatValue</span><span class="o">!=</span><span class="nv">$value</span><span class="p">){</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">errors</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">errorTypes</span><span class="p">[</span><span class="s1">&#39;passwordsDontMatchError&#39;</span><span class="p">];</span>
+
+        <span class="k">return</span> <span class="k">FALSE</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">equals</span><span class="p">(</span><span class="nv">$oldValue</span><span class="p">)){</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">errors</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">errorTypes</span><span class="p">[</span><span class="s1">&#39;oldPasswordWrongError&#39;</span><span class="p">];</span>
+
+        <span class="k">return</span> <span class="k">FALSE</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">checkValid</span><span class="p">(</span><span class="nv">$value</span><span class="p">)){</span>
+        <span class="nv">$value</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">hash</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setValue</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+        <span class="k">return</span> <span class="k">TRUE</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="k">FALSE</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id89">
+<h4>render<a class="headerlink" href="#id89" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="section" id="id90">
+<h5>Parameter<a class="headerlink" href="#id90" title="Link zu dieser Überschrift">¶</a></h5>
+<p><em>$name: String</em> - Der Name des Input-Feldes</p>
+<p><em>$placeholder: String</em> - Der Placeholder der angezeigt werden soll. Leer, wenn keiner angezeigt werden soll.</p>
+<p><em>$class: String</em> - Hier können Klassen für das Input-Feld festgelegt werden.</p>
+<p><em>$type: String</em> - Gibt an, ob das Passwortfeld im Kontext einer Anmeldung / Registrierung / Passwortänderung angezeigt werden soll.</p>
+</div>
+<div class="section" id="id91">
+<h5>Funktion<a class="headerlink" href="#id91" title="Link zu dieser Überschrift">¶</a></h5>
+<p>Rendert das zu dem Feldtyp gehörige Input-Feld.
+Unterscheidet zwischen Anmeldung, Registrierung und Passwortänderung.</p>
+</div>
+<div class="section" id="id92">
+<h5>Code<a class="headerlink" href="#id92" title="Link zu dieser Überschrift">¶</a></h5>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="nf">render</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$placeholder</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="nv">$class</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="nv">$type</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">){</span>
+
+    <span class="nv">$path</span> <span class="o">=</span> <span class="s1">&#39;core/base/model/fields/templates/&#39;</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">template</span><span class="p">;</span>
+    <span class="k">require</span><span class="p">(</span><span class="nv">$path</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="plzfield">
+<h2>PlzField<a class="headerlink" href="#plzfield" title="Link zu dieser Überschrift">¶</a></h2>
+<p>extends BaseField</p>
+<div class="section" id="id93">
+<h3>Methoden<a class="headerlink" href="#id93" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="id94">
+<h4>checkValid<a class="headerlink" href="#id94" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="section" id="id95">
+<h5>Parameter<a class="headerlink" href="#id95" title="Link zu dieser Überschrift">¶</a></h5>
+<p><em>$value: String</em> - Der Wert des Feldes, der auf Gültigkeit überprüft werden soll.</p>
+</div>
+<div class="section" id="id96">
+<h5>Funktion<a class="headerlink" href="#id96" title="Link zu dieser Überschrift">¶</a></h5>
+<p>Überprüft den aktellen Parameter auf gültigkeit.
+Es wird dabei auch überprüft, ob die Postleitzahl auch wirklich 5 Stellen lang und numerisch ist.</p>
+</div>
+<div class="section" id="id97">
+<h5>Quellen<a class="headerlink" href="#id97" title="Link zu dieser Überschrift">¶</a></h5>
+<p><a class="reference external" href="https://stackoverflow.com/questions/48496291/check-if-string-only-contains-numbers-in-php">https://stackoverflow.com/questions/48496291/check-if-string-only-contains-numbers-in-php</a></p>
+</div>
+<div class="section" id="id98">
+<h5>Code<a class="headerlink" href="#id98" title="Link zu dieser Überschrift">¶</a></h5>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="nf">checkValid</span><span class="p">(</span><span class="nv">$value</span><span class="p">){</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nb">strlen</span><span class="p">(</span><span class="nv">$value</span><span class="p">)</span><span class="o">!=</span><span class="mi">5</span><span class="p">){</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">errors</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">errorTypes</span><span class="p">[</span><span class="s1">&#39;plzError&#39;</span><span class="p">];</span>
+
+        <span class="k">return</span> <span class="k">FALSE</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">preg_match</span><span class="p">(</span><span class="s1">&#39;/^[0-9]+$/&#39;</span><span class="p">,</span> <span class="nv">$value</span><span class="p">)){</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">errors</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">errorTypes</span><span class="p">[</span><span class="s1">&#39;textInNumberFieldError&#39;</span><span class="p">];</span>
+
+        <span class="k">return</span> <span class="k">FALSE</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="k">parent</span><span class="o">::</span><span class="na">checkValid</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="telefonfield">
+<h2>TelefonField<a class="headerlink" href="#telefonfield" title="Link zu dieser Überschrift">¶</a></h2>
+<p>extends BaseField</p>
+<div class="section" id="id99">
+<h3>Attribute<a class="headerlink" href="#id99" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="length">
+<h4>length<a class="headerlink" href="#length" title="Link zu dieser Überschrift">¶</a></h4>
+<p><em>Typ:          int</em></p>
+<p><em>Sichtbarkeit: Protected</em></p>
+<p><em>Static:       Nein</em></p>
+<p>Gibt die benötigte Länge der Telefonnummer an (standartmäßig 13).</p>
+</div>
+</div>
+<div class="section" id="id100">
+<h3>Methoden<a class="headerlink" href="#id100" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="id101">
+<h4>checkValid<a class="headerlink" href="#id101" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="section" id="id102">
+<h5>Parameter<a class="headerlink" href="#id102" title="Link zu dieser Überschrift">¶</a></h5>
+<p><em>$value: String</em> - Der Wert des Feldes, der auf Gültigkeit überprüft werden soll.</p>
+</div>
+<div class="section" id="id103">
+<h5>Funktion<a class="headerlink" href="#id103" title="Link zu dieser Überschrift">¶</a></h5>
+<p>Überprüft den aktellen Parameter auf gültigkeit.
+Es wird auch überprüft, ob es sich um eine gültige Telefonnnummer handelt.</p>
+</div>
+<div class="section" id="id104">
+<h5>Quellen<a class="headerlink" href="#id104" title="Link zu dieser Überschrift">¶</a></h5>
+<p><a class="reference external" href="https://www.xspdf.com/resolution/56792114.html">https://www.xspdf.com/resolution/56792114.html</a></p>
+</div>
+<div class="section" id="id105">
+<h5>Code<a class="headerlink" href="#id105" title="Link zu dieser Überschrift">¶</a></h5>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="nf">checkValid</span><span class="p">(</span><span class="nv">$value</span><span class="p">){</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nb">strlen</span><span class="p">(</span><span class="nv">$value</span><span class="p">)</span> <span class="o">!=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">length</span><span class="p">){</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">errors</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">errorTypes</span><span class="p">[</span><span class="s1">&#39;notAPhoneNumberError&#39;</span><span class="p">];</span>
+
+        <span class="k">return</span> <span class="k">False</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nb">preg_match</span><span class="p">(</span><span class="s2">&quot;/^[0-9\-\(\)\/\+\s]*$/&quot;</span><span class="p">,</span> <span class="nv">$value</span><span class="p">)){</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">errors</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">errorTypes</span><span class="p">[</span><span class="s1">&#39;notAPhoneNumberError&#39;</span><span class="p">];</span>
+
+        <span class="k">return</span> <span class="k">False</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="k">parent</span><span class="o">::</span><span class="na">checkValid</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="authModel.html" class="btn btn-neutral" title="AuthModel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Tilmann Adrian, Jakob Großer.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            LANGUAGE:'de',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
+      });
+  </script> 
+
+</body>
+</html>
