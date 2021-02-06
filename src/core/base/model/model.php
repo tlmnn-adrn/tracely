@@ -4,9 +4,9 @@
 
         //Festlegen der Verbindungsangaben zur Datenbank
 
-        static $pdo;
+        private static $pdo;
 
-        static $tableName;
+        protected static $tableName;
 
         public static function __constructStatic(){
 
@@ -52,7 +52,7 @@
 
         //Anzeigen einiger Objekte in der Tabelle der aufrufenden Unterklasse
         //Wie list() nur mit einem WHERE im SQL Statement
-        public static function filtered_list($filter, $filter_values){
+        protected static function filtered_list($filter, $filter_values){
 
             $results = [];
             $statement = self::statement('SELECT * FROM '.static::$tableName.' WHERE '.$filter, $filter_values);
@@ -68,7 +68,7 @@
 
         //Anzeigen eines Objektes in der Tabelle der aufrufenden Unterklasse
         //Wie die filtered_list, nur dass es nur ein Ergebnisobjekt geben darf
-        public static function get($filter, $filter_values, $error=TRUE){
+        protected static function get($filter, $filter_values, $error=TRUE){
 
             $results = [];
             $statement = self::statement('SELECT * FROM '.static::$tableName.' WHERE '.$filter, $filter_values);
@@ -103,12 +103,6 @@
             return static::get($filter, $values, $error);
         }
 
-        public function __toString()
-        {
-            return $this->getField('id');
-        }
-
-
         //------------------------------Non-Static------------------------------
 
         protected $fields;
@@ -127,6 +121,11 @@
 
             }
 
+        }
+        
+        public function __toString()
+        {
+            return $this->getField('id');
         }
 
         public function getField($field){

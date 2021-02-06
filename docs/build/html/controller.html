@@ -1,0 +1,420 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="de" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="de" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Controller &mdash; Tracely - MVC Framework  Dokumentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
+    <link rel="search" title="Suche" href="search.html" />
+    <link rel="next" title="Mixins" href="mixin.html" />
+    <link rel="prev" title="Erste Schritte" href="getStartet.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Tracely - MVC Framework
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getStartet.html">Erste Schritte</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Controller</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#attribute">Attribute</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#template">template</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#templatepath">templatePath</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#templatemobilepath">templateMobilePath</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#methoden">Methoden</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#construct">__construct</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#parameter">Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#funktion">Funktion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#code">Code</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#post-und-get">post und get</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Funktion</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#render">render</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Funktion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Code</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#ismobile">isMobile</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id6">Funktion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quellen">Quellen</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">Code</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#extend">extend</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id8">Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">Funktion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">Code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mixin.html">Mixins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="error.html">BaseError</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Model</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Tracely - MVC Framework</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Controller</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/controller.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="controller">
+<h1>Controller<a class="headerlink" href="#controller" title="Link zu dieser Überschrift">¶</a></h1>
+<div class="section" id="attribute">
+<h2>Attribute<a class="headerlink" href="#attribute" title="Link zu dieser Überschrift">¶</a></h2>
+<div class="section" id="template">
+<h3>template<a class="headerlink" href="#template" title="Link zu dieser Überschrift">¶</a></h3>
+<p><em>Type: String</em></p>
+<p><em>Sichtbarkeit: Protected</em></p>
+<p><em>Static:       Nein</em></p>
+<p>Gibt den Pfad des Templates relativ zum Template-Ordner an</p>
+</div>
+<div class="section" id="templatepath">
+<h3>templatePath<a class="headerlink" href="#templatepath" title="Link zu dieser Überschrift">¶</a></h3>
+<p><em>Type: String</em></p>
+<p><em>Sichtbarkeit: Protected</em></p>
+<p><em>Static:       Nein</em></p>
+<p>Gibt den Pfad des Ordners für Templates relativ zum root Ordner an.</p>
+</div>
+<div class="section" id="templatemobilepath">
+<h3>templateMobilePath<a class="headerlink" href="#templatemobilepath" title="Link zu dieser Überschrift">¶</a></h3>
+<p><em>Type: String</em></p>
+<p><em>Sichtbarkeit: Protected</em></p>
+<p><em>Static:       Nein</em></p>
+<p>Gibt den Pfad des Ordners für Templates für mobile Geräte relativ zum root Ordner an.</p>
+</div>
+</div>
+<div class="section" id="methoden">
+<h2>Methoden<a class="headerlink" href="#methoden" title="Link zu dieser Überschrift">¶</a></h2>
+<div class="section" id="construct">
+<h3>__construct<a class="headerlink" href="#construct" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="parameter">
+<h4>Parameter<a class="headerlink" href="#parameter" title="Link zu dieser Überschrift">¶</a></h4>
+<p><em>$arguments: Array</em> - Die in der URL übergebenen Parameter</p>
+</div>
+<div class="section" id="funktion">
+<h4>Funktion<a class="headerlink" href="#funktion" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Die Construct-Funktion führt zuerst die Init-Funktion aller Mixins aus, die eine haben.
+Dann wird unterschieden, ob es einen Post- oder Get-request gab. Bei dem Post-request wird
+die Funktion post() des Controllers aufgerufen. Bei einem Get-request die Funktion get();
+Der aufgerufenen Funktion werden der Request und die in der URL enthaltenen Argumente übergeben.</p>
+</div>
+<div class="section" id="code">
+<h4>Code<a class="headerlink" href="#code" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$arguments</span><span class="p">){</span>
+
+    <span class="k">foreach</span><span class="p">(</span><span class="nb">class_uses</span><span class="p">(</span><span class="nv">$this</span><span class="p">)</span> <span class="k">as</span> <span class="nv">$mixin</span><span class="p">){</span>
+        <span class="nv">$functionName</span> <span class="o">=</span> <span class="nb">lcfirst</span><span class="p">(</span><span class="nv">$mixin</span><span class="p">)</span><span class="o">.</span><span class="s1">&#39;Init&#39;</span><span class="p">;</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="nb">method_exists</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span> <span class="nv">$functionName</span><span class="p">)){</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="nv">$functionName</span><span class="p">(</span><span class="nv">$arguments</span><span class="p">);</span>
+        <span class="p">}</span>
+
+    <span class="p">}</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;REQUEST_METHOD&#39;</span><span class="p">]</span> <span class="o">===</span> <span class="s1">&#39;POST&#39;</span><span class="p">){</span>
+                <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">,</span> <span class="o">...</span><span class="nv">$arguments</span><span class="p">);</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">,</span> <span class="o">...</span><span class="nv">$arguments</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="post-und-get">
+<h3>post und get<a class="headerlink" href="#post-und-get" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="id1">
+<h4>Parameter<a class="headerlink" href="#id1" title="Link zu dieser Überschrift">¶</a></h4>
+<p><em>$request: Array</em> - <em>$_POST</em> oder <em>$_GET</em></p>
+<p><em>…$arguments: Array</em> - Die in der URL übergebenen Parameter</p>
+</div>
+<div class="section" id="id2">
+<h4>Funktion<a class="headerlink" href="#id2" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Es handelt sich hierbei um abstrakte Funktionen.
+Die Funktionen sollen dabei beschreiben, was passiert, wenn die Seite mit einem Post- / Get- Request aufgerufen wurde.</p>
+</div>
+</div>
+<div class="section" id="render">
+<h3>render<a class="headerlink" href="#render" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="id3">
+<h4>Parameter<a class="headerlink" href="#id3" title="Link zu dieser Überschrift">¶</a></h4>
+<p><em>$context ([]): Array</em> - Die übergebenen Werte, welche in das Template eingetragen werden sollen</p>
+</div>
+<div class="section" id="id4">
+<h4>Funktion<a class="headerlink" href="#id4" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Zuerst wird der Pfad des Templates relativ zum root des Servers berechnet.
+Dann entpackt die Funktion all Variablen aus dem Context, so dass sie mit ihrem Key als Variablennamen ansprechbar sind.
+Als letztes wird die Template Seite aufgerufen und angezeigt.</p>
+</div>
+<div class="section" id="id5">
+<h4>Code<a class="headerlink" href="#id5" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">protected</span> <span class="k">function</span> <span class="nf">render</span><span class="p">(</span><span class="nv">$context</span><span class="o">=</span><span class="p">[]){</span>
+
+    <span class="nv">$path</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">extend</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">template</span><span class="p">);</span>
+
+    <span class="nb">extract</span><span class="p">(</span><span class="nv">$context</span><span class="p">);</span>
+    <span class="k">require</span><span class="p">(</span><span class="nv">$path</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ismobile">
+<h3>isMobile<a class="headerlink" href="#ismobile" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="id6">
+<h4>Funktion<a class="headerlink" href="#id6" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Diese Funktion unterscheidet, ob der Aufruf von einem Desktop oder einem mobilen Gerät kam.
+Wurde sie von einem mobilen aufgerufen, returnt sie TRUE;</p>
+</div>
+<div class="section" id="quellen">
+<h4>Quellen<a class="headerlink" href="#quellen" title="Link zu dieser Überschrift">¶</a></h4>
+<p><em>https://www.geeksforgeeks.org/how-to-detect-a-mobile-device-using-php/</em></p>
+</div>
+<div class="section" id="id7">
+<h4>Code<a class="headerlink" href="#id7" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">protected</span> <span class="k">function</span> <span class="nf">isMobile</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="nb">preg_match</span><span class="p">(</span><span class="s2">&quot;/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i&quot;</span> <span class="p">,</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s2">&quot;HTTP_USER_AGENT&quot;</span><span class="p">]);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="extend">
+<h3>extend<a class="headerlink" href="#extend" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="id8">
+<h4>Parameter<a class="headerlink" href="#id8" title="Link zu dieser Überschrift">¶</a></h4>
+<p><em>$template: String</em> - Der Ort des Templates relativ zum Template-Ordner</p>
+</div>
+<div class="section" id="id9">
+<h4>Funktion<a class="headerlink" href="#id9" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Zuerst unterscheidet die render-funktion, ob es die Seite von einem mobilen Gerät aufgerufen wurde.
+Ist dies der Fall und ist für die Seite ein Template für mobile Geräte hinterlegt, wird der Pfad für
+das mobile Template in die Variable <em>$path</em> geschrieben. Ansonsten wird der Pfad für das Desktop-Template
+in diese Variable geschrieben.</p>
+</div>
+<div class="section" id="id10">
+<h4>Code<a class="headerlink" href="#id10" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">protected</span> <span class="k">function</span> <span class="nf">extend</span><span class="p">(</span><span class="nv">$template</span><span class="p">){</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">isMobile</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="nb">file_exists</span><span class="p">(</span><span class="s1">&#39;app/templateMobile/&#39;</span><span class="o">.</span><span class="nv">$template</span><span class="p">)){</span>
+        <span class="nv">$path</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">templateMobilePath</span><span class="o">.</span><span class="nv">$template</span><span class="p">;</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="nv">$path</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">templatePath</span><span class="o">.</span><span class="nv">$template</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nv">$path</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="mixin.html" class="btn btn-neutral float-right" title="Mixins" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="getStartet.html" class="btn btn-neutral" title="Erste Schritte" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Tilmann Adrian, Jakob Großer.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            LANGUAGE:'de',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
+      });
+  </script> 
+
+</body>
+</html>

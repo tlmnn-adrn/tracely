@@ -1,0 +1,685 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="de" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="de" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Model &mdash; Tracely - MVC Framework  Dokumentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
+    <link rel="search" title="Suche" href="search.html" />
+    <link rel="prev" title="BaseError" href="error.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Tracely - MVC Framework
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getStartet.html">Erste Schritte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controller.html">Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mixin.html">Mixins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="error.html">BaseError</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#attribute">Attribute</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pdo">pdo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tablename">tableName</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fields">fields</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#methoden">Methoden</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#constructstatic">__constructStatic</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#funktion">Funktion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#code">Code</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#statement">statement</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#parameter">Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Funktion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Code</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#list">list</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Funktion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Code</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#filtered-list">filtered_list</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">Funktion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">Code</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#get">get</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id8">Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">Funktion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">Code</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#getbyid">getById</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id11">Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">Funktion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13">Code</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#construct">__construct</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id14">Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id15">Funktion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16">Code</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#tostring">__toString()</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id17">Funktion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id18">Code</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#getfield">getField</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id19">Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id20">Funktion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id21">Code</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#valueunique">valueUnique</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id22">Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id23">Funktion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id24">Code</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#setfield">setField</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id25">Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id26">Funktion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id27">Code</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#renderfield">renderField</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id28">Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id29">Funktion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id30">Code</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#setfieldoptions">setFieldOptions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id31">Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id32">Funktion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id33">Code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Tracely - MVC Framework</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Model</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/model.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="model">
+<h1>Model<a class="headerlink" href="#model" title="Link zu dieser Überschrift">¶</a></h1>
+<div class="section" id="attribute">
+<h2>Attribute<a class="headerlink" href="#attribute" title="Link zu dieser Überschrift">¶</a></h2>
+<div class="section" id="pdo">
+<h3>pdo<a class="headerlink" href="#pdo" title="Link zu dieser Überschrift">¶</a></h3>
+<p><em>Typ:          PDO</em></p>
+<p><em>Sichtbarkeit: Private</em></p>
+<p><em>Static:       Ja</em></p>
+<p>Hier wird die PDO Instanz gespeichert.</p>
+</div>
+<div class="section" id="tablename">
+<h3>tableName<a class="headerlink" href="#tablename" title="Link zu dieser Überschrift">¶</a></h3>
+<p><em>Typ:          String</em></p>
+<p><em>Sichtbarkeit: Protected</em></p>
+<p><em>Static:       Ja</em></p>
+<p>Hier wird der Tabellenname eines Modells gespeichert.</p>
+</div>
+<div class="section" id="fields">
+<h3>fields<a class="headerlink" href="#fields" title="Link zu dieser Überschrift">¶</a></h3>
+<p><em>Typ:          Array</em></p>
+<p><em>Sichtbarkeit: Protected</em></p>
+<p><em>Static:       Nein</em></p>
+<p>Die Spalten der Tabelle. Der Key des jeweiligen Feldes sollte dem Namen der Spalte genau entsprechen. Das id Feld wird automatisch hinzugefügt.</p>
+</div>
+</div>
+<div class="section" id="methoden">
+<h2>Methoden<a class="headerlink" href="#methoden" title="Link zu dieser Überschrift">¶</a></h2>
+<div class="section" id="constructstatic">
+<h3>__constructStatic<a class="headerlink" href="#constructstatic" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="funktion">
+<h4>Funktion<a class="headerlink" href="#funktion" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Stellt die Verbindung mit der Datenbank her. Wir zu diesem Zweck am Anfang des Programms aufgerufen.</p>
+</div>
+<div class="section" id="code">
+<h4>Code<a class="headerlink" href="#code" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span> <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">__constructStatic</span><span class="p">(){</span>
+
+    <span class="nv">$dsn</span> <span class="o">=</span> <span class="s1">&#39;mysql:host=&#39;</span><span class="o">.</span><span class="nv">$_ENV</span><span class="p">[</span><span class="s1">&#39;DBhost&#39;</span><span class="p">]</span><span class="o">.</span><span class="s1">&#39;;dbname=&#39;</span><span class="o">.</span><span class="nv">$_ENV</span><span class="p">[</span><span class="s1">&#39;DBname&#39;</span><span class="p">]</span><span class="o">.</span><span class="s1">&#39;;charset=utf8&#39;</span><span class="p">;</span>
+    <span class="nx">self</span><span class="o">::</span><span class="nv">$pdo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PDO</span><span class="p">(</span><span class="nv">$dsn</span><span class="p">,</span> <span class="nv">$_ENV</span><span class="p">[</span><span class="s1">&#39;DBuser&#39;</span><span class="p">],</span> <span class="nv">$_ENV</span><span class="p">[</span><span class="s1">&#39;DBpassword&#39;</span><span class="p">]);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="statement">
+<h3>statement<a class="headerlink" href="#statement" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="parameter">
+<h4>Parameter<a class="headerlink" href="#parameter" title="Link zu dieser Überschrift">¶</a></h4>
+<p><em>$sql: String</em></p>
+<p><em>$values: Array</em></p>
+</div>
+<div class="section" id="id1">
+<h4>Funktion<a class="headerlink" href="#id1" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Führt den als <em>$sql</em> übergebenen Query mit dem Array <em>$values</em> als Werte aus.</p>
+</div>
+<div class="section" id="id2">
+<h4>Code<a class="headerlink" href="#id2" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">protected</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">statement</span><span class="p">(</span><span class="nv">$sql</span><span class="p">,</span> <span class="nv">$values</span><span class="o">=</span><span class="p">[]){</span>
+
+    <span class="nv">$statement</span> <span class="o">=</span> <span class="nx">self</span><span class="o">::</span><span class="nv">$pdo</span><span class="o">-&gt;</span><span class="na">prepare</span><span class="p">(</span><span class="nv">$sql</span><span class="p">);</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">(</span><span class="nv">$values</span><span class="p">)){</span>
+        <span class="k">return</span> <span class="nv">$statement</span><span class="p">;</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="k">new</span> <span class="nx">BaseError</span><span class="p">(</span><span class="s2">&quot;SQL&quot;</span><span class="p">,</span> <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">errorInfo</span><span class="p">()[</span><span class="mi">2</span><span class="p">],</span> <span class="mi">500</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="list">
+<h3>list<a class="headerlink" href="#list" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="id3">
+<h4>Funktion<a class="headerlink" href="#id3" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Returnt Array mit allen Zeilen der Tabelle.
+Die Zeilen wurden dabei schon in Objekte der dazugehörigen Model-Klasse geschrieben.</p>
+</div>
+<div class="section" id="id4">
+<h4>Code<a class="headerlink" href="#id4" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">list</span><span class="p">(){</span>
+
+    <span class="nv">$results</span> <span class="o">=</span> <span class="p">[];</span>
+
+    <span class="nv">$statement</span> <span class="o">=</span> <span class="nx">self</span><span class="o">::</span><span class="na">statement</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM &#39;</span><span class="o">.</span><span class="k">static</span><span class="o">::</span><span class="nv">$tableName</span><span class="p">);</span>
+
+    <span class="k">while</span><span class="p">(</span><span class="nv">$row</span> <span class="o">=</span> <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">fetch</span><span class="p">())</span> <span class="p">{</span>
+        <span class="nv">$object</span> <span class="o">=</span> <span class="k">new</span> <span class="k">static</span><span class="p">(</span><span class="nv">$row</span><span class="p">);</span>
+        <span class="nv">$results</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$object</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nv">$results</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="filtered-list">
+<h3>filtered_list<a class="headerlink" href="#filtered-list" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="id5">
+<h4>Parameter<a class="headerlink" href="#id5" title="Link zu dieser Überschrift">¶</a></h4>
+<p><em>$filter: String</em> - Der WHERE Teil des sql Statements, als prepared Statement</p>
+<p><em>$filter_values: Array</em> - Die Werte, die in das WHERE Statement eingetragen werden</p>
+</div>
+<div class="section" id="id6">
+<h4>Funktion<a class="headerlink" href="#id6" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Returnt Array mit allen Zeilen der Tabelle, die dem Filter entsprechen.
+Die Zeilen wurden dabei schon in Objekte der dazugehörigen Model-Klasse geschrieben.</p>
+</div>
+<div class="section" id="id7">
+<h4>Code<a class="headerlink" href="#id7" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">protected</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">filtered_list</span><span class="p">(</span><span class="nv">$filter</span><span class="p">,</span> <span class="nv">$filter_values</span><span class="p">){</span>
+
+    <span class="nv">$results</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="nv">$statement</span> <span class="o">=</span> <span class="nx">self</span><span class="o">::</span><span class="na">statement</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM &#39;</span><span class="o">.</span><span class="k">static</span><span class="o">::</span><span class="nv">$tableName</span><span class="o">.</span><span class="s1">&#39; WHERE &#39;</span><span class="o">.</span><span class="nv">$filter</span><span class="p">,</span> <span class="nv">$filter_values</span><span class="p">);</span>
+
+    <span class="k">while</span><span class="p">(</span><span class="nv">$row</span> <span class="o">=</span> <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">fetch</span><span class="p">())</span> <span class="p">{</span>
+        <span class="nv">$object</span> <span class="o">=</span> <span class="k">new</span> <span class="k">static</span><span class="p">(</span><span class="nv">$row</span><span class="p">);</span>
+        <span class="nv">$results</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$object</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nv">$results</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="get">
+<h3>get<a class="headerlink" href="#get" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="id8">
+<h4>Parameter<a class="headerlink" href="#id8" title="Link zu dieser Überschrift">¶</a></h4>
+<p><em>$filter: String</em> - Der WHERE Teil des sql Statements, als prepared Statement</p>
+<p><em>$filter_values: Array</em> - Die Werte, die in das WHERE Statement eingetragen werden</p>
+<p><em>$error (TRUE): Bool</em> - Stellt ein, ob eine 404 Meldung angezeigt werden soll, wenn die Seite nicht gefunden wurde</p>
+</div>
+<div class="section" id="id9">
+<h4>Funktion<a class="headerlink" href="#id9" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Returnt genau eine Zeile der Tabelle, welches dem Filter entspricht.
+Die Zeile wurde dabei schon in ein Objekt der dazugehörigen Klasse geschrieben.
+Sollte es kein oder mehr als ein Objekt geben, welches dem Filter entspricht, kann es je nach Einstellung zu einem 404-Fehler kommen.</p>
+</div>
+<div class="section" id="id10">
+<h4>Code<a class="headerlink" href="#id10" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">protected</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">get</span><span class="p">(</span><span class="nv">$filter</span><span class="p">,</span> <span class="nv">$filter_values</span><span class="p">,</span> <span class="nv">$error</span><span class="o">=</span><span class="k">TRUE</span><span class="p">){</span>
+
+    <span class="nv">$results</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="nv">$statement</span> <span class="o">=</span> <span class="nx">self</span><span class="o">::</span><span class="na">statement</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM &#39;</span><span class="o">.</span><span class="k">static</span><span class="o">::</span><span class="nv">$tableName</span><span class="o">.</span><span class="s1">&#39; WHERE &#39;</span><span class="o">.</span><span class="nv">$filter</span><span class="p">,</span> <span class="nv">$filter_values</span><span class="p">);</span>
+
+    <span class="nv">$rowCount</span> <span class="o">=</span> <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">rowCount</span><span class="p">();</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nv">$rowCount</span><span class="o">==</span><span class="mi">1</span><span class="p">){</span>
+        <span class="nv">$row</span> <span class="o">=</span> <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">fetch</span><span class="p">();</span>
+        <span class="nv">$object</span> <span class="o">=</span> <span class="k">new</span> <span class="k">static</span><span class="p">(</span><span class="nv">$row</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="nv">$object</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nv">$error</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="nv">$rowCount</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">){</span>
+            <span class="k">new</span> <span class="nx">BaseError</span><span class="p">(</span><span class="s2">&quot;404&quot;</span><span class="p">,</span> <span class="s2">&quot;Diese Seite wurde konnte nicht gefunden werden&quot;</span><span class="p">,</span> <span class="mi">404</span><span class="p">);</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="k">new</span> <span class="nx">BaseError</span><span class="p">(</span><span class="s2">&quot;500&quot;</span><span class="p">,</span> <span class="s2">&quot;Mehr als ein Objekt entspricht dem Filter. Verwende einen anderen Filter oder die filteredList Methode!&quot;</span><span class="p">,</span> <span class="mi">500</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="k">NULL</span><span class="p">;</span>
+
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="getbyid">
+<h3>getById<a class="headerlink" href="#getbyid" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="id11">
+<h4>Parameter<a class="headerlink" href="#id11" title="Link zu dieser Überschrift">¶</a></h4>
+<p><em>$id: Int</em> - Die Id des zu findenden Objektes</p>
+</div>
+<div class="section" id="id12">
+<h4>Funktion<a class="headerlink" href="#id12" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Returnt das Objekt der Tabelle mit der angegebenen id.</p>
+</div>
+<div class="section" id="id13">
+<h4>Code<a class="headerlink" href="#id13" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">getById</span><span class="p">(</span><span class="nv">$id</span><span class="p">,</span> <span class="nv">$error</span><span class="o">=</span><span class="k">TRUE</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$filter</span> <span class="o">=</span> <span class="s1">&#39;id = ?&#39;</span><span class="p">;</span>
+    <span class="nv">$values</span> <span class="o">=</span> <span class="p">[</span><span class="nv">$id</span><span class="p">];</span>
+
+    <span class="k">return</span> <span class="k">static</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="nv">$filter</span><span class="p">,</span> <span class="nv">$values</span><span class="p">,</span> <span class="nv">$error</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="construct">
+<h3>__construct<a class="headerlink" href="#construct" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="id14">
+<h4>Parameter<a class="headerlink" href="#id14" title="Link zu dieser Überschrift">¶</a></h4>
+<p><em>$values ([]): Array</em> - Ein Array mit schon vorhandenen Wertenm welche als Werte in die Felder eingetragen werden.</p>
+</div>
+<div class="section" id="id15">
+<h4>Funktion<a class="headerlink" href="#id15" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Fügt zuerst ein IdField unter dem Key id hinzu. Dann werden die als Parameter
+übergebenen Werte in die Felder eingetragen.</p>
+</div>
+<div class="section" id="id16">
+<h4>Code<a class="headerlink" href="#id16" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$values</span><span class="o">=</span><span class="p">[]){</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">fields</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">IdField</span><span class="p">();</span>
+
+        <span class="k">foreach</span><span class="p">(</span><span class="nb">array_keys</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">fields</span><span class="p">)</span> <span class="k">as</span> <span class="nv">$field</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">(</span><span class="nb">array_key_exists</span><span class="p">(</span><span class="nv">$field</span><span class="p">,</span> <span class="nv">$values</span><span class="p">)){</span>
+                <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">fields</span><span class="p">[</span><span class="nv">$field</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">setValue</span><span class="p">(</span><span class="nv">$values</span><span class="p">[</span><span class="nv">$field</span><span class="p">]);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+    <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="tostring">
+<h3>__toString()<a class="headerlink" href="#tostring" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="id17">
+<h4>Funktion<a class="headerlink" href="#id17" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Beschreibt, wie das Objekt zu einem String umgewandelt werden soll.</p>
+</div>
+<div class="section" id="id18">
+<h4>Code<a class="headerlink" href="#id18" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">function</span> <span class="fm">__toString</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getField</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="getfield">
+<h3>getField<a class="headerlink" href="#getfield" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="id19">
+<h4>Parameter<a class="headerlink" href="#id19" title="Link zu dieser Überschrift">¶</a></h4>
+<p><em>$field: String</em> - Das Feld, dessen Wert ausgegeben werden soll</p>
+</div>
+<div class="section" id="id20">
+<h4>Funktion<a class="headerlink" href="#id20" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Returnt den Wert eines Feldes</p>
+</div>
+<div class="section" id="id21">
+<h4>Code<a class="headerlink" href="#id21" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">function</span> <span class="nf">getField</span><span class="p">(</span><span class="nv">$field</span><span class="p">){</span>
+
+    <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">fields</span><span class="p">[</span><span class="nv">$field</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="valueunique">
+<h3>valueUnique<a class="headerlink" href="#valueunique" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="id22">
+<h4>Parameter<a class="headerlink" href="#id22" title="Link zu dieser Überschrift">¶</a></h4>
+<p><em>$field: String</em> - Das Feld, das überprüft werden soll</p>
+<p><em>$value: String</em> - Der Wert, auf den das Feld überprüft werden soll</p>
+</div>
+<div class="section" id="id23">
+<h4>Funktion<a class="headerlink" href="#id23" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Überprüft, ob es in der Tabelle schon eine andere Reihe mit diesem Wert in dieser Spalte gibt.</p>
+</div>
+<div class="section" id="id24">
+<h4>Code<a class="headerlink" href="#id24" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">private</span> <span class="k">function</span> <span class="nf">valueUnique</span><span class="p">(</span><span class="nv">$field</span><span class="p">,</span> <span class="nv">$value</span><span class="p">){</span>
+
+    <span class="nv">$statement</span> <span class="o">=</span> <span class="k">static</span><span class="o">::</span><span class="na">statement</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM &quot;</span><span class="o">.</span><span class="k">static</span><span class="o">::</span><span class="nv">$tableName</span><span class="o">.</span><span class="s2">&quot; WHERE &quot;</span><span class="o">.</span><span class="nv">$field</span><span class="o">.</span><span class="s2">&quot;=?&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nv">$value</span><span class="p">]);</span>
+    <span class="nv">$rowCount</span> <span class="o">=</span> <span class="nv">$statement</span><span class="o">-&gt;</span><span class="na">rowCount</span><span class="p">();</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nv">$rowCount</span> <span class="o">==</span> <span class="mi">1</span><span class="p">){</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">fields</span><span class="p">[</span><span class="nv">$field</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">equals</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+    <span class="p">}</span><span class="k">elseif</span><span class="p">(</span><span class="nv">$rowCount</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">){</span>
+        <span class="k">return</span> <span class="k">FALSE</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="k">TRUE</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="setfield">
+<h3>setField<a class="headerlink" href="#setfield" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="id25">
+<h4>Parameter<a class="headerlink" href="#id25" title="Link zu dieser Überschrift">¶</a></h4>
+<p><em>$field: String</em> - Das Feld, dessen Wert geändert werden soll</p>
+<p><em>$value: String</em> - Der Wert auf den das Feld gesetzt werden soll</p>
+<p><em>…$params: Parameterliste</em> - Weitere Parameter</p>
+</div>
+<div class="section" id="id26">
+<h4>Funktion<a class="headerlink" href="#id26" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Überprüft zuerst, wenn das Feld <em>unique</em> ist, ob es den Wert schon irgendwo anders in dieser Tabelle gibt.
+Ist dies nicht der Fall, wirddie Funktion updateValue eds zu ändernden Feldes aufgerufen, welche den Wert im Feld ändert.</p>
+</div>
+<div class="section" id="id27">
+<h4>Code<a class="headerlink" href="#id27" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">function</span> <span class="nf">setField</span><span class="p">(</span><span class="nv">$field</span><span class="p">,</span> <span class="nv">$value</span><span class="p">,</span> <span class="o">...</span><span class="nv">$params</span><span class="p">){</span>
+
+    <span class="nv">$unique</span> <span class="o">=</span> <span class="k">True</span><span class="p">;</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">fields</span><span class="p">[</span><span class="nv">$field</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">isUnique</span><span class="p">()){</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">valueUnique</span><span class="p">(</span><span class="nv">$field</span><span class="p">,</span> <span class="nv">$value</span><span class="p">)){</span>
+            <span class="nv">$unique</span> <span class="o">=</span> <span class="k">FALSE</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="nv">$success</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">fields</span><span class="p">[</span><span class="nv">$field</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">updateValue</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="nv">$unique</span><span class="p">,</span> <span class="o">...</span><span class="nv">$params</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="renderfield">
+<h3>renderField<a class="headerlink" href="#renderfield" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="id28">
+<h4>Parameter<a class="headerlink" href="#id28" title="Link zu dieser Überschrift">¶</a></h4>
+<p><em>$field: String</em> - Das Feld, welches angezeigt werden soll</p>
+<p><em>…$params: Parameterliste</em> - Weitere Parameter</p>
+</div>
+<div class="section" id="id29">
+<h4>Funktion<a class="headerlink" href="#id29" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Lässt das Input-Feld als HTML anzeigen. Dies vereinfacht das Erstellen einer <em>form</em>.</p>
+</div>
+<div class="section" id="id30">
+<h4>Code<a class="headerlink" href="#id30" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">function</span> <span class="nf">renderField</span><span class="p">(</span><span class="nv">$field</span><span class="p">,</span> <span class="o">...</span><span class="nv">$params</span><span class="p">){</span>
+
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">fields</span><span class="p">[</span><span class="nv">$field</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="nv">$field</span><span class="p">,</span> <span class="o">...</span><span class="nv">$params</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="setfieldoptions">
+<h3>setFieldOptions<a class="headerlink" href="#setfieldoptions" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="id31">
+<h4>Parameter<a class="headerlink" href="#id31" title="Link zu dieser Überschrift">¶</a></h4>
+<p><em>$field: String</em> - Das Feld, dessen Optionsliste geändert werden soll</p>
+<p><em>$options: Array</em> - Die Optionsliste, die gesetzt werden soll</p>
+</div>
+<div class="section" id="id32">
+<h4>Funktion<a class="headerlink" href="#id32" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Ruft, wenn das Feld die Methode <em>setOptions</em> hat, diese auf und setzt somit die Optionen, die man bei dem Feld auswählen kann.
+Die kann zum Beispiel beim ForeignKeyField verwendet werden, um die Auswahl einzuschränken.</p>
+</div>
+<div class="section" id="id33">
+<h4>Code<a class="headerlink" href="#id33" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">function</span> <span class="nf">setFieldOptions</span><span class="p">(</span><span class="nv">$field</span><span class="p">,</span> <span class="nv">$options</span><span class="p">){</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nb">method_exists</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">fields</span><span class="p">[</span><span class="nv">$field</span><span class="p">],</span> <span class="s1">&#39;setOptions&#39;</span><span class="p">)){</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">fields</span><span class="p">[</span><span class="nv">$field</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">setOptions</span><span class="p">(</span><span class="nv">$options</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="error.html" class="btn btn-neutral" title="BaseError" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Tilmann Adrian, Jakob Großer.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            LANGUAGE:'de',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
+      });
+  </script> 
+
+</body>
+</html>

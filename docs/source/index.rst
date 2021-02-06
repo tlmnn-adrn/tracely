@@ -11,6 +11,10 @@ Welcome to Tracely - MVC Framework's documentation!
    :caption: Contents:
 
    getStartet
+   controller
+   mixin
+   error
+   model
 
 
 

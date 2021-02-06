@@ -38,12 +38,7 @@
         //$context sind die Variablen, die in das Template eingefügt werden
         protected function render($context=[]){
 
-            //Wenn die Seite von einem Hany aufgerufen wird, wird ein anderes Template angezeigt, sollte dies vorhanden sein
-            if($this->isMobile() && file_exists('app/templateMobile/'.$this->template)){
-                $path = $this->templateMobilePath.$this->template;
-            }else{
-                $path = $this->templatePath.$this->template;
-            }
+            $path = $this->extend($this->template);
 
             extract($context);
             require($path);
@@ -58,7 +53,12 @@
 
         protected function extend($template){
 
-            $path = 'app/template/'.$template;
+            if($this->isMobile() && file_exists('app/templateMobile/'.$template)){
+                $path = $this->templateMobilePath.$template;
+            }else{
+                $path = $this->templatePath.$template;
+            }
+
             return $path;
 
         }
