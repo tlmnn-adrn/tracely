@@ -255,15 +255,15 @@ Code
 
     public function __construct($values=[]){
 
-            $this->fields['id'] = new IdField();
+        $this->fields['id'] = new IdField();
 
-            foreach(array_keys($this->fields) as $field){
-                if(array_key_exists($field, $values)){
-                    $this->fields[$field]->setValue($values[$field]);
-                }
-            }
+        foreach(array_keys($this->fields) as $field){
+
+            $this->fields[$field]->setValue($values[$field]??'');
 
         }
+
+    }
 
 
 __toString()

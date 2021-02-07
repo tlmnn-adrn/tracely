@@ -4,14 +4,12 @@ class PasswordField extends BaseField implements Field{
 
     //Attribut für die Mindestlänge des Passwortes
     //Standartmäßig 6
-    protected $minLength;
 
     protected $template = 'password.php';
     
-    function __construct($value='', $minLength=6){
+    function __construct(protected $minLength=6){
         
-        $this->minLength = $minLength;
-        return parent::__construct($value, TRUE, FALSE);
+        return parent::__construct(TRUE, FALSE);
         
     }
 

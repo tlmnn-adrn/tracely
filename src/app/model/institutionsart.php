@@ -7,8 +7,8 @@
 
       public function __construct($values=[]) {
         $this->fields = [
-          'name' => new TextField('', TRUE, TRUE, 255),
-          'aufenthaltszeit' => new IntegerField('', TRUE, FALSE),
+          'name' => new TextField(TRUE, TRUE, 255),
+          'aufenthaltszeit' => new IntegerField(TRUE, FALSE),
         ];
 
         parent::__construct($values);
