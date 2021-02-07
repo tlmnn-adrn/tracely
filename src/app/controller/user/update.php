@@ -40,7 +40,7 @@
       $this->render($context);
     }
 
-    protected function testFunc($id){
+    protected function testFunc($id=0){
 
       $user = UserModel::getUserObject();
 

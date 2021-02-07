@@ -113,31 +113,19 @@ __construct
 Parameter
 *********
 
-*$value (''): String* - Der Wert des Feldes in der Datenbank
-
 *$required (FALSE): Bool* - Ob das Feld required ist
 
 *$unique (FALSE): Bool* - Ob das Feld unique ist
-
-Funktion
-********
-
-Schreibt die ursprünglichen Werte in die Attribute der Klasse.
 
 Code
 ****
 
 .. code-block:: php
 
-    function __construct($value='', $required=FALSE, $unique=FALSE){
-
-        $this->value = $value;
-        $this->required = $required;
-        $this->unique = $unique;
+    function __construct(protected $required=FALSE, protected $unique=FALSE){
 
         require 'core/base/model/fields/errors.php';
         $this->errorTypes = $errorTypes;
-
     }
 
 get
@@ -361,28 +349,20 @@ __construct
 Parameter
 *********
 
-*$value (''): String* - Der Wert des Feldes in der Datenbank
-
 *$required (FALSE): Bool* - Ob das Feld required ist
 
 *$unique (FALSE): Bool* - Ob das Feld unique ist
 
 *$maxLength (255): Int* - Die maximale Länge des Wertes
 
-Funktion
-********
-
-Schreibt die ursprünglichen Werte in die Attribute der Klasse.
-
 Code
 ****
 
 .. code-block:: php
 
-    function __construct($value='', $required=FALSE, $unique=FALSE, $maxLength=255){
+    function __construct($required=FALSE, $unique=FALSE, protected $maxLength=255){
 
-        $this->maxLength = $maxLength;
-        return parent::__construct($value, $required, $unique);
+        return parent::__construct($required, $unique);
             
     }
 
@@ -524,11 +504,6 @@ Methoden
 __construct
 ~~~~~~~~~~~
 
-Parameter
-*********
-
-*$value (''): String* - Der Wert des Feldes in der Datenbank
-
 Funktion
 ********
 
@@ -540,14 +515,10 @@ Code
 
 .. code-block:: php
 
-    function __construct($value=''){
+    function __construct(){
     
-        $this->value = $value;
-        $this->required = TRUE;
-        $this->unique = TRUE;
-
-        require 'core/base/model/fields/errors.php';
-        $this->errorTypes = $errorTypes;
+        parent::__construct(TRUE, TRUE);
+            
     }
 
 updateValue
@@ -748,24 +719,16 @@ __construct
 Parameter
 *********
 
-*$value (''): String* - Der Wert des Feldes in der Datenbank
-
 *$minLength (6): Int* - Die Mindestlänge des Passwortes
-
-Funktion
-********
-
-Schreibt die ursprünglichen Werte in die Attribute der Klasse.
 
 Code
 ****
 
 .. code-block:: php
 
-    function __construct($value='', $minLength=6){
+    function __construct(protected $minLength=6){
         
-        $this->minLength = $minLength;
-        return parent::__construct($value, TRUE, FALSE);
+        return parent::__construct(TRUE, FALSE);
         
     }
 

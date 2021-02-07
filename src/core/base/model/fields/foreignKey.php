@@ -2,16 +2,13 @@
 
     class ForeignKeyField extends IntegerField implements Field{
 
-        protected $model;
         protected $options = [];
 
         protected $template = "foreignKey.php";
 
-        function __construct($value='', $model='', $required=FALSE, $unique=FALSE){
+        function __construct(protected $model='', $required=FALSE, $unique=FALSE){
 
-            $this->model = $model;
-
-            parent::__construct($value, $required, $unique);
+            parent::__construct($required, $unique);
 
         }
 

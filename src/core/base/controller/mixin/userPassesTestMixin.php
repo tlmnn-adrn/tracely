@@ -2,6 +2,8 @@
 
     trait UserPassesTestMixin{
 
+        abstract function testFunc();
+
         function userPassesTestMixinInit($arguments=[]){
 
             if(!$this->testFunc(...$arguments)){

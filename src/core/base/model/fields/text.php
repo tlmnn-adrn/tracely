@@ -2,15 +2,11 @@
 
     class TextField extends BaseField implements Field{
 
-        //Das TextField hat zusätzlich das Attribut maxLength
-        protected $maxLength;
-
         protected $template = "text.php";
 
-        function __construct($value='', $required=FALSE, $unique=FALSE, $maxLength=255){
+        function __construct($required=FALSE, $unique=FALSE, protected $maxLength=255){
 
-            $this->maxLength = $maxLength;
-            return parent::__construct($value, $required, $unique);
+            return parent::__construct($required, $unique);
             
         }
 

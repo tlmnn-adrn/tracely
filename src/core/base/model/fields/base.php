@@ -16,19 +16,13 @@
         class BaseField implements Field{
 
             protected $value;
-            protected $required;
-            protected $unique;
 
             protected $errors = [];
             protected $errorTypes;
 
             protected $template = "text.php";
 
-            function __construct($value='', $required=FALSE, $unique=FALSE){
-
-                $this->value = $value;
-                $this->required = $required;
-                $this->unique = $unique;
+            function __construct(protected $required=FALSE, protected $unique=FALSE){
 
                 //Laden der Fehlermeldungen aus der seperaten Datei errors.php
                 //Speichern der Fehlermeldung in einem Attribut der Klasse, welches auch für Unterklassen zugänglich ist
