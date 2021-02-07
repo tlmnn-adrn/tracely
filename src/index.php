@@ -5,16 +5,14 @@
 
     class Router{
 
-        private $url;
-
         public function __construct(){            
 
-            $this->url = $this->parseUrl();
+            $url = $this->parseUrl();
 
-            $url = Url::match($this->url);
+            $page = Url::match($url);
 
-            if($url){
-                $controller = $url->callController();
+            if($page){
+                $controller = $page->callController();
             }else{
                 new BaseError("404", "Diese Seite wurde konnte nicht gefunden werden", 404);
             }

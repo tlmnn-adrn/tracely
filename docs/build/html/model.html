@@ -189,6 +189,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="authModel.html">AuthModel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fields.html">Felder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="urlPattern.html">Url</a></li>
 </ul>
 
             
@@ -289,7 +291,7 @@
 </div>
 <div class="section" id="code">
 <h4>Code<a class="headerlink" href="#code" title="Link zu dieser Überschrift">¶</a></h4>
-<div class="highlight-php notranslate"><div class="highlight"><pre><span></span> <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">__constructStatic</span><span class="p">(){</span>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">__constructStatic</span><span class="p">(){</span>
 
     <span class="nv">$dsn</span> <span class="o">=</span> <span class="s1">&#39;mysql:host=&#39;</span><span class="o">.</span><span class="nv">$_ENV</span><span class="p">[</span><span class="s1">&#39;DBhost&#39;</span><span class="p">]</span><span class="o">.</span><span class="s1">&#39;;dbname=&#39;</span><span class="o">.</span><span class="nv">$_ENV</span><span class="p">[</span><span class="s1">&#39;DBname&#39;</span><span class="p">]</span><span class="o">.</span><span class="s1">&#39;;charset=utf8&#39;</span><span class="p">;</span>
     <span class="nx">self</span><span class="o">::</span><span class="nv">$pdo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PDO</span><span class="p">(</span><span class="nv">$dsn</span><span class="p">,</span> <span class="nv">$_ENV</span><span class="p">[</span><span class="s1">&#39;DBuser&#39;</span><span class="p">],</span> <span class="nv">$_ENV</span><span class="p">[</span><span class="s1">&#39;DBpassword&#39;</span><span class="p">]);</span>

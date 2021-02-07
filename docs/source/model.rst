@@ -54,7 +54,7 @@ Code
 
 .. code-block:: php
 
-     public static function __constructStatic(){
+    public static function __constructStatic(){
 
         $dsn = 'mysql:host='.$_ENV['DBhost'].';dbname='.$_ENV['DBname'].';charset=utf8';
         self::$pdo = new PDO($dsn, $_ENV['DBuser'], $_ENV['DBpassword']);

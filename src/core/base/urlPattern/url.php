@@ -43,15 +43,12 @@
         //------------------------- Non-Static -------------------------
 
         protected $url;
-        protected $controller;
-        protected $name;
 
         protected $arguments;
 
-        public function __construct($url, $controller){
+        public function __construct($url, protected $controller){
 
             $this->url = $this->parseUrl($url);
-            $this->controller = $controller;
 
         }
 

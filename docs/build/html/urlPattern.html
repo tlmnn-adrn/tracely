@@ -1,0 +1,591 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="de" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="de" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Url &mdash; Tracely - MVC Framework  Dokumentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
+    <link rel="search" title="Suche" href="search.html" />
+    <link rel="prev" title="Felder" href="fields.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Tracely - MVC Framework
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getStartet.html">Erste Schritte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controller.html">Controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mixin.html">Mixins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="error.html">BaseError</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authModel.html">AuthModel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fields.html">Felder</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Url</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#attribute">Attribute</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#urlpatterns">urlPatterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">url</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#controller">controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#name">name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#arguments">arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#methoden">Methoden</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#add">add</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#parameter">Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#funktion">Funktion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#code">Code</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#find">find</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Funktion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Code</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#match">match</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">Funktion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">Code</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#construct">__construct</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id8">Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">Code</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#parseurl">parseUrl</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id10">Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">Funktion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">Code</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#matches">matches</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id13">Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">Funktion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id15">Code</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#setargs">setArgs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id16">Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id17">Code</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#callcontroller">callController</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id18">Funktion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id19">Code</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#isarg">isArg</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id20">Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id21">Funktion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id22">Code</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#geturl">getUrl</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id23">Parameter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id24">Funktion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id25">Code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Tracely - MVC Framework</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Url</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/urlPattern.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="url">
+<h1>Url<a class="headerlink" href="#url" title="Link zu dieser Überschrift">¶</a></h1>
+<div class="section" id="attribute">
+<h2>Attribute<a class="headerlink" href="#attribute" title="Link zu dieser Überschrift">¶</a></h2>
+<div class="section" id="urlpatterns">
+<h3>urlPatterns<a class="headerlink" href="#urlpatterns" title="Link zu dieser Überschrift">¶</a></h3>
+<p><em>Typ:          Array</em></p>
+<p><em>Sichtbarkeit: Protected</em></p>
+<p><em>Static:       Ja</em></p>
+<p>Hier werden alle registrierten Urls gespeichert.</p>
+</div>
+<div class="section" id="id1">
+<h3>url<a class="headerlink" href="#id1" title="Link zu dieser Überschrift">¶</a></h3>
+<p><em>Typ:          Array</em></p>
+<p><em>Sichtbarkeit: Protected</em></p>
+<p><em>Static:       Nein</em></p>
+<p>Die aufgerufene Url geteilt nach den /.</p>
+</div>
+<div class="section" id="controller">
+<h3>controller<a class="headerlink" href="#controller" title="Link zu dieser Überschrift">¶</a></h3>
+<p><em>Typ:          String</em></p>
+<p><em>Sichtbarkeit: Protected</em></p>
+<p><em>Static:       Nein</em></p>
+<p>Der aufzurufende Controller.</p>
+</div>
+<div class="section" id="name">
+<h3>name<a class="headerlink" href="#name" title="Link zu dieser Überschrift">¶</a></h3>
+<p><em>Typ:          String</em></p>
+<p><em>Sichtbarkeit: Protected</em></p>
+<p><em>Static:       Nein</em></p>
+<p>Der Name unter der die Seite intern gefnuden werden kann.</p>
+</div>
+<div class="section" id="arguments">
+<h3>arguments<a class="headerlink" href="#arguments" title="Link zu dieser Überschrift">¶</a></h3>
+<p><em>Typ:          Array</em></p>
+<p><em>Sichtbarkeit: Protected</em></p>
+<p><em>Static:       Nein</em></p>
+<p>Hier werden in der Url übergebene Argumente gespeichert.</p>
+</div>
+</div>
+<div class="section" id="methoden">
+<h2>Methoden<a class="headerlink" href="#methoden" title="Link zu dieser Überschrift">¶</a></h2>
+<div class="section" id="add">
+<h3>add<a class="headerlink" href="#add" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="parameter">
+<h4>Parameter<a class="headerlink" href="#parameter" title="Link zu dieser Überschrift">¶</a></h4>
+<p><em>$name: String</em> - Der Name, den die neue Seite haben soll.</p>
+<p><em>$arguments: String</em> - Weitere Parameter, die einfach übergeben werden.</p>
+</div>
+<div class="section" id="funktion">
+<h4>Funktion<a class="headerlink" href="#funktion" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Erstellt eine neue Instanz der Klasse Url (oder der von Url erbenden Klasse) und speichert sie in <em>$urlPatterns</em>.</p>
+</div>
+<div class="section" id="code">
+<h4>Code<a class="headerlink" href="#code" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">add</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="o">...</span><span class="nv">$arguments</span><span class="p">){</span>
+
+    <span class="nx">self</span><span class="o">::</span><span class="nv">$urlPatterns</span><span class="p">[</span><span class="nv">$name</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="k">static</span><span class="p">(</span><span class="o">...</span><span class="nv">$arguments</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="find">
+<h3>find<a class="headerlink" href="#find" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="id2">
+<h4>Parameter<a class="headerlink" href="#id2" title="Link zu dieser Überschrift">¶</a></h4>
+<p><em>$name: String</em> - Der Name der gesuchten Seite.</p>
+<p><em>$arguments: String</em> - Die Argumente, mit denen die Seite aufgerufen werden soll.</p>
+</div>
+<div class="section" id="id3">
+<h4>Funktion<a class="headerlink" href="#id3" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Findet die Seite mit dem angegebenen Namen und returnt die dazugehörige Url Klasse.</p>
+</div>
+<div class="section" id="id4">
+<h4>Code<a class="headerlink" href="#id4" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">find</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="o">...</span><span class="nv">$arguments</span><span class="p">){</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nb">array_key_exists</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nx">self</span><span class="o">::</span><span class="nv">$urlPatterns</span><span class="p">)){</span>
+        <span class="k">return</span> <span class="nx">self</span><span class="o">::</span><span class="nv">$urlPatterns</span><span class="p">[</span><span class="nv">$name</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">getUrl</span><span class="p">(</span><span class="nv">$arguments</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="match">
+<h3>match<a class="headerlink" href="#match" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="id5">
+<h4>Parameter<a class="headerlink" href="#id5" title="Link zu dieser Überschrift">¶</a></h4>
+<p><em>$url: String</em> - Die aufgerugene Url.</p>
+</div>
+<div class="section" id="id6">
+<h4>Funktion<a class="headerlink" href="#id6" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Überprüft alle registrierten Urls, ob sie mit der angegebenen übereinstimmen. Gibt es eine Übereinstimmung, wird der dazu gehörige Controller mit den in der Url
+angegebenen Argumenten als Attribut returnt.</p>
+</div>
+<div class="section" id="id7">
+<h4>Code<a class="headerlink" href="#id7" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">match</span><span class="p">(</span><span class="nv">$url</span><span class="p">){</span>
+
+    <span class="k">foreach</span><span class="p">(</span><span class="nx">self</span><span class="o">::</span><span class="nv">$urlPatterns</span> <span class="k">as</span> <span class="nv">$urlPattern</span><span class="p">){</span>
+
+        <span class="nv">$arguments</span> <span class="o">=</span> <span class="nv">$urlPattern</span><span class="o">-&gt;</span><span class="na">matches</span><span class="p">(</span><span class="nv">$url</span><span class="p">);</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="nb">is_array</span><span class="p">(</span><span class="nv">$arguments</span><span class="p">)){</span>
+            <span class="nv">$urlPattern</span><span class="o">-&gt;</span><span class="na">setArgs</span><span class="p">(</span><span class="nv">$arguments</span><span class="p">);</span>
+            <span class="k">return</span> <span class="nv">$urlPattern</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="k">FALSE</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="construct">
+<h3>__construct<a class="headerlink" href="#construct" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="id8">
+<h4>Parameter<a class="headerlink" href="#id8" title="Link zu dieser Überschrift">¶</a></h4>
+<p><em>$url: String</em> - Die Url der neuen Seite.</p>
+<p><em>$controller: String</em> - Der Controller, den die neue Seite aufruft.</p>
+</div>
+<div class="section" id="id9">
+<h4>Code<a class="headerlink" href="#id9" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$url</span><span class="p">,</span> <span class="k">protected</span> <span class="nv">$controller</span><span class="p">){</span>
+
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">url</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">parseUrl</span><span class="p">(</span><span class="nv">$url</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="parseurl">
+<h3>parseUrl<a class="headerlink" href="#parseurl" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="id10">
+<h4>Parameter<a class="headerlink" href="#id10" title="Link zu dieser Überschrift">¶</a></h4>
+<p><em>$url: String</em> - Die Url, die geteilt werden soll.</p>
+</div>
+<div class="section" id="id11">
+<h4>Funktion<a class="headerlink" href="#id11" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Zerteilt die Url nach ‚/‘. Entfernt illegale Zeichen aus der Url.
+Aus ‚test/3‘ wird [‚test‘, ‚3‘]</p>
+</div>
+<div class="section" id="id12">
+<h4>Code<a class="headerlink" href="#id12" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">protected</span> <span class="k">function</span> <span class="nf">parseUrl</span><span class="p">(</span><span class="nv">$url</span><span class="p">){</span>
+    <span class="nv">$short</span> <span class="o">=</span> <span class="nb">rtrim</span><span class="p">(</span><span class="nv">$url</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">);</span>
+    <span class="nv">$filtered</span> <span class="o">=</span> <span class="nb">filter_var</span><span class="p">(</span><span class="nv">$short</span><span class="p">,</span> <span class="nx">FILTER_SANITIZE_URL</span><span class="p">);</span>
+    <span class="nv">$exploded</span> <span class="o">=</span> <span class="nb">explode</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="nv">$filtered</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="nv">$exploded</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="matches">
+<h3>matches<a class="headerlink" href="#matches" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="id13">
+<h4>Parameter<a class="headerlink" href="#id13" title="Link zu dieser Überschrift">¶</a></h4>
+<p><em>$url: String</em> - Die Url, die mit der gespeicherten verglichen werden soll.</p>
+</div>
+<div class="section" id="id14">
+<h4>Funktion<a class="headerlink" href="#id14" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Überprüft, ob die angegebene Url mit der gespeicherten übereinstimmt.</p>
+<div class="admonition hint">
+<p class="first admonition-title">Hinweis</p>
+<p class="last">Hat man die Url test/&lt;id&gt; registriert und ruft test/3 auf, stimmen die Urls überein.
+Es wird dann die Seite aufgerufen mit dem Argument [„id“=&gt;“3“]</p>
+</div>
+</div>
+<div class="section" id="id15">
+<h4>Code<a class="headerlink" href="#id15" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">function</span> <span class="nf">matches</span><span class="p">(</span><span class="nv">$url</span><span class="p">){</span>
+
+    <span class="nv">$arguments</span> <span class="o">=</span> <span class="p">[];</span>
+
+    <span class="nv">$len</span> <span class="o">=</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">url</span><span class="p">);</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nv">$len</span> <span class="o">!=</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$url</span><span class="p">)){</span>
+        <span class="k">return</span> <span class="k">FALSE</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">for</span><span class="p">(</span><span class="nv">$i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span><span class="o">&lt;</span><span class="nv">$len</span><span class="p">;</span> <span class="nv">$i</span><span class="o">++</span><span class="p">){</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">url</span><span class="p">[</span><span class="nv">$i</span><span class="p">]</span> <span class="o">!=</span> <span class="nv">$url</span><span class="p">[</span><span class="nv">$i</span><span class="p">]){</span>
+
+            <span class="k">if</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">isArg</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">url</span><span class="p">[</span><span class="nv">$i</span><span class="p">])){</span>
+                <span class="nv">$arguments</span><span class="p">[</span><span class="nb">trim</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">url</span><span class="p">[</span><span class="nv">$i</span><span class="p">],</span> <span class="s1">&#39;&lt;&gt;&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="nv">$url</span><span class="p">[</span><span class="nv">$i</span><span class="p">];</span>
+            <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                <span class="k">return</span> <span class="k">FALSE</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">arguments</span> <span class="o">=</span> <span class="nv">$arguments</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="nv">$arguments</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="setargs">
+<h3>setArgs<a class="headerlink" href="#setargs" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="id16">
+<h4>Parameter<a class="headerlink" href="#id16" title="Link zu dieser Überschrift">¶</a></h4>
+<p><em>$arguments: Array</em> - Die Argumente</p>
+</div>
+<div class="section" id="id17">
+<h4>Code<a class="headerlink" href="#id17" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">function</span> <span class="nf">setArgs</span><span class="p">(</span><span class="nv">$arguments</span><span class="p">){</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">arguments</span> <span class="o">=</span> <span class="nv">$arguments</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="callcontroller">
+<h3>callController<a class="headerlink" href="#callcontroller" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="id18">
+<h4>Funktion<a class="headerlink" href="#id18" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Ruft den Controller der Seite mit den in der Url übergebenen Argumenten auf.</p>
+</div>
+<div class="section" id="id19">
+<h4>Code<a class="headerlink" href="#id19" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">function</span> <span class="nf">callController</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">controller</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">arguments</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="isarg">
+<h3>isArg<a class="headerlink" href="#isarg" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="id20">
+<h4>Parameter<a class="headerlink" href="#id20" title="Link zu dieser Überschrift">¶</a></h4>
+<p><em>$element: String</em> - Das Element der Url, von dem überprüft werden soll, ein Argument ist</p>
+</div>
+<div class="section" id="id21">
+<h4>Funktion<a class="headerlink" href="#id21" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Überprüft, ob es sich um ein Argument-Platzhalter handelt. Also auf das Format &lt;*&gt;</p>
+</div>
+<div class="section" id="id22">
+<h4>Code<a class="headerlink" href="#id22" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">protected</span> <span class="k">function</span> <span class="nf">isArg</span><span class="p">(</span><span class="nv">$element</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="nb">strlen</span><span class="p">(</span><span class="nv">$element</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nv">$element</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;&lt;&#39;</span> <span class="o">&amp;&amp;</span> <span class="nv">$element</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">){</span>
+        <span class="k">return</span> <span class="k">TRUE</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="k">FALSE</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="geturl">
+<h3>getUrl<a class="headerlink" href="#geturl" title="Link zu dieser Überschrift">¶</a></h3>
+<div class="section" id="id23">
+<h4>Parameter<a class="headerlink" href="#id23" title="Link zu dieser Überschrift">¶</a></h4>
+<p><em>$arguments([]): Array</em> - Die Arguemente, mit denen die neue Url aufgerufen werden soll</p>
+</div>
+<div class="section" id="id24">
+<h4>Funktion<a class="headerlink" href="#id24" title="Link zu dieser Überschrift">¶</a></h4>
+<p>Returnt die Url der Seite.</p>
+</div>
+<div class="section" id="id25">
+<h4>Code<a class="headerlink" href="#id25" title="Link zu dieser Überschrift">¶</a></h4>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">function</span> <span class="nf">getUrl</span><span class="p">(</span><span class="nv">$arguments</span><span class="o">=</span><span class="p">[]){</span>
+
+    <span class="nv">$path</span> <span class="o">=</span> <span class="s2">&quot;http://&quot;</span><span class="o">.</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_HOST&#39;</span><span class="p">]</span><span class="o">.</span><span class="s2">&quot;/&quot;</span><span class="p">;</span>
+    <span class="nv">$argument_counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">foreach</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">url</span> <span class="k">as</span> <span class="nv">$element</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">isArg</span><span class="p">(</span><span class="nv">$element</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nb">array_key_exists</span><span class="p">(</span><span class="nv">$argument_counter</span><span class="p">,</span> <span class="nv">$arguments</span><span class="p">)){</span>
+            <span class="nv">$path</span> <span class="o">.=</span> <span class="nv">$arguments</span><span class="p">[</span><span class="nv">$argument_counter</span><span class="p">];</span>
+            <span class="nv">$argument_counter</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="nv">$path</span> <span class="o">.=</span> <span class="nv">$element</span><span class="o">.</span><span class="s1">&#39;/&#39;</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="nv">$path</span> <span class="o">=</span> <span class="nb">rtrim</span><span class="p">(</span><span class="nv">$path</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="nv">$path</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="fields.html" class="btn btn-neutral" title="Felder" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Tilmann Adrian, Jakob Großer.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            LANGUAGE:'de',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
+      });
+  </script> 
+
+</body>
+</html>

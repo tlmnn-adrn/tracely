@@ -16,6 +16,11 @@ Tracely - MVC Framework Dokumentation
    model
    authModel
    fields
+   url
+   staticUrl
+   router
+   further
+
 
 
 
