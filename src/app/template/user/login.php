@@ -17,7 +17,7 @@
                 <form action="?" method="post">
                   <?=$object->renderField("email", "E-Mail Adresse", "aInput")?><br>
                   <?=$object->renderField("passwort", "Passwort", "aInput", "")?><br>
-                  <div class="LoginContentBottom" id="login-content-bottom-left"><a class="aList" href="<?= Url::find('registrierung') ?>">Registrieren</a></div>
+                  <div class="LoginContentBottom" id="login-content-bottom-left"><a class="aList" href="<?= Url::find('registrierung-user') ?>">Registrieren</a></div>
                   <div class="LoginContentBottom" id="login-content-bottom-right"><button type="submit" name="button" class="aButton aButtonInvert">Anmelden</button></div>
                 </form>
               </div>

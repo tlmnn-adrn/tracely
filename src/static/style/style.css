@@ -36,11 +36,12 @@ h1 {
 h2 {
   font-size: 31pt;
   font-weight: lighter;
+
 }
 h3 {
   font-size: 25pt;
   font-weight: lighter;
-  margin-bottom: 10px;
+  margin: 20px 0px 10px 0px;
 }
 h4 {
   font-size: 20pt;
@@ -87,6 +88,10 @@ a {
 p, input, select, a, button {
   font-size: var(--main-ft-size);
   font-weight: var(--main-ft-weight);
+}
+p {
+  text-align: justify;
+  margin-top: 10px;
 }
 
 mark {
@@ -164,6 +169,7 @@ button:hover {
   vertical-align: middle;
 }
 #header-mid-name {width: 320px;}
+#header-mid-name h3 {margin: 0px 0px 10px 0px;}
 #header-mid-side {width: calc(100% - 6px - 320px);}
 
 #header-mid-side-content {
