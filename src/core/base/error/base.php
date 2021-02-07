@@ -39,7 +39,7 @@
     #404 Fehler
     class NotFoundError extends BaseError {
 
-      function __construct($errorMessageX="") {
+      public function __construct($errorMessageX="") {
         parent::__construct("404", "Diese Seite konnte nicht gefunden werden.<br>".$errorMessageX, 404);
       }
     }
@@ -47,7 +47,7 @@
     #SQL Fehler
     class SQLError extends BaseError {
 
-      function __construct($errorMessageX="") {
+      public function __construct($errorMessageX="") {
         parent::__construct("SQL" ,$statement->errorInfo()[2]."<br>".$errorMessageX, 500);
       }
     }
@@ -55,7 +55,7 @@
     #500 Fehler
     class ServerError extends BaseError {
 
-      function __construct($errorMessageX="") {
+      public function __construct($errorMessageX="") {
         parent::__construct("500", "Mehr als ein Objekt entspricht dem Filter. Verwende einen anderen Filter oder die filteredList Methode!<br>".$errorMessageX, 500);
       }
     }
