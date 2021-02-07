@@ -5,7 +5,7 @@
 
     class Router{
 
-        public function __construct(){            
+        public function __construct(){
 
             $url = $this->parseUrl();
 
@@ -14,7 +14,7 @@
             if($page){
                 $controller = $page->callController();
             }else{
-                new BaseError("404", "Diese Seite wurde konnte nicht gefunden werden", 404);
+                new NotFoundError;
             }
 
         }

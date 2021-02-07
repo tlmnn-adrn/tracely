@@ -13,7 +13,7 @@
         //Die Funktion render wird direkt im __construct aufgerufen
         //Der Fehlertitel, Die Fehlernachricht und der Fehlercode können spezifiziert werden
         public function __construct($errorTitle="404", $errorMessage="", $responseCode=404){
-            
+
             $context = [
                 "errorTitle" => $errorTitle,
                 "errorMessage" => $errorMessage,
@@ -32,4 +32,30 @@
         protected function get($request){}
         protected function post($request){}
 
+    }
+
+    //verschiedene Fehler
+
+    #404 Fehler
+    class NotFoundError extends BaseError {
+
+      function __construct($errorMessageX="") {
+        parent::__construct("404", "Diese Seite konnte nicht gefunden werden.<br>".$errorMessageX, 404);
+      }
+    }
+
+    #SQL Fehler
+    class SQLError extends BaseError {
+
+      function __construct($errorMessageX="") {
+        parent::__construct("SQL" ,$statement->errorInfo()[2]."<br>".$errorMessageX, 500);
+      }
+    }
+
+    #500 Fehler
+    class ServerError extends BaseError {
+
+      function __construct($errorMessageX="") {
+        parent::__construct("500", "Mehr als ein Objekt entspricht dem Filter. Verwende einen anderen Filter oder die filteredList Methode!<br>".$errorMessageX, 500);
+      }
     }

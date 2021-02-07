@@ -1,3 +1,22 @@
-<h1>Möh Sinnlos! <?= $errorTitle ?></h1>
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title><?= $errorTitle ?> Fehler</title>
+    <link rel="shortcut icon" href="<?= Url::find('static', 'media/favicon.ico') ?>">
+    <link rel='stylesheet' href='<?= Url::find('static', 'style/style.css') ?>'>
+    <link rel='stylesheet' href='<?= Url::find('static', 'style/error/style-error.css') ?>'>
+  </head>
+  <body>
 
-<p><?=$errorMessage?></p>
+    <div id="error-content">
+      <h4>trace<span>ly</span></h4>
+      <h1><?= $errorTitle ?> Fehler</h1>
+
+      <p><?=$errorMessage?></p>
+
+      <img src='<?= Url::find('static', 'media/error/'.rand(1, 4).'.jpg') ?>' alt="">
+    </div>
+
+  </body>
+</html>

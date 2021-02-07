@@ -26,7 +26,7 @@
                 return $statement;
             }else{
                 //Ist ein Fehler passiert, wird dieser angezeigt
-                new BaseError("SQL", $statement->errorInfo()[2], 500);
+                new SQLError;
             }
 
         }
@@ -85,9 +85,9 @@
 
             if($error){
                 if($rowCount<1){
-                    new BaseError("404", "Diese Seite wurde konnte nicht gefunden werden", 404);
+                    new NotFoundError;
                 }else{
-                    new BaseError("500", "Mehr als ein Objekt entspricht dem Filter. Verwende einen anderen Filter oder die filteredList Methode!", 500);
+                    new ServerError;
                 }
             }
 
@@ -122,7 +122,7 @@
             }
 
         }
-        
+
         public function __toString()
         {
             return $this->getField('id');
