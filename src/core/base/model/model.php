@@ -115,9 +115,7 @@
 
             foreach(array_keys($this->fields) as $field){
 
-                if(array_key_exists($field, $values)){
-                    $this->fields[$field]->setValue($values[$field]);
-                }
+                $this->fields[$field]->setValue($values[$field]??'');
 
             }
 
