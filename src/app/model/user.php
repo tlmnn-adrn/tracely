@@ -10,7 +10,7 @@
           'telefonnummer' => new TelefonField(TRUE, FALSE),
           'passwort' => new PasswordField(6),
           'email' => new EmailField(TRUE, TRUE),
-          'vorname' => new TextField(TRUE, TRUE, 255),
+          'vorname' => new TextField(TRUE, FALSE, 255),
           'nachname' => new TextField(TRUE, FALSE, 255),
           'plz' => new PlzField(TRUE, FALSE)
 
@@ -21,9 +21,9 @@
       }
 
 
-      public function __toString() 
-      {    
-          return $this->getField('vorname').' '.$this->getField('nachname'); 
-      } 
+      public function __toString()
+      {
+          return $this->getField('vorname').' '.$this->getField('nachname');
+      }
 
     }

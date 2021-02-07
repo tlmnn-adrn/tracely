@@ -28,4 +28,6 @@
     Url::add('registrierung-user', 'registrierung/user/', 'UserRegistrationController');
     Url::add('registrierung-institution', 'registrierung/institution/', 'InstitutionRegistrationController');
 
+    Url::add('backend', 'backend/', 'BackendController');
+
     StaticUrl::add('static', 'static/');

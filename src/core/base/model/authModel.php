@@ -40,7 +40,7 @@
             $_SESSION['userType'] = get_class($user);
 
             if($redirect){
-                header('Location: '.static::getLoginSuccessUrl());
+                header('Location: '.Url::find('index').'/'.static::getLoginSuccessUrl());
                 exit;
             }
 
@@ -57,7 +57,7 @@
             }
 
             if($redirect){
-                header('Location: '.static::getLogoutSuccessUrl());
+                header('Location: '.Url::find('index').'/'.static::getLogoutSuccessUrl());
                 exit;
             }
 
@@ -71,7 +71,7 @@
                 if(isset(static::$userObject)){
                     return TRUE;
                 }
-    
+
                 if(isset($_SESSION['userId']) && isset($_SESSION['userType'])){
                     return TRUE;
                 }
@@ -79,7 +79,7 @@
                 if(isset(static::$userObject) && get_class(static::$userObject)==$class){
                     return TRUE;
                 }
-    
+
                 if(isset($_SESSION['userId']) && isset($_SESSION['userType']) && $_SESSION['userType']==$class){
                     return TRUE;
                 }
@@ -97,31 +97,31 @@
                 if(isset(static::$userObject)){
                     return static::$userObject;
                 }
-    
+
                 if(isset($_SESSION['userId']) && isset($_SESSION['userType'])){
-    
+
                     $userModel = $_SESSION['userType'];
-    
+
                     $id = $_SESSION['userId'];
                     $object = $userModel::get('id=?', [$id]);
                     return $object;
-    
+
                 }
             }else{
                 if(isset(static::$userObject) && get_class(static::$userObject)==$class){
                     return static::$userObject;
                 }
-    
+
                 if(isset($_SESSION['userId']) && isset($_SESSION['userType']) && $_SESSION['userType']==$class){
-    
+
                     $userModel = $_SESSION['userType'];
-    
+
                     $id = $_SESSION['userId'];
                     $object = $userModel::get('id=?', [$id]);
                     return $object;
-    
+
                 }
-            }            
+            }
 
             return NULL;
 
