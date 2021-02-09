@@ -13,6 +13,18 @@ class PasswordField extends BaseField implements Field{
         
     }
 
+    function set($value){
+
+        if($this->value){
+            throw new BaseError('Interner', 'Um den Wert des Passwort-Feldes zu ändern, benutze die Methode setPassword()!', 500);
+
+            return FALSE;
+        }
+
+        parent::set($value);
+
+    }
+
     //Überprüfung, ob das Passwort mit der Eingabe übereinstimmt
     //Muss überschrieben werden, da die Passwörter gehasht in der Datenbank vorliegen
     function equals($value){
@@ -27,16 +39,15 @@ class PasswordField extends BaseField implements Field{
     }
 
     //Überprügunf, ob das neue Passwort lang genug ist und auch sonst den Bedingungen des BaseFields genügt
-    function checkValid($value){
+    function checkValid($value=''){
 
-        if(strlen($value)<$this->minLength){
+        if(strlen($this->value)<$this->minLength){
             
             $this->errors[] = $this->errorTypes['passwordShortError'];
 
-            return FALSE;
         }
 
-        return parent::checkValid($value);
+        return parent::checkValid();
 
     }
 
@@ -48,14 +59,13 @@ class PasswordField extends BaseField implements Field{
     //Überschreiben des gespeicherten Passwortes mit einem neuen
     //Dabei wird auch überprüft, ob das Passwort beim wiederholen identisch war
     //und ob das alte Passwort korrekt war
-    function updateValue($value, $unique, $repeatValue='', $oldValue=''){
+    function setPassword($value, $repeatValue='', $oldValue=''){
 
         //Stimmen die Beiden neuen Passwörter nicht überein, wird eine Fehlermeldung gespeichert und der weitere Vorgang abgebrochen
         if($repeatValue!=$value){
 
             $this->errors[] = $this->errorTypes['passwordsDontMatchError'];
 
-            return FALSE;
         }
         
         //Ist das alte Passwort falsch, wird eine Fehlermeldung gespeichert und der weitere Vorgang abgebrochen
@@ -63,18 +73,19 @@ class PasswordField extends BaseField implements Field{
 
             $this->errors[] = $this->errorTypes['oldPasswordWrongError'];
 
-            return FALSE;
         }
 
         //Sollte das neue Passwort den Mindestanforderungen genügen, wird es in gehashter Form in den Attributen gespeichert
-        if($this->checkValid($value)){
-            $value = $this->hash($value);
-            $this->setValue($value);
-            return TRUE;
+        $this->checkValid($value);
+
+        if(!$this->hasErrors()){
+            $this->value = $this->hash($value);
         }
 
-        return FALSE;
+    }
 
+    function hasErrors(){
+        return count($this->errors) > 0;
     }
 
     //Rendern des Templates, aber mit veränderter Parameterliste

@@ -18,12 +18,11 @@ Code
     interface Field{
 
         public function get();
-        public function setValue($value);
-        public function updateValue($value, $unique);
+        public function set($value);
         public function equals($value);
-        public function isUnique();
         public function hasErrors();
         public function render($name);
+        public function checkValid();
 
     }
 
@@ -145,8 +144,8 @@ Code
         return $this->value;
     }
 
-setValue
-~~~~~~~~
+set
+~~~
 
 Parameter
 *********
@@ -163,7 +162,7 @@ Code
 
 .. code-block:: php
 
-    function setValue($value){
+    function set($value){
         $this->value = $value;
     }
 
@@ -178,7 +177,7 @@ Parameter
 Funktion
 ********
 
-Überprüft den aktellen Parameter auf gültigkeit.
+Überprüft den Wert des Feldes auf Gültigkeit.
 
 Code
 ****
@@ -191,66 +190,8 @@ Code
 
             $this->errors[] = $this->errorTypes['requiredButEmptyError'];
 
-            return FALSE;
         }
 
-        return True;
-
-    }
-
-
-updateValue
-~~~~~~~~~~~
-
-Parameter
-*********
-
-*$value: String* - Der Wert auf den das Feld gesetzt werden soll.
-
-*$unique: Bool* - Vom Modell wird dabei übergeben, ob es schon ein anderes Feld in der Datenbank mit dem Wert gibt
-
-Funktion
-********
-
-Überprüft den angegebenen Wert auf Gültigkeit. Wenn er gültig ist, wird das Attribut *$value* mit dem neuen Wert überschrieben.
-
-Code
-****
-
-.. code-block:: php
-
-    function updateValue($value, $unique){
-
-        if($this->unique && !$unique){
-
-            $this->errors[] = $this->errorTypes['notUniqueError'];
-            return FALSE;
-        }
-
-        if($this->checkValid($value)){
-            $this->setValue($value);
-            return TRUE;
-        }
-
-        return FALSE;
-
-    }
-
-isUnique
-~~~~~~~~
-
-Funktion
-********
-
-Returnt, ob das Feld unique ist.
-
-Code
-****
-
-.. code-block:: php
-
-    function isUnique(){
-        return $this->unique;
     }
 
 equals
@@ -281,7 +222,10 @@ hasErrors
 Funktion
 ********
 
-Überprüft, ob es erfolglose Versuche gab, den Wert des Feldes neu zu setzen.
+Überprüft, ob der Wert des Feldes gültig ist.
+
+.. warning:: Es muss noch die unique-Prüfung implementiert werden.
+
 
 Code
 ****
@@ -289,7 +233,9 @@ Code
 .. code-block:: php
 
     function hasErrors(){
-        return count($this->errors)>0;
+        $this->checkValid();
+
+        return count($this->errors) > 0;
     }
 
 render
@@ -340,7 +286,7 @@ maxLength
 
 Die maximale Länge, die der Wert des Textfeldes haben darf.
 
-Mathoden
+Methoden
 ........
 
 __construct
@@ -369,31 +315,25 @@ Code
 checkValid
 ~~~~~~~~~~
 
-Parameter
-*********
-
-*$value: String* - Der Wert, der überprüft werden soll
-
 Funktion
 ********
 
-Überprüft den aktellen Parameter auf gültigkeit.
+Überprüft den Wert des Feldes auf Gültigkeit.
 
 Code
 ****
 
 .. code-block:: php
 
-    function checkValid($value){
+    function checkValid(){
 
-        if(strlen($value)>$this->maxLength){
+        if(strlen($this->value)>$this->maxLength){
 
             $this->errors[] = $this->errorTypes['toLongError'];
 
-            return FALSE;
         }
 
-        return parent::checkValid($value);
+        return parent::checkValid();
 
     }
 
@@ -408,15 +348,10 @@ Methoden
 checkValid
 ~~~~~~~~~~
 
-Parameter
-*********
-
-*$value: String* - Der Wert, der überprüft werden soll
-
 Funktion
 ********
 
-Überprüft den aktellen Parameter auf gültigkeit.
+Überprüft den Wert des Feldes auf Gültigkeit.
 Es wird auch überprüft, ob es sich um eine gültige E-Mail Adresse handelt. 
 
 Quellen
@@ -435,7 +370,6 @@ Code
 
             $this->errors[] = $this->errorTypes['invalidEmailError'];
 
-            return FALSE;
         }
 
         return parent::checkValid($value);
@@ -454,15 +388,10 @@ Methoden
 checkValid
 ~~~~~~~~~~
 
-Parameter
-*********
-
-*$value: String* - Der Wert, der überprüft werden soll
-
 Funktion
 ********
 
-Überprüft den aktellen Parameter auf gültigkeit.
+Überprüft den Wert des Feldes auf Gültigkeit.
 Es wird auch überprüft, ob es sich um einen numerischen Wert handelt.
 
 Quellen
@@ -479,14 +408,10 @@ Code
 
         if($this->required && $value == NULL){
             $this->errors[] =$this->errorTypes['requiredButEmptyError'];
-
-            return FALSE;
         }
 
         if(!preg_match('/^[0-9]+$/', $value) && !is_int($value)){
             $this->errors[] = $this->errorTypes['textInNumberFieldError'];
-
-            return FALSE;
         }
 
         return parent::checkValid($value);
@@ -521,31 +446,34 @@ Code
             
     }
 
-updateValue
-~~~~~~~~~~~
+set
+~~~
 
 Parameter
 *********
 
 *$value: String* - Der Wert auf den das Feld gesetzt werden soll.
 
-*$unique: Bool* - Vom Modell wird dabei übergeben, ob es schon ein anderes Feld in der Datenbank mit dem Wert gibt
-
 Funktion
 ********
 
-Erzeugt nur eine Fehlermeldung. Der Wert des Id-Fields sollte nicht geändert werden.
+Überprüft, ob das Id-Feld schon einen Wert hat. Ist dies nicht der Fall, wird dem Id-Feld der neue Wert zugewiesen.
+Hat es aber schon einen Wert, wird eione Fehlermeldung erzeugt, denn der Wert sollte nicht geändert werden.
 
 Code
 ****
 
 .. code-block:: php
 
-    function updateValue($value, $unique){
+    function set($value){
 
-        $this->errors[] = $this->errorTypes['setIdError'];
+        if($this->value){
+            throw new BaseError('Interner', 'Du solltest den Wert des Id-Feldes nicht ändern.', 500);
 
-        return FALSE;
+            return FALSE;
+        }
+
+        parent::set($value);
 
     }
 
@@ -585,15 +513,10 @@ Methoden
 checkValid
 ~~~~~~~~~~
 
-Parameter
-*********
-
-*$value: String* - Der Wert, der überprüft werden soll
-
 Funktion
 ********
 
-Überprüft den aktellen Parameter auf gültigkeit.
+Überprüft den Wert des Feldes auf Gültigkeit.
 Es wird auch überprüft, ob es in der anderen Tabelle wirklich eine Zeile mit dieser id gibt.
 
 Code
@@ -605,7 +528,6 @@ Code
             
         if(!$this->model::getById($value, FALSE)){
             $this->errors[] = $this->errorTypes['foreignKeyDoesntExist'];
-            return FALSE;
         }
 
         return parent::checkValid($value);
@@ -732,6 +654,37 @@ Code
         
     }
 
+set
+~~~
+
+Parameter
+*********
+
+*$value: String* - Der Wert auf den das Feld gesetzt werden soll.
+
+Funktion
+********
+
+Überprüft, ob das Passwort-Feld schon einen Wert hat. Ist dies nicht der Fall, wird dem Passwort-Feld der neue Wert zugewiesen.
+Hat es aber schon einen Wert, wird eine Fehlermeldung erzeugt, denn der Wert sollte über dei Methode setPassword geändert werden.
+
+Code
+****
+
+.. code-block:: php
+
+    function set($value){
+
+        if($this->value){
+            throw new BaseError('Interner', 'Um den Wert des Passwort-Feldes zu ändern, benutze die Methode setPassword()!', 500);
+
+            return FALSE;
+        }
+
+        parent::set($value);
+
+    }
+
 equals
 ~~~~~~
 
@@ -765,28 +718,28 @@ checkValid
 Parameter
 *********
 
-*$value: String* - Der Wert des Feldes, der auf Gültigkeit überprüft werden soll.
+*$value: String* - Das auf Gültigkeit zu überprüfende Passwort
 
 Funktion
 ********
 
-Überprüft den aktellen Parameter auf gültigkeit. Dabei wird auch überprüft, ob das neue Passwort lang genug ist.
+Überprüft den Wert des Feldes auf Gültigkeit.
+Dabei wird auch überprüft, ob das neue Passwort lang genug ist.
 
 Code
 ****
 
 .. code-block:: php
 
-    function checkValid($value){
+    function checkValid($value=''){
 
-        if(strlen($value)<$this->minLength){
+        if(strlen($this->value)<$this->minLength){
             
             $this->errors[] = $this->errorTypes['passwordShortError'];
 
-            return FALSE;
         }
 
-        return parent::checkValid($value);
+        return parent::checkValid();
 
     }
 
@@ -812,7 +765,7 @@ Code
         return password_hash($value, PASSWORD_DEFAULT);
     }
 
-updateValue
+setPassword
 ~~~~~~~~~~~
 
 Parameter
@@ -839,30 +792,43 @@ Code
 
 .. code-block:: php
 
-    function updateValue($value, $unique, $repeatValue='', $oldValue=''){
+    function setPassword($value, $repeatValue='', $oldValue=''){
 
         if($repeatValue!=$value){
 
             $this->errors[] = $this->errorTypes['passwordsDontMatchError'];
 
-            return FALSE;
         }
         
         if(!$this->equals($oldValue)){
 
             $this->errors[] = $this->errorTypes['oldPasswordWrongError'];
 
-            return FALSE;
         }
 
-        if($this->checkValid($value)){
-            $value = $this->hash($value);
-            $this->setValue($value);
-            return TRUE;
+        $this->checkValid($value);
+
+        if(!$this->hasErrors()){
+            $this->value = $this->hash($value);
         }
 
-        return FALSE;
+    }
 
+hasErrors
+~~~~~~~~~
+
+Funktion
+********
+
+Überprüft, ob es einen erfolglosen Versuch gabm das Passwort zu ändern.
+
+Code
+****
+
+.. code-block:: php
+
+    function hasErrors(){
+        return count($this->errors) > 0;
     }
 
 render
@@ -908,15 +874,10 @@ Methoden
 checkValid
 ~~~~~~~~~~
 
-Parameter
-*********
-
-*$value: String* - Der Wert des Feldes, der auf Gültigkeit überprüft werden soll.
-
 Funktion
 ********
 
-Überprüft den aktellen Parameter auf gültigkeit.
+Überprüft den Wert des Feldes auf Gültigkeit.
 Es wird dabei auch überprüft, ob die Postleitzahl auch wirklich 5 Stellen lang und numerisch ist.
 
 Quellen
@@ -935,14 +896,12 @@ Code
 
             $this->errors[] = $this->errorTypes['plzError'];
 
-            return FALSE;
         }
 
         if (!preg_match('/^[0-9]+$/', $value)){
 
             $this->errors[] = $this->errorTypes['textInNumberFieldError'];
 
-            return FALSE;
         }
 
         return parent::checkValid($value);
@@ -974,15 +933,10 @@ Methoden
 checkValid
 ~~~~~~~~~~
 
-Parameter
-*********
-
-*$value: String* - Der Wert des Feldes, der auf Gültigkeit überprüft werden soll.
-
 Funktion
 ********
 
-Überprüft den aktellen Parameter auf gültigkeit.
+Überprüft den Wert des Feldes auf Gültigkeit.
 Es wird auch überprüft, ob es sich um eine gültige Telefonnnummer handelt.
 
 Quellen
@@ -1001,14 +955,12 @@ Code
 
             $this->errors[] = $this->errorTypes['notAPhoneNumberError'];
 
-            return False;
         }
 
         if(!preg_match("/^[0-9\-\(\)\/\+\s]*$/", $value)){
 
             $this->errors[] = $this->errorTypes['notAPhoneNumberError'];
                 
-            return False;
         }
 
         return parent::checkValid($value);

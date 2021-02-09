@@ -40,3 +40,11 @@
     Url::add('backend', 'backend/', 'BackendController');
 
     StaticUrl::add('static', 'static/');
+
+
+
+
+
+
+    require_once "app/controller/home/test.php";
+    Url::add('test', 'test', 'TestController');

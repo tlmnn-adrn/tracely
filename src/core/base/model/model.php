@@ -113,12 +113,6 @@
 
             $this->fields['id'] = new IdField();
 
-            foreach(array_keys($this->fields) as $field){
-
-                $this->fields[$field]->setValue($values[$field]??'');
-
-            }
-
         }
 
         public function __toString()
@@ -126,9 +120,19 @@
             return $this->getField('id');
         }
 
-        public function getField($field){
+        public function __get($key){
 
-          return $this->fields[$field]->get();
+            if(array_key_exists($key, $this->fields)){
+                return $this->fields[$key]->get();
+            }
+
+        }
+
+        public function __set($key, $value){
+
+            if(array_key_exists($key, $this->fields)){
+                return $this->fields[$key]->set($value);
+            }
 
         }
 
@@ -151,24 +155,6 @@
 
         }
 
-        //Überschreiben des Wertes eines Feldes
-        //Dabei wird überprüft, ob die neue Eingabe gültig ist
-        //Ist sie nicht gültig, wird das Feld nicht überschrieben und eine Fehlermeldung wird angezeigt
-        public function setField($field, $value, ...$params){
-
-            $unique = True;
-
-            //Sollte das Feld 'unique' sein, wird überprüft, ob es schon eine andere Zeile in der Datenbank gibt, die in dieser Spalte den Wert hat
-            if($this->fields[$field]->isUnique()){
-                if(!$this->valueUnique($field, $value)){
-                    $unique = FALSE;
-                }
-            }
-
-            $success = $this->fields[$field]->updateValue($value, $unique, ...$params);
-
-        }
-
         //Ausgabe eines Feldes als input
         //Schneller Weg, um die Form zu erzeugen
         public function renderField($field, ...$params){
@@ -185,8 +171,16 @@
 
         }
 
+        public function setPassword($field, ...$params){
+
+            if(method_exists($this->fields[$field], 'setPassword')){
+                return $this->fields[$field]->setPassword(...$params);
+            }
+
+        }
+
         //Funktion, um zu überprüfen, ob es beim Überschreiben der Werte eines Feldes einen Fehler gab
-        protected function hasErrors(){
+        public function hasErrors(){
 
             foreach($this->fields as $field){
                 if($field->hasErrors()){

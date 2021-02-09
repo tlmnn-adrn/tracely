@@ -8,11 +8,15 @@
             
         }
 
-        function updateValue($value, $unique){
+        function set($value){
 
-            $this->errors[] = $this->errorTypes['setIdError'];
+            if($this->value){
+                throw new BaseError('Interner', 'Du solltest den Wert des Id-Feldes nicht ändern.', 500);
 
-            return FALSE;
+                return FALSE;
+            }
+
+            parent::set($value);
 
         }
 
