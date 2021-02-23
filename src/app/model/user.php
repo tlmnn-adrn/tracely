@@ -5,7 +5,7 @@
       static $tableName = "Benutzer";
       protected $fields = [];
 
-      public function __construct($values=[]) {
+      public function __construct() {
         $this->fields = [
           'telefonnummer' => new TelefonField(TRUE, FALSE),
           'passwort' => new PasswordField(6),
@@ -16,14 +16,14 @@
 
         ];
 
-        parent::__construct($values);
+        parent::__construct();
 
       }
 
 
       public function __toString()
       {
-          return $this->getField('vorname').' '.$this->getField('nachname');
+          return $this->vorname.' '.$this->nachname;
       }
 
     }

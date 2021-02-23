@@ -15,8 +15,9 @@
 
         //Überprüfen des neuen Wertes auf Gültigkeit
         function checkValid(){
-            
+
             if(!$this->model::getById($this->value, FALSE)){
+
                 $this->errors[] = $this->errorTypes['foreignKeyDoesntExist'];
             }
 

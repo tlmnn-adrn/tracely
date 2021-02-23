@@ -9,7 +9,7 @@ class PasswordField extends BaseField implements Field{
     
     function __construct(protected $minLength=6){
         
-        return parent::__construct(TRUE, FALSE);
+        return parent::__construct(FALSE, FALSE);
         
     }
 
@@ -41,7 +41,7 @@ class PasswordField extends BaseField implements Field{
     //Überprügunf, ob das neue Passwort lang genug ist und auch sonst den Bedingungen des BaseFields genügt
     function checkValid($value=''){
 
-        if(strlen($this->value)<$this->minLength){
+        if(strlen($value)<$this->minLength){
             
             $this->errors[] = $this->errorTypes['passwordShortError'];
 
@@ -60,7 +60,7 @@ class PasswordField extends BaseField implements Field{
     //Dabei wird auch überprüft, ob das Passwort beim wiederholen identisch war
     //und ob das alte Passwort korrekt war
     function setPassword($value, $repeatValue='', $oldValue=''){
-
+        
         //Stimmen die Beiden neuen Passwörter nicht überein, wird eine Fehlermeldung gespeichert und der weitere Vorgang abgebrochen
         if($repeatValue!=$value){
 
@@ -70,7 +70,6 @@ class PasswordField extends BaseField implements Field{
         
         //Ist das alte Passwort falsch, wird eine Fehlermeldung gespeichert und der weitere Vorgang abgebrochen
         if(!$this->equals($oldValue)){
-
             $this->errors[] = $this->errorTypes['oldPasswordWrongError'];
 
         }
