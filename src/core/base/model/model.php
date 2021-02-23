@@ -4,21 +4,21 @@
 
         //Festlegen der Verbindungsangaben zur Datenbank
 
-        private static $pdo;
+        /*private static $pdo;*/
 
         protected static $tableName;
 
-        public static function __constructStatic(){
+        /*public static function __constructStatic(){
 
             //Beim Inkludieren einer Unterklasse wird diese Methode aufgerufen
             //Stellt die Verbindung zur Datenbank her
             $dsn = 'mysql:host='.$_ENV['DBhost'].';dbname='.$_ENV['DBname'].';charset=utf8';
             self::$pdo = new PDO($dsn, $_ENV['DBuser'], $_ENV['DBpassword']);
 
-        }
+        }*/
 
         //Ausführen eines SQL Querys in der Datenbank
-        protected static function statement($sql, $values=[]){
+        /*protected static function statement($sql, $values=[]){
 
             $statement = self::$pdo->prepare($sql);
 
@@ -29,7 +29,7 @@
                 new SQLError;
             }
 
-        }
+        }*/
 
 
         //Anzeigen aller Objekte in der Tabelle der aufrufenden Unterklasse
@@ -38,13 +38,8 @@
             $results = [];
 
             //SQL Statement, welches alles ausgeben lässt
-            $statement = self::statement('SELECT * FROM '.static::$tableName);
-
-            //Jedes Ergebnis wird zu einer *Modell-Klasse gemappt
-            while($row = $statement->fetch()) {
-                $object = new static($row);
-                $results[] = $object;
-             }
+            $query = new SelectQuery(static::$tableName, static::class);
+            $results = $query->execute();
 
              return $results;
 
@@ -52,7 +47,7 @@
 
         //Anzeigen einiger Objekte in der Tabelle der aufrufenden Unterklasse
         //Wie list() nur mit einem WHERE im SQL Statement
-        protected static function filtered_list($filter, $filter_values){
+        /*protected static function filtered_list($filter, $filter_values){
 
             $results = [];
             $statement = self::statement('SELECT * FROM '.static::$tableName.' WHERE '.$filter, $filter_values);
@@ -64,11 +59,11 @@
 
              return $results;
 
-        }
+        }*/
 
         //Anzeigen eines Objektes in der Tabelle der aufrufenden Unterklasse
         //Wie die filtered_list, nur dass es nur ein Ergebnisobjekt geben darf
-        protected static function get($filter, $filter_values, $error=TRUE){
+        /*protected static function get($filter, $filter_values, $error=TRUE){
 
             $results = [];
             $statement = self::statement('SELECT * FROM '.static::$tableName.' WHERE '.$filter, $filter_values);
@@ -94,13 +89,24 @@
             return FALSE;
 
 
-        }
+        }*/
 
         public static function getById($id, $error=TRUE) {
-            $filter = 'id = ?';
-            $values = [$id];
+            $query = new SelectQuery(static::$tableName, static::class);
+            $query->where('id=?', $id);
 
-            return static::get($filter, $values, $error);
+            $result = $query->execute();
+
+            if(count($result)!=1){
+
+                if($error){
+                    throw new ServerError;
+                }
+
+                return FALSE;
+            }
+
+            return $result[0];
         }
 
         //------------------------------Non-Static------------------------------
@@ -109,7 +115,7 @@
 
         //Erstellen der Klasse
         //Laden aller gegebenen Werte
-        public function __construct($values=[]){
+        public function __construct(){
 
             $this->fields['id'] = new IdField();
 
@@ -117,7 +123,7 @@
 
         public function __toString()
         {
-            return $this->getField('id');
+            return $this->id;
         }
 
         public function __get($key){
@@ -139,7 +145,7 @@
         //Überprüfen, ob der Wert schon irgendwo in der Tabelle vorhanden ist
         //TRUE, wenn noch nicht vorhanden
         //FALSE, wenn vorhanden
-        private function valueUnique($field, $value){
+        /*private function valueUnique($field, $value){
 
             $statement = static::statement("SELECT * FROM ".static::$tableName." WHERE ".$field."=?", [$value]);
             $rowCount = $statement->rowCount();
@@ -153,7 +159,7 @@
             return TRUE;
 
 
-        }
+        }*/
 
         //Ausgabe eines Feldes als input
         //Schneller Weg, um die Form zu erzeugen
@@ -183,7 +189,7 @@
         public function hasErrors(){
 
             foreach($this->fields as $field){
-                if($field->hasErrors()){
+                if($field::class != 'IdField' && $field->hasErrors()){
                     return TRUE;
                 }
             }
@@ -219,7 +225,9 @@
             $values[] = $this->fields['id']->get();
 
             //Ausführen des sql Befehls zum Überschreiben
-            $success = static::statement($sql, $values);
+
+            $query = new BaseQuery();
+            $success = $query->executeStatement($sql, $values);
             return TRUE;
 
         }
@@ -251,7 +259,8 @@
 
             $sql = "INSERT INTO ".static::$tableName." (".$columns.") VALUES (".$value_spaces.")";
 
-            $success = static::statement($sql, $values);
+            $query = new BaseQuery();
+            $success = $query->executeStatement($sql, $values);
             return TRUE;
 
         }

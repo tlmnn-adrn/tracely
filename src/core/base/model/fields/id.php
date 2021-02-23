@@ -10,7 +10,7 @@
 
         function set($value){
 
-            if($this->value){
+            if(strlen($this->value)>0){
                 throw new BaseError('Interner', 'Du solltest den Wert des Id-Feldes nicht ändern.', 500);
 
                 return FALSE;
