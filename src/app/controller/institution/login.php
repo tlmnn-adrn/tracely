@@ -22,7 +22,8 @@
 
         InstitutionModel::login($request["email"], $request["passwort"]);
 
-        $object = new InstitutionModel(["email"=>$request["email"]]);
+        $object = new InstitutionModel();
+        $object->email = $request["email"];
 
         $context = [
             "object" => $object,

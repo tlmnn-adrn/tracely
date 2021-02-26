@@ -7,15 +7,15 @@
         //Funktion, die die Url zurückgibt, zu der nach erfolgreichem Login witergeleitet wird
         //Ermöglicht es, die in settings.php festgelegte zu überschreiben
         public static function getLoginSuccessUrl(){
-            return $_ENV['LoginSuccessUrl'];
+            return Url::find($_ENV['LoginSuccessUrl']);
         }
 
         public static function getLoginUrl(){
-            return $_ENV['LoginUrl'];
+            return Url::find($_ENV['LoginUrl']);
         }
 
         public static function getLogoutSuccessUrl(){
-            return $_ENV['LogoutSuccessUrl'];
+            return Url::find($_ENV['LogoutSuccessUrl']);
         }
 
         //Login Funktion
@@ -44,7 +44,7 @@
             $_SESSION['userType'] = get_class($user);
 
             if($redirect){
-                header('Location: '.Url::find('index').'/'.static::getLoginSuccessUrl());
+                header('Location: '.static::getLoginSuccessUrl());
                 exit;
             }
 
@@ -61,7 +61,7 @@
             }
 
             if($redirect){
-                header('Location: '.Url::find('index').'/'.static::getLogoutSuccessUrl());
+                header('Location: '.static::getLogoutSuccessUrl());
                 exit;
             }
 
