@@ -237,31 +237,19 @@ Code
 __construct
 ...........
 
-Parameter
-~~~~~~~~~
-
-*$values ([]): Array* - Ein Array mit schon vorhandenen Wertenm welche als Werte in die Felder eingetragen werden.
-
 Funktion
 ~~~~~~~~
 
-Fügt zuerst ein IdField unter dem Key id hinzu. Dann werden die als Parameter
-übergebenen Werte in die Felder eingetragen.
+Fügt zuerst IdField unter dem Key id zu den Feldern hinzu.
 
 Code
 ~~~~
 
 .. code-block:: php
 
-    public function __construct($values=[]){
+    public function __construct(){
 
         $this->fields['id'] = new IdField();
-
-        foreach(array_keys($this->fields) as $field){
-
-            $this->fields[$field]->setValue($values[$field]??'');
-
-        }
 
     }
 
@@ -284,27 +272,62 @@ Code
         return $this->getField('id');
     }
 
-getField
-........
+__get
+.....
 
 Parameter
 ~~~~~~~~~
 
-*$field: String* - Das Feld, dessen Wert ausgegeben werden soll
+*$key: String* - Das Feld, dessen Wert ausgegeben werden soll
 
 Funktion
 ~~~~~~~~
 
-Returnt den Wert eines Feldes
+Diese Funktion wird aufgerufen, wenn es einen Versuch gibt, auf ein nicht existentes oder rivates Attribut der Klasse Model zuzugreifen.
+In diesem Fall soll der Wert des Feldes mit dem Namen *$key* ausgegeben werden.
+
+.. hint:: Man kann also den Wert des Feldes *test* mit *$model_object->test* erhalten.
+
 
 Code
 ~~~~
 
 .. code-block:: php
 
-    public function getField($field){
+    public function __get($key){
 
-        return $this->fields[$field]->get();
+        if(array_key_exists($key, $this->fields)){
+            return $this->fields[$key]->get();
+        }
+
+    }
+
+__set
+........
+
+Parameter
+~~~~~~~~~
+
+*$key: String* - Das Feld, dessen Wert geändert werden soll
+
+*$value: String* - Der Wert auf den das Feld gesetzt werden soll
+
+Funktion
+~~~~~~~~
+
+Wird, wie *__get* aufgerufen, wenn man ein nicht existentes oder privates Attribut der Klasse Model ändern will.
+Ändert den Wert des Feldes.
+
+Code
+~~~~
+
+.. code-block:: php
+
+    public function __set($key, $value){
+
+        if(array_key_exists($key, $this->fields)){
+            return $this->fields[$key]->set($value);
+        }
 
     }
 
@@ -340,43 +363,6 @@ Code
         }
 
         return TRUE;
-
-    }
-
-setField
-........
-
-Parameter
-~~~~~~~~~
-
-*$field: String* - Das Feld, dessen Wert geändert werden soll
-
-*$value: String* - Der Wert auf den das Feld gesetzt werden soll
-
-*...$params: Parameterliste* - Weitere Parameter
-
-Funktion
-~~~~~~~~
-
-Überprüft zuerst, wenn das Feld *unique* ist, ob es den Wert schon irgendwo anders in dieser Tabelle gibt.
-Ist dies nicht der Fall, wirddie Funktion updateValue eds zu ändernden Feldes aufgerufen, welche den Wert im Feld ändert.
-
-Code
-~~~~
-
-.. code-block:: php
-
-    public function setField($field, $value, ...$params){
-
-        $unique = True;
-
-        if($this->fields[$field]->isUnique()){
-            if(!$this->valueUnique($field, $value)){
-                $unique = FALSE;
-            }
-        }
-
-        $success = $this->fields[$field]->updateValue($value, $unique, ...$params);
 
     }
 
@@ -431,6 +417,35 @@ Code
 
         if(method_exists($this->fields[$field], 'setOptions')){
             return $this->fields[$field]->setOptions($options);
+        }
+
+    }
+
+setPassword
+...........
+
+Parameter
+~~~~~~~~~
+
+*$field: String* - Das Passwort-Feld, dessen Wert geändert werden soll
+
+*$params: Parameterliste* - Die Parameterliste, die übergeben werden soll
+
+Funktion
+~~~~~~~~
+
+Überprüft, ob es sich beim angegebenen Feld wirklich um ein Passwortfeld handelt.
+Wenn ja wird die *setPassword* Methode des Feldes mit den Parametern *$params* aufgerufen.
+
+Code
+~~~~
+
+.. code-block:: php
+
+    public function setPassword($field, ...$params){
+
+        if(method_exists($this->fields[$field], 'setPassword')){
+            return $this->fields[$field]->setPassword(...$params);
         }
 
     }

@@ -15,14 +15,18 @@
         }
 
         public static function getLogoutSuccessUrl(){
-            return $_ENV['LogoutSuccessUrl'];
+            return Url::find($_ENV['LogoutSuccessUrl']);
         }
 
         //Login Funktion
         public static function login($email, $password, $redirect=TRUE){
 
             //Verwenden von Filtered List statt get, da get bei einer ungültigen E-Mail Adresse einen 404 Fehler erzeugen würde
-            $user = static::filtered_list('email=?', [$email]);
+            //$user = static::filtered_list('email=?', [$email]);
+            $sql = new SelectQuery(static::$tableName, get_called_class());
+            $sql->where('email=?', $email);
+
+            $user = $sql->execute();
 
             //Gibt es 0 Benutzer mit dieser E-Mail Adresse, sind die Login-Daten falsch
             if(count($user) != 1){
@@ -36,7 +40,7 @@
             }
 
             static::$userObject = $user;
-            $_SESSION['userId'] = $user->getField('id');
+            $_SESSION['userId'] = $user->id;
             $_SESSION['userType'] = get_class($user);
 
             if($redirect){
@@ -68,10 +72,10 @@
             $class = get_called_class();
 
             if($class=='AuthModel'){
-                if(isset(static::$userObject)){
+                if(isset($class::$userObject)){
                     return TRUE;
                 }
-    
+
                 if(isset($_SESSION['userId']) && isset($_SESSION['userType'])){
                     return TRUE;
                 }
@@ -79,7 +83,7 @@
                 if(isset(static::$userObject) && get_class(static::$userObject)==$class){
                     return TRUE;
                 }
-    
+
                 if(isset($_SESSION['userId']) && isset($_SESSION['userType']) && $_SESSION['userType']==$class){
                     return TRUE;
                 }
@@ -97,31 +101,38 @@
                 if(isset(static::$userObject)){
                     return static::$userObject;
                 }
-    
+
                 if(isset($_SESSION['userId']) && isset($_SESSION['userType'])){
-    
+
                     $userModel = $_SESSION['userType'];
-    
+
                     $id = $_SESSION['userId'];
-                    $object = $userModel::get('id=?', [$id]);
+
+                    $sql = new SelectQuery($userModel::$tableName, $userModel);
+                    $sql->where('id=?', $id);
+                    $object = $sql->execute()[0];
+
                     return $object;
-    
+
                 }
             }else{
+
                 if(isset(static::$userObject) && get_class(static::$userObject)==$class){
                     return static::$userObject;
                 }
-    
+
                 if(isset($_SESSION['userId']) && isset($_SESSION['userType']) && $_SESSION['userType']==$class){
-    
-                    $userModel = $_SESSION['userType'];
-    
+
                     $id = $_SESSION['userId'];
-                    $object = $userModel::get('id=?', [$id]);
+
+                    $sql = new SelectQuery(static::$tableName, get_called_class());
+                    $sql->where('id=?', $id);
+                    $object = $sql->execute()[0];
+
                     return $object;
-    
+
                 }
-            }            
+            }
 
             return NULL;
 

@@ -26,7 +26,7 @@
     <header id="header" class="noselect">
       <div id="header-mid">
         <div class="HeaderMidBox" id="header-mid-name">
-          <h3>trace<span>ly</span></h3>
+          <a href="<?= Url::find('index') ?>"><h3>trace<span>ly</span></h3></a>
         </div>
         <div class="HeaderMidBox" id="header-mid-side">
           <div id="header-mid-side-content">
@@ -47,7 +47,7 @@
                 <a href="<?= Url::find('index') ?>"><div id="headerlink-einstellungen" class="HeaderMidSideContentBox HeaderMidSideContentBoxList">Einstellungen</div></a>
               <?php endif?>
 
-            <a href="<?= Url::find('index') ?>"><div id="headerlink-logout" class="HeaderMidSideContentBox aButton">Logout <img src="<?= Url::find('static', 'media/backend/logout.svg') ?>"></div></a>
+            <a href="<?= Url::find('logout') ?>"><div id="headerlink-logout" class="HeaderMidSideContentBox aButton">Logout <img src="<?= Url::find('static', 'media/backend/logout.svg') ?>"></div></a>
             <?php endif?>
 
         </div>

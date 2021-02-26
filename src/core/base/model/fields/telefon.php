@@ -2,30 +2,28 @@
 
     class TelefonField extends BaseField implements Field{
 
-        protected $length = 13;
+        protected $length = 14;
 
         protected $template = "text.php";
 
-        function checkValid($value){
+        function checkValid(){
 
             //Überprüfung, ob die Eingabe die genaue Länge einer Telefonnummer hat
-            if(strlen($value) != $this->length){
+            if(strlen($this->value) != $this->length){
 
                 $this->errors[] = $this->errorTypes['notAPhoneNumberError'];
 
-                return False;
-            }
+            } 
 
             //Quelle: https://www.xspdf.com/resolution/56792114.html -- Abschnitt Php regex international phone number
             //Überprüfung, ob die Eingabe eine Telefonnummer ist
-            if(!preg_match("/^[0-9\-\(\)\/\+\s]*$/", $value)){
+            if(!preg_match("/^[0-9\-\(\)\/\+\s]*$/", $this->value)){
 
                 $this->errors[] = $this->errorTypes['notAPhoneNumberError'];
                 
-                return False;
             }
 
-            return parent::checkValid($value);
+            return parent::checkValid();
 
         }
 

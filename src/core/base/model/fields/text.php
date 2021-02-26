@@ -11,16 +11,15 @@
         }
 
         //Überprüfung, ob die Eingabe länger ist als zugelassen
-        function checkValid($value){
+        function checkValid(){
 
-            if(strlen($value)>$this->maxLength){
+            if(strlen($this->value)>$this->maxLength){
 
                 $this->errors[] = $this->errorTypes['toLongError'];
 
-                return FALSE;
             }
 
-            return parent::checkValid($value);
+            return parent::checkValid();
 
         }
 

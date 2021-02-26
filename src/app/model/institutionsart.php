@@ -16,7 +16,7 @@
       }
 
       public function __toString(){
-          return $this->getField('name').' - '.$this->getField('aufenthaltszeit').' min';
+          return $this->name.' - '.$this->aufenthaltszeit.' min';
       }
 
     }

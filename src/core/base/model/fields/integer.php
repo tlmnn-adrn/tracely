@@ -4,23 +4,21 @@
 
         protected $template = "integer.php";
 
-        function checkValid($value){
+        function checkValid(){
 
             //Überprüfung, ob das Feld leer ist und required ist
-            if($this->required && $value == NULL){
+            if($this->required && $this->value == NULL){
                 $this->errors[] =$this->errorTypes['requiredButEmptyError'];
 
-                return FALSE;
             }
 
             //Überprüfung, ob die Eingabe auch wirklich nummerisch ist
-            if(!preg_match('/^[0-9]+$/', $value) && !is_int($value)){
+            if(!preg_match('/^[0-9]+$/', $this->value) && !is_int($this->value)){
                 $this->errors[] = $this->errorTypes['textInNumberFieldError'];
 
-                return FALSE;
             }
 
-            return parent::checkValid($value);
+            return parent::checkValid();
 
         }
 

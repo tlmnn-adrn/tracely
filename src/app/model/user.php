@@ -5,25 +5,37 @@
       static $tableName = "Benutzer";
       protected $fields = [];
 
-      public function __construct($values=[]) {
+      public function __construct() {
         $this->fields = [
           'telefonnummer' => new TelefonField(TRUE, FALSE),
           'passwort' => new PasswordField(6),
           'email' => new EmailField(TRUE, TRUE),
-          'vorname' => new TextField(TRUE, TRUE, 255),
+          'vorname' => new TextField(TRUE, FALSE, 255),
           'nachname' => new TextField(TRUE, FALSE, 255),
           'plz' => new PlzField(TRUE, FALSE)
 
         ];
 
-        parent::__construct($values);
+        parent::__construct();
 
       }
 
+      static public function getByVorname($vorname) {
+        $sql = new SelectQuery(self::$tableName, self::class);
+        $sql->where("vorname = ?", $vorname);
+        $results = $sql->execute();
+        return $results;
 
-      public function __toString() 
-      {    
-          return $this->getField('vorname').' '.$this->getField('nachname'); 
-      } 
+      }
+
+      public static function getLoginSuccessUrl() {
+        return Url::find("backend-user");
+      }
+
+
+      public function __toString()
+      {
+          return $this->vorname.' '.$this->nachname;
+      }
 
     }

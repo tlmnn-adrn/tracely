@@ -14,14 +14,14 @@
 
 
         //Überprüfen des neuen Wertes auf Gültigkeit
-        function checkValid($value){
-            
-            if(!$this->model::getById($value, FALSE)){
+        function checkValid(){
+
+            if(!$this->model::getById($this->value, FALSE)){
+
                 $this->errors[] = $this->errorTypes['foreignKeyDoesntExist'];
-                return FALSE;
             }
 
-            return parent::checkValid($value);
+            return parent::checkValid($this->value);
 
         }
 

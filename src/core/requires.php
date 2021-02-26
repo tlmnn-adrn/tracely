@@ -9,6 +9,10 @@
     require_once 'core/base/model/model.php';
     require_once 'core/base/model/authModel.php';
 
+    //SQL
+    require_once 'core/base/model/sql/base.php';
+    require_once 'core/base/model/sql/select.php';
+
     //Controller
     require_once 'core/base/controller/controller.php';
 
@@ -39,13 +43,13 @@
 
     //Model
     require_once 'app/model/user.php';
-    UserModel::__constructStatic();
+    //UserModel::__constructStatic();
 
     require_once 'app/model/institution.php';
-    InstitutionModel::__constructStatic();
+    //InstitutionModel::__constructStatic();
 
     require_once 'app/model/institutionsart.php';
-    InstitutionsartModel::__constructStatic();
+    //InstitutionsartModel::__constructStatic();
 
     //Mixins
     require_once 'app/controller/mixin/institutionLoginRequiredMixin.php';
