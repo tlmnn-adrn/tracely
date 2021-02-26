@@ -23,7 +23,8 @@
 
         UserModel::login($request["email"], $request["passwort"]);
 
-        $object = new UserModel(["email"=>$request["email"]]);
+        $object = new UserModel();
+        $object->email = $request["email"];
 
         $context = [
             "object" => $object,

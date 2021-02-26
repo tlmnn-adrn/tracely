@@ -23,15 +23,19 @@
 
       $object = new InstitutionModel;
 
-      $object->setField("name", $request["name"]);
-      $object->setField("adresse", $request["adresse"]);
-      $object->setField("plz", $request["plz"]);
-      $object->setField("stadt", $request["stadt"]);
-      $object->setField("email", $request["email"]);
-      $object->setField("institutionsartId", $request["institutionsartId"]);
-      $object->setField("passwort", $request["passwort"], $request["passwortWiederholen"]);
+      $object->name = $request["name"];
+      $object->adresse = $request["adresse"];
+      $object->plz = $request["plz"];
+      $object->stadt = $request["stadt"];
+      $object->email = $request["email"];
+      $object->institutionsartId = $request["institutionsartId"];
+      $object->setPassword('passwort', $request["passwort"], $request["passwortWiederholen"]);
 
       $success = $object->create();
+
+      if($success){
+        InstitutionModel::login($request['email'], $request['passwort']);
+      }
 
       $context = [
         "object" => $object,
