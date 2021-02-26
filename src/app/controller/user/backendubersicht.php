@@ -10,8 +10,6 @@
     protected function get($request) {
 
         $object = UserModel::getUserObject();
-        $object->vorname = "Jakob";
-        $object->update();
 
         $context = [
             "object" => $object,
