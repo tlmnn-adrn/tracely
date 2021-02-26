@@ -8,7 +8,9 @@
     protected $template = 'home/home.php';
 
     protected function get($request) {
-      $this->render();
+
+      $context = [];
+      $this->render($context);
     }
     protected function post($request) {
       $this->render();

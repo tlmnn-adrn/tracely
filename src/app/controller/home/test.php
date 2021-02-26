@@ -8,8 +8,13 @@
         protected $template = 'home/home.php';
 
         protected function get($request) {
+          $var = UserModel::getById(2);
+          $vara = UserModel::getByVorname("Jakob");
+          echo(count($vara));
+          echo($var->vorname);
 
             //$user = InstitutionModel::getUserObject();
+            /*
             $user = new InstitutionModel();
             echo('<form method="POST">');
             echo($user->renderField('name', 'name').'<br>');
@@ -20,7 +25,7 @@
             echo($user->renderField('email', 'email').'<br>');
             echo($user->renderField('institutionsartId', 'institutionsart').'<br>');
             echo('<input type="submit", value="submit"/>');
-            echo('</form>');
+            echo('</form>');*/
 
         //$this->render();
         }

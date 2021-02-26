@@ -20,6 +20,18 @@
 
       }
 
+      static public function getByVorname($vorname) {
+        $sql = new SelectQuery(self::$tableName, self::class);
+        $sql->where("vorname = ?", $vorname);
+        $results = $sql->execute();
+        return $results;
+
+      }
+
+      public static function getLoginSuccessUrl() {
+        return Url::find("backend-user");
+      }
+
 
       public function __toString()
       {

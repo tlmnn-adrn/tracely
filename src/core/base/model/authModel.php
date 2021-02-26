@@ -15,7 +15,7 @@
         }
 
         public static function getLogoutSuccessUrl(){
-            return $_ENV['LogoutSuccessUrl'];
+            return Url::find($_ENV['LogoutSuccessUrl']);
         }
 
         //Login Funktion
@@ -44,7 +44,7 @@
             $_SESSION['userType'] = get_class($user);
 
             if($redirect){
-                header('Location: '.Url::find('index').'/'.static::getLoginSuccessUrl());
+                header('Location: '.static::getLoginSuccessUrl());
                 exit;
             }
 
@@ -61,7 +61,7 @@
             }
 
             if($redirect){
-                header('Location: '.Url::find('index').'/'.static::getLogoutSuccessUrl());
+                header('Location: '.static::getLogoutSuccessUrl());
                 exit;
             }
 

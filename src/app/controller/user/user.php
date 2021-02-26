@@ -9,11 +9,11 @@
     protected function get($request, $id=0) {
 
       $object = UserModel::getById($id);
-
+      
       $context = [
         "object" => $object,
       ];
-      
+
       $this->render($context);
 
     }

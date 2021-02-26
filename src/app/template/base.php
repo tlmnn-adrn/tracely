@@ -47,7 +47,7 @@
                 <a href="<?= Url::find('index') ?>"><div id="headerlink-einstellungen" class="HeaderMidSideContentBox HeaderMidSideContentBoxList">Einstellungen</div></a>
               <?php endif?>
 
-            <a href="<?= Url::find('index') ?>"><div id="headerlink-logout" class="HeaderMidSideContentBox aButton">Logout <img src="<?= Url::find('static', 'media/backend/logout.svg') ?>"></div></a>
+            <a href="<?= Url::find('logout') ?>"><div id="headerlink-logout" class="HeaderMidSideContentBox aButton">Logout <img src="<?= Url::find('static', 'media/backend/logout.svg') ?>"></div></a>
             <?php endif?>
 
         </div>

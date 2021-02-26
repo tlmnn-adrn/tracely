@@ -20,4 +20,8 @@
 
       }
 
+      public static function getLoginSuccessUrl() {
+        return Url::find("backend-institution");
+      }
+
     }
