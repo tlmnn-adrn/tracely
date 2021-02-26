@@ -10,7 +10,7 @@
     <link rel='stylesheet' href='<?= Url::find('static', 'style/style.css') ?>'>
 
     <?php if (AuthModel::isLoggedIn()): ?>
-      <link rel='stylesheet' href='<?= Url::find('static', 'style/style-backend.css') ?>'>
+      <link rel='stylesheet' href='<?= Url::find('static', 'style/backend/style-backend.css') ?>'>
     <?php endif ?>
     <?php if(isset($styles)): ?>
         <?php foreach($styles as $style): ?>
@@ -38,13 +38,13 @@
 
             <?php else: ?>
               <?php if(InstitutionModel::isLoggedIn()): ?>
-                <a href="<?= Url::find('index') ?>"><div id="headerlink-ubersicht" class="HeaderMidSideContentBox HeaderMidSideContentBoxList">Übersicht</div></a>
-                <a href="<?= Url::find('index') ?>"><div id="headerlink-kontaktverfolgung" class="HeaderMidSideContentBox HeaderMidSideContentBoxList">Kontaktverfolgung</div></a>
-                <a href="<?= Url::find('index') ?>"><div id="headerlink-einstellungen" class="HeaderMidSideContentBox HeaderMidSideContentBoxList">Einstellungen</div></a>
+                <a href="<?= Url::find('backend-institution') ?>"><div id="headerlink-ubersicht" class="HeaderMidSideContentBox HeaderMidSideContentBoxList">Übersicht</div></a>
+                <a href="<?= Url::find('backend-institution-kontaktverfolgung') ?>"><div id="headerlink-kontaktverfolgung" class="HeaderMidSideContentBox HeaderMidSideContentBoxList">Kontaktverfolgung</div></a>
+                <a href="<?= Url::find('backend-institution-einstellungen') ?>"><div id="headerlink-einstellungen" class="HeaderMidSideContentBox HeaderMidSideContentBoxList">Einstellungen</div></a>
 
               <?php elseif(UserModel::isLoggedIn()): ?>
-                <a href="<?= Url::find('index') ?>"><div id="headerlink-ubersicht" class="HeaderMidSideContentBox HeaderMidSideContentBoxList">Übersicht</div></a>
-                <a href="<?= Url::find('index') ?>"><div id="headerlink-einstellungen" class="HeaderMidSideContentBox HeaderMidSideContentBoxList">Einstellungen</div></a>
+                <a href="<?= Url::find('backend-user') ?>"><div id="headerlink-ubersicht" class="HeaderMidSideContentBox HeaderMidSideContentBoxList">Übersicht</div></a>
+                <a href="<?= Url::find('backend-user-einstellungen') ?>"><div id="headerlink-einstellungen" class="HeaderMidSideContentBox HeaderMidSideContentBoxList">Einstellungen</div></a>
               <?php endif?>
 
             <a href="<?= Url::find('logout') ?>"><div id="headerlink-logout" class="HeaderMidSideContentBox aButton">Logout <img src="<?= Url::find('static', 'media/backend/logout.svg') ?>"></div></a>
