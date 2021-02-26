@@ -7,13 +7,13 @@
 
       public function __construct($values=[]) {
         $this->fields = [
-          'name' => new TextField(TRUE, FALSE, 255),
-          'passwort' => new PasswordField(6),
-          'adresse' => new TextField(TRUE, FALSE, 255),
-          'stadt' => new TextField(TRUE, FALSE, 255),
-          'plz' => new PlzField(TRUE, FALSE),
-          'email' => new EmailField(TRUE, TRUE),
-          'institutionsartId' => new ForeignKeyField('InstitutionsartModel', TRUE, FALSE),
+          'name' => new TextField(required: TRUE),
+          'passwort' => new PasswordField(),
+          'adresse' => new TextField(required: TRUE),
+          'stadt' => new TextField(required: TRUE),
+          'plz' => new PlzField(required: TRUE),
+          'email' => new EmailField(required: TRUE, unique:TRUE),
+          'institutionsartId' => new ForeignKeyField(model:'InstitutionsartModel', required:TRUE),
         ];
 
         parent::__construct($values);

@@ -7,13 +7,12 @@
 
       public function __construct() {
         $this->fields = [
-          'telefonnummer' => new TelefonField(TRUE, FALSE),
-          'passwort' => new PasswordField(6),
-          'email' => new EmailField(TRUE, TRUE),
-          'vorname' => new TextField(TRUE, FALSE, 255),
-          'nachname' => new TextField(TRUE, FALSE, 255),
-          'plz' => new PlzField(TRUE, FALSE)
-
+          'telefonnummer' => new TelefonField(required:TRUE),
+          'passwort' => new PasswordField(),
+          'email' => new EmailField(required:TRUE, unique:TRUE),
+          'vorname' => new TextField(required:TRUE),
+          'nachname' => new TextField(required:TRUE),
+          'plz' => new PlzField(required:TRUE),
         ];
 
         parent::__construct();

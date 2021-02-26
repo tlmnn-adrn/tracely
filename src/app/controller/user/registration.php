@@ -23,14 +23,18 @@
 
       $object = new UserModel;
 
-      $object->setField("vorname", $request["vorname"]);
-      $object->setField("nachname", $request["nachname"]);
-      $object->setField("email", $request["email"]);
-      $object->setField("telefonnummer", $request["telefonnummer"]);
-      $object->setField("plz", $request["plz"]);
-      $object->setField("passwort", $request["passwort"], $request["passwortWiederholen"], $request["passwortAlt"]);
+      $object->vorname = $request["vorname"];
+      $object->nachname = $request["nachname"];
+      $object->email = $request["email"];
+      $object->telefonnummer = $request["telefonnummer"];
+      $object->plz = $request["plz"];
+      $object->setPassword("passwort", $request["passwort"], $request["passwortWiederholen"], $request["passwortAlt"]);
 
       $success = $object->create();
+
+      if($success){
+        UserModel::login($request['email'], $request['passwort']);
+      }
 
       $context = [
         "object" => $object,

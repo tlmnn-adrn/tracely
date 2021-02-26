@@ -21,13 +21,13 @@
 
       $object = UserModel::getById($id);
 
-      $object->setField("vorname", $request["vorname"]);
-      $object->setField("nachname", $request["nachname"]);
-      $object->setField("plz", $request["plz"]);
-      $object->setField("email", $request["email"]);
+      $object->vorname = $request["vorname"];
+      $object->nachname = $request["nachname"];
+      $object->plz = $request["plz"];
+      $object->email = $request["email"];
       
       if(strlen($request['passwort'])>0){
-        $object->setField("passwort", $request["passwort"], $request["passwortWiederholen"], $request["passwortAlt"]);
+        $object->setPassword("passwort", $request["passwort"], $request["passwortWiederholen"], $request["passwortAlt"]);
       }
 
       $success = $object->update();
