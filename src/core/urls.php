@@ -9,6 +9,7 @@
     /*??????? muss dann noch raus die 2 Zielen*/
     require_once "app/controller/user/user.php";
     require_once "app/controller/user/update.php";
+    #
 
     require_once "app/controller/login/login.php";
     require_once "app/controller/user/login.php";
@@ -18,7 +19,15 @@
     require_once "app/controller/user/registration.php";
     require_once "app/controller/institution/registration.php";
 
+
+    #BackendController
     require_once "app/controller/backend/backend.php";
+    require_once "app/controller/backend/logout.php";
+    //User
+    require_once "app/controller/user/backendubersicht.php";
+    require_once "app/controller/user/backendeinstellungen.php";
+    //Institution
+    require_once "app/controller/institution/backendubersicht.php";
 
 
     //Definieren der URLs
@@ -38,6 +47,12 @@
     Url::add('registrierung-institution', 'registrierung/institution/', 'InstitutionRegistrationController');
 
     Url::add('backend', 'backend/', 'BackendController');
+    Url::add('logout', 'logout/', 'LogoutController');
+
+    Url::add('backend-user', 'backend/user/', 'UserBackendUbersichtController');
+    Url::add('backend-user-einstellungen', 'backend/user/einstellungen/', 'UserBackendEinstellungenController');
+
+    Url::add('backend-institution', 'backend/institution/', 'InstitutionBackendUbersichtController');
 
     StaticUrl::add('static', 'static/');
 

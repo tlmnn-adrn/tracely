@@ -1,0 +1,8 @@
+#headerlink-einstellungen {
+  color: var(--main-bg-action);
+  border-color: var(--main-bg-action);
+}
+
+#einstellungen-content {
+  margin-left: 40px;
+}
