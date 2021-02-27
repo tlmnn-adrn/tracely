@@ -185,11 +185,36 @@
 
         }
 
+        public function hasUniqueError($fieldKey, $field){
+
+            if(!$field->unique){
+                return FALSE;
+            }
+
+            $sql = new SelectQuery(static::$tableName, static::class);
+            $sql->where($fieldKey.'=?', $field->get());
+            $results = $sql->execute();
+
+            if(count($results)>1){
+                return TRUE;
+            }
+
+            if($results==1 && $results[0]->id != $this->id){
+                return TRUE;
+            }
+
+            return FALSE;
+
+        }
+
         //Funktion, um zu überprüfen, ob es beim Überschreiben der Werte eines Feldes einen Fehler gab
         public function hasErrors(){
 
-            foreach($this->fields as $field){
-                if($field::class != 'IdField' && $field->hasErrors()){
+            foreach(array_keys($this->fields) as $fieldKey){
+
+                $field = $this->fields[$fieldKey];
+
+                if($field::class != 'IdField' && $field->hasErrors($this->hasUniqueError($fieldKey, $field))){
                     return TRUE;
                 }
             }

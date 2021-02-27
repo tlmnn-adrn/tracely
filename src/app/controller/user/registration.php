@@ -28,7 +28,7 @@
       $object->email = $request["email"];
       $object->telefonnummer = $request["telefonnummer"];
       $object->plz = $request["plz"];
-      $object->setPassword("passwort", $request["passwort"], $request["passwortWiederholen"], $request["passwortAlt"]);
+      $object->setPassword("passwort", $request["passwort"], $request["passwortWiederholen"]);
 
       $success = $object->create();
 

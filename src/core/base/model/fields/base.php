@@ -31,6 +31,12 @@
                 $this->errorTypes = $errorTypes;
             }
 
+            function __get($key){
+                if($key=="unique"){
+                    return $this->unique;
+                }
+            }
+
             //Ausgabe des Wertes
             function get(){
                 return $this->value;
@@ -61,7 +67,12 @@
             }
 
             //Es wird ausgegeben, ob es einen oder mehrere Versuche gab, das Feld mit einem ungültigen Wert zu überschreiben
-            function hasErrors(){
+            function hasErrors($uniqueError=FALSE){
+
+                if($uniqueError){
+                    $this->errors[] = $this->errorTypes['notUniqueError'];
+                }
+
                 $this->checkValid();
 
                 return count($this->errors) > 0;

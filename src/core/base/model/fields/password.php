@@ -83,7 +83,7 @@ class PasswordField extends BaseField implements Field{
 
     }
 
-    function hasErrors(){
+    function hasErrors($uniqueError=FALSE){
         return count($this->errors) > 0;
     }
 
