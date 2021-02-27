@@ -39,7 +39,7 @@
                   <h6>PLZ des Wohnortes</h6>
                   <?=$object->renderField("plz", "01234", "aInput")?><br>
                   <h6>Passwort</h6>
-                  <?=$object->renderField("passwort", "Passwort", "aInput", "update")?><br>
+                  <?=$object->renderField("passwort", "Passwort", "aInput", "", "update")?><br>
                   <br>
                   <button type="submit" name="button" class="aButton aButtonInvert">Einstellungen speichern</button>
                 </form>

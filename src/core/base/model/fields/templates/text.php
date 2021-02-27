@@ -1,6 +1,10 @@
 
 <input type="text" id="<?=$name?>Field"  name="<?=$name?>" placeholder="<?=$placeholder?>" value="<?=$this->value?>" class="<?=$class?>">
 
-<?php foreach($this->errors as $error): ?>
-    <?=$error?><br>
-<?php endforeach; ?>
+<?php if(count($this->errors)): ?>
+    <div class="<?=$errorClass?>">
+        <?php foreach($this->errors as $error): ?>
+            <?=$error?><br>
+        <?php endforeach; ?>
+    </div>
+<?php endif?>

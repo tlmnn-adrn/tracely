@@ -28,7 +28,7 @@
                   <h6>Institutionsart wählen</h6>
                   <?=$object->renderField("institutionsartId", "Institutionsart wählen", "aInput")?><br>
                   <h6>Passwort</h6>
-                  <?=$object->renderField("passwort", "Passwort", "aInput", "register")?><br>
+                  <?=$object->renderField("passwort", "Passwort", "aInput", "", "register")?><br>
 
                   <div class="LoginContentBottom" id="login-content-bottom-left"><a class="aList" href="<?= Url::find('login-institution') ?>">bereits registriert?</a></div>
                   <div class="LoginContentBottom" id="login-content-bottom-right"><button type="submit" name="button" class="aButton aButtonInvert">Registrieren</button></div>

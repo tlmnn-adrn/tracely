@@ -88,7 +88,7 @@ class PasswordField extends BaseField implements Field{
     }
 
     //Rendern des Templates, aber mit veränderter Parameterliste
-    function render($name, $placeholder="", $class="", $type=""){
+    function render($name, $placeholder="", $class="", $errorClass="", $type=""){
                 
         $path = 'core/base/model/fields/templates/'.$this->template;
         require($path);

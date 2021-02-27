@@ -41,7 +41,7 @@
 
         }
 
-        function render($name, $placeholder='', $class=''){
+        function render($name, $placeholder='', $class='', $errorClass=''){
 
             $options = $this->list();
 

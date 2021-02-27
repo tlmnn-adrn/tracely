@@ -68,7 +68,7 @@
             }
 
             //Rendern des input Feldes
-            function render($name, $placeholder="", $class=""){
+            function render($name, $placeholder="", $class="", $errorClass=""){
 
                 //Aufrufen des dazugehörigen Templates und anzeigen
                 $path = 'core/base/model/fields/templates/'.$this->template;

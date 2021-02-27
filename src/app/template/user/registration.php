@@ -26,7 +26,7 @@
                   <h6>PLZ des Wohnortes</h6>
                   <?=$object->renderField("plz", "01234", "aInput")?><br>
                   <h6>Passwort</h6>
-                  <?=$object->renderField("passwort", "Passwort", "aInput", "register")?><br>
+                  <?=$object->renderField("passwort", "Passwort", "aInput", "", "register")?><br>
 
                   <div class="LoginContentBottom" id="login-content-bottom-left"><a class="aList" href="<?= Url::find('login-user') ?>">bereits registriert?</a></div>
                   <div class="LoginContentBottom" id="login-content-bottom-right"><button type="submit" name="button" class="aButton aButtonInvert">Registrieren</button></div>

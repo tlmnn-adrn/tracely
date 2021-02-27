@@ -11,7 +11,7 @@
 
   <form action="" method="post">
     <?=$object->renderField("vorname", "Vorname", "Vorname")?><br>
-    <?=$object->renderField("nachname", "Nachname", "Nachname")?><br>
+    <?=$object->renderField("nachname", "Nachname", "Nachname", "Error")?><br>
     <?=$object->renderField("plz", "Postleitzahl", "Postleitzahl")?><br>
     <?=$object->renderField("email", "E-Mail Adresse", "E-Mail Adresse")?><br>
     <?=$object->renderField("passwort", "Passwort", "Passwort", "", "update")?><br>
