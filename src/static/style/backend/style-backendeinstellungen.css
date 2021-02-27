@@ -3,6 +3,11 @@
   border-color: var(--main-bg-action);
 }
 
+#einstellungen {width: 100%;}
 #einstellungen-content {
-  margin-left: 40px;
+  width: 60%;
+  margin: auto;
+}
+#einstellungen-content .aInput{
+  width: calc(100% - 30px);
 }

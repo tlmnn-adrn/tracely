@@ -12,7 +12,7 @@
           <div class="FilltextMidSektionContent">
             <div id="backend-willkommen">
               <h1>Willkommen <?= $object->vorname." ".$object->nachname ?></h1>
-              <h4>Schnellzugriff</h4>
+              <h3>Schnellzugriff</h3>
               <p>
                 <a href="#" class="aButton">QR-Code scannen</a>
                 <a href="<?= Url::find('backend-user-einstellungen') ?>" class="aButton">Einstellungen</a>

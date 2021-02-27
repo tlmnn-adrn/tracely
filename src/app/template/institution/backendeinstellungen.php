@@ -11,27 +11,27 @@
         <div class="FilltextMidSektion">
           <div class="FilltextMidSektionContent">
 
-            <div id="backend-willkommen">
+            <div id="einstellungen">
               <?php
               if ($success) {
-                echo "Eisntejkldsfj geiafper";
+                echo '<div class="Success"><p>Einstellungen erfolgreich gespeichert.</p></div>';
               }
 
               ?>
               <h1>Einstellungen</h1>
               <div id="einstellungen-content">
                 <form action="" method="post">
-                  <h6>Vorname</h6>
-                  <?=$object->renderField("vorname", "Max", "aInput")?><br>
-                  <h6>Nachname</h6>
-                  <?=$object->renderField("nachname", "Mustermann", "aInput")?><br>
-                  <h6>E-Mail</h6>
-                  <?=$object->renderField("email", "max@mustermann.tld", "aInput")?><br>
-                  <h6>Telefonnumer</h6>
-                  <?=$object->renderField("telefonnummer", "0123 4567890", "aInput")?><br>
-                  <h6>PLZ des Wohnortes</h6>
+                  <h6>Institutionsname</h6>
+                  <?=$object->renderField("name", "Muster GmbH", "aInput")?><br>
+                  <h6>Straße und Hausnummer</h6>
+                  <?=$object->renderField("adresse", "Beispiel Allee 12", "aInput")?><br>
+                  <h6>PLZ</h6>
                   <?=$object->renderField("plz", "01234", "aInput")?><br>
-                  <h6>Passwort</h6>
+                  <h6>Stadt</h6>
+                  <?=$object->renderField("stadt", "Musterstadt", "aInput")?><br>
+                  <h6>E-Mail</h6>
+                  <?=$object->renderField("email", "kontakt@muster.de", "aInput")?><br>
+                  <h6>Passwort ändern</h6>
                   <?=$object->renderField("passwort", "Passwort", "aInput", "", "update")?><br>
                   <br>
                   <button type="submit" name="button" class="aButton aButtonInvert">Einstellungen speichern</button>

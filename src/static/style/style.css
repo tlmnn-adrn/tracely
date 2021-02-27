@@ -41,7 +41,7 @@ h2 {
 h3 {
   font-size: 25pt;
   font-weight: lighter;
-  margin: 20px 0px 10px 0px;
+  margin: 20px 0px 20px 0px;
 }
 h4 {
   font-size: 20pt;
@@ -137,6 +137,10 @@ button:hover {
 
 .aInput:hover {
   border-color: var(--main-bg-action);
+}
+
+.Success {
+  color: green;
 }
 
 /*Quelle: https://stackoverflow.com/questions/826782/how-to-disable-text-selection-highlighting */
