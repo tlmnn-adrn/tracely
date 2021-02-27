@@ -142,6 +142,9 @@ button:hover {
 .Success {
   color: green;
 }
+.Failure {
+  color: red;
+}
 
 /*Quelle: https://stackoverflow.com/questions/826782/how-to-disable-text-selection-highlighting */
 .noselect {

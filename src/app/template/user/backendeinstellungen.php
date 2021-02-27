@@ -20,19 +20,19 @@
               ?>
               <h1>Einstellungen</h1>
               <div id="einstellungen-content">
-                <form action="" method="post">
+                <form action="?" method="post">
                   <h6>Vorname</h6>
-                  <?=$object->renderField("vorname", "Max", "aInput")?><br>
+                  <?=$object->renderField("vorname", "Max", "aInput", "Failure")?><br>
                   <h6>Nachname</h6>
-                  <?=$object->renderField("nachname", "Mustermann", "aInput")?><br>
+                  <?=$object->renderField("nachname", "Mustermann", "aInput", "Failure")?><br>
                   <h6>E-Mail</h6>
-                  <?=$object->renderField("email", "max@mustermann.tld", "aInput")?><br>
+                  <?=$object->renderField("email", "max@mustermann.tld", "aInput", "Failure")?><br>
                   <h6>Telefonnumer</h6>
-                  <?=$object->renderField("telefonnummer", "0123 4567890", "aInput")?><br>
+                  <?=$object->renderField("telefonnummer", "0123 4567890", "aInput", "Failure")?><br>
                   <h6>PLZ des Wohnortes</h6>
-                  <?=$object->renderField("plz", "01234", "aInput")?><br>
+                  <?=$object->renderField("plz", "01234", "aInput", "Failure")?><br>
                   <h6>Passwort</h6>
-                  <?=$object->renderField("passwort", "Passwort", "aInput", "", "update")?><br>
+                  <?=$object->renderField("passwort", "Passwort", "aInput", "Failure", "update")?><br>
                   <br>
                   <button type="submit" name="button" class="aButton aButtonInvert">Einstellungen speichern</button>
                 </form>

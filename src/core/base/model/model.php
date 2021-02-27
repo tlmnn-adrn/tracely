@@ -199,7 +199,7 @@
                 return TRUE;
             }
 
-            if($results==1 && $results[0]->id != $this->id){
+            if(count($results)==1 && $results[0]->id != $this->id){
                 return TRUE;
             }
 

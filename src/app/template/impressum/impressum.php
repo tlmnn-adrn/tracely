@@ -12,7 +12,7 @@
           <div class="FilltextMidSektionContent">
             <div id="impressum">
               <h1>Impressum</h1>
-              <h5 style="color: red">Die folgenden Angaben sind der Vollständigkeit halber und nicht auf die Geschäftsform und den Aufgabenbereich dieser Webseite angepasst.</h5>
+              <p class="Failure"><i>Die folgenden Angaben sind der Vollständigkeit halber und nicht auf die Geschäftsform und den Aufgabenbereich dieser Webseite angepasst.</i></h5>
               <br>
               <h3>Angaben gemäß § 5 TMG</h3>
               <p>

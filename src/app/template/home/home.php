@@ -48,6 +48,14 @@
           </div>
         </div>
 
+        <div class="FilltextMidSektion FilltextMidSektionBACKCALM">
+          <div class="FilltextMidSektionContent">
+            <div id="zahlen">
+
+            </div>
+          </div>
+        </div>
+
         <?php $this->drawTrenner(2, "#DFF8FC");?>
 
         <div class="FilltextMidSektion">
