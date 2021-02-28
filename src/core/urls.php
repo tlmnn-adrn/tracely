@@ -31,7 +31,10 @@
     require_once "app/controller/user/backendeinstellungen.php";
     //Institution
     require_once "app/controller/institution/backendubersicht.php";
+    require_once "app/controller/institution/backendkontaktverfolgung.php";
+    require_once "app/controller/institution/backendqrcodeerstellung.php";
     require_once "app/controller/institution/backendeinstellungen.php";
+
 
 
 //Definieren der URLs
@@ -60,6 +63,8 @@
     Url::add('backend-user-einstellungen', 'backend/user/einstellungen/', 'UserBackendEinstellungenController');
     //Institution
     Url::add('backend-institution', 'backend/institution/', 'InstitutionBackendUbersichtController');
+    Url::add('backend-institution-kontaktverfolgung', 'backend/institution/kontaktverfolgung/', 'InstitutionBackendKontaktverfolgungController');
+    Url::add('backend-institution-qrcodeerstellung', 'backend/institution/qrcodeerstellung/', 'InstitutionBackendQrcodeerstellungController');
     Url::add('backend-institution-einstellungen', 'backend/institution/einstellungen/', 'InstitutionBackendEinstellungenController');
 
   #Static Urls

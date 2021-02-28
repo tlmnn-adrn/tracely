@@ -3,7 +3,7 @@
   class BackendController extends Controller
   {
 
-    use DrawTrennerMixin;
+    use DrawTrennerMixin, LoginRequiredMixin, LoginRedirectMixin;
 
     protected $template = 'backend/backend.php';
 

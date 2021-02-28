@@ -14,7 +14,7 @@
             <div id="backend-willkommen">
               <?php
               if ($success) {
-                echo "Eisntejkldsfj geiafper";
+                echo '<div class="Success">Einstellungen erfolgreich gespeichert.</div>';
               }
 
               ?>

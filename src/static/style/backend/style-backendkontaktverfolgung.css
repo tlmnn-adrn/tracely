@@ -1,0 +1,11 @@
+#headerlink-kontaktverfolgung {
+  color: var(--main-bg-action);
+  border-color: var(--main-bg-action);
+}
+
+.KontaktverfolgungBox {
+  margin-bottom: 30px;
+}
+.KontaktverfolgungBox .aInput {
+  margin-top: 15px;
+}
