@@ -9,7 +9,7 @@
 
     protected function get($request) {
 
-        $object = InstitutionModel::getUserObject();
+        $object = QrcodeModel::getUserObject();
 
         $context = [
             "object" => $object,
@@ -19,14 +19,14 @@
     }
 
     protected function post($request) {
-      $object = new QrcodeModel;
+      $newobject = new QrcodeModel;
 
       //$object->code = $request[""];
-      $object->tischnummer = $request["name"];
-      $object->sitzplätze = $request["adresse"];
-      $object->institutionId = $_SESSION["userId"];
+      $newobject->tischnummer = $request["name"];
+      $newobject->sitzplaetze = $request["adresse"];
+      $newobject->institutionId = $_SESSION["userId"];
 
-      $success = $object->create();
+      $success = $newobject->create();
 
       $context = [
           "object" => $object,

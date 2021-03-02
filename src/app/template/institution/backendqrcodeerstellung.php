@@ -14,8 +14,8 @@
             <div class="BackendBox" id="qrcodeerstellung">
               <h1>Qr-Code Erstellung</h1>
               <form action="?" method="post">
-                <?=$object->renderField("name", "Tischnummer", "aInput")?>
-                <?=$object->renderField("adresse", "TT.MM.JJJJ", "aInput")?><br>
+                <?=$object->renderField("tischnummer", "xxx", "aInput")?>
+                <?=$object->renderField("sitzplaetze", "xxx", "aInput")?><br>
                 <button type="submit" name="button" class="aButton aButtonInvert">QR-Code erstellen</button>
               </form>
             </div>

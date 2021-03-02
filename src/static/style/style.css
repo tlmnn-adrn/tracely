@@ -87,7 +87,7 @@ a {
   background-color: var(--main-bg-action);
   left: -5px;
 }
-p, input, select, a, button {
+p, input, select, a, button, table {
   font-size: var(--main-ft-size);
   font-weight: var(--main-ft-weight);
 }
@@ -95,7 +95,12 @@ p {
   text-align: justify;
   margin-top: 10px;
 }
-
+th {
+  text-align: left;
+}
+td {
+  padding: 5px 0px 5px 0px;
+}
 mark {
   font-weight: bold;
   background: none;

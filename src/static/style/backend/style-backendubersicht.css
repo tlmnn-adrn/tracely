@@ -2,3 +2,7 @@
   color: var(--main-bg-action);
   border-color: var(--main-bg-action);
 }
+
+#tischubersicht td, #tischubersicht th {
+  width: 320px;
+}

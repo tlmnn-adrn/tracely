@@ -21,9 +21,25 @@
 
             <div class="BackendBox" id="tischubersicht">
               <h3>Tischübersicht</h3>
-              <p>lol
-                
-              </p>
+              <table>
+                <tr>
+                  <th>Tischnummer</th><th>Sitzplätze</th><th>QR-Code Optionen</th>
+                </tr>
+                <?php
+
+                for ($i=0; $i < count($qrcodes); $i++) {
+                  echo '
+                  <tr>
+                    <td>'.$qrcodes[$i]->tischnummer.'</td>
+                    <td>'.$qrcodes[$i]->sitzplaetze.'</td>
+                    <td> erneut drucken </td>
+                    <td> löschen </td>
+                  </tr>
+                  ';
+                }
+
+                ?>
+              </table>
 
             </div>
 
