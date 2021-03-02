@@ -15,7 +15,7 @@
               <h1>Qr-Code Erstellung</h1>
               <form action="?" method="post">
                 <?=$object->renderField("name", "Tischnummer", "aInput")?>
-                <?=$object->renderField("name", "TT.MM.JJJJ", "aInput")?><br>
+                <?=$object->renderField("adresse", "TT.MM.JJJJ", "aInput")?><br>
                 <button type="submit" name="button" class="aButton aButtonInvert">QR-Code erstellen</button>
               </form>
             </div>

@@ -38,7 +38,7 @@
     //URL Patterns
     require_once 'core/base/urlPattern/url.php';
     require_once 'core/base/urlPattern/staticUrl.php';
-    
+
     //------------------------- App -------------------------
 
     //Model
@@ -47,6 +47,8 @@
 
     require_once 'app/model/institution.php';
     //InstitutionModel::__constructStatic();
+
+    require_once 'app/model/qrcode.php';
 
     require_once 'app/model/institutionsart.php';
     //InstitutionsartModel::__constructStatic();

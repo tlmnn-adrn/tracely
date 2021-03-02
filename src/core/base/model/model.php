@@ -41,7 +41,7 @@
             $query = new SelectQuery(static::$tableName, static::class);
             $results = $query->execute();
 
-             return $results;
+            return $results;
 
         }
 

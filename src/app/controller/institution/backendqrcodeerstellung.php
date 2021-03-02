@@ -19,7 +19,21 @@
     }
 
     protected function post($request) {
-        $this->render();
+      $object = new QrcodeModel;
+
+      //$object->code = $request[""];
+      $object->tischnummer = $request["name"];
+      $object->sitzplätze = $request["adresse"];
+      $object->institutionId = $_SESSION["userId"];
+
+      $success = $object->create();
+
+      $context = [
+          "object" => $object,
+          "success" => $success,
+      ];
+
+      $this->render($context);
 
     }
 

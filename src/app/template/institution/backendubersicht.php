@@ -21,7 +21,10 @@
 
             <div class="BackendBox" id="tischubersicht">
               <h3>Tischübersicht</h3>
-              <p>lol</p>
+              <p>lol
+                
+              </p>
+
             </div>
 
           </div>
