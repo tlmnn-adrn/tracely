@@ -17,17 +17,6 @@
 
       }
 
-
-      public static function getQrcode($qrcodeId) {
-        $code = parent::getById($qrcodeId);
-
-        if ($code->institutionId == $_SESSION["userId"]) {
-          return $code;
-        } else {
-          return FALSE;
-        }
-      }
-
       public static function getQrcodes($institutionId) {
 
         $sql = new SelectQuery(static::$tableName, get_called_class());

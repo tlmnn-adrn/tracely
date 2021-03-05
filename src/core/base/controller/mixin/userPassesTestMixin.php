@@ -7,7 +7,7 @@
         function userPassesTestMixinInit($arguments=[]){
 
             if(!$this->testFunc(...$arguments)){
-                new NotFoundError('Sie besitzen keine Berechtigung diese Seite zu sehen');
+                new NotFoundError('Sie besitzen keine Berechtigung diese Seite zu sehen.');
             }
 
         }

@@ -2,7 +2,7 @@
 
   class InstitutionBackendQrcodelöschenController extends Controller
   {
-    use DrawTrennerMixin, InstitutionLoginRequiredMixin;
+    use DrawTrennerMixin, InstitutionLoginRequiredMixin, UserPassesTestMixin;
 
     protected $template = 'institution/backendqrcodelöschen.php';
 
@@ -10,7 +10,7 @@
     protected function get($request, $id=0) {
 
         $object = InstitutionModel::getUserObject();
-        $code = QrcodeModel::getQrcode($id);
+        $code = QrcodeModel::getById($id);
 
         $context = [
             "object" => $object,
@@ -24,16 +24,21 @@
     protected function post($request, $id=0) {
 
       $object = InstitutionModel::getUserObject();
-      $code = QrcodeModel::getQrcode($id);
+      $code = QrcodeModel::getById($id);
 
-      $context = [
-        "object" => $object,
-        "code" => $code,
-        "success" => TRUE,
-      ];
+      $code->delete();
 
-      $this->render($context);
+      header('Location: '.Url::find('backend-institution').'?success=QR-Code wurde erfolgreich gelöscht');
+      exit;
 
+    }
+
+    protected function testFunc($id=0) {
+
+      $object = InstitutionModel::getUserObject();
+      $code = QrcodeModel::getById($id);
+
+      return $code->institutionId==$object->id;
     }
 
   }
