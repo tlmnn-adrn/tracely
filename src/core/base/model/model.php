@@ -185,7 +185,8 @@
 
         }
 
-        public function hasUniqueError($fieldKey, $field){
+        protected function hasUniqueError($fieldKey, $field){
+
 
             if(!$field->unique){
                 return FALSE;
@@ -213,7 +214,6 @@
             foreach(array_keys($this->fields) as $fieldKey){
 
                 $field = $this->fields[$fieldKey];
-
                 if($field::class != 'IdField' && $field->hasErrors($this->hasUniqueError($fieldKey, $field))){
                     return TRUE;
                 }

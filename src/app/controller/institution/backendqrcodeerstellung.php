@@ -9,27 +9,32 @@
 
     protected function get($request) {
 
-        $object = QrcodeModel::getUserObject();
+        $object = InstitutionModel::getUserObject();
+        $code = new QrcodeModel;
 
         $context = [
             "object" => $object,
+            "code" => $code,
         ];
 
         $this->render($context);
     }
 
     protected function post($request) {
-      $newobject = new QrcodeModel;
 
-      //$object->code = $request[""];
-      $newobject->tischnummer = $request["name"];
-      $newobject->sitzplaetze = $request["adresse"];
-      $newobject->institutionId = $_SESSION["userId"];
+      $object = InstitutionModel::getUserObject();
+      $code = new QrcodeModel;
 
-      $success = $newobject->create();
+      $code->tischnummer = $request["tischnummer"];
+      $code->sitzplätze = $request["sitzplätze"];
+      $code->code = "123";
+      $code->institutionId = $object->id;
+
+      $success = $code->create();
 
       $context = [
           "object" => $object,
+          "code" => $code,
           "success" => $success,
       ];
 

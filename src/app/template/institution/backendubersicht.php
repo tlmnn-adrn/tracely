@@ -31,7 +31,7 @@
                   echo '
                   <tr>
                     <td>'.$qrcodes[$i]->tischnummer.'</td>
-                    <td>'.$qrcodes[$i]->sitzplaetze.'</td>
+                    <td>'.$qrcodes[$i]->sitzplätze.'</td>
                     <td> erneut drucken </td>
                     <td> löschen </td>
                   </tr>
