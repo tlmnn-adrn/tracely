@@ -290,4 +290,15 @@
 
         }
 
+        //Äquivalent zu update, aber hier wird ein Datensatz aus der Tabelle gelöscht
+        public function delete(){
+
+            $sql = "DELETE FROM ".static::$tableName." WHERE id = ?";
+            $values = [$this->id];
+            $query = new BaseQuery();
+            $success = $query->executeStatement($sql, $values);
+            return TRUE;
+
+        }
+
     }

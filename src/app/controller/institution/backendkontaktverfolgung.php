@@ -10,9 +10,11 @@
     protected function get($request) {
 
         $object = InstitutionModel::getUserObject();
+        $code = new QrcodeModel;
 
         $context = [
             "object" => $object,
+            "code" => $code,
         ];
 
         $this->render($context);

@@ -26,7 +26,7 @@
                 <p>Wählen Sie eine Tischnummer, um sich alle Besucher Ihrer Institution an diesem Tisch zum gewählten DAtum anzeigen zu lassen.</p>
                 <form action="?" method="post">
                   <?=$object->renderField("name", "TT.MM.JJJJ", "aInput")?>
-                  <?=$object->renderField("name", "Tischnummer", "aInput")?><br>
+                  <?=$code->renderField("tischnummer", "Tischnummer", "aInput")?><br>
                   <button type="submit" name="button" class="aButton aButtonInvert">Besucher anzeigen</button>
                 </form>
               </div>
