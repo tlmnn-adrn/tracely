@@ -87,11 +87,11 @@ a {
   background-color: var(--main-bg-action);
   left: -5px;
 }
-p, input, select, a, button, table {
+p, input, select, a, button, table, li {
   font-size: var(--main-ft-size);
   font-weight: var(--main-ft-weight);
 }
-p {
+p, li {
   text-align: justify;
   margin-top: 10px;
 }
@@ -112,7 +112,7 @@ q {
   font-style: italic;
 }
 li {
-  list-style: none;
+  list-style:none;
 }
 button, input, select {
   border: none;
@@ -144,12 +144,8 @@ button:hover {
   border-color: var(--main-bg-action);
 }
 
-.Success {
-  color: green;
-}
-.Failure {
-  color: red;
-}
+.Success {color: green;}
+.Failure {color: red;}
 
 /*Quelle: https://stackoverflow.com/questions/826782/how-to-disable-text-selection-highlighting */
 .noselect {

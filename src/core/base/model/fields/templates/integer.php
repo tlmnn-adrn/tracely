@@ -1,5 +1,5 @@
 
-<input type="number" id="<?=$name?>Field" name="<?=$name?>" placeholder="<?=$placeholder?>" value=<?=$this->value?> class="<?=$class?>">
+<input type="number" id="<?=$name?>Field" name="<?=$name?>" placeholder="<?=$placeholder?>" value="<?=$this->value?>" class="<?=$class?>">
 
 <?php if(count($this->errors)): ?>
     <div class="<?=$errorClass?>">

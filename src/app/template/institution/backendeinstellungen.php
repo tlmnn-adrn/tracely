@@ -16,7 +16,6 @@
               if ($success) {
                 echo '<div class="Success">Einstellungen erfolgreich gespeichert.</div>';
               }
-
               ?>
               <h1>Einstellungen</h1>
               <div id="einstellungen-content">

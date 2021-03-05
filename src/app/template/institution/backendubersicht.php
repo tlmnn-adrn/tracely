@@ -11,6 +11,11 @@
         <div class="FilltextMidSektion">
           <div class="FilltextMidSektionContent">
             <div class="BackendBox" id="backend-willkommen">
+              <?php
+              if ($success) {
+                echo '<div class="Success">'.$success.'</div>';
+              }
+              ?>
               <h1>Willkommen <?= $object->name ?></h1>
               <h3>Schnellzugriff</h3>
               <p>
@@ -33,7 +38,11 @@
                     <td>'.$qrcodes[$i]->tischnummer.'</td>
                     <td>'.$qrcodes[$i]->sitzplätze.'</td>
                     <td> erneut drucken </td>
-                    <td> löschen </td>
+                    <td>
+                      <form action="'.Url::find("backend-institution-qrcodelöschen").'" method="post">
+                        <button type="submit" name="qrcodelöschen" value="'.$qrcodes[$i]->id.'" class="aText">löschen</button>
+                      </form>
+                    </td>
                   </tr>
                   ';
                 }

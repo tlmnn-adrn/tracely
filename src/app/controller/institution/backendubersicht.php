@@ -12,9 +12,16 @@
         $object = InstitutionModel::getUserObject();
         $qrcodes = QrcodeModel::getQrcodes($object->id);
 
+        if(!empty($request["success"])) {
+          $success = $request["success"];
+        } else {
+          $success = FALSE;
+        }
+
         $context = [
             "object" => $object,
             "qrcodes" => $qrcodes,
+            "success" => $success,
         ];
 
         $this->render($context);

@@ -12,6 +12,11 @@
           <div class="FilltextMidSektionContent">
 
             <div class="BackendBox" id="qrcodeerstellung">
+              <?php
+              if ($success) {
+                echo '<div class="Success">QR-Code erfolgreich erstellt.</div>';
+              }
+              ?>
               <h1>Qr-Code Erstellung</h1>
               <form action="?" method="post">
                 <?=$code->renderField("tischnummer", "Tischnummer", "aInput")?>
