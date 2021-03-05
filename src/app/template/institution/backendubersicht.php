@@ -39,9 +39,7 @@
                     <td>'.$qrcodes[$i]->sitzplätze.'</td>
                     <td> erneut drucken </td>
                     <td>
-                      <form action="'.Url::find("backend-institution-qrcodelöschen").'" method="post">
-                        <button type="submit" name="qrcodelöschen" value="'.$qrcodes[$i]->id.'" class="aText">löschen</button>
-                      </form>
+                      <a href="'.Url::find("backend-institution-qrcodelöschen", $qrcodes[$i]->id).'" class="aText">löschen</a>
                     </td>
                   </tr>
                   ';

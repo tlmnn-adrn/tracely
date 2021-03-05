@@ -34,7 +34,6 @@
     require_once "app/controller/institution/backendkontaktverfolgung.php";
     require_once "app/controller/institution/backendqrcodeerstellung.php";
     require_once "app/controller/institution/backendqrcodelöschen.php";
-    require_once "app/controller/institution/backendqrcodelöschenF.php";
     require_once "app/controller/institution/backendeinstellungen.php";
 
 
@@ -67,8 +66,7 @@
     Url::add('backend-institution', 'backend/institution/', 'InstitutionBackendUbersichtController');
     Url::add('backend-institution-kontaktverfolgung', 'backend/institution/kontaktverfolgung/', 'InstitutionBackendKontaktverfolgungController');
     Url::add('backend-institution-qrcodeerstellung', 'backend/institution/qrcodeerstellung/', 'InstitutionBackendQrcodeerstellungController');
-    Url::add('backend-institution-qrcodelöschen', 'backend/institution/qrcodeloeschen/', 'InstitutionBackendQrcodelöschenController');
-    Url::add('backend-institution-qrcodelöschenF', 'backend/institution/qrcodeloeschenF/', 'InstitutionBackendQrcodelöschenFController');
+    Url::add('backend-institution-qrcodelöschen', 'backend/institution/qrcodeloeschen/<id>', 'InstitutionBackendQrcodelöschenController');
     Url::add('backend-institution-einstellungen', 'backend/institution/einstellungen/', 'InstitutionBackendEinstellungenController');
 
   #Static Urls
