@@ -11,10 +11,12 @@
 
         $object = InstitutionModel::getUserObject();
         $code = new QrcodeModel;
+        $scan = new ScanModel;
 
         $context = [
             "object" => $object,
             "code" => $code,
+            "scan" => $scan,
         ];
 
         $this->render($context);

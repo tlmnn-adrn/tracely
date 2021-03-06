@@ -31,20 +31,18 @@
                   <th>Tischnummer</th><th>Sitzplätze</th><th>QR-Code Optionen</th>
                 </tr>
                 <?php
-
                 for ($i=0; $i < count($qrcodes); $i++) {
-                  echo '
+                ?>
                   <tr>
-                    <td>'.$qrcodes[$i]->tischnummer.'</td>
-                    <td>'.$qrcodes[$i]->sitzplätze.'</td>
+                    <td><?= $qrcodes[$i]->tischnummer?> </td>
+                    <td><?=$qrcodes[$i]->sitzplätze?></td>
                     <td> erneut drucken </td>
                     <td>
-                      <a href="'.Url::find("backend-institution-qrcodelöschen", $qrcodes[$i]->id).'" class="aText">löschen</a>
+                      <a href="<?=Url::find("backend-institution-qrcodelöschen", $qrcodes[$i]->id)?>" class="aText">löschen</a>
                     </td>
                   </tr>
-                  ';
+                <?php
                 }
-
                 ?>
               </table>
 

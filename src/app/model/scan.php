@@ -16,4 +16,12 @@
 
       }
 
+      public static function getScansOnDay($date) {
+        $sql = new SelectQuery(static::$tableName, get_called_class());
+        $sql->where('zeitpunkt=?', $date);
+        $scans = $sql->execute();
+
+        return $scans;
+      }
+
     }

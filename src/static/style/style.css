@@ -124,6 +124,9 @@ button, input, select {
 button:hover {
   cursor: pointer;
 }
+input[type="date"], input[type="time"] {
+  text-align: center;
+}
 .aButton, .aInput {
   margin: 2px;
   padding: 10px 15px 10px 15px;
