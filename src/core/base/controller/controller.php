@@ -23,7 +23,7 @@
                 if(method_exists($this, $functionName)){
                     $this->$functionName($arguments);
                 }
-                    
+
             }
 
 
@@ -33,6 +33,7 @@
                 $this->get($_GET, ...$arguments);
             }
         }
+
 
         //Rendern eines Templates
         //$context sind die Variablen, die in das Template eingefügt werden
