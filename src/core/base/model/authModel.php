@@ -44,6 +44,12 @@
             $_SESSION['userType'] = get_class($user);
 
             if($redirect){
+
+                if(isset($_SESSION['rememberUrl'])){
+                    header('Location: '.$_SESSION['rememberUrl']);
+                    exit;
+                }
+
                 header('Location: '.static::getLoginSuccessUrl());
                 exit;
             }

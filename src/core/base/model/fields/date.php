@@ -6,20 +6,12 @@
 
         function checkValid(){
 
-            //Quelle
-            if(DateTime::createFromFormat('Y-m-d h:m:s', $this->value) == FALSE){
+            //Quelle https://stackoverflow.com/questions/14504913/verify-valid-date-using-phps-datetime-class/14505065
+            if(DateTime::createFromFormat('Y-m-d', $this->value) == FALSE){
                 return FALSE;
             }
 
             return parent::checkValid();
-
-        }
-
-        function render($name, $placeholder="", $class="", $errorClass="", $time=FALSE){
-
-            //Aufrufen des dazugehörigen Templates und anzeigen
-            $path = 'core/base/model/fields/templates/'.$this->template;
-            require($path);
 
         }
 

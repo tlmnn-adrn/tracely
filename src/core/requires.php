@@ -40,6 +40,9 @@
     require_once 'core/base/urlPattern/url.php';
     require_once 'core/base/urlPattern/staticUrl.php';
 
+    //PDF
+    require_once 'tcpdf_min/tcpdf.php';
+
     //------------------------- App -------------------------
 
     //Model
