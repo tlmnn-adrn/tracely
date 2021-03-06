@@ -39,7 +39,7 @@
 
             //Ausgabe des Wertes
             function get(){
-                return htmlspecialchars($this->value, ENT_QUOTES, 'UTF-8');;
+                return htmlspecialchars($this->value, ENT_QUOTES, 'UTF-8');
             }
 
             //Setzen des Wertes
