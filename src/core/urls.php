@@ -32,6 +32,7 @@
     //Institution
     require_once "app/controller/institution/backendubersicht.php";
     require_once "app/controller/institution/backendkontaktverfolgung.php";
+    require_once "app/controller/institution/backendkontaktpersonen.php";
     require_once "app/controller/institution/backendqrcodeerstellung.php";
     require_once "app/controller/institution/backendqrcodelöschen.php";
     require_once "app/controller/institution/backendeinstellungen.php";
@@ -65,6 +66,7 @@
     //Institution
     Url::add('backend-institution', 'backend/institution/', 'InstitutionBackendUbersichtController');
     Url::add('backend-institution-kontaktverfolgung', 'backend/institution/kontaktverfolgung/', 'InstitutionBackendKontaktverfolgungController');
+    Url::add('backend-institution-kontaktpersonen', 'backend/institution/kontaktverfolgung/kontaktpersonen/', 'InstitutionBackendKontaktpersonenController');
     Url::add('backend-institution-qrcodeerstellung', 'backend/institution/qrcodeerstellung/', 'InstitutionBackendQrcodeerstellungController');
     Url::add('backend-institution-qrcodelöschen', 'backend/institution/qrcodeloeschen/<id>', 'InstitutionBackendQrcodelöschenController');
     Url::add('backend-institution-einstellungen', 'backend/institution/einstellungen/', 'InstitutionBackendEinstellungenController');

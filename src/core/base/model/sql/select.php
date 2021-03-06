@@ -81,13 +81,13 @@
             $sql = " ";
 
             foreach($this->joins as $join){
-
+              echo $join[2];
                 switch($join[2]){
 
                     case 0:
                         $type = 'INNER JOIN';
                         break;
-                    
+
                     case 1:
                         $type = 'LEFT JOIN';
                         break;
@@ -95,7 +95,7 @@
                     case 2:
                         $type = 'INNER JOIN';
                         break;
-                    
+
                     default:
                         $type = 'INNER JOIN';
 
@@ -125,7 +125,7 @@
 
             return $sql;
 
-        }        
+        }
 
 
     }
