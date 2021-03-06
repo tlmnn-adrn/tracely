@@ -23,7 +23,7 @@
 
         public function execute(){
 
-            $sql = 'SELECT * FROM '.$this->table.$this->formulateWhere().$this->formulateJoin().$this->formulateOrder();
+            $sql = 'SELECT * FROM '.$this->table.$this->formulateJoin().$this->formulateWhere().$this->formulateOrder();
             $values = $this->whereValues;
 
             $statement = $this->executeStatement($sql, $values);
@@ -48,9 +48,9 @@
 
         }
 
-        public function join($table, $condition, $type){
+        public function join($table, $condition){
 
-            $this->joins[] = [$table, $condition, $type];
+            $this->joins[] = [$table, $condition];
 
         }
 
@@ -81,25 +81,8 @@
             $sql = " ";
 
             foreach($this->joins as $join){
-              echo $join[2];
-                switch($join[2]){
 
-                    case 0:
-                        $type = 'INNER JOIN';
-                        break;
-
-                    case 1:
-                        $type = 'LEFT JOIN';
-                        break;
-
-                    case 2:
-                        $type = 'INNER JOIN';
-                        break;
-
-                    default:
-                        $type = 'INNER JOIN';
-
-                }
+                $type = 'LEFT JOIN';
 
                 $sql .= $type.' '.$join[0].' ON '.$join[1].' ';
 

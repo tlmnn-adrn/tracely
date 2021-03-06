@@ -21,9 +21,13 @@
                 for ($i=0; $i < count($scans); $i++) {
                 ?>
                   <tr>
-                    <td><?= $scans[$i]->zeitpunkt?> </td>
-                    <td></td>
-                    <td><?=$scans[$i]->benutzerId?></td>
+                    <td><?= $scans[$i]['uhrzeit']?></td>
+                    <td><?= $scans[$i]['tischnummer']?></td>
+                    <td><?=$scans[$i]['nachname']?></td>
+                    <td><?=$scans[$i]['vorname']?></td>
+                    <td><?=$scans[$i]['email']?></td>
+                    <td><?=$scans[$i]['telefonnummer']?></td>
+                    <td><?=$scans[$i]['plz']?></td>
                   </tr>
                 <?php
                 }
@@ -34,12 +38,23 @@
           </div>
         </div>
 
-
       </div>
     </div>
 
 <?php $body = ob_get_clean(); ?>
 
+
+<script type="text/javascript">
+  function printPdf() {
+    document.getElementById('weg').style.opacity = 0;
+
+    window.print();
+  }
+</script>
+
+<button id="weg" class="aText" type="button" name="button" onclick="printPdf()">Liste drucken</button>
+
+
 <?php
-  require($this->extend('base.php'));
+  require($this->extend('htmlframe.php'));
 ?>

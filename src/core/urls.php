@@ -71,6 +71,7 @@
     Url::add('backend-institution-qrcodelöschen', 'backend/institution/qrcodeloeschen/<id>', 'InstitutionBackendQrcodelöschenController');
     Url::add('backend-institution-einstellungen', 'backend/institution/einstellungen/', 'InstitutionBackendEinstellungenController');
 
+
   #Static Urls
     StaticUrl::add('static', 'static/');
 

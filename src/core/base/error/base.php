@@ -44,6 +44,14 @@
       }
     }
 
+    #Input Fehler
+    class InputError extends BaseError {
+
+      public function __construct($errorMessageX="") {
+        parent::__construct("Input", "Die Eingabe ist unvollständig.<br>".$errorMessageX, 404);
+      }
+    }
+
     #SQL Fehler
     class SQLError extends BaseError {
 

@@ -9,9 +9,12 @@
 
     protected function get($request) {
       $object = InstitutionModel::getUserObject();
-      $zeitpunkt = $request["zeitpunkt"];
+      
+      $tag = isset($request["tag"])?$request["tag"]:FALSE;
+      $tischnummer = isset($request["tischnummer"])?$request["tischnummer"]:FALSE;
+      $uhrzeit = isset($request["uhrzeit"])?$request["uhrzeit"]:FALSE;
 
-      $scans = ScanModel::getScansOnDay($zeitpunkt);
+      $scans = ScanModel::getScans(id: $object->id, tag: $tag, tischnummer: $tischnummer, uhrzeit: $uhrzeit);
 
         $context = [
             "object" => $object,
