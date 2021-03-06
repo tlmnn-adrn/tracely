@@ -10,7 +10,7 @@
           'code' => new TextField(required: TRUE),
           'tischnummer' => new IntegerField(required: TRUE),
           'sitzplätze' => new IntegerField(required: TRUE),
-          'institutionId' => new IntegerField(required: TRUE),
+          'institutionId' => new ForeignKeyField(model:'InstitutionsartModel', required:TRUE),
         ];
 
         parent::__construct($values);

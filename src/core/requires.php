@@ -34,6 +34,7 @@
     require_once 'core/base/model/fields/telefon.php';
     require_once 'core/base/model/fields/id.php';
     require_once 'core/base/model/fields/foreignKey.php';
+    require_once 'core/base/model/fields/date.php';
 
     //URL Patterns
     require_once 'core/base/urlPattern/url.php';
@@ -43,15 +44,10 @@
 
     //Model
     require_once 'app/model/user.php';
-    //UserModel::__constructStatic();
-
     require_once 'app/model/institution.php';
-    //InstitutionModel::__constructStatic();
-
     require_once 'app/model/qrcode.php';
-
     require_once 'app/model/institutionsart.php';
-    //InstitutionsartModel::__constructStatic();
+    require_once 'app/model/scan.php';
 
     //Mixins
     require_once 'app/controller/mixin/institutionLoginRequiredMixin.php';
