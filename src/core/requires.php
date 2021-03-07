@@ -8,6 +8,7 @@
     //Modell
     require_once 'core/base/model/model.php';
     require_once 'core/base/model/authModel.php';
+    require_once 'core/base/model/rememberAuthModel.php';
 
     //SQL
     require_once 'core/base/model/sql/base.php';
@@ -19,10 +20,12 @@
     //Fehlermeldungen
     require_once 'core/base/error/base.php';
 
-    //Mixins
-    require_once 'core/base/controller/mixin/loginRequiredMixin.php';
-    require_once 'core/base/controller/mixin/userPassesTestMixin.php';
-    require_once 'core/base/controller/mixin/loginRedirectMixin.php';
+    //Utils
+    require_once 'core/base/utils/mixin/loginRequiredMixin.php';
+    require_once 'core/base/utils/mixin/userPassesTestMixin.php';
+    require_once 'core/base/utils/mixin/loginRedirectMixin.php';
+
+    require_once 'core/base/utils/random/randomStringGenerator.php';
 
     //Fields
     require_once 'core/base/model/fields/base.php';
@@ -51,13 +54,13 @@
     require_once 'app/model/qrcode.php';
     require_once 'app/model/institutionsart.php';
     require_once 'app/model/scan.php';
+    require_once 'app/model/rememberInstitution.php';
+    require_once 'app/model/rememberUser.php';
 
     //Mixins
     require_once 'app/controller/mixin/institutionLoginRequiredMixin.php';
     require_once 'app/controller/mixin/userLoginRequiredMixin.php';
     require_once 'app/controller/mixin/drawTrennerMixin.php';
 
-
-
-
+    //Urls
     require_once 'core/urls.php';
