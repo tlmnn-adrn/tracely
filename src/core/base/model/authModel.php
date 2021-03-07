@@ -70,7 +70,11 @@
             if($redirect){
 
                 if(isset($_SESSION['rememberUrl'])){
-                    header('Location: '.$_SESSION['rememberUrl']);
+
+                    $url = $_SESSION['rememberUrl'];
+                    $_SESSION['rememberUrl'] = NULL;
+
+                    header('Location: '.$url);
                     exit;
                 }
 
