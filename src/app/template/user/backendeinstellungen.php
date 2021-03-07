@@ -21,6 +21,7 @@
               <h1>Einstellungen</h1>
               <div id="einstellungen-content">
                 <form action="?" method="post">
+                  <?= $this->csrfToken() ?>
                   <h6>Vorname</h6>
                   <?=$object->renderField("vorname", "Max", "aInput", "Failure")?><br>
                   <h6>Nachname</h6>

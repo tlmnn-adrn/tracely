@@ -44,6 +44,7 @@
 <?php $body = ob_get_clean(); ?>
 
 <form action="" method="post">
+  <?= $this->csrfToken() ?>
   <button type="submit" name="button">PDF herunterladen</button>
 </form>
 <!--

@@ -67,3 +67,12 @@
         parent::__construct("500", "Mehr als ein Objekt entspricht dem Filter. Verwende einen anderen Filter oder die filteredList Methode!<br>".$errorMessageX, 500);
       }
     }
+
+    #Security Fehler
+    class SecurityError extends BaseError {
+
+      public function __construct($errorMessageX="") {
+        parent::__construct("401", "Es gab einen Sicherheitsfehler!<br>".$errorMessageX, 401);
+      }
+    }
+

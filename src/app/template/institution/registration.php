@@ -15,6 +15,7 @@
 
               <div id="login-content">
                 <form action="" method="post">
+                  <?= $this->csrfToken() ?>
                   <h6>Institutionsname</h6>
                   <?=$object->renderField("name", "Muster GmbH", "aInput")?><br>
                   <h6>Straße Hausnummer</h6>

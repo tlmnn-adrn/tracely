@@ -151,6 +151,9 @@
                     $rememberObject = 'Remember'.$userClass;
                     $results = $rememberObject::getRememberMe($userId, $token);
 
+                    $_SESSION['userId'] = $userId;
+                    $_SESSION['userType'] = $userClass;
+
                     if(count($results)){
                         return TRUE;
                     }
@@ -163,7 +166,7 @@
 
         public static function getUserObject(){
 
-            $class = get_called_class();
+            $class = static::class;
 
             if(!static::isLoggedIn()){
                 return NULL;
@@ -185,18 +188,6 @@
 
                 return $object;
 
-            }
-
-            if(isset($_COOKIE['rememberMe'])){
-                $cookie = $_COOKIE['rememberMe'];
-
-                [$id, $userModel, $token, $mac] = explode(':', $cookie);
-
-                $sql = new SelectQuery($userModel::$tableName, $userModel);
-                $sql->where('id=?', $id);
-                $object = $sql->execute()[0];
-
-                return $object;
             }
 
             return NULL;

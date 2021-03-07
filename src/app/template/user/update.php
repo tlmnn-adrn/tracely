@@ -10,6 +10,7 @@
   <h1>Update User <?= $object->getField('vorname') ?></h1>
 
   <form action="" method="post">
+    <?= $this->csrfToken() ?>
     <?=$object->renderField("vorname", "Vorname", "Vorname")?><br>
     <?=$object->renderField("nachname", "Nachname", "Nachname", "Error")?><br>
     <?=$object->renderField("plz", "Postleitzahl", "Postleitzahl")?><br>

@@ -15,6 +15,7 @@
 
               <div id="login-content">
                 <form action="?" method="post">
+                  <?= $this->csrfToken() ?>
                   <?=$object->renderField("email", "E-Mail Adresse", "aInput")?><br>
                   <?=$object->renderField("passwort", "Passwort", "aInput", "", "")?><br>
                   <div class="LoginContentBottom" id="login-content-bottom-left"><a class="aList" href="<?= Url::find('registrierung-institution') ?>">Registrieren</a></div>

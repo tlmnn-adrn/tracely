@@ -15,6 +15,7 @@
 
               <div id="login-content">
                 <form action="" method="post">
+                  <?= $this->csrfToken() ?>
                   <h6>Vorname</h6>
                   <?=$object->renderField("vorname", "Max", "aInput")?><br>
                   <h6>Nachname</h6>
