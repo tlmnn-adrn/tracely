@@ -2,7 +2,7 @@
 
     class ScanModel extends AuthModel{
 
-      static $tableName = "scan";
+      static $tableName = "Scan";
       protected $fields = [];
 
       public function __construct($values=[]) {
@@ -20,13 +20,13 @@
       public static function getScans($id, $tag, $tischnummer, $uhrzeit) {
 
         $sql = new SelectQuery(static::$tableName);
-        $sql->join('benutzer', static::$tableName.'.benutzerId = benutzer.id');
-        $sql->join('qrcode', static::$tableName.'.qrcodeId = qrcode.id');
+        $sql->join('Benutzer', static::$tableName.'.benutzerId = Benutzer.id');
+        $sql->join('QrCode', static::$tableName.'.qrcodeId = QrCode.id');
 
-        $sql->where('qrcode.institutionId=?', $id);
+        $sql->where('QrCode.institutionId=?', $id);
 
         if ($tag) {$sql->where(static::$tableName.'.tag=?', $tag);} else {throw new InputError('Bitte wählen Sie ein Datum, um sich die Kontaktpersonen anzeigen zu lassen.');}
-        if ($tischnummer) {$sql->where('qrcode.tischnummer=?', $tischnummer);}
+        if ($tischnummer) {$sql->where('QrCode.tischnummer=?', $tischnummer);}
         if ($uhrzeit) {$sql->where(static::$tableName.'.uhrzeit=?', $uhrzeit);}
 
         $scans = $sql->execute();
