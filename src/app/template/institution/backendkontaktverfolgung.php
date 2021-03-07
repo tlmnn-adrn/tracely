@@ -19,7 +19,7 @@
                 <p>Wählen Sie ein Datum, um sich alle Besucher Ihrer Institution an diesem Tag anzeigen zu lassen.</p>
                 <form action="<?= Url::find('backend-institution-kontaktpersonen') ?>" method="get" target="_blank">
                   <?=$scan->renderField("tag", "TT.MM.JJJJ", "aInput")?><br>
-                  <button type="submit" name="button" class="aButton aButtonInvert">Besucher anzeigen</button>
+                  <button type="submit" name="button" class="aButton aButtonInvert">Liste erstellen</button>
                 </form>
               </div>
 
@@ -29,7 +29,7 @@
                 <form action="<?= Url::find('backend-institution-kontaktpersonen') ?>" method="get" target="_blank">
                   <?=$scan->renderField("tag", "TT.MM.JJJJ", "aInput")?>
                   <?=$code->renderField("tischnummer", "Tischnummer", "aInput")?><br>
-                  <button type="submit" name="button" class="aButton aButtonInvert">Besucher anzeigen</button>
+                  <button type="submit" name="button" class="aButton aButtonInvert">Liste erstellen</button>
                 </form>
               </div>
 

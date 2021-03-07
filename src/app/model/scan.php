@@ -34,4 +34,18 @@
         return $scans;
       }
 
+      public static function getOldScan($qrcodeid, $benutzerid, $vergleichstag, $vergleichsuhrzeit) {
+
+        $sql = new SelectQuery(static::$tableName);
+
+        $sql->where('qrCodeId=?', $qrcodeid);
+        $sql->where('benutzerId=?', $benutzerid);
+        $sql->where('tag>=?', $vergleichstag);
+        $sql->where('uhrzeit>=?', $vergleichsuhrzeit);
+
+        $scans = $sql->execute();
+
+        return $scans;
+      }
+
     }

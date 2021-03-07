@@ -37,6 +37,9 @@
     require_once "app/controller/institution/backendqrcodelöschen.php";
     require_once "app/controller/institution/backendeinstellungen.php";
 
+  #Scan
+    require_once "app/controller/scan/erstellen.php";
+
 
 
 //Definieren der URLs
@@ -71,6 +74,8 @@
     Url::add('backend-institution-qrcodelöschen', 'backend/institution/qrcodeloeschen/<id>', 'InstitutionBackendQrcodelöschenController');
     Url::add('backend-institution-einstellungen', 'backend/institution/einstellungen/', 'InstitutionBackendEinstellungenController');
 
+  #Scan
+    Url::add('scan-erstellen', 'scan/erstellen/', 'ScanErstellenController');
 
   #Static Urls
     StaticUrl::add('static', 'static/');
