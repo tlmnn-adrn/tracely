@@ -12,7 +12,7 @@
           <div class="FilltextMidSektionContent">
 
             <div class="BackendBox" id="kontaktverfolgung">
-              <h1>Kontaktpersonen</h1>
+              <h1 class='Test'>Kontaktpersonen</h1>
               <table>
                 <tr style="font-weight: bolder;">
                   <th>Uhrzeit</th><th>Tischnr.</th><th>Nachname</th><th>Vorname</th><th>E-Mail</th><th>Telefonnummer</th><th>PLZ</th>
@@ -42,7 +42,6 @@
     </div>
 
 <?php $body = ob_get_clean(); ?>
-<?php $_SESSION['pdf'] = $body; ?>
 
 <form action="" method="post">
   <button type="submit" name="button">PDF herunterladen</button>
