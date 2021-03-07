@@ -21,9 +21,21 @@
 
         $sql = new SelectQuery(static::$tableName, get_called_class());
         $sql->where('institutionId=?', $institutionId);
-        $codes = $sql->execute();
+        $qrcodes = $sql->execute();
 
-        return $codes;
+        return $qrcodes;
+      }
+
+      public static function getQrcodeByCode($code) {
+
+        $sql = new SelectQuery(static::$tableName);
+        $sql->join('institution', static::$tableName.'.institutionId = institution.id');
+        $sql->join('institutionsart', 'institution.institutionsartId = institutionsart.id');
+
+        $sql->where('code=?', $code);
+        $qrcode = $sql->execute();
+
+        return $qrcode;
       }
 
     }

@@ -145,7 +145,7 @@ input[type="date"], input[type="time"] {
 }
 
 .Success {color: green;}
-.Failure {color: red;}
+.Failure {color: #ec1313;}
 
 /*Quelle: https://stackoverflow.com/questions/826782/how-to-disable-text-selection-highlighting */
 .noselect {
