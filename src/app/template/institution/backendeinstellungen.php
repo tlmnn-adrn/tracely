@@ -20,6 +20,7 @@
               <h1>Einstellungen</h1>
               <div id="einstellungen-content">
                 <form action="?" method="post">
+                  <?= $this->csrfToken() ?>
                   <h6>Institutionsname</h6>
                   <?=$object->renderField("name", "Muster GmbH", "aInput", "Failure")?><br>
                   <h6>Straße und Hausnummer</h6>

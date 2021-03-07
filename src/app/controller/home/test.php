@@ -11,8 +11,6 @@
             //echo('<script src="'.Url::find('static', 'js/qr/scan.js').'"></script>');
             //echo('<video id="videoOutput"></video>');
 
-            
-
             /*$object = new ScanModel;
 
             echo('<form method="post" action="">');

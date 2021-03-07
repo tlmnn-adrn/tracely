@@ -28,6 +28,11 @@
 
 
             if($_SERVER['REQUEST_METHOD'] === 'POST'){
+
+                if(!isset($_POST['csrfToken']) || !$_SESSION['csrfToken'] || $_POST['csrfToken'] != $_SESSION['csrfToken']){
+                    throw new SecurityError('Die csrf Authentifikation ist fehlgeschlagen.');
+                }
+
                 $this->post($_POST, ...$arguments);
             }else{
                 $this->get($_GET, ...$arguments);
@@ -115,6 +120,18 @@
             //Variante 1: PDF direkt an den Benutzer senden:
             $pdf->Output($fileName, 'I');
 
+        }
+
+        protected function csrfToken(){
+
+            if(!isset($_SESSION['csrfToken'])){
+
+                $generator = new RandomStringGenerator;
+                $_SESSION['csrfToken'] = $generator->generate(64);
+
+            }
+
+            return '<input type="hidden" name="csrfToken" value="'.$_SESSION['csrfToken'].'">';
 
         }
 
