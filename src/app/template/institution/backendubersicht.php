@@ -36,7 +36,7 @@
                   <tr>
                     <td><?= $qrcodes[$i]->tischnummer?> </td>
                     <td><?=$qrcodes[$i]->sitzplätze?></td>
-                    <td> erneut drucken </td>
+                    <td><a href="<?=Url::find("backend-institution-qrcodedrucken", $qrcodes[$i]->code)?>" target="_blank" class="aText">erneut drucken</a></td>
                     <td>
                       <a href="<?=Url::find("backend-institution-qrcodelöschen", $qrcodes[$i]->id)?>" class="aText">löschen</a>
                     </td>

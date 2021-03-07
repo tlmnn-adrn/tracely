@@ -39,7 +39,8 @@
           "object" => $object,
           "success" => $success,
       ];
-
+      
+      $this->csrfToken();
       $this->render($context);
 
     }

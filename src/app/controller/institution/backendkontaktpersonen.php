@@ -37,7 +37,8 @@
     }
 
     protected function post($request) {
-
+        $this->csrfToken();
+        $this->render();
     }
 
     protected function testFunc($id=0) {

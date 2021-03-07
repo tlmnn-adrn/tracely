@@ -2,7 +2,7 @@
 
   class UserLoginController extends Controller
   {
-    
+
     use DrawTrennerMixin, LoginRedirectMixin;
 
     protected $template = 'user/login.php';
@@ -29,7 +29,8 @@
         $context = [
             "object" => $object,
         ];
-
+        
+        $this->csrfToken();
         $this->render($context);
 
     }
