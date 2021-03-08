@@ -43,7 +43,7 @@
         //Rendern eines Templates
         //$context sind die Variablen, die in das Template eingefügt werden
         protected function render($context=[]){
-
+            
             $path = $this->extend($this->template);
 
             extract($context);

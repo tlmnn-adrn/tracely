@@ -9,7 +9,7 @@
     protected function get($request, $id=0) {
 
       $object = UserModel::getById($id);
-      
+
       $context = [
         "object" => $object,
       ];
@@ -19,7 +19,7 @@
     }
 
     protected function post($request, $id=0) {
-
+      $this->render();
     }
 
   }

@@ -25,7 +25,7 @@
             </div>
 
             <div class="BackendBox" id="tischubersicht">
-              <h3>Tischübersicht</h3>
+              <h3>Qr-Codeübersicht</h3>
               <table>
                 <tr>
                   <th>Tischnummer</th><th>Sitzplätze</th><th>QR-Code Optionen</th>
@@ -36,7 +36,7 @@
                   <tr>
                     <td><?= $qrcodes[$i]->tischnummer?> </td>
                     <td><?=$qrcodes[$i]->sitzplätze?></td>
-                    <td> erneut drucken </td>
+                    <td><a href="<?=Url::find("backend-institution-qrcodedrucken", $qrcodes[$i]->code)?>" target="_blank" class="aText">erneut drucken</a></td>
                     <td>
                       <a href="<?=Url::find("backend-institution-qrcodelöschen", $qrcodes[$i]->id)?>" class="aText">löschen</a>
                     </td>

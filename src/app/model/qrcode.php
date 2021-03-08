@@ -21,6 +21,7 @@
 
         $sql = new SelectQuery(static::$tableName, get_called_class());
         $sql->where('institutionId=?', $institutionId);
+        $sql->order('tischnummer');
         $qrcodes = $sql->execute();
 
         return $qrcodes;

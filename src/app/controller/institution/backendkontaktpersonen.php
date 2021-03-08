@@ -38,6 +38,7 @@
 
     protected function post($request) {
 
+        $this->render();
     }
 
     protected function testFunc($id=0) {

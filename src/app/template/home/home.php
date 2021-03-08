@@ -22,7 +22,7 @@
         </div>
 
         <?php $this->drawTrenner(1, "#DFF8FC");?>
-
+        
         <div class="FilltextMidSektion FilltextMidSektionBACKCALM">
           <div class="FilltextMidSektionContent">
             <div id="about">

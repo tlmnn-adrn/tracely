@@ -7,10 +7,10 @@
     protected $template = 'scan/erstellen.php';
 
 
-    protected function get($request) {
+    protected function get($request, $code='') {
 
       $object = UserModel::getUserObject();
-      $code = QrcodeModel::getQrcodeByCode("01"/*$request["code"]*/);
+      $code = QrcodeModel::getQrcodeByCode($code);
 
     #Quelle: https://www.php.net/manual/de/datetime.sub.php
       $aufenthaltszeit = $code[0]['aufenthaltszeit'];
