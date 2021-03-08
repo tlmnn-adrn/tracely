@@ -33,17 +33,17 @@
     require_once "app/controller/institution/backendubersicht.php";
     require_once "app/controller/institution/backendkontaktverfolgung.php";
     require_once "app/controller/institution/backendkontaktpersonen.php";
-    require_once "app/controller/institution/backendqrcodeerstellung.php";
-    require_once "app/controller/institution/backendqrcodelöschen.php";
-    require_once "app/controller/institution/backendqrcodedrucken.php";
     require_once "app/controller/institution/backendeinstellungen.php";
+
+  #Qr-Code
+    require_once "app/controller/qrcode/erstellen.php";
+    require_once "app/controller/qrcode/löschen.php";
+    require_once "app/controller/qrcode/drucken.php";
+    require_once "app/controller/qrcode/generateQrImage.php";
 
   #Scan
     require_once "app/controller/scan/erstellen.php";
     require_once "app/controller/scan/scan.php";
-
-  #Qr erstellen
-    require_once "app/controller/institution/generateQrImage.php";
 
 
 
@@ -75,17 +75,19 @@
     Url::add('backend-institution', 'backend/institution/', 'InstitutionBackendUbersichtController');
     Url::add('backend-institution-kontaktverfolgung', 'backend/institution/kontaktverfolgung/', 'InstitutionBackendKontaktverfolgungController');
     Url::add('backend-institution-kontaktpersonen', 'backend/institution/kontaktverfolgung/kontaktpersonen/', 'InstitutionBackendKontaktpersonenController');
-    Url::add('backend-institution-qrcodeerstellung', 'backend/institution/qrcodeerstellung/', 'InstitutionBackendQrcodeerstellungController');
-    Url::add('backend-institution-qrcodelöschen', 'backend/institution/qrcodeloeschen/<id>', 'InstitutionBackendQrcodelöschenController');
-    Url::add('backend-institution-qrcodedrucken', 'backend/institution/qrcodedrucken/<code>', 'InstitutionBackendQrcodedruckenController');
     Url::add('backend-institution-einstellungen', 'backend/institution/einstellungen/', 'InstitutionBackendEinstellungenController');
+
+  #Qr-code
+    Url::add('qrcode-erstellen', 'qrcode/erstellen/', 'QrcodeerstellenController');
+    Url::add('qrcode-löschen', 'qrcode/loeschen/<id>', 'QrcodelöschenController');
+    Url::add('qrcode-drucken', 'qrcode/drucken/<code>', 'QrcodedruckenController');
+    Url::add('qr', 'qr/<code>', 'GenerateQrImage');
+
 
   #Scan
     Url::add('scan-erstellen', 'scan/erstellen/<code>', 'ScanErstellenController');
     Url::add('scan-online', 'scan/', 'ScanController');
 
-  #Generate Qr Image
-    Url::add('qr', 'qr/<code>', 'GenerateQrImage');
 
   #Static Urls
     StaticUrl::add('static', 'static/');

@@ -19,7 +19,7 @@
               <h1>Willkommen <?= $object->name ?></h1>
               <h3>Schnellzugriff</h3>
               <p>
-                <a href="<?= Url::find('backend-institution-qrcodeerstellung') ?>" class="aButton">QR-Code erstellen</a>
+                <a href="<?= Url::find('qrcode-erstellen') ?>" class="aButton">QR-Code erstellen</a>
                 <a href="<?= Url::find('backend-institution-kontaktverfolgung') ?>" class="aButton">Kontaktverfolgung</a>
               </p>
             </div>
@@ -36,9 +36,9 @@
                   <tr>
                     <td><?= $qrcodes[$i]->tischnummer?> </td>
                     <td><?=$qrcodes[$i]->sitzplätze?></td>
-                    <td><a href="<?=Url::find("backend-institution-qrcodedrucken", $qrcodes[$i]->code)?>" target="_blank" class="aText">erneut drucken</a></td>
+                    <td><a href="<?=Url::find("qrcode-drucken", $qrcodes[$i]->code)?>" target="_blank" class="aText">erneut drucken</a></td>
                     <td>
-                      <a href="<?=Url::find("backend-institution-qrcodelöschen", $qrcodes[$i]->id)?>" class="aText">löschen</a>
+                      <a href="<?=Url::find("qrcode-löschen", $qrcodes[$i]->id)?>" class="aText">löschen</a>
                     </td>
                   </tr>
                 <?php

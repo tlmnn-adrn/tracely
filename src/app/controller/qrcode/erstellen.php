@@ -1,10 +1,10 @@
 <?php
 
-  class InstitutionBackendQrcodeerstellungController extends Controller
+  class QrcodeerstellenController extends Controller
   {
     use DrawTrennerMixin, InstitutionLoginRequiredMixin;
 
-    protected $template = 'institution/backendqrcodeerstellung.php';
+    protected $template = 'qrcode/erstellen.php';
 
 
     protected function get($request) {
@@ -40,7 +40,7 @@
 
       $success = $code->create();
 
-      header('Location: '.Url::find('backend-institution-qrcodedrucken', $code->code));
+      header('Location: '.Url::find('qrcode-drucken', $code->code));
 
       $context = [
           "object" => $object,
