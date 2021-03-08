@@ -28,8 +28,15 @@
 
       $code->tischnummer = $request["tischnummer"];
       $code->sitzplätze = $request["sitzplätze"];
-      $code->code = rand(0, 10000);                   #??????????? muss noch
       $code->institutionId = $object->id;
+
+
+      $generator = new RandomStringGenerator;
+      $token = $generator->generate(64);
+      $token .= $object->id;
+      $mac = hash_hmac('sha256', $token, $_ENV['secret_key']);
+
+      $code->code = $mac;
 
       $success = $code->create();
 

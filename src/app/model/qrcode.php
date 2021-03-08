@@ -30,8 +30,8 @@
       public static function getQrcodeByCode($code) {
 
         $sql = new SelectQuery(static::$tableName);
-        $sql->join('institution', static::$tableName.'.institutionId = institution.id');
-        $sql->join('institutionsart', 'institution.institutionsartId = institutionsart.id');
+        $sql->join('Institution', static::$tableName.'.institutionId = Institution.id');
+        $sql->join('Institutionsart', 'Institution.institutionsartId = Institutionsart.id');
 
         $sql->where('code=?', $code);
         $qrcode = $sql->execute();

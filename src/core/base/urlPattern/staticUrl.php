@@ -10,7 +10,7 @@
         
         public function getUrl($arguments=[]){
 
-            $path = "http://".$_SERVER['HTTP_HOST']."/";
+            $path = "https://".$_SERVER['HTTP_HOST']."/";
             $path .= implode('/', $this->url).'/'.$arguments[0];
             
             return $path;

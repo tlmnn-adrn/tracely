@@ -113,7 +113,7 @@
 
         public function getUrl($arguments=[]){
 
-            $path = "http://".$_SERVER['HTTP_HOST']."/";
+            $path = "https://".$_SERVER['HTTP_HOST']."/";
             $argument_counter = 0;
 
             foreach($this->url as $element){
