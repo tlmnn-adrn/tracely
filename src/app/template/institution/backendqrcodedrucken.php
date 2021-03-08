@@ -7,7 +7,7 @@
 
 <?php
 #Quelle: https://stackoverflow.com/questions/5943368/dynamically-generating-a-qr-code-with-php
-  $link = 'https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http%3A%2F%2F'.$_SERVER['HTTP_HOST'].'/scan/erstellen/'.$code.'&choe=UTF-8';
+  $link = 'https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl='.urlencode(Url::find('scan-erstellen', $code)).'&choe=UTF-8';
 ?>
 
 <div class="BackendBox" id="kontaktverfolgung">
@@ -18,8 +18,8 @@
   <div>
     <table style="width: 260px; padding-left: 40px;">
       <tr>
-        <td style="width: 48%; text-align: left;"><?= $qrcode[0][6] ?></td>
-        <td style="width: 48%; text-align: right;">T-Nr.: <?= $qrcode[0]['tischnummer'] ?></td>
+        <td style="width: 48%; text-align: left;"><?= $qrcode[6] ?></td>
+        <td style="width: 48%; text-align: right;">T-Nr.: <?= $qrcode['tischnummer'] ?></td>
       </tr>
     </table>
   </div>

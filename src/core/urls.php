@@ -78,6 +78,7 @@
 
   #Scan
     Url::add('scan-erstellen', 'scan/erstellen/<code>', 'ScanErstellenController');
+    //Url::add('scan-online', 'scan/erstellen/<code>', 'ScanErstellenController');
 
   #Static Urls
     StaticUrl::add('static', 'static/');

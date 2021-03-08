@@ -4,6 +4,15 @@ import('./qr-scanner.min.js').then((module) => {
 
     videoElem = document.getElementById('videoOutput');
 
-    const qrScanner = new QrScanner(videoElem, result => console.log('decoded qr code:', result));
+    const qrScanner = new QrScanner(videoElem, result => 
+        {qrScanner.stop();
+        onScanned(videoElem, result);}
+        );
     qrScanner.start();
 });
+
+function onScanned(videoElem, result){
+    if(result.includes(window.location.hostname)){
+        window.location = result;
+    }
+}
