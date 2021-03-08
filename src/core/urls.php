@@ -41,6 +41,9 @@
   #Scan
     require_once "app/controller/scan/erstellen.php";
 
+  #Qr erstellen
+    require_once "app/controller/institution/generateQrImage.php";
+
 
 
 //Definieren der URLs
@@ -79,6 +82,9 @@
   #Scan
     Url::add('scan-erstellen', 'scan/erstellen/<code>', 'ScanErstellenController');
     //Url::add('scan-online', 'scan/erstellen/<code>', 'ScanErstellenController');
+
+  #Generate Qr Image
+    Url::add('qr', 'qr/<code>', 'GenerateQrImage');
 
   #Static Urls
     StaticUrl::add('static', 'static/');

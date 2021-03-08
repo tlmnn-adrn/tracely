@@ -25,8 +25,6 @@
     require_once 'core/base/utils/mixin/userPassesTestMixin.php';
     require_once 'core/base/utils/mixin/loginRedirectMixin.php';
 
-    require_once 'core/base/utils/random/randomStringGenerator.php';
-
     //Fields
     require_once 'core/base/model/fields/base.php';
     require_once 'core/base/model/fields/text.php';
@@ -43,8 +41,10 @@
     require_once 'core/base/urlPattern/url.php';
     require_once 'core/base/urlPattern/staticUrl.php';
 
-    //PDF
-    require_once 'tcpdf_min/tcpdf.php';
+    //Libs
+    require_once 'libs/tcpdf_min/tcpdf.php';
+    require_once 'libs/qrCode/qrCode.php';
+    require_once 'libs/random/randomStringGenerator.php';
 
     //------------------------- App -------------------------
 
