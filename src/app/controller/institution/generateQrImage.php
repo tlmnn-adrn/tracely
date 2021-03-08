@@ -9,10 +9,11 @@
 
         $im = $qr->createImage(8, 4);
         
-        header("Content-type: image/gif");
-        imagegif($im);
+        header("Content-type: image/png");
+        imagepng($im);
         
         imagedestroy($im);
+
 
     }
 
