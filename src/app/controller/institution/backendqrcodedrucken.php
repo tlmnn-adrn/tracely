@@ -17,7 +17,7 @@
         ];
 
         $pdfAuthor = "tracely";
-        $pdfName = "Qr-Code.pdf";
+        $pdfName = "TNr-".$qrcode['tischnummer']."_QrCode.pdf";
         $pdfTitle = "Qr-Code";
 
         #$this->render($context);

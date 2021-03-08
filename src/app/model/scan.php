@@ -34,6 +34,7 @@
         return $scans;
       }
 
+
       public static function getOldScan($qrcodeid, $benutzerid, $vergleichstag, $vergleichsuhrzeit) {
 
         $sql = new SelectQuery(static::$tableName);

@@ -10,7 +10,7 @@
   <body>
 
     <div id="error-content">
-      <h4>trace<span>ly</span></h4>
+      <a href="<?= Url::find('index') ?>"><h4>trace<span>ly</span></h4></a>
       <h1><?= $errorTitle ?> Fehler</h1>
 
       <p><?=$errorMessage?></p>
