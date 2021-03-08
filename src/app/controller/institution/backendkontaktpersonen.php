@@ -37,7 +37,7 @@
     }
 
     protected function post($request) {
-        $this->csrfToken();
+
         $this->render();
     }
 

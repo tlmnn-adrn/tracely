@@ -25,7 +25,7 @@
             </div>
 
             <div class="BackendBox" id="tischubersicht">
-              <h3>Tischübersicht</h3>
+              <h3>Qr-Codeübersicht</h3>
               <table>
                 <tr>
                   <th>Tischnummer</th><th>Sitzplätze</th><th>QR-Code Optionen</th>

@@ -28,10 +28,12 @@
 
       $code->tischnummer = $request["tischnummer"];
       $code->sitzplätze = $request["sitzplätze"];
-      $code->code = "123";
+      $code->code = rand(0, 10000);                   #??????????? muss noch
       $code->institutionId = $object->id;
 
       $success = $code->create();
+
+      header('Location: '.Url::find('backend-institution-qrcodedrucken', $code->code));
 
       $context = [
           "object" => $object,
@@ -39,8 +41,9 @@
           "success" => $success,
       ];
 
-      $this->csrfToken();
       $this->render($context);
+
+
 
     }
 

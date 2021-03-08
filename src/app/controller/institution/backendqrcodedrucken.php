@@ -8,10 +8,11 @@
 
 
     protected function get($request, $code='') {
-        $object = InstitutionModel::getUserObject();
+
         $qrcode = QrcodeModel::getQrcodeByCode($code);
 
         $context = [
+            "code" => $code,
             "qrcode" => $qrcode,
         ];
 
@@ -25,16 +26,8 @@
     }
 
     protected function post($request) {
-        $this->csrfToken();
+
         $this->render();
-    }
-
-    protected function testFunc($id=0) {
-
-      $object = InstitutionModel::getUserObject();
-      $code = ScanModel::getById($id);
-
-      return $code->institutionId==$object->id;
     }
 
   }
