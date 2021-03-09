@@ -1,10 +1,10 @@
 <?php
 
-  class InstitutionBackendQrcodelöschenController extends Controller
+  class QrcodelöschenController extends Controller
   {
     use DrawTrennerMixin, InstitutionLoginRequiredMixin, UserPassesTestMixin;
 
-    protected $template = 'institution/backendqrcodelöschen.php';
+    protected $template = 'qrcode/löschen.php';
 
 
     protected function get($request, $id=0) {

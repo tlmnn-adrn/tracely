@@ -158,6 +158,11 @@ input[type="date"], input[type="time"] {
                                   supported by Chrome, Edge, Opera and Firefox */
 }
 
+.Anker {
+  position: absolute;
+  margin-top: -120px;
+}
+
 /* Menuleiste */
 #header {
   width: 100%;

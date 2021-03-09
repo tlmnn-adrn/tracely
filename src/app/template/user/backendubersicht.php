@@ -14,7 +14,7 @@
               <h1>Willkommen <?= $object->vorname." ".$object->nachname ?></h1>
               <h3>Schnellzugriff</h3>
               <p>
-                <a href="<?= Url::find('scan-online') ?>" class="aButton">QR-Code scannen</a>
+                <a href="<?= Url::find('scan-online') ?>" class="aButton" target="_blank">QR-Code scannen</a>
                 <a href="<?= Url::find('backend-user-einstellungen') ?>" class="aButton">Einstellungen</a>
               </p>
             </div>

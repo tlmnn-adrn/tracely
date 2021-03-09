@@ -1,10 +1,10 @@
 <?php
 
-  class InstitutionBackendQrcodedruckenController extends Controller
+  class QrcodedruckenController extends Controller
   {
     use DrawTrennerMixin, InstitutionLoginRequiredMixin, UserPassesTestMixin;
 
-    protected $template = 'institution/backendqrcodedrucken.php';
+    protected $template = 'qrcode/drucken.php';
 
 
     protected function get($request, $code='') {
@@ -17,7 +17,7 @@
         ];
 
         $pdfAuthor = "tracely";
-        $pdfName = "Qr-Code.pdf";
+        $pdfName = "TNr-".$qrcode['tischnummer']."_QrCode.pdf";
         $pdfTitle = "Qr-Code";
 
         #$this->render($context);

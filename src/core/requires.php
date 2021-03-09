@@ -61,6 +61,7 @@
     require_once 'app/controller/mixin/institutionLoginRequiredMixin.php';
     require_once 'app/controller/mixin/userLoginRequiredMixin.php';
     require_once 'app/controller/mixin/drawTrennerMixin.php';
+    require_once 'app/controller/mixin/drawSvgGraphMixin.php';
 
     //Urls
     require_once 'core/urls.php';

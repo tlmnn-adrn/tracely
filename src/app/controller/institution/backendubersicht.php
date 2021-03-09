@@ -2,7 +2,7 @@
 
   class InstitutionBackendUbersichtController extends Controller
   {
-    use DrawTrennerMixin, InstitutionLoginRequiredMixin;
+    use DrawTrennerMixin, drawSvgGraphMixin, InstitutionLoginRequiredMixin;
 
     protected $template = 'institution/backendubersicht.php';
 
@@ -17,10 +17,32 @@
         } else {
           $success = FALSE;
         }
+        if (isset($request["anzeige"])) {
+          if ($request["anzeige"] > 1) {
+            $anzeige = $request["anzeige"];
+          } else {
+            $anzeige = 2;
+          }
+        } else {
+          $anzeige = 7;
+        }
+
+        for ($i=($anzeige-1); $i >= 0; $i--) {
+          $date = new DateTime(date("Y-m-d"));
+          $date->sub(new DateInterval('P'.$i.'D'));
+          $tag = $date->format('Y-m-d');
+
+          $scan = ScanModel::getScans($object->id, $tag, FALSE, FALSE);
+
+          $scans[] = count($scan);
+        }
+
 
         $context = [
             "object" => $object,
             "qrcodes" => $qrcodes,
+            "scans" => $scans,
+            "anzeige" => $anzeige,
             "success" => $success,
         ];
 

@@ -22,7 +22,7 @@
         </div>
 
         <?php $this->drawTrenner(1, "#DFF8FC");?>
-        
+
         <div class="FilltextMidSektion FilltextMidSektionBACKCALM">
           <div class="FilltextMidSektionContent">
             <div id="about">
@@ -79,32 +79,6 @@
                 </div>
 
               </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="FilltextMidSektion">
-          <div class="FilltextMidSektionContent">
-            <h3>Scans pro Tag</h3>
-            <div id="zahlen">
-              <?php
-              $scans = array(10, 37, 21, 34, 30, 39, 46);
-              $max = max($scans);
-              $days = array('mo', 'di', 'mi', 'do', 'fr', 'sa', 'so');
-              $height = 150;
-
-              for ($i=0; $i < count($scans); $i++) {
-                $diagram[$days[$i]] = $height - (($scans[$i] / $max) * $height);
-              }
-              ?>
-
-              <svg id="test" width="100%" height="<?= $height ?>px">
-                <polyline fill="none" stroke="#FF4749" stroke-width="2" points="
-                100,<?= $diagram['mo'] ?> 200,<?= $diagram['di'] ?> 300,<?= $diagram['mi'] ?> 400,<?= $diagram['do'] ?> 500,<?= $diagram['fr'] ?> 600,<?= $diagram['sa'] ?> 700,<?= $diagram['so'] ?>
-                ">
-                Der Browser unterstützt kein SVG. Internet Explorer Nutzern ist nicht mehr zu helfen. Du Spaßt (Tipp: Rechtschreibreform) ._.
-              </svg>
-
             </div>
           </div>
         </div>
