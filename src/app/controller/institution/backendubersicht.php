@@ -27,6 +27,8 @@
           $anzeige = 7;
         }
 
+        $anzeigeaktiv[$anzeige] = 'aButtonFill';
+
         for ($i=($anzeige-1); $i >= 0; $i--) {
           $date = new DateTime(date("Y-m-d"));
           $date->sub(new DateInterval('P'.$i.'D'));
@@ -43,6 +45,7 @@
             "qrcodes" => $qrcodes,
             "scans" => $scans,
             "anzeige" => $anzeige,
+            "anzeigeaktiv" => $anzeigeaktiv,
             "success" => $success,
         ];
 

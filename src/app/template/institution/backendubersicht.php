@@ -53,12 +53,15 @@
               <h3>Scananzahl der letzten <?= $anzeige ?> Tage</h3>
               <br><br>
               <div id="zahlen">
-                <?php $this->drawSvgGraph(array: $scans, width: 800, height: 250);?>
+                <?php $this->drawSvgGraph(array: $scans, width: 760, height: 250);?>
               </div>
               <br><br><br>
               <form action="#backend-zahlen-anker" method="get">
-                <input type="number" name="anzeige" placeholder="Taganzahl" class="aInput" min="2" required><br>
-                <button type="submit" name="button" class="aButton">einstellen</button>
+                <button type="submit" name="anzeige" value="7" class="aButton <?= $anzeigeaktiv[7] ?>">7 Tage</button>
+                <button type="submit" name="anzeige" value="14" class="aButton <?= $anzeigeaktiv[14] ?>">14 Tage</button>
+                <button type="submit" name="anzeige" value="30" class="aButton <?= $anzeigeaktiv[30] ?>">30 Tage</button>
+                <button type="submit" name="anzeige" value="60" class="aButton <?= $anzeigeaktiv[60] ?>">60 Tage</button>
+                <button type="submit" name="anzeige" value="90" class="aButton <?= $anzeigeaktiv[90] ?>">90 Tage</button>
               </form>
             </div>
 
