@@ -11,6 +11,9 @@
 
       $object = UserModel::getUserObject();
       $code = QrcodeModel::getQrcodeByCode($code);
+      if (count($code) == 0) {
+        throw new NotFoundError('Der gescannte Qr-Code konnte nicht gefunden werden.');
+      }
 
     #Quelle: https://www.php.net/manual/de/datetime.sub.php
       $aufenthaltszeit = $code[0]['aufenthaltszeit'];
