@@ -6,7 +6,6 @@
 
     protected $template = 'qrcode/erstellen.php';
 
-
     protected function get($request) {
 
         $object = InstitutionModel::getUserObject();

@@ -21,7 +21,7 @@
           $heightframe = $height + 80;
 
           echo '
-          <svg width="'.$width.'px" height="'.$height.'px" viewBox="-20 0 '.$widthframe.' '.$heightframe.'">
+          <svg xmlns="http://www.w3.org/2000/svg" width="'.$width.'px" height="'.$height.'px" viewBox="-20 0 '.$widthframe.' '.$heightframe.'">
 
             <defs>
               <linearGradient id="grad" gradientTransform="rotate(90)">
@@ -69,7 +69,14 @@
             <text x="'.$xdate2.'" y="'.$ydate.'" font-size="24">'.date("d.m.Y").'</text>
 
             Der Browser unterstützt kein SVG. Internet Explorer Nutzern ist nicht mehr zu helfen.
+
+              <style media="screen">
+              polygon {
+                fill: url(#grad);
+              }
+            </style>
           </svg>
+
           ';
 
         }

@@ -36,6 +36,7 @@
     require_once 'core/base/model/fields/id.php';
     require_once 'core/base/model/fields/foreignKey.php';
     require_once 'core/base/model/fields/date.php';
+    require_once 'core/base/model/fields/time.php';
 
     //URL Patterns
     require_once 'core/base/urlPattern/url.php';
@@ -44,6 +45,7 @@
     //Libs
     require_once 'libs/tcpdf_min/tcpdf.php';
     require_once 'libs/qrCode/qrCode.php';
+    #require_once 'libs/phpqrcode/phpqrcode.php';
     require_once 'libs/random/randomStringGenerator.php';
 
     //------------------------- App -------------------------

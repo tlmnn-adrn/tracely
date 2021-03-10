@@ -98,4 +98,6 @@
 
 
     require_once "app/controller/home/test.php";
+    require_once "app/controller/home/test2.php";
     Url::add('test', 'test', 'TestController');
+    Url::add('test2', 'test2/<time>', 'Test2Controller');

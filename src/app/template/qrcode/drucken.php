@@ -9,14 +9,14 @@
   //Quelle: https://stackoverflow.com/questions/5943368/dynamically-generating-a-qr-code-with-php
   //$link = 'https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl='.urlencode(Url::find('scan-erstellen', $code)).'&choe=UTF-8';
   $link = 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data='.urlencode(Url::find('scan-erstellen', $code));
-  
-  //$link = Url::find('qr', $code);
+
+  #$link = Url::find('qr', $code);
 ?>
 
 <div class="BackendBox" id="kontaktverfolgung">
 
   <h3 style="color: #FF4749;">Kontaktpersonennachverfolgung</h3>
-  <img src="<?= $link ?>" title="Link to Google.com" />
+  <img src="<?= $link ?>" />
   <br>
   <div>
     <table style="width: 260px; padding-left: 40px;">

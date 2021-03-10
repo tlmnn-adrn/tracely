@@ -14,11 +14,11 @@
         
         imagedestroy($im);
 
+        #QRcode::png(Url::find('scan-erstellen', $code));
 
     }
 
     protected function post($request, $code='') {
-
 
     }
 
