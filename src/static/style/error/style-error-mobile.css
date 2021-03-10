@@ -1,0 +1,9 @@
+#error-content {
+  width: 100%;
+}
+
+#error-content p {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}

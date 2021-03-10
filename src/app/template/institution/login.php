@@ -1,6 +1,6 @@
 <?php
   $title = 'tracely | Login';
-  $styles = ['login/style.css', 'login/style-login.css', 'style-onepage.css'];
+  $styles = ['login/style.css', 'login/style-layout.css', 'login/style-login.css', 'style-onepage.css'];
 
   ob_start();
 ?>

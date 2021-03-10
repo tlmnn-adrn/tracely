@@ -17,11 +17,11 @@
             $points .= $x[$k].','.$y[$k].' ';
           }
 
-          $widthframe = $width + 50;
-          $heightframe = $height + 50;
+          $widthframe = $width + 80;
+          $heightframe = $height + 80;
 
           echo '
-          <svg width="'.$width.'px" height="'.$height.'px" viewBox="0 0 '.$widthframe.' '.$heightframe.'">
+          <svg width="'.$width.'px" height="'.$height.'px" viewBox="-20 0 '.$widthframe.' '.$heightframe.'">
 
             <defs>
               <linearGradient id="grad" gradientTransform="rotate(90)">
@@ -43,7 +43,7 @@
             for ($o=0; $o < count($y); $o++) {
               $ytext = $y[$o] - 10;
               echo '
-              <text x="'.$x[$o].'" y="'.$ytext.'" font-size="20">'.$array[$o].'</text>
+              <text x="'.$x[$o].'" y="'.$ytext.'" font-size="22">'.$array[$o].'</text>
               <circle cx="'.$x[$o].'" cy="'.$y[$o].'" r="4" fill="#FF4749"></circle>
               ';
             }
@@ -52,21 +52,21 @@
             $xmax = $x[$xmax0[0]];
             $ymaxtext = min($y) - 10;
               echo '
-              <text x="'.$xmax.'" y="'.$ymaxtext.'" font-size="20">'.$array[$xmax0[0]].'</text>
+              <text x="'.$xmax.'" y="'.$ymaxtext.'" font-size="22">'.$array[$xmax0[0]].'</text>
               <circle cx="'.$xmax.'" cy="'.min($y).'" r="4" fill="#FF4749"></circle>
               ';
           }
 
-          $xdate1 = $x[0] - 40;
-          $xdate2 = $x[count($x)-1] - 40;
+          $xdate1 = $x[0] - 45;
+          $xdate2 = $x[count($x)-1] - 45;
           $ydate = $height + 40;
 
           $startdate = new DateTime(date('Y-m-d'));
           $startdate->sub(new DateInterval('P'.(count($x)-1).'D'));
 
           echo '
-            <text x="'.$xdate1.'" y="'.$ydate.'" font-size="20">'.$startdate->format('d.m.Y').'</text>
-            <text x="'.$xdate2.'" y="'.$ydate.'" font-size="20">'.date("d.m.Y").'</text>
+            <text x="'.$xdate1.'" y="'.$ydate.'" font-size="24">'.$startdate->format('d.m.Y').'</text>
+            <text x="'.$xdate2.'" y="'.$ydate.'" font-size="24">'.date("d.m.Y").'</text>
 
             Der Browser unterstützt kein SVG. Internet Explorer Nutzern ist nicht mehr zu helfen.
           </svg>

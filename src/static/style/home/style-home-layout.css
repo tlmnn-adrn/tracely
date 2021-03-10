@@ -1,0 +1,30 @@
+@media only screen and (max-width: 1204px) {
+  .UserType {
+    width: 80%;
+    min-width: 80%;
+  }
+}
+
+@media only screen and (max-width: 1120px) {
+  #home h1 {
+    font-size: 35pt;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  #home-willkommen, #home-startimg {
+    display: block;
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    padding: 0px;
+  }
+
+}
+
+@media only screen and (max-width: 425px) {
+  #home h1 {
+    font-size: 30pt;
+  }
+
+}

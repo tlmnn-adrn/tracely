@@ -1,6 +1,6 @@
 <?php
   $title = 'tracely | Einstellungen';
-  $styles = ['backend/style-backend.css', 'login/style-login.css', 'backend/style-backendeinstellungen.css'];
+  $styles = ['backend/style-backend.css', 'login/style-login.css', 'backend/style-backendeinstellungen.css', 'backend/style-backendeinstellungen-layout.css'];
 
   ob_start();
 ?>
