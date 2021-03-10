@@ -135,7 +135,7 @@ input[type="date"], input[type="time"] {
 .aButtonInvert {
   border-color: var(--main-bg-action);
 }
-.aButton:hover {
+.aButton:hover, .aButtonFill {
   background-color: var(--main-bg-action);
   border-color: var(--main-bg-action);
 }
