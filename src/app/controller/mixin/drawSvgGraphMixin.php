@@ -70,12 +70,6 @@
 
             Der Browser unterstützt kein SVG. Internet Explorer Nutzern ist nicht mehr zu helfen.
           </svg>
-
-          <style media="screen">
-            polygon {
-              fill: url(#grad);
-            }
-          </style>
           ';
 
         }

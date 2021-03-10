@@ -8,7 +8,7 @@
       public function __construct($values=[]) {
         $this->fields = [
           'code' => new TextField(required: TRUE),
-          'tischnummer' => new IntegerField(required: TRUE),
+          'tischnummer' => new IntegerField(required: TRUE, unique:TRUE),
           'sitzplätze' => new IntegerField(required: TRUE),
           'institutionId' => new ForeignKeyField(model:'InstitutionsartModel', required:TRUE),
         ];

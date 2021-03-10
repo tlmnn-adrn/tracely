@@ -163,6 +163,9 @@ input[type="date"], input[type="time"] {
   position: absolute;
   margin-top: -120px;
 }
+polygon {
+  fill: url(#grad);
+}
 
 /* Menuleiste */
 #header {
