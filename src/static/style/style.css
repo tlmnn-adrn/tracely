@@ -167,6 +167,10 @@ polygon {
   fill: url(#grad);
 }
 
+polygon {
+  fill: url(#grad);
+}
+
 /* Menuleiste */
 #header {
   width: 100%;

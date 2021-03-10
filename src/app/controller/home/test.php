@@ -8,20 +8,36 @@
         protected $template = 'home/home.php';
 
         protected function get($request) {
-            echo('<script src="'.Url::find('static', 'js/qr/scan.js').'"></script>');
-            echo('<video id="videoOutput"></video>');
+            
+            ?>
+
+                <link rel='stylesheet' href='<?= Url::find('static', 'style/style.css') ?>'>
+
+                <div id="app">
+                    <img :src="src" width="800" height="400"/>
+
+                    <picture>
+                        <source :srcset="src" type="image/svg+xml">
+                    </picture>
+                    
+                    <br>
+                    <button v-on:click="changeImage(7)">7</button><br>
+                    <button v-on:click="changeImage(30)">30</button><br>
+                    <button v-on:click="changeImage(60)">60</button><br>
+                    <button v-on:click="changeImage(90)">90</button><br>
+                </div>
+
+
+
+                <script src="https://unpkg.com/vue@next"></script>
+                <script src="<?=Url::find('static', 'js/test.js')?>"></script>
+
+            <?php
 
         }
 
         protected function post($request) {
 
-            $object = new ScanModel;
-
-            $object->qrCodeId = $request['qrCodeId'];
-            $object->benutzerId = $request['benutzerId'];
-            $object->zeitpunkt = date('Y-m-d H:i:s');
-
-            $object->create();
         }
 
     }
