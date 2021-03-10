@@ -4,33 +4,7 @@
 
         //Festlegen der Verbindungsangaben zur Datenbank
 
-        /*private static $pdo;*/
-
         protected static $tableName;
-
-        /*public static function __constructStatic(){
-
-            //Beim Inkludieren einer Unterklasse wird diese Methode aufgerufen
-            //Stellt die Verbindung zur Datenbank her
-            $dsn = 'mysql:host='.$_ENV['DBhost'].';dbname='.$_ENV['DBname'].';charset=utf8';
-            self::$pdo = new PDO($dsn, $_ENV['DBuser'], $_ENV['DBpassword']);
-
-        }*/
-
-        //Ausführen eines SQL Querys in der Datenbank
-        /*protected static function statement($sql, $values=[]){
-
-            $statement = self::$pdo->prepare($sql);
-
-            if($statement->execute($values)){
-                return $statement;
-            }else{
-                //Ist ein Fehler passiert, wird dieser angezeigt
-                new SQLError;
-            }
-
-        }*/
-
 
         //Anzeigen aller Objekte in der Tabelle der aufrufenden Unterklasse
         public static function list(){
@@ -44,52 +18,6 @@
             return $results;
 
         }
-
-        //Anzeigen einiger Objekte in der Tabelle der aufrufenden Unterklasse
-        //Wie list() nur mit einem WHERE im SQL Statement
-        /*protected static function filtered_list($filter, $filter_values){
-
-            $results = [];
-            $statement = self::statement('SELECT * FROM '.static::$tableName.' WHERE '.$filter, $filter_values);
-
-            while($row = $statement->fetch()) {
-                $object = new static($row);
-                $results[] = $object;
-             }
-
-             return $results;
-
-        }*/
-
-        //Anzeigen eines Objektes in der Tabelle der aufrufenden Unterklasse
-        //Wie die filtered_list, nur dass es nur ein Ergebnisobjekt geben darf
-        /*protected static function get($filter, $filter_values, $error=TRUE){
-
-            $results = [];
-            $statement = self::statement('SELECT * FROM '.static::$tableName.' WHERE '.$filter, $filter_values);
-
-            $rowCount = $statement->rowCount();
-
-            //Gibt es nicht genau ein Objekt, welches die Bedingung erfüllt, wird eine Fehlermeldung angezeigt
-            if($rowCount==1){
-                $row = $statement->fetch();
-                $object = new static($row);
-
-                return $object;
-            }
-
-            if($error){
-                if($rowCount<1){
-                    new NotFoundError;
-                }else{
-                    new ServerError;
-                }
-            }
-
-            return FALSE;
-
-
-        }*/
 
         public static function getById($id, $error=TRUE) {
             $query = new SelectQuery(static::$tableName, static::class);
@@ -141,25 +69,6 @@
             }
 
         }
-
-        //Überprüfen, ob der Wert schon irgendwo in der Tabelle vorhanden ist
-        //TRUE, wenn noch nicht vorhanden
-        //FALSE, wenn vorhanden
-        /*private function valueUnique($field, $value){
-
-            $statement = static::statement("SELECT * FROM ".static::$tableName." WHERE ".$field."=?", [$value]);
-            $rowCount = $statement->rowCount();
-
-            if($rowCount == 1){
-                return $this->fields[$field]->equals($value);
-            }elseif($rowCount > 1){
-                return FALSE;
-            }
-
-            return TRUE;
-
-
-        }*/
 
         //Ausgabe eines Feldes als input
         //Schneller Weg, um die Form zu erzeugen

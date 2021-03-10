@@ -44,8 +44,6 @@
 
     //Libs
     require_once 'libs/tcpdf_min/tcpdf.php';
-    require_once 'libs/qrCode/qrCode.php';
-    #require_once 'libs/phpqrcode/phpqrcode.php';
     require_once 'libs/random/randomStringGenerator.php';
 
     //------------------------- App -------------------------

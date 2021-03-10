@@ -10,11 +10,19 @@
           'qrCodeId' => new ForeignKeyField(model:'QrCodeModel', required:TRUE),
           'benutzerId' => new ForeignKeyField(model:'UserModel', required:TRUE),
           'tag' => new DateField(required: TRUE),
-          'uhrzeit' => new DateField(required: TRUE),
+          'uhrzeit' => new TimeField(required: TRUE),
         ];
 
         parent::__construct($values);
 
+      }
+
+      public static function deleteByCodeId($id) {
+        $sql = "DELETE FROM ".static::$tableName." WHERE qrCodeId = ?";
+        $values = [$id];
+        $query = new BaseQuery();
+        $success = $query->executeStatement($sql, $values);
+        return TRUE;
       }
 
       public static function getScans($id, $tag, $tischnummer, $uhrzeit) {

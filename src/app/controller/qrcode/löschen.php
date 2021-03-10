@@ -26,6 +26,7 @@
       $object = InstitutionModel::getUserObject();
       $code = QrcodeModel::getById($id);
 
+      ScanModel::deleteByCodeId($id);
       $code->delete();
 
       header('Location: '.Url::find('backend-institution').'?success=QR-Code wurde erfolgreich gelöscht');

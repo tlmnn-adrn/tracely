@@ -8,7 +8,7 @@
         protected $template = 'home/home.php';
 
         protected function get($request) {
-            
+
             ?>
 
                 <link rel='stylesheet' href='<?= Url::find('static', 'style/style.css') ?>'>
@@ -16,10 +16,6 @@
                 <div id="app">
                     <img :src="src" width="800" height="400"/>
 
-                    <picture>
-                        <source :srcset="src" type="image/svg+xml">
-                    </picture>
-                    
                     <br>
                     <button v-on:click="changeImage(7)">7</button><br>
                     <button v-on:click="changeImage(30)">30</button><br>
