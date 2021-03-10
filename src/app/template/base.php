@@ -29,10 +29,10 @@ ob_start();
             <a href="<?= Url::find('logout') ?>"><div id="headerlink-logout" class="HeaderMidSideContentBox aButton">Logout <img src="<?= Url::find('static', 'media/backend/logout.svg') ?>"></div></a>
             <?php endif?>
 
+          </div>
         </div>
       </div>
-    </div>
-  </header>
+    </header>
 
   <?=$body?>
 

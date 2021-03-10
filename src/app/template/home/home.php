@@ -1,6 +1,6 @@
 <?php
   $title = 'tracely | Home';
-  $styles = ['home/style-home.css'];
+  $styles = ['home/style-home.css', 'home/style-home-layout.css'];
 
   ob_start();
 ?>

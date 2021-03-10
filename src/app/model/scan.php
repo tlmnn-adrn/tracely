@@ -10,7 +10,7 @@
           'qrCodeId' => new ForeignKeyField(model:'QrCodeModel', required:TRUE),
           'benutzerId' => new ForeignKeyField(model:'UserModel', required:TRUE),
           'tag' => new DateField(required: TRUE),
-          'uhrzeit' => new TimeField(required: TRUE),
+          'uhrzeit' => new DateField(required: TRUE),
         ];
 
         parent::__construct($values);

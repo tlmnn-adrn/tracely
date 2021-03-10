@@ -1,6 +1,6 @@
 <?php
   $title = 'tracely | Übersicht';
-  $styles = ['backend/style-backend.css', 'backend/style-backendubersicht.css', 'style-onepage.css'];
+  $styles = ['backend/style-backend.css', 'backend/style-backendubersicht.css', 'backend/style-backendubersicht-layout.css', 'style-onepage.css'];
 
   ob_start();
 ?>
@@ -10,8 +10,9 @@
 
         <div class="FilltextMidSektion">
           <div class="FilltextMidSektionContent">
-            <div id="backend-willkommen">
-              <h1>Willkommen <?= $object->vorname." ".$object->nachname ?></h1>
+            <h1>Willkommen <?= $object->vorname." ".$object->nachname ?></h1>
+
+            <div id="backend-schnellzugriff">
               <h3>Schnellzugriff</h3>
               <p>
                 <a href="<?= Url::find('scan-online') ?>" class="aButton" target="_blank">QR-Code scannen</a>

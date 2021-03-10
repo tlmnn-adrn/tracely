@@ -29,7 +29,7 @@
               <h3>Qr-Codeübersicht</h3>
               <table>
                 <tr>
-                  <th>Tischnummer</th><th>Sitzplätze</th><th colspan="2">QR-Code Optionen</th><th></th>
+                  <th>T-Nr.</th><th>Sitzplätze</th><th colspan="2">Optionen</th><th></th>
                 </tr>
                 <?php
                 for ($i=0; $i < count($qrcodes); $i++) {
@@ -37,9 +37,11 @@
                   <tr>
                     <td><?= $qrcodes[$i]->tischnummer?> </td>
                     <td><?=$qrcodes[$i]->sitzplätze?></td>
-                    <td><a href="<?=Url::find("qrcode-drucken", $qrcodes[$i]->code)?>" target="_blank" class="aText">erneut drucken</a></td>
                     <td>
-                      <a href="<?=Url::find("qrcode-löschen", $qrcodes[$i]->id)?>" class="aText">löschen</a>
+                      <a class="TableIcon" href="<?=Url::find("qrcode-drucken", $qrcodes[$i]->code)?>" target="_blank"><img src="<?= Url::find('static', 'media/backend/print.svg') ?>"></a>
+                    </td>
+                    <td>
+                      <a class="TableIcon" href="<?=Url::find("qrcode-löschen", $qrcodes[$i]->id)?>"><img src="<?= Url::find('static', 'media/backend/delete.svg') ?>"></a>
                     </td>
                   </tr>
                 <?php
@@ -51,11 +53,11 @@
 
             <div class="BackendBox" id="backend-zahlen">
               <div class="Anker" id="backend-zahlen-anker"></div>
-              <h3>Scananzahl der letzten <?= $anzeige ?> Tage</h3>
+              <h3>Scananzahl der letzten <?= $anzeige ?>&nbsp;Tage</h3>
               <br><br>
 
               <div id="zahlen">
-                <?php $this->drawSvgGraph(array: $scans, width: 940, height: 320);?>
+                <?php $this->drawSvgGraph(array: $scans, width: 340, height: 280);?>
               </div>
 
               <br><br><br>

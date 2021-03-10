@@ -12,7 +12,7 @@
           <div class="FilltextMidSektionContent">
 
             <div class="BackendBox" id="kontaktverfolgung">
-              <h1>Kontaktpersonennachverfolgung</h1>
+              <h1>Kontaktpersonen&shy;nachverfolgung</h1>
 
               <div class="KontaktverfolgungBox">
                 <h3>Datum</h3>

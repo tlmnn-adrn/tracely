@@ -9,6 +9,7 @@
     <link rel='stylesheet' href='<?= Url::find('static', 'style/style.css') ?>'>
     <link rel='stylesheet' href='<?= Url::find('static', 'style/style-layout.css') ?>'>
     <link rel='stylesheet' href='<?= Url::find('static', 'style/error/style-error.css') ?>'>
+    <link rel='stylesheet' href='<?= Url::find('static', 'style/error/style-error-mobile.css') ?>'>
   </head>
   <body>
 

@@ -1,0 +1,5 @@
+@media only screen and (max-width: 740px) {
+  #login-content {
+    width: 280px;
+  }
+}

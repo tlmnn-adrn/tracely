@@ -60,6 +60,7 @@ h6 {
 a {
   text-decoration: none;
   color: inherit;
+  transition: var(--main-tr-length);
 }
 .aText, .aList {
   position: relative;
@@ -183,9 +184,13 @@ input[type="date"], input[type="time"] {
   display: inline-block;
   vertical-align: middle;
 }
-#header-mid-name {width: 320px;}
+#header-mid-name {width: 120px; text-align: center;}
+#header-mid-name a:hover, #error-content a:hover {
+  color: var(--main-bg-action);
+}
+
 #header-mid-name h3 {margin: 0px 0px 10px 0px;}
-#header-mid-side {width: calc(100% - 6px - 320px);}
+#header-mid-side {width: calc(100% - 6px - 120px);}
 
 #header-mid-side-content {
   display: block;
@@ -193,6 +198,7 @@ input[type="date"], input[type="time"] {
 }
 .HeaderMidSideContentBox {
   width: calc(100% / 6 - 4*6px);
+  min-width: 160px;
   display: inline-block;
   vertical-align: middle;
   text-align: center;
