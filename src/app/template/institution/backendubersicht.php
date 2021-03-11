@@ -1,6 +1,6 @@
 <?php
   $title = 'tracely | Übersicht';
-  $styles = ['backend/style-backend.css', 'backend/style-backendubersicht.css', 'backend/style-backendubersicht-layout.css'];
+  $styles = ['backend/style-backendubersicht.css', 'backend/style-backendubersicht-layout.css'];
 
   ob_start();
 ?>
@@ -55,7 +55,6 @@
               <br><br>
 
               <div id="zahlen">
-                <link rel='stylesheet' href='<?= Url::find('static', 'style/style.css') ?>'>
 
                 <div id="app">
                     <img :src="src" width="960" height="320"/>

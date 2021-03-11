@@ -52,3 +52,9 @@
   width: 60%;
   margin-bottom: 20px;
 }
+
+#aroundfooter {
+  position: relative;
+  display: block;
+  margin-top: 120px;
+}

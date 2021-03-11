@@ -21,7 +21,7 @@
           $heightframe = $height + 40;
 
           echo '
-          <svg xmlns="http://www.w3.org/2000/svg" width="'.$width.'px" height="'.$height.'px" viewBox="-50 0 '.$widthframe.' '.$heightframe.'">
+          <svg xmlns="http://www.w3.org/2000/svg" width="'.$width.'px" height="'.$height.'px" viewBox="-40 0 '.$widthframe.' '.$heightframe.'">
 
             <defs>
               <linearGradient id="grad" gradientTransform="rotate(90)">

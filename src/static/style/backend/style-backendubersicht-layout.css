@@ -1,9 +1,16 @@
+@media only screen and (max-width: 824px) {
+  #app {
+    min-width: 240px;
+    width: 100%;
+  }
+}
+
 @media only screen and (max-width: 437px) {
   #backend-schnellzugriff p a {
     margin-bottom: 10px;
     display: block;
   }
-  
+
   #tischubersicht td, #tischubersicht th {
     margin: auto;
     padding: 10px;

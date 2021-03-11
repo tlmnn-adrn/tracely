@@ -1,6 +1,6 @@
 <?php
   $title = 'tracely | Kontaktpersonen';
-  $styles = ['backend/style-backend.css', 'backend/style-backendkontaktverfolgung.css'];
+  $styles = ['backend/style-backendkontaktverfolgung.css'];
 
   ob_start();
 ?>
