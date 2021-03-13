@@ -1,4 +1,5 @@
 <?php
+#Template für QR-Code löschen
   $title = 'tracely | QR-Code löschen';
   $styles = ['backend/style-backend.css', 'style-onepage.css'];
 

@@ -1,4 +1,5 @@
 <?php
+#Template für die Onlineanwendung zum Scan eines QR-Codes
   $title = 'tracely | Online Scan';
   $styles = [];
 

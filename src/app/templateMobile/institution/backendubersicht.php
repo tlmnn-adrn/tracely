@@ -1,6 +1,12 @@
 <?php
+#Template für Mobileendgeräte der Institutionsübersicht im Backendbereich
+//das Nonmobile Template ist aufgrund der Komplexität der responsive Anpassung neu geschrieben wurden,
+//da sich bei dieser Seite inhaltliche Veränderungen nicht verhindern ließen
+//die anderen Templates konnten durch Designanpassungen durch media queries responsive gestaltet werden
+//mediaqueries befinden sich in ...-layout.css und mobile-Styles in ...-mobile.css Stylsheets
+
   $title = 'tracely | Übersicht';
-  $styles = ['backend/style-backend.css', 'backend/style-backendubersicht.css', 'backend/style-backendubersicht-layout.css'];
+  $styles = ['backend/style-backendubersicht.css', 'backend/style-backendubersicht-layout.css'];
 
   ob_start();
 ?>

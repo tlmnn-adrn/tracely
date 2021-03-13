@@ -1,4 +1,5 @@
 <?php
+#Template für die Privatpersonenübersicht im Backendbereich
   $title = 'tracely | Übersicht';
   $styles = ['backend/style-backendubersicht.css', 'backend/style-backendubersicht-layout.css', 'style-onepage.css'];
 

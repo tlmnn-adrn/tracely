@@ -1,5 +1,5 @@
 <?php
-
+#Model für die Erinnerung der dauerhaufen Anmeldung einer Privatperson
     class RememberUserModel extends RememberAuthModel{
 
       static $tableName = "RememberBenutzer";

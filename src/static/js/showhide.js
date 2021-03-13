@@ -1,4 +1,4 @@
-//Objekte zeigen und verstecken
+//Methoden zum Objekte zeigen und verstecken
 
 function show(id) {
   document.getElementById(id).style.display = 'block';

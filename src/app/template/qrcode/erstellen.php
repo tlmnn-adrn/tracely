@@ -1,4 +1,5 @@
 <?php
+#Template für die QR-Code Erstellung
   $title = 'tracely | QR-Code Erstellung';
   $styles = ['backend/style-backend.css', 'backend/style-backendqrcodeerstellung.css', 'style-onepage.css'];
 

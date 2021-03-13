@@ -1,4 +1,5 @@
 <?php
+#Template für die Privatpersoneinstellungen
   $title = 'tracely | Einstellungen';
   $styles = ['login/style-login.css', 'backend/style-backendeinstellungen.css', 'backend/style-backendeinstellungen-layout.css'];
 

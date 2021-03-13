@@ -1,7 +1,11 @@
 <?php
+#Template für die Startseite
+  //Seiten Titel setzen
   $title = 'tracely | Home';
+  //weitere notewendige Style-Sheets definieren
   $styles = ['home/style-home.css', 'home/style-home-layout.css'];
 
+  //ob_start, startet Wertsetzung des bodys, es folgt die HTML-Beschreibung des jeweiligen Templates
   ob_start();
 ?>
 
@@ -86,9 +90,12 @@
       </div>
     </div>
 
-<?php $body = ob_get_clean(); ?>
-
+<?php
+  $body = ob_get_clean();
+  //der HTML Inhalt wurde in der Variable body gespeichert
+?>
 
 <?php
+  //includiert den 2. HTML Frame, der z.B. Header und Footer enthält
   require($this->extend('base.php'));
 ?>

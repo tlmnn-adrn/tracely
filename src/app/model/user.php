@@ -1,5 +1,5 @@
 <?php
-
+#Model für Privatpersonen
     class UserModel extends AuthModel{
 
       static $tableName = "Benutzer";
@@ -19,6 +19,7 @@
 
       }
 
+      //gibt eine Privatperson nach dem Vornamen zurück
       static public function getByVorname($vorname) {
         $sql = new SelectQuery(self::$tableName, self::class);
         $sql->where("vorname = ?", $vorname);
@@ -27,6 +28,7 @@
 
       }
 
+      //gibt nach erfolgreichem Login die aufzurufende Url zurückgibt
       public static function getLoginSuccessUrl() {
         return Url::find("backend-user");
       }

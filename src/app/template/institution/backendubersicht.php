@@ -1,4 +1,5 @@
 <?php
+#Template für die Institutionsübersicht im Backendbereich
   $title = 'tracely | Übersicht';
   $styles = ['backend/style-backendubersicht.css', 'backend/style-backendubersicht-layout.css'];
 
@@ -26,7 +27,7 @@
             </div>
 
             <div class="BackendBox" id="tischubersicht">
-              <h3>Qr-Codeübersicht</h3>
+              <h3>QR-Codeübersicht</h3>
               <table>
                 <tr>
                   <th>Tischnummer</th><th>Sitzplätze</th><th colspan="2">QR-Code Optionen</th><th></th>

@@ -1,4 +1,5 @@
 <?php
+#Template für die Kontaktseite
   $title = 'tracely | Kontakt';
   $styles = ['impressum/style-impressum.css', 'style-onepage.css'];
 

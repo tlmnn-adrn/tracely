@@ -1,4 +1,5 @@
 <?php
+#Template für den QR-Code Druck PDF-Datei, die der Instiution zum Download bereitgestellt wird
   $title = 'tracely | Qr-Code drucken';
   $styles = ['backend/style-backend.css', 'backend/style-backendkontaktverfolgung.css'];
 

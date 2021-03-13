@@ -1,5 +1,5 @@
 <?php
-
+#Model für die Erinnerung der dauerhaufen Anmeldung einer Institution
     class RememberInstitutionModel extends RememberAuthModel{
 
       static $tableName = "RememberInstitution";

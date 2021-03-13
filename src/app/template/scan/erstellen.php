@@ -1,4 +1,5 @@
 <?php
+#Template für Erstellung eines Scans
   $title = 'tracely | Scan';
   $styles = ['login/style.css', 'style-onepage.css'];
 

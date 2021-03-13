@@ -1,4 +1,5 @@
 <?php
+#Template für die Kontaktpersonennachverfolgungs PDF-Datei, die der Instiution zum Download bereitgestellt wird
   $title = 'tracely | Kontaktpersonen';
   $styles = ['backend/style-backendkontaktverfolgung.css'];
 

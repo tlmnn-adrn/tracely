@@ -1,3 +1,4 @@
+/* Stylesheet für Backendübersicht responsive Anpassungen */
 @media only screen and (max-width: 824px) {
   #app {
     min-width: 240px;
