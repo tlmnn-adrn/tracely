@@ -8,11 +8,6 @@
     require_once "app/controller/kontakt/kontakt.php";
 
 
-    /*??????? muss dann noch raus die 2 Zielen*/
-    require_once "app/controller/user/user.php";
-    require_once "app/controller/user/update.php";
-    #
-
   #Login und Registrierung
     require_once "app/controller/login/login.php";
     require_once "app/controller/user/login.php";
@@ -31,6 +26,7 @@
     require_once "app/controller/user/backendeinstellungen.php";
     //Institution
     require_once "app/controller/institution/backendubersicht.php";
+    require_once "app/controller/institution/getHistorySvg.php";
     require_once "app/controller/institution/backendkontaktverfolgung.php";
     require_once "app/controller/institution/backendkontaktpersonen.php";
     require_once "app/controller/institution/backendeinstellungen.php";
@@ -39,7 +35,6 @@
     require_once "app/controller/qrcode/erstellen.php";
     require_once "app/controller/qrcode/löschen.php";
     require_once "app/controller/qrcode/drucken.php";
-    require_once "app/controller/qrcode/generateQrImage.php";
 
   #Scan
     require_once "app/controller/scan/erstellen.php";
@@ -73,6 +68,7 @@
     Url::add('backend-user-einstellungen', 'backend/user/einstellungen/', 'UserBackendEinstellungenController');
     //Institution
     Url::add('backend-institution', 'backend/institution/', 'InstitutionBackendUbersichtController');
+    Url::add('backend-institution-gethistorysvg', 'backend/institution/gethistorysvg/<time>', 'GetHistorySvgController');
     Url::add('backend-institution-kontaktverfolgung', 'backend/institution/kontaktverfolgung/', 'InstitutionBackendKontaktverfolgungController');
     Url::add('backend-institution-kontaktpersonen', 'backend/institution/kontaktverfolgung/kontaktpersonen/', 'InstitutionBackendKontaktpersonenController');
     Url::add('backend-institution-einstellungen', 'backend/institution/einstellungen/', 'InstitutionBackendEinstellungenController');
@@ -81,7 +77,6 @@
     Url::add('qrcode-erstellen', 'qrcode/erstellen/', 'QrcodeerstellenController');
     Url::add('qrcode-löschen', 'qrcode/loeschen/<id>', 'QrcodelöschenController');
     Url::add('qrcode-drucken', 'qrcode/drucken/<code>', 'QrcodedruckenController');
-    Url::add('qr', 'qr/<code>', 'GenerateQrImage');
 
 
   #Scan
@@ -98,6 +93,4 @@
 
 
     require_once "app/controller/home/test.php";
-    require_once "app/controller/home/test2.php";
     Url::add('test', 'test', 'TestController');
-    Url::add('test2', 'test2/<time>', 'Test2Controller');

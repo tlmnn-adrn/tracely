@@ -1,4 +1,6 @@
 <?php
+#Template für Mobileendgeräte des 2. HTML Frames
+//ergänzt den Array styles um das Stylesheet style-mobile.css
 $styles[] = 'style-mobile.css';
 ob_start();
 ?>

@@ -1,4 +1,5 @@
 <?php
+#Template für Backend Zwischenseite (sollte bei normalen Gebrauch nicht zum Vorschein kommen)
   $title = 'tracely | Backend';
   $styles = ['login/style.css', 'login/style-login.css', 'style-onepage.css'];
 

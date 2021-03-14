@@ -1,3 +1,4 @@
+<?php #Template zum Eingabefeld: Text ?>
 
 <input type="text" id="<?=$name?>Field"  name="<?=$name?>" placeholder="<?=$placeholder?>" value="<?=$this->value?>" class="<?=$class?>">
 

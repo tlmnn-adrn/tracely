@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+<?php #Template für Fehlermeldungsseite ?>
 <html lang="de" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title><?= $errorTitle ?> Fehler</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <link rel="shortcut icon" href="<?= Url::find('static', 'media/favicon.ico') ?>">
     <link rel='stylesheet' href='<?= Url::find('static', 'style/style.css') ?>'>
     <link rel='stylesheet' href='<?= Url::find('static', 'style/style-layout.css') ?>'>

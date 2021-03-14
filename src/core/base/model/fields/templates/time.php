@@ -1,3 +1,5 @@
+<?php #Template zum Eingabefeld: Zeit ?>
+
 <input type="time" id="<?=$name?>TimeField" name="<?=$name?>Time" placeholder="<?=$placeholder?>" value="<?=$this->value?>" class="<?=$class?>">
 
 <?php if(count($this->errors)): ?>

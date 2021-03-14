@@ -1,5 +1,5 @@
 <?php
-
+#Model für Institutionsart, erbt von der Klasse Model
     class InstitutionsartModel extends Model{
 
       static $tableName = "Institutionsart";
@@ -15,6 +15,8 @@
 
       }
 
+      //Formulierung eines Strings der Werte für die Attribute Name und Aufenthaltszeit
+      //des entsprechenden Objektes beinhaltet
       public function __toString(){
           return $this->name.' - '.$this->aufenthaltszeit.' min';
       }

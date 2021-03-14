@@ -1,6 +1,7 @@
 <?php
+#Template für die Kontaktpersonennachverfolgung
   $title = 'tracely | Kontaktverfolgung';
-  $styles = ['backend/style-backend.css', 'backend/style-backendkontaktverfolgung.css'];
+  $styles = ['backend/style-backendkontaktverfolgung.css'];
 
   ob_start();
 ?>

@@ -1,3 +1,5 @@
+<?php #Template zum Eingabefeld: Auswahl ?>
+
 <select id="<?=$name?>Field" name="<?=$name?>" class="<?=$class?>">
 
     <?php if(strlen($placeholder)>0 && strlen($this->value)==0): ?>

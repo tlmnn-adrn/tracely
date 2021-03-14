@@ -1,3 +1,5 @@
+//Methode zum Einfügen eines Headerschattens beim Losscrollen
+
 window.onscroll = function() {HeaderShadow()};
 
   function HeaderShadow() {

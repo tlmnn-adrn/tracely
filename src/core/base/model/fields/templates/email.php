@@ -1,3 +1,4 @@
+<?php #Template zum Eingabefeld: E-Mail ?>
 
 <input type="email" id="<?=$name?>Field" name="<?=$name?>" placeholder="<?=$placeholder?>" value="<?=$this->value?>" class="<?=$class?>">
 

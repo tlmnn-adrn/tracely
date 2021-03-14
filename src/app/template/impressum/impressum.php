@@ -1,4 +1,5 @@
 <?php
+#Template für das Impressum
   $title = 'tracely | Impressum';
   $styles = ['impressum/style-impressum.css'];
 
@@ -12,7 +13,7 @@
           <div class="FilltextMidSektionContent">
             <div id="impressum">
               <h1>Impressum</h1>
-              <p class="Failure"><i>Die folgenden Angaben sind der Vollständigkeit halber und nicht auf die Geschäftsform und den Aufgabenbereich dieser Webseite angepasst.</i></h5>
+              <p class="Failure">Die folgenden Angaben sind der Vollständigkeit halber und nicht auf die Geschäftsform und den Aufgabenbereich dieser Webseite angepasst.</p>
               <br>
               <h3>Angaben gemäß § 5 TMG</h3>
               <p>

@@ -1,4 +1,5 @@
 <?php
+#Template für die Privatpersonenregistrierung
   $title = 'tracely | Registrierung';
   $styles = ['login/style.css', 'login/style-layout.css', 'login/style-registration.css'];
 

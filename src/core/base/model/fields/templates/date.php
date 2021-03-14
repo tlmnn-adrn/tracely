@@ -1,4 +1,4 @@
-
+<?php #Template zum Eingabefeld: Datum ?>
 <input type="date" id="<?=$name?>Field" name="<?=$name?>" placeholder="<?=$placeholder?>" value="<?=$this->value?>" class="<?=$class?>">
 
 <?php if(count($this->errors)): ?>

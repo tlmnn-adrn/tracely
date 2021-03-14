@@ -1,3 +1,4 @@
+/* Stylesheet für Backendübersicht */
 #headerlink-ubersicht {
   color: var(--main-bg-action);
   border-color: var(--main-bg-action);
@@ -5,4 +6,18 @@
 
 #tischubersicht td, #tischubersicht th {
   width: 320px;
+}
+
+#zahlen {
+  width: 100%;
+}
+#app {
+  width: 60%;
+  min-width: 744px;
+  max-width: 960px;
+  margin: auto;
+  text-align: center;
+}
+#app img {
+  width: 100%;
 }

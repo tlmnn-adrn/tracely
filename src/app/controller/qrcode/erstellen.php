@@ -39,7 +39,9 @@
 
       $success = $code->create();
 
-      header('Location: '.Url::find('qrcode-drucken', $code->code));
+      if ($success) {
+        header('Location: '.Url::find('qrcode-drucken', $code->code));
+      }      
 
       $context = [
           "object" => $object,
@@ -48,8 +50,6 @@
       ];
 
       $this->render($context);
-
-
 
     }
 

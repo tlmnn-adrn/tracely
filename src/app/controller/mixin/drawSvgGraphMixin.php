@@ -17,11 +17,11 @@
             $points .= $x[$k].','.$y[$k].' ';
           }
 
-          $widthframe = $width + 80;
-          $heightframe = $height + 80;
+          $widthframe = $width + 100;
+          $heightframe = $height + 40;
 
           echo '
-          <svg xmlns="http://www.w3.org/2000/svg" width="'.$width.'px" height="'.$height.'px" viewBox="-20 0 '.$widthframe.' '.$heightframe.'">
+          <svg xmlns="http://www.w3.org/2000/svg" width="'.$width.'px" height="'.$height.'px" viewBox="-40 0 '.$widthframe.' '.$heightframe.'">
 
             <defs>
               <linearGradient id="grad" gradientTransform="rotate(90)">
@@ -58,7 +58,7 @@
           }
 
           $xdate1 = $x[0] - 45;
-          $xdate2 = $x[count($x)-1] - 45;
+          $xdate2 = $x[count($x)-1] - 60;
           $ydate = $height + 40;
 
           $startdate = new DateTime(date('Y-m-d'));
@@ -73,6 +73,9 @@
               <style media="screen">
               polygon {
                 fill: url(#grad);
+              }
+              text {
+                font-family: "Calibri", sans-serif;
               }
             </style>
           </svg>

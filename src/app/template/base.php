@@ -1,4 +1,6 @@
 <?php
+#Template für den 2. HTML Frame
+//beinhaltet Kopfzeile und Fußzeile und bette dazwischen den body der anderen Templates ein
 ob_start();
 ?>
 
@@ -9,7 +11,7 @@ ob_start();
         </div>
         <div class="HeaderMidBox" id="header-mid-side">
           <div id="header-mid-side-content">
-
+            <?php //Seitenzustandsabfrage, ob z.B. Nutzer an- oder abgemeldet ist ?>
             <?php if (!AuthModel::isLoggedIn()): ?>
               <a href="<?= Url::find('index') ?>"><div id="headerlink-home" class="HeaderMidSideContentBox HeaderMidSideContentBoxList">Home</div></a>
               <a href="<?= Url::find('login') ?>"><div id="headerlink-login" class="HeaderMidSideContentBox aButton">Login</div></a>
@@ -57,5 +59,6 @@ ob_start();
 <?php $body = ob_get_clean(); ?>
 
 <?php
+  //includiert den 1. HTML Frame, der die HTML Struktur beinhaltet
   require($this->extend('htmlframe.php'));
 ?>

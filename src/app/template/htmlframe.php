@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+#Template des 1. HTML Frames
+//beinhaltet die HTML Struktur, die Informationen zum Head und bettet den body der Templates ein
+?>
 <html lang="de">
   <head>
     <meta charset="UTF-8">

@@ -1,6 +1,12 @@
 <?php
+#Template für Mobileendgeräte der Institutionsübersicht im Backendbereich
+//das Nonmobile Template ist aufgrund der Komplexität der responsive Anpassung neu geschrieben wurden,
+//da sich bei dieser Seite inhaltliche Veränderungen nicht verhindern ließen
+//die anderen Templates konnten durch Designanpassungen durch media queries responsive gestaltet werden
+//mediaqueries befinden sich in ...-layout.css und mobile-Styles in ...-mobile.css Stylsheets
+
   $title = 'tracely | Übersicht';
-  $styles = ['backend/style-backend.css', 'backend/style-backendubersicht.css', 'backend/style-backendubersicht-layout.css'];
+  $styles = ['backend/style-backendubersicht.css', 'backend/style-backendubersicht-layout.css'];
 
   ob_start();
 ?>
@@ -52,22 +58,27 @@
             </div>
 
             <div class="BackendBox" id="backend-zahlen">
-              <div class="Anker" id="backend-zahlen-anker"></div>
-              <h3>Scananzahl der letzten <?= $anzeige ?>&nbsp;Tage</h3>
+
+              <h3>Scananzahlübersicht</h3>
               <br><br>
 
               <div id="zahlen">
-                <?php $this->drawSvgGraph(array: $scans, width: 340, height: 280);?>
+
+                <div id="app">
+                    <img :src="src" width="960" height="320"/>
+
+                    <br><br><br><br>
+                    <button v-on:click="changeImage(7)" class="aButton" v-bind:class="[selected==7 ? 'aButtonFill' : '']">7 Tage</button>
+                    <button v-on:click="changeImage(14)" class="aButton" v-bind:class="[selected==14 ? 'aButtonFill' : '']">14 Tage</button>
+                    <button v-on:click="changeImage(30)" class="aButton" v-bind:class="[selected==30 ? 'aButtonFill' : '']">30 Tage</button>
+                    <button v-on:click="changeImage(60)" class="aButton" v-bind:class="[selected==60 ? 'aButtonFill' : '']">60 Tage</button>
+                    <button v-on:click="changeImage(90)" class="aButton" v-bind:class="[selected==90 ? 'aButtonFill' : '']">90 Tage</button>
+                </div>
+
+                <script src="https://unpkg.com/vue@next"></script>
+                <script src="<?=Url::find('static', 'js/getHistorySvg.js')?>"></script>
               </div>
 
-              <br><br><br>
-              <form action="#backend-zahlen-anker" method="get">
-                <button type="submit" name="anzeige" value="7" class="aButton <?= $anzeigeaktiv[7] ?>">7 Tage</button>
-                <button type="submit" name="anzeige" value="14" class="aButton <?= $anzeigeaktiv[14] ?>">14 Tage</button>
-                <button type="submit" name="anzeige" value="30" class="aButton <?= $anzeigeaktiv[30] ?>">30 Tage</button>
-                <button type="submit" name="anzeige" value="60" class="aButton <?= $anzeigeaktiv[60] ?>">60 Tage</button>
-                <button type="submit" name="anzeige" value="90" class="aButton <?= $anzeigeaktiv[90] ?>">90 Tage</button>
-              </form>
             </div>
 
           </div>
