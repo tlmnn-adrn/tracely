@@ -1,5 +1,7 @@
 <?php
 
+    //Eine Testfunktion kann vom Programmierer festgelegt werden
+    //Returnt diese False, darf der Benutzer die Seite nicht aufrufen
     trait UserPassesTestMixin{
 
         abstract function testFunc();

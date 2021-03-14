@@ -1,6 +1,6 @@
 <?php
 
-    class TelefonField extends BaseField implements Field{
+    class TelefonField extends BaseField{
 
         protected $length = 14;
 
@@ -17,6 +17,7 @@
 
             //Quelle: https://www.xspdf.com/resolution/56792114.html -- Abschnitt Php regex international phone number
             //Überprüfung, ob die Eingabe eine Telefonnummer ist
+            //Format: +4900000000000
             if(!preg_match("/^[0-9\-\(\)\/\+\s]*$/", $this->value)){
 
                 $this->errors[] = $this->errorTypes['notAPhoneNumberError'];

@@ -1,8 +1,9 @@
 <?php
 
+    //Grundlage für alle SQL abfragen
     class BaseQuery{
 
-        private $pdo;
+        protected $pdo;
 
         public function __construct(){
 
@@ -12,6 +13,7 @@
 
         }
 
+        //Ausführen des SQL statements $sql mit den Werten $values
         public function executeStatement($sql, $values=[]){
 
             $statement = $this->pdo->prepare($sql);

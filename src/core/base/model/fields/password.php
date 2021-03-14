@@ -1,6 +1,6 @@
 <?php
 
-class PasswordField extends BaseField implements Field{
+class PasswordField extends BaseField{
 
     //Attribut für die Mindestlänge des Passwortes
     //Standartmäßig 6
@@ -15,6 +15,8 @@ class PasswordField extends BaseField implements Field{
 
     function set($value){
 
+        //Hat das Feld schon einen Wert (Dieser wurde bei der Init Funktion geschrieben), sollte das Passwort über die setPasswort() Methode
+        //geändert werden, da es dort gehasht wird und überprüft wird, ob bei Änderung das alte Passwort korrekt war
         if($this->value){
             throw new BaseError('Interner', 'Um den Wert des Passwort-Feldes zu ändern, benutze die Methode setPassword()!', 500);
 
@@ -42,9 +44,7 @@ class PasswordField extends BaseField implements Field{
     function checkValid($value=''){
 
         if(strlen($value)<$this->minLength){
-            
             $this->errors[] = $this->errorTypes['passwordShortError'];
-
         }
 
         return parent::checkValid();
@@ -63,20 +63,18 @@ class PasswordField extends BaseField implements Field{
         
         //Stimmen die Beiden neuen Passwörter nicht überein, wird eine Fehlermeldung gespeichert und der weitere Vorgang abgebrochen
         if($repeatValue!=$value){
-
             $this->errors[] = $this->errorTypes['passwordsDontMatchError'];
-
         }
         
         //Ist das alte Passwort falsch, wird eine Fehlermeldung gespeichert und der weitere Vorgang abgebrochen
         if(!$this->equals($oldValue)){
             $this->errors[] = $this->errorTypes['oldPasswordWrongError'];
-
         }
 
         //Sollte das neue Passwort den Mindestanforderungen genügen, wird es in gehashter Form in den Attributen gespeichert
         $this->checkValid($value);
 
+        //Gab es nirgenwo einen Fehler, wird der Wert mit dem neuen überschrieben
         if(!$this->hasErrors()){
             $this->value = $this->hash($value);
         }
