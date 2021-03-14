@@ -1,12 +1,14 @@
 const app = Vue.createApp({
     data(){ return {
-        src:'https://localhost/test2',
+        src:'https://localhost/test2/7',
+        selected: 7
     }},
     methods:{
         changeImage(time){
 
-            console.log('https://localhost/test2/'+time);
-            this.src = 'https://localhost/test2/'+time
+            this.selected = time
+            this.src = 'https://localhost/test2/' + time
+            
 
         },
     },

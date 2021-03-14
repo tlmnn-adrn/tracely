@@ -15,13 +15,9 @@
 
                 <div id="app">
                     <img :src="src" width="800" height="400"/>
-
-                    <picture>
-                        <source :srcset="src" type="image/svg+xml">
-                    </picture>
                     
                     <br>
-                    <button v-on:click="changeImage(7)">7</button><br>
+                    <button v-on:click="changeImage(7)" class="aButton " v-bind:class="[selected==7 ? 'aButtonFill' : '']">7</button><br>
                     <button v-on:click="changeImage(30)">30</button><br>
                     <button v-on:click="changeImage(60)">60</button><br>
                     <button v-on:click="changeImage(90)">90</button><br>
