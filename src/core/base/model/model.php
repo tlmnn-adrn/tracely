@@ -19,18 +19,19 @@
 
         }
 
+        //Ausgabe der Instanz des Modells mit der angegebenen ID 
         public static function getById($id, $error=TRUE) {
+
+            //Abfrage an die Datenbank
             $query = new SelectQuery(static::$tableName, static::class);
             $query->where('id=?', $id);
-
             $result = $query->execute();
 
+            //Sollte es kein Datensatz mit dieser ID geben und die Fehlermeldung nicht ausgeschaltet sein, wird eine Fehlermeldung angezeigt
             if(count($result)!=1){
-
                 if($error){
                     throw new ServerError;
                 }
-
                 return FALSE;
             }
 
@@ -49,19 +50,26 @@
 
         }
 
+        //Wird aufgerufen, wenn strval($model) aufgerufen wird
+        //Standartmäfig wird dann die id zurückgegeben
         public function __toString()
         {
             return $this->id;
         }
 
+        //Wird aufgerufen, wenn man ein nicht definiertes oder geschütztes Attribut der Klasse aufrufen will
+        //Wird verwendet, damit die Werte von Feldern der Klasse direkt aufgerufen werden können
         public function __get($key){
 
+            //Überprüfung, ob das Modell ein Feld mit dem angegebenen Key hat
+            //Ist dies der Fall, wird der Wert des Feldes ausgegeben
             if(array_key_exists($key, $this->fields)){
                 return $this->fields[$key]->get();
             }
 
         }
 
+        //Äquivalent zu __get(), nur dass hier der Wert geändert werden soll
         public function __set($key, $value){
 
             if(array_key_exists($key, $this->fields)){
@@ -78,6 +86,8 @@
 
         }
 
+        //Festlegen der Auswahloptionen eines ForeignKeyFeldes
+        //Dabei wird auch überprüft, ob es sich wirklich um ein ForeigKeyFeld handelt
         public function setFieldOptions($field, $options){
 
             if(method_exists($this->fields[$field], 'setOptions')){
@@ -86,6 +96,8 @@
 
         }
 
+        //Funktion zum ändern des Passwortes bei einem Passwortfeld
+        //Dabei wird auch überprüft, ob es sich um wirklich um ein Passwortfeld handelt
         public function setPassword($field, ...$params){
 
             if(method_exists($this->fields[$field], 'setPassword')){
@@ -94,21 +106,28 @@
 
         }
 
+        //Überprüfung, ob, wenn das Feld unique ist, ob es schno einen anderen Datensatz mit diesem Wert in diesem Feld gibt
         protected function hasUniqueError($fieldKey, $field){
 
-
+            //Überprüfung, ob das Feld unique sein soll
+            //Wenn nicht, gibt es definitiv keinen unique Error
             if(!$field->unique){
                 return FALSE;
             }
 
+            //Ausgabe aller Datensätze, mit diesem Wert in diesem Feld
             $sql = new SelectQuery(static::$tableName, static::class);
             $sql->where($fieldKey.'=?', $field->get());
             $results = $sql->execute();
 
+            //Gibt es mehr als einen Datensatz mit dem Wert, ist die unique Bedingung definitiv nicht erfüllt
+            //(Und irgendwas anderes ist schief gegangen)
             if(count($results)>1){
                 return TRUE;
             }
 
+            //Gibt es genau einen anderen Datensatz mit diesem Wert in dem Feld, wird überprüft, ob es sich um den zu änderten Datensatz handelt
+            //In diesem Fall ist die Bedingung erfüllt, sonst gibt es einen unique Error
             if(count($results)==1 && $results[0]->id != $this->id){
                 return TRUE;
             }

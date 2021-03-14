@@ -1,6 +1,6 @@
 <?php
 
-    class EmailField extends TextField implements Field{
+    class EmailField extends TextField{
 
         protected $template = "email.php";
 

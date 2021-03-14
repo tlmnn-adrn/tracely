@@ -2,11 +2,15 @@
 
     abstract class Controller{
 
+        //Hier soll das Template gespeichert werden, welches die render() Funktion anzeigt
         protected $template;
 
+        //Die Pfade für die Template Ordner
         protected $templatePath = "app/template/";
         protected $templateMobilePath = "app/templateMobile/";
 
+        //Werden bei einem Post / Get Request aufgerufen
+        //Müssen von Unterklasse implementiert werden, wo diese ihr Verhalten bei einem Get oder Post request beschreiben
         abstract protected function get($request);
         abstract protected function post($request);
 
@@ -26,9 +30,11 @@
 
             }
 
-
+            //Aufrufen der Get oder Post methode der Unterklasse
             if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
+                //Handelt es sich um einen Post request, muss sichergestellt werden, dass kein CSRF oder XSRF Angriff stattgefunden hat
+                //Hier wird überprüft, ob das CSRF Token im Post request übergeben wurde, wenn nicht gibt es eine Fehlermeldung
                 if(!isset($_POST['csrfToken']) || !$_SESSION['csrfToken'] || $_POST['csrfToken'] != $_SESSION['csrfToken']){
                     throw new SecurityError('Die csrf Authentifikation ist fehlgeschlagen.');
                 }
@@ -59,6 +65,9 @@
 
         protected function extend($template){
 
+            //Überprüfung, ob die Seite von einem Handy aufgerufen wurde
+            //Ist dies der Fall, wird auch überprüft, ob es für das anzuzeigende Template eine Tamplate Variante hat
+            //Je nach der Pfad für das mobile oder desktop-template zurückgegeben
             if($this->isMobile() && file_exists('app/templateMobile/'.$template)){
                 $path = $this->templateMobilePath.$template;
             }else{
@@ -69,6 +78,8 @@
 
         }
 
+        //Statt der Renderfunktion kann auch die GeneratePdf Funktion angezeigt werden
+        //Dabei wird aus dem Template eine PDF Datei generiert
         protected function generatePdf($context=[], $fileName='pdf', $author='', $title='', $subject=''){
 
             //Quelle: https://www.php-einfach.de/experte/php-codebeispiele/pdf-per-php-erstellen-pdf-rechnung/
@@ -122,6 +133,9 @@
 
         }
 
+        //Funktion, die ein CSRF Token generiert und returnt
+        //Gibt es noch keins wird eiens generiert
+        //Das CSRF Token muss in jeder Post-Form angezeigt werden
         protected function csrfToken(){
 
             if(!isset($_SESSION['csrfToken'])){

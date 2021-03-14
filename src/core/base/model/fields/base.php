@@ -1,18 +1,6 @@
 <?php
 
-        // Beschreiben der Funktionen, die alle Felder haben müssen
-        interface Field{
-
-            public function get();
-            public function set($value);
-            public function equals($value);
-            public function hasErrors();
-            public function render($name);
-            public function checkValid();
-
-        }
-
-        class BaseField implements Field{
+        class BaseField{
 
             protected $value;
 
@@ -31,6 +19,7 @@
                 $this->errorTypes = $errorTypes;
             }
 
+            //$this->unique als read only
             function __get($key){
                 if($key=="unique"){
                     return $this->unique;

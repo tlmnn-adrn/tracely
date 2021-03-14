@@ -7,12 +7,14 @@
 
         protected static $urlPatterns;
 
+        //Registrieren einer Url
         public static function add($name, ...$arguments){
 
             self::$urlPatterns[$name] = new static(...$arguments);
 
         }
 
+        //Finden einer URL nach dem registrierten Namen
         public static function find($name, ...$arguments){
 
             if(array_key_exists($name, self::$urlPatterns)){
@@ -96,14 +98,17 @@
             return $arguments;
         }
 
+        //Setzen der Argumente, mit denen die Seite aufgerufen wird
         public function setArgs($arguments){
             $this->arguments = $arguments;
         }
 
+        //Aufrufen des zu der aufgerufenen URL gehörigen Controllers mit den Argumenten
         public function callController(){
             return new $this->controller($this->arguments);
         }
 
+        //Überprüfung, ob es sich bei einem Element der URL um einen Platzhalter für eine Argument handelt
         protected function isArg($element){
             if(strlen($element) >= 1 && $element[0] == '<' && $element[-1] == '>'){
                 return TRUE;
@@ -111,6 +116,7 @@
             return FALSE;
         }
 
+        //Ausgabe der URL, die zu diesem Controller verweist.
         public function getUrl($arguments=[]){
 
             $path = "https://".$_SERVER['HTTP_HOST']."/";

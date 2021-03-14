@@ -86,11 +86,3 @@
 
   #Static Urls
     StaticUrl::add('static', 'static/');
-
-
-
-
-
-
-    require_once "app/controller/home/test.php";
-    Url::add('test', 'test', 'TestController');

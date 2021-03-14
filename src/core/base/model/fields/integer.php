@@ -1,6 +1,6 @@
 <?php
 
-    class IntegerField extends BaseField implements Field{
+    class IntegerField extends BaseField{
 
         protected $template = "integer.php";
 
