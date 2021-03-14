@@ -1,13 +1,13 @@
 <?php
 
-    //Select SQL Abfage
+    //Select SQL Abfrage
     class SelectQuery extends BaseQuery{
 
         //Liste von Where Filtern und den Werten dafür
         private $where = [];
         private $whereValues = [];
 
-        //Liste von Spalten, nach den sortiert werden soll 
+        //Liste von Spalten, nach den sortiert werden soll
         private $orderBy = [];
         //Liste, ob jeweils aufsteigend oder absteigend sortiert weden soll
         private $orderValue = [];

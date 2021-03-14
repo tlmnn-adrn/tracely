@@ -1,25 +1,32 @@
 <?php
-
+#Mixin zum Erstellen eines dynamischen SVG zur Darstellung eines Graphens
     trait drawSvgGraphMixin{
 
         function drawSvgGraph($array, $width, $height) {
+          //ermittelt den Maximalen Wert des Arrays, der mind 1 ist (Diagrammskalierung)
           $max = max(1, max($array));
 
+          //Definition der y Koordinaten der Punkte im SVG
           for ($i=0; $i < count($array); $i++) {
             $y[$i] = ($height - 1) - (($array[$i] / $max) * ($height-40));
           }
+          //Definition der Stellen der Punkte im SVG
           for ($n=0; $n < count($array); $n++) {
             $x[$n] = $n * ($width / (count($array)-1)) + 10;
           }
 
+          //Formulierung der Punkte für SVG attribut points=""
           $points = '';
           for ($k=0; $k < count($x); $k++) {
             $points .= $x[$k].','.$y[$k].' ';
           }
 
+          //Berechnung der ViewBoxabmessungen
           $widthframe = $width + 100;
           $heightframe = $height + 40;
 
+          //Ausgabe des Graphens
+          //xmlns: XML-Dialekt dieses Namespaces, hier SVG
           echo '
           <svg xmlns="http://www.w3.org/2000/svg" width="'.$width.'px" height="'.$height.'px" viewBox="-40 0 '.$widthframe.' '.$heightframe.'">
 
@@ -39,6 +46,7 @@
 
           ';
 
+          //Darstellung der Punkte mit Text
           if ((count($x)-1) < 29) {
             for ($o=0; $o < count($y); $o++) {
               $ytext = $y[$o] - 10;
@@ -57,6 +65,7 @@
               ';
           }
 
+          //Darstellung der Datums
           $xdate1 = $x[0] - 45;
           $xdate2 = $x[count($x)-1] - 60;
           $ydate = $height + 40;

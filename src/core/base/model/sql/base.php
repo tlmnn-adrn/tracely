@@ -1,6 +1,6 @@
 <?php
 
-    //Grundlage für alle SQL abfragen
+    //Grundlage für alle SQL Abfragen
     class BaseQuery{
 
         protected $pdo;

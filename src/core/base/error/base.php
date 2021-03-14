@@ -38,7 +38,7 @@
 
     #404 Fehler
     class NotFoundError extends BaseError {
-
+      //Der Parameter errorMessageX ermöglicht eine Ergänzung zusätzlich zur Fehlermeldung
       public function __construct($errorMessageX="") {
         parent::__construct("404", "Diese Seite konnte nicht gefunden werden.<br>".$errorMessageX, 404);
       }
@@ -75,4 +75,3 @@
         parent::__construct("401", "Es gab einen Sicherheitsfehler!<br>".$errorMessageX, 401);
       }
     }
-
