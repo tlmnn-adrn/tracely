@@ -19,7 +19,18 @@
 
       <p><?=$errorMessage?></p>
 
-      <img src='<?= Url::find('static', 'media/error/'.rand(1, 4).'.jpg') ?>' alt="">
+      <?php
+      if (!empty($_SESSION['randomIMG'])) {
+        do {
+          $randomIMG = rand(1, 7);
+        } while ($_SESSION['randomIMG'] == $randomIMG);
+      } else {
+        $randomIMG = rand(1, 7);
+      }
+      $_SESSION['randomIMG'] = $randomIMG;
+      ?>
+
+      <img src='<?= Url::find('static', 'media/error/'.$randomIMG.'.jpg') ?>' alt="">
     </div>
 
   </body>
