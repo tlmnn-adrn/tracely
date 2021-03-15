@@ -34,8 +34,6 @@
       $qrcode = QrcodeModel::getQrcodeByCode($code);
       $object = InstitutionModel::getUserObject();
 
-      echo $qrcode[0]['institutionId']." ".$object->id;
-
       if(count($qrcode)==0){
         return FALSE;
       }

@@ -24,6 +24,22 @@
     </table>
   </div>
 
+  <p>
+    <ol>
+      <li>QR-Code mit Smartphone scannen</li>
+    </ol>
+  </p>
+  <p>oder</p>
+  <br><br>
+  <p>
+    <ol>
+      <li>www.tracely.de aufrufen</li>
+      <li>Anmelden oder Registrieren</li>
+      <li>Schnellzugriff "QR-Code scannen"</li>
+      <li>QR-Code mit Webanwendung scannen</li>
+    </ol>
+  </p>
+
 </div>
 
 <?php $body = ob_get_clean(); ?>
