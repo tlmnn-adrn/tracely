@@ -32,6 +32,8 @@
                   <?=$object->renderField("stadt", "Musterstadt", "aInput", "Failure")?><br>
                   <h6>E-Mail</h6>
                   <?=$object->renderField("email", "kontakt@muster.de", "aInput", "Failure")?><br>
+                  <h6>Institutionsart wählen</h6>
+                  <?=$object->renderField("institutionsartId", "Institutionsart wählen", "aInput", "Failure")?><br>
                   <h6>Passwort ändern</h6>
                   <?=$object->renderField("passwort", "Passwort", "aInput", "Failure", "update")?><br>
                   <br>

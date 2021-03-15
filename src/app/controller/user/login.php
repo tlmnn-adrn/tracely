@@ -1,5 +1,6 @@
 <?php
-
+#Privatpersonenlogin Controller
+  //äquivalent zu Institutionslogin
   class UserLoginController extends Controller
   {
 
@@ -29,7 +30,7 @@
         $context = [
             "object" => $object,
         ];
-        
+
         $this->render($context);
 
     }

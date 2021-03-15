@@ -1,5 +1,5 @@
 <?php
-
+#QR-Code löschen Controller
   class QrcodelöschenController extends Controller
   {
     use DrawTrennerMixin, InstitutionLoginRequiredMixin, UserPassesTestMixin;
@@ -26,9 +26,11 @@
       $object = InstitutionModel::getUserObject();
       $code = QrcodeModel::getById($id);
 
+      //Lösche den Datensatz
       ScanModel::deleteByCodeId($id);
       $code->delete();
 
+      //übermittle eine Erfolgsmeldung bei erfolgreichem Löschen
       header('Location: '.Url::find('backend-institution').'?success=QR-Code wurde erfolgreich gelöscht');
       exit;
 

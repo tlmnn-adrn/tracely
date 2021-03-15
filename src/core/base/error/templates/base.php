@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php #Template für Fehlermeldungsseite ?>
+<?php #Template für Fehlermeldungsseite, soll unabhängig zu nahezu all anderen Seitenbezügen stehen ?>
 <html lang="de" dir="ltr">
   <head>
     <meta charset="utf-8">

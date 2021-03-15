@@ -1,5 +1,5 @@
 <?php
-
+#Institutionseinstellungen Controller
   class InstitutionBackendEinstellungenController extends Controller
   {
     use DrawTrennerMixin, InstitutionLoginRequiredMixin;
@@ -21,18 +21,19 @@
 
     protected function post($request) {
       $object = InstitutionModel::getUserObject();
-
+      //weiße den Attributen der Instanz die übergebenen Werte zu
       $object->name = $request["name"];
       $object->adresse = $request["adresse"];
       $object->plz = $request["plz"];
       $object->stadt = $request["stadt"];
       $object->email = $request["email"];
-      //Art fehlt
+      $object->institutionsartId = $request["institutionsartId"];
 
       if ($request["passwort"] && $request["passwortWiederholen"] && $request["passwortAlt"]) {
         $object->setPassword(field: "passwort", value: $request["passwort"], repeatValue: $request["passwortWiederholen"], oldValue: $request["passwortAlt"]);
       }
 
+      //aktualisiert die Datenfelder des Datensatzes
       $success = $object->update();
 
       $context = [

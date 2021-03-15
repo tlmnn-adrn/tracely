@@ -1,5 +1,5 @@
 <?php
-
+#QR-Code erstellen Controller
   class QrcodeerstellenController extends Controller
   {
     use DrawTrennerMixin, InstitutionLoginRequiredMixin;
@@ -29,7 +29,7 @@
       $code->sitzplätze = $request["sitzplätze"];
       $code->institutionId = $object->id;
 
-
+      //erzeuge einen zufälligen Code des QR-Codes
       $generator = new RandomStringGenerator;
       $token = $generator->generate(64);
       $token .= $object->id;
@@ -41,7 +41,7 @@
 
       if ($success) {
         header('Location: '.Url::find('qrcode-drucken', $code->code));
-      }      
+      }
 
       $context = [
           "object" => $object,

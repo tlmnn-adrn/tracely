@@ -1,5 +1,5 @@
 <?php
-
+#Institutions Registrierungs Controller
   class InstitutionRegistrationController extends Controller
   {
 
@@ -23,6 +23,7 @@
 
       $object = new InstitutionModel;
 
+      //weißt die übergebenen Werte den Attributen des Objektes zu
       $object->name = $request["name"];
       $object->adresse = $request["adresse"];
       $object->plz = $request["plz"];
@@ -31,8 +32,10 @@
       $object->institutionsartId = $request["institutionsartId"];
       $object->setPassword('passwort', $request["passwort"], $request["passwortWiederholen"]);
 
+      //erstelle einen neuen Datensatz in der Tabelle der Institution
       $success = $object->create();
 
+      //bei erfolgreicher Erstellung wird die Insitution angemeldet
       if($success){
         InstitutionModel::login($request['email'], $request['passwort']);
       }

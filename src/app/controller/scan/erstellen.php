@@ -1,5 +1,5 @@
 <?php
-
+#Scan erstellen Controller
   class ScanErstellenController extends Controller
   {
     use DrawTrennerMixin, UserLoginRequiredMixin;
@@ -11,13 +11,15 @@
 
       $object = UserModel::getUserObject();
       $code = QrcodeModel::getQrcodeByCode($code);
+      //überprüft, ob ein übergebener Code vorhanden ist
       if (count($code) == 0) {
         throw new NotFoundError('Der gescannte Qr-Code konnte nicht gefunden werden.');
       }
 
-    #Quelle: https://www.php.net/manual/de/datetime.sub.php
       $aufenthaltszeit = $code[0]['aufenthaltszeit'];
 
+      //ermittelt, ob der gescannte QR-Code durch die Privatperson im Aufenthaltszeitraum ein zweites mal gescannt wurde
+    #Quelle: https://www.php.net/manual/de/datetime.sub.php
       $date = new DateTime(date("Y-m-d H:i:s"));
       $date->sub(new DateInterval('PT'.$aufenthaltszeit.'M'));
       $vergleichstag = $date->format('Y-m-d');
@@ -25,6 +27,7 @@
 
       $oldscan = ScanModel::getOldScan($code[0][0], $object->id, $vergleichstag, $vergleichsuhrzeit);
 
+      //falls kein Scan im Aufenthaltszeitraum dann erzeuge einen neuen Datensatz
       if (count($oldscan) == 0) {
         $scan = new ScanModel;
 
@@ -35,6 +38,7 @@
 
         $success = $scan->create();
       } else {
+      //falls Scan, dann FALSE
         $success = FALSE;
       }
 

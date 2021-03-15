@@ -1,8 +1,9 @@
 <?php
-
+#Mixin zum Darstellen der Content Trennung
     trait DrawTrennerMixin{
-
+        //Übergabe der Ausrichtung und der Farbe
         function drawTrenner($ausrichtung=0, $farbe="white") {
+          //Berechnung der Parameter
           $heightcalc = 50;
           $height = $heightcalc."px";
           $AausrichtungM = array("scaleX(1) scaleY(1)","scaleX(-1) scaleY(1)", "scaleX(1) scaleY(-1)", "scaleX(-1) scaleY(-1)");

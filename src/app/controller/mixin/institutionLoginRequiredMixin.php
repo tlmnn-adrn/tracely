@@ -1,7 +1,8 @@
 <?php
-
+#
     trait InstitutionLoginRequiredMixin{
 
+        //Die Seite kann nur aufgerufen werden, wenn eine Institution angemeldet ist
         function institutionLoginRequiredMixinInit($arguments=[]){
 
             if(!InstitutionModel::isLoggedIn()){

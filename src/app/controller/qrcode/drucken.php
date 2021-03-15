@@ -1,5 +1,5 @@
 <?php
-
+#QR-Code drucken Controller
   class QrcodedruckenController extends Controller
   {
     use DrawTrennerMixin, InstitutionLoginRequiredMixin, UserPassesTestMixin;

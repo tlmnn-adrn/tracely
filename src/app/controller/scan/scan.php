@@ -1,5 +1,5 @@
 <?php
-
+#Scan löschen Controller
 class ScanController extends Controller
 {
   use DrawTrennerMixin, UserLoginRequiredMixin;
@@ -9,7 +9,7 @@ class ScanController extends Controller
   protected function get($request, $code='') {
 
     $this->render();
-    
+
   }
 
   protected function post($request) {

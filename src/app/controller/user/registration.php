@@ -1,5 +1,6 @@
 <?php
-
+#Privatpersonenregistrierung Controller
+  //äquivalent zu Institutionsregistrierung
   class UserRegistrationController extends Controller
   {
 

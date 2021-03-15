@@ -1,5 +1,5 @@
 <?php
-
+#Kontaktverfolgung Controller
   class InstitutionBackendKontaktverfolgungController extends Controller
   {
     use DrawTrennerMixin, InstitutionLoginRequiredMixin;
@@ -10,6 +10,7 @@
     protected function get($request) {
 
         $object = InstitutionModel::getUserObject();
+        //erzeuge eine neue Instanz von QrCode und Scan
         $code = new QrcodeModel;
         $scan = new ScanModel;
 

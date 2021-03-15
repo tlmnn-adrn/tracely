@@ -1,5 +1,5 @@
 <?php
-
+#Logout Controller
   class LogoutController extends Controller
   {
 
@@ -8,6 +8,7 @@
     protected $template = 'backend/backend.php';
 
     protected function get($request) {
+      //Abmeldung
       AuthModel::logout();
       //$this->render();
     }

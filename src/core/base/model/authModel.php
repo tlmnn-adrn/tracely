@@ -74,7 +74,7 @@
 
             }
 
-            //Nach erfolgreicher Anmeldung wird zu der Url weitergeleitet, welche von getLoginSuccessUrl() bestimmt wird 
+            //Nach erfolgreicher Anmeldung wird zu der Url weitergeleitet, welche von getLoginSuccessUrl() bestimmt wird
             if($redirect){
 
                 //Hat der Benutzer vorher versucht, eine URL aufzurufen, die er nicht sehen durfte, weil er nicht angemeldet ist, wird er zu dieser weitergeleitet
@@ -115,7 +115,7 @@
         //Überprüfung, ob der Benutzer angemeldet ist
         public static function isLoggedIn(){
 
-            //Unterschiedliches Verhalten, je nachdem ob die generelle AuthModel Klasse aufgerufen wurde oder eine Unterklasse 
+            //Unterschiedliches Verhalten, je nachdem ob die generelle AuthModel Klasse aufgerufen wurde oder eine Unterklasse
             if(static::class=='AuthModel'){
 
                 //Wenn ein objekt in der Klasse gespeichert ist, ist der Benutzer noch angemeldet
@@ -192,7 +192,7 @@
 
         }
 
-        //AUsgabe der Instanz des Benutzermodells des angemeldeten Benutzers
+        //Ausgabe der Instanz des Benutzermodells des angemeldeten Benutzers
         public static function getUserObject(){
 
             //Überprüfung, ob der Benutzer angemeldet ist

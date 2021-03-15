@@ -1,5 +1,6 @@
 <?php
-
+#Privatpersoneneinstellungen Controller
+  //äquivalent zu Institutionseinstellungen
   class UserBackendEinstellungenController extends Controller
   {
     use DrawTrennerMixin, UserLoginRequiredMixin;
