@@ -1,11 +1,11 @@
 <?php
 #Institutions Registrierungs Controller
-  class InstitutionRegistrationController extends Controller
+  class InstitutionRegistrierungController extends Controller
   {
 
     use DrawTrennerMixin;
 
-    protected $template = 'institution/registration.php';
+    protected $template = 'institution/registrierung.php';
 
 
     protected function get($request, $id=0) {

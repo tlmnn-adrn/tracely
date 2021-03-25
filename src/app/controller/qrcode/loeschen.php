@@ -1,10 +1,10 @@
 <?php
 #QR-Code löschen Controller
-  class QrcodelöschenController extends Controller
+  class QrcodeloeschenController extends Controller
   {
     use DrawTrennerMixin, InstitutionLoginRequiredMixin, UserPassesTestMixin;
 
-    protected $template = 'qrcode/löschen.php';
+    protected $template = 'qrcode/loeschen.php';
 
 
     protected function get($request, $id=0) {

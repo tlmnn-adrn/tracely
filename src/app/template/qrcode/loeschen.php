@@ -27,7 +27,7 @@
                 <h3>Sind Sie sich sicher diesen QR-Code zu löschen?</h3>
               <form action="" method="post">
                 <?= $this->csrfToken() ?>
-                <button type="submit" name="qrcodelöschenF" class="aButton aButtonInvert" value="<?= $code->id ?>">QR-Code löschen</button>
+                <button type="submit" name="qrcodeloeschenF" class="aButton aButtonInvert" value="<?= $code->id ?>">QR-Code löschen</button>
                 <a href="<?= Url::find('backend-institution') ?>" class="aButton">Abbrechen</a>
               </form>
 

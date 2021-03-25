@@ -13,9 +13,9 @@
     require_once "app/controller/user/login.php";
     require_once "app/controller/institution/login.php";
 
-    require_once "app/controller/registration/registration.php";
-    require_once "app/controller/user/registration.php";
-    require_once "app/controller/institution/registration.php";
+    require_once "app/controller/registrierung/registrierung.php";
+    require_once "app/controller/user/registrierung.php";
+    require_once "app/controller/institution/registrierung.php";
 
 
   #BackendController
@@ -33,7 +33,7 @@
 
   #Qr-Code
     require_once "app/controller/qrcode/erstellen.php";
-    require_once "app/controller/qrcode/löschen.php";
+    require_once "app/controller/qrcode/loeschen.php";
     require_once "app/controller/qrcode/drucken.php";
 
   #Scan
@@ -56,9 +56,9 @@
     Url::add('login-user', 'login/user/', 'UserLoginController');
     Url::add('login-institution', 'login/institution/', 'InstitutionLoginController');
 
-    Url::add('registrierung', 'registrierung/', 'RegistrationController');
-    Url::add('registrierung-user', 'registrierung/user/', 'UserRegistrationController');
-    Url::add('registrierung-institution', 'registrierung/institution/', 'InstitutionRegistrationController');
+    Url::add('registrierung', 'registrierung/', 'RegistrierungController');
+    Url::add('registrierung-user', 'registrierung/user/', 'UserRegistrierungController');
+    Url::add('registrierung-institution', 'registrierung/institution/', 'InstitutionRegistrierungController');
 
   #backend
     Url::add('backend', 'backend/', 'BackendController');
@@ -75,7 +75,7 @@
 
   #Qr-code
     Url::add('qrcode-erstellen', 'qrcode/erstellen/', 'QrcodeerstellenController');
-    Url::add('qrcode-löschen', 'qrcode/loeschen/<id>', 'QrcodelöschenController');
+    Url::add('qrcode-loeschen', 'qrcode/loeschen/<id>', 'QrcodeloeschenController');
     Url::add('qrcode-drucken', 'qrcode/drucken/<code>', 'QrcodedruckenController');
 
 

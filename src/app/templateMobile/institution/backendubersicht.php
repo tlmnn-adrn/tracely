@@ -47,7 +47,7 @@
                       <a class="TableIcon" href="<?=Url::find("qrcode-drucken", $qrcodes[$i]->code)?>" target="_blank"><img src="<?= Url::find('static', 'media/backend/print.svg') ?>"></a>
                     </td>
                     <td>
-                      <a class="TableIcon" href="<?=Url::find("qrcode-löschen", $qrcodes[$i]->id)?>"><img src="<?= Url::find('static', 'media/backend/delete.svg') ?>"></a>
+                      <a class="TableIcon" href="<?=Url::find("qrcode-loeschen", $qrcodes[$i]->id)?>"><img src="<?= Url::find('static', 'media/backend/delete.svg') ?>"></a>
                     </td>
                   </tr>
                 <?php

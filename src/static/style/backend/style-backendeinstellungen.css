@@ -9,6 +9,10 @@
   width: 60%;
   margin: auto;
 }
-#einstellungen-content .aInput{
+
+#einstellungen-content .aInput {
   width: calc(100% - 30px);
+}
+#einstellungen-content .aInputSelect {
+  width: calc(100% + 4px);
 }

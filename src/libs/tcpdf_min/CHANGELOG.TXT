@@ -304,7 +304,7 @@
 
 6.0.037 (2013-09-30)
 	- Method getAllSpotColors() was added to return all spot colors.
-	- Method colorRegistrationBar() was extended to automatically print all spot colors and support individual spot colors.
+	- Method colorRegistrierungBar() was extended to automatically print all spot colors and support individual spot colors.
 	- The method registrationMarkCMYK() was added to print a registration mark for CMYK colors.
 	- A bug related to page groups was fixed.
 	- Gradient() method now supports CMYK equivalents of spot colors.
@@ -1685,7 +1685,7 @@
 
 4.9.000 (2010-03-27)
 	- QR Code (2D barcode) support was added (see example n. 50).
-	- The following methods were added to print crop and registration marks (see example n. 56): colorRegistrationBar(), cropMark(), registrationMark().
+	- The following methods were added to print crop and registration marks (see example n. 56): colorRegistrierungBar(), cropMark(), registrationMark().
 	- Limited support for CSS line-height property was added.
 	- Gradient method now supports Gray, RGB and CMYK space color.
 	- Example n. 51 was updated.

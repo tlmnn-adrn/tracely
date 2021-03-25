@@ -1,10 +1,10 @@
 <?php
 #Registrierungsauswahl Controller
-  class RegistrationController extends Controller
+  class RegistrierungController extends Controller
   {
     use DrawTrennerMixin;
 
-    protected $template = 'registration/registration.php';
+    protected $template = 'registrierung/registrierung.php';
 
 
     protected function get($request) {

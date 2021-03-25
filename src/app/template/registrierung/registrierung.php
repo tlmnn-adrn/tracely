@@ -1,7 +1,7 @@
 <?php
 #Template für die Benutzergruppenregistrierungsauswahl
   $title = 'tracely | Registrierung';
-  $styles = ['login/style.css', 'login/style-layout.css', 'login/style-registration.css', 'style-onepage.css'];
+  $styles = ['login/style.css', 'login/style-layout.css', 'login/style-registrierung.css', 'style-onepage.css'];
 
   ob_start();
 ?>

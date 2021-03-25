@@ -40,7 +40,7 @@
                     <td><?=$qrcodes[$i]->sitzplätze?></td>
                     <td><a href="<?=Url::find("qrcode-drucken", $qrcodes[$i]->code)?>" target="_blank" class="aText">erneut drucken</a></td>
                     <td>
-                      <a href="<?=Url::find("qrcode-löschen", $qrcodes[$i]->id)?>" class="aText">löschen</a>
+                      <a href="<?=Url::find("qrcode-loeschen", $qrcodes[$i]->id)?>" class="aText">löschen</a>
                     </td>
                   </tr>
                 <?php

@@ -1,7 +1,7 @@
 <?php
 #Template für die Institutionsregistrierung
   $title = 'tracely | Registrierung';
-  $styles = ['login/style.css', 'login/style-layout.css', 'login/style-registration.css'];
+  $styles = ['login/style.css', 'login/style-layout.css', 'login/style-registrierung.css'];
 
   ob_start();
 ?>
